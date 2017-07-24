@@ -176,3 +176,14 @@ To disable it, just change it to false but remember that every asset will be loa
 ```javascript
 "ServiceWorkers": false
 ```
+
+It's important to note that Service Workers are only available through HTTP or HTTPS protocols, meaning they will only be available when serving your game through a server. If you just open the files on the browser, you'll see an URL that starts with `file://` and then in the console you'll find an error that says:
+
+`Failed to register a ServiceWorker: The URL protocol of the current origin ('null') is not supported.`
+
+Or, if using a newer Monogatari version, a warning that says:
+
+`Service Workers are available only when serving your files through a server, once you upload your game this warning will go away. You can also try using a simple server like this one for development: https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb/`
+
+
+Either way is completely normal, as soon as you upload your game online to make it playable, that message will go away on it's own.
