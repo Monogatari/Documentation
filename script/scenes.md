@@ -6,7 +6,7 @@ You can either use images or CSS properties like colors as backgrounds.
 If you'll use images, must declare them first, every scene image file must be placed in the scenes directory inside the img directory. Remember to add these files to your `service-worker.js` file if you want to improve asset preloading as stated in the [Asset Preload Section](https://monogatari.io/documentation/configuration/asset-preload/)
 
 ```javascript
-var scene = {
+var scenes = {
     "mountain": "mountain.svg",
     "sea": "sea.png"
 }
