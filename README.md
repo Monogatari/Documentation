@@ -2,11 +2,11 @@
 
 <div class="warning md-depth-2"> This documentation is still under revision.</div>
 
-The first thing about Monogatari that you should probably know is that with it, your visual novel is a web page first and a game later. That means that Monogatari has been created specifically for the web, putting things like responsiveness (the fsct that your game will adapt to any screen or device size) first. You don't necessarily need to think of your game this way as well, but you'll certainly take the most out of Monogatari if you do.
+The first thing about Monogatari that you should probably know is that with it, your visual novel is a web page first and a game later. That means that Monogatari has been created specifically for the web, putting things like responsiveness (the fact that your game will adapt to any screen or device size) first. You don't necessarily need to think of your game this way as well, but you'll certainly take the most out of Monogatari if you do.
 
 ### Set up your environment
 
-To develop in Monogatari you would need the same as to develop a webpage, you just need a text editor capable of editing HTML, Javascript and CSS, which means that pretty much any text editor should work, even Windows NotePad but to make it easier, you orobably want one with code syntax highlightning.
+To develop in Monogatari you would need the same as to develop a webpage, you just need a text editor capable of editing HTML, Javascript and CSS, which means that pretty much any text editor should work, even Windows NotePad but to make it easier, you probably want one with code syntax highlightning.
 
 Some recommended (and free) ones include:
 
@@ -14,7 +14,7 @@ Some recommended (and free) ones include:
 * [Brackets](http://brackets.io/)
 * [Visual Studio Code](https://code.visualstudio.com)
 
-Take a look at them and pick the one you like the most and feel confortable with, this will be your main tool from now on.
+Take a look at them and pick the one you like the most and feel comfortable with, this will be your main tool from now on.
 
 Now, you can always open a website by just clicking the file (index.html) and opening it with your browser, however there are small aspects of Monogatari that work better when served through a web server. You don't need anything fancy for this, in fact there's a perfeclty fine web server you can [download from the Chrome Store](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb)
 
@@ -50,7 +50,7 @@ More about what to do and how to use this specific files will come later as you 
 
 #### JS Directory
 
-JavaScript is the programming language you'll be using in Monogatari, it is what makes all your game work.In general, you'll be using the **marked** files, the files with a ˋ.min.jsˋ extension are third party libraries used for the engine and other functionality, you should leave them untoched.
+JavaScript is the programming language you'll be using in Monogatari, it is what makes all your game work. In general, you'll be using the **marked** files, the files with a ˋ.min.jsˋ extension are third party libraries used for the engine and other functionality, you should leave them untouched.
 
 
 | File | Contains |
@@ -66,7 +66,7 @@ JavaScript is the programming language you'll be using in Monogatari, it is what
 | typed.min.js | Javascript library for the text typing animation. |
 
 #### Style Directory
-CSS is the markuo language used to style your game, from setting colors to improving the appearance, CSS is what will allow you do them all. As before, you are you'll be using the **marked** files, the files with a ˋ.min.cssˋ extension are third party libraries used for the engine and other functionality, you should leave them untoched.
+CSS is the markup language used to style your game, from setting colors to improving the appearance, CSS is what will allow you do them all. As before, you are you'll be using the **marked** files, the files with a ˋ.min.cssˋ extension are third party libraries used for the engine and other functionality, you should leave them untouched.
 
 
 | File | Contains |
@@ -97,13 +97,13 @@ If you manage to do all that, congratulations! You just made your first game and
 
 ### Getting Help
 
-While this documentation covers many parts of Monogatari's functioning, it does not cover everything you could actually do with it, remember, your VN is a website now and that means the posibilities are endless, everything you've seen on a website before can be done in your game.
+While this documentation covers many parts of Monogatari's functioning, it does not cover everything you could actually do with it, remember, your VN is a website now and that means the posibilities are endless. Everything you've seen on a website before can be done in your game.
 
 But how to look out for help on doing this things? Well, another benefit of your game being a website is: There is lots and lots of tutorials and documention out there! 
 
-If you google something, for example if you want something to happen when someone clicks an image, you can google it as "javascript click image", there's no need to look for a Monogatari-specific answer, everything that applies to a website also applies for Monogatari, even the setp-by-step tutorials on web development is useful to get you started.
+If you google something, for example if you want something to happen when someone clicks an image, you can google it as "javascript click image", there's no need to look for a Monogatari-specific answer, everything that applies to a website also applies for Monogatari, even the step-by-step tutorials on web development are useful to get you started.
 
-But of course, you are not alone! If you have any doubt, problem or just want some help please contact me, I'll be glad to help in any way I can, even though Monigatari is simple enough and you can find many resourced online, I know it can be hard to get started and sometimes the documentation is not clear enough so really, contact me anytime! 
+But of course, you are not alone! If you have any doubt, problem or just want some help please contact me, I'll be glad to help in any way I can. Even though Monogatari is simple enough and you can find many resources online, I know it can be hard to get started and sometimes the documentation is not clear enough, so really, contact me anytime! 
 
 You can use my <a class="mailto" href="diego(at)hyuchia(dot)com" > email</a>, DM me at [Twitter](https://twitter.com/Hyuchia), contact me through [Google+](https://plus.google.com/+HyuchiaDiego/) or Hangouts and [Mastodon](https://mastodon.social/@HyuchiaDiego) as well.
 
