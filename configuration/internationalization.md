@@ -16,15 +16,15 @@ var script = {
 ```
 
 Your new Multi Language script will have language labels that look like this:
-
 ```javascript
 var script = {
+
     "English":{
         "Start":[
             "Hi, welcome to your first Visual Novel with Monogatari."
         ]
     },
-    "Espaè´–ol":{
+    "Espa√±ol":{
         "Start":[
             "Hola, bienvenido a tu primer Novela Visual con Monogatari."
         ]
@@ -38,7 +38,7 @@ var script = {
 ```markup
 <select data-action="set-language">
     <option value="English">English</option>
-    <option value="Espaè´–ol">Espaè´–ol</option>
+    <option value="Espa√±ol">Espa√±ol</option>
 </select>
 ```
 
