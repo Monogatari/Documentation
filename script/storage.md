@@ -2,7 +2,7 @@
 
 The storage is an object in which we can put everything inside we want to save when a player saves the game.
 
-First we have to create a property where the player can store his data in it. So in `storage.js` we start with...
+We have to create a property where the player can store his data in it. So in `storage.js` we start with...
 
 ```javascript
 var storage = {
