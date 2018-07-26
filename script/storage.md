@@ -53,7 +53,7 @@ var storage = {
 Which can be accessed as follows (examples)...
 
 ```javascript
-{"Input: {                                                              // call input statement
+{"Input": {                                                             // call input statement
   "Text": "What is your name?",                                         // show text of the input box
   "Validation": function(input) { return input.trim().length > 0; },    // validation rule for the value
   "Save": function(input) {                                             // call save statement and start a function
