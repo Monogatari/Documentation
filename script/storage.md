@@ -50,17 +50,27 @@ var storage = {
 }
 ```
 
-Which can be accessed as follows...
+Which can be accessed as follows (examples)...
 
 ```javascript
-// examples
-storage.player_info.name = "Georg";
-storage.player_stats.hp -= 50;
-storage.player_stats.inventory.gold += 250;
+{"Input: {                                                              // call input statement
+  "Text": "What is your name?",                                         // show text of the input box
+  "Validation": function(input) { return input.trim().length > 0; },    // validation rule for the value
+  "Save": function(input) {                                             // call save statement and start a function
+      storage.player_info.name = input;                                 // store the value in the variable name
+      storage.player_info.age = 18;                                     // store 18 in the variable age
+  },
+}},
 
-"{{player_info.name}} is {{player_info.age}} years old.",
-"{{player_stats.mp}} costs the ability 'Fire Storm'.",
-"{{player_stats.inventory.gold}}g is in his bag of gold."
+function (){
+  storage.player_info.name = "Georg";                                   // save "Georg" in variable name (overwrite old value)
+  storage.player_stats.hp -= 50;                                        // decrease hp minus 50
+  storage.player_stats.inventory.gold += 250;                           // add 250 gold
+},
+
+"{{player_info.name}} is {{player_info.age}} years old.",               // call name = "Georg" and age = 18
+"{{player_stats.mp}} costs the ability 'Fire Storm'.",                  // call mp = "100"
+"{{player_stats.inventory.gold}}g is in his bag of gold."               // call gold = 1250
 ```
 
 If you want to see an example of the stat system (created with storage.js), [click me](https://hyuchia.com/Monogatari-Stat-System/).
