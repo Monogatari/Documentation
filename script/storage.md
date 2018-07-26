@@ -13,9 +13,9 @@ var storage = {
 
 // Syntax
 var storage = {         // object
-  property#1: {         // property of object
-    placeholder#1: 0,   // integer of property
-    placeholder#2: ""   // string of property
+  property1: {         // property of object
+    placeholder1: 0,   // integer of property
+    placeholder2: ""   // string of property
   }
 }
 ```
