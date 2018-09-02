@@ -8,21 +8,21 @@ This is a sample script with an input statement:
 ```javascript
 var script = {
     // The game starts here.
-    "Start": [
-        "You'll see an input next",
-        {"Input": {
-            "Text": "What is your name?",
-            "Validation": function(input) {
-                return input.trim().length > 0;
+    'Start': [
+        'You’ll see an input next',
+        {'Input': {
+            'Text': 'What is your name?',
+            'Validation': function(input) {
+                return input.trim ().length > 0;
             },
-            "Save": function(input) {
-                storage.player.Name = input;
+            'Save': function(input) {
+                this.storage. ('player', { Name: input});
             },
-            "Warning": "You must enter a name!"
+            'Warning': 'You must enter a name!'
             }
         },
 
-        "Hi {{player.Name}} Welcome to Monogatari!"
+        'Hi {{player.Name}} Welcome to Monogatari!'
     ]
 }
 ```

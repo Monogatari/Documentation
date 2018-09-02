@@ -99,4 +99,3 @@ You only need where to host it, once you've got a hosting, publihing your game i
 
 ### Serve your files securely through HTTPS
 Adding an SSL certificate will allow you to take advantage of features such as the Service Workers and serve your files securely. Thanks to [Let's Encrypt](https://letsencrypt.org/), you can get a Free SSL certificate (which is nice because they may be expensive) and [many hosting providers](https://community.letsencrypt.org/t/web-hosting-who-support-lets-encrypt/6920) already have options to add one automatically, if your hosting service doesn't have that option, you can also add it [manually](https://certbot.eff.org/docs/using.html#manual). 
-

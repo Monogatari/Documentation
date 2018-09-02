@@ -24,12 +24,9 @@ To have a label in another file, you just need to declare it like this:
 
 
 ```javascript
-script["OtherLabel"] = [
-
+Monogatari.label ('OtherLabel', [
     "This is another label!"
-
-];
-
+]);
 ```
 
 
@@ -37,16 +34,12 @@ That declaration is the same as if you had the following (I'm omitting the conte
 
 
 ```javascript
-var script = {
-
+Monogatari.script ({
     "Start": [...],
    "OtherLabel": [
-
         "This is another label!"     
-
     ]
-
-};
+});
 
 ```
 

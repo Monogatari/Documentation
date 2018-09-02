@@ -9,15 +9,17 @@ To view the supported formats, you can take a look at [this page](http://www.w3s
 Declarations:
 
 ```javascript
-var music = {
-    "Theme": "song.mp3"
-}
-var voice = {
-    "F1": "f1.mp3"
-}
-var sound = {
-    "Rain": "rain.mp3"
-}
+Monogatari.assets ('music',  {
+    'Theme': 'song.mp3'
+});
+
+Monogatari.assets ('voice',  {
+    'F1': 'f1.mp3'
+});
+
+Monogatari.assets ('sound',  {
+    'Rain': 'rain.mp3'
+});
 ```
 
 ### Music
@@ -27,29 +29,29 @@ Playing music:
 With declaration:
 
 ```javascript
-"play music Theme loop" // If loop isn't there, it will only play once.
+'play music Theme loop' // If loop isn't there, it will only play once.
 ```
 
 Without declaration:
 
 ```javascript
-"play music song.mp3 loop"
+'play music song.mp3 loop'
 ```
 
 You can stop or pause music:
 
 ```javascript
-"stop music"
+'stop music'
 ```
 
 ```javascript
-"pause music"
+'pause music'
 ```
 
 ### Voice
 
 ```javascript
-"play voice f1"
+'play voice f1'
 ```
 
 ### Sound
@@ -57,17 +59,17 @@ You can stop or pause music:
 With declaration:
 
 ```javascript
-"play sound Rain loop" // If loop isn't there, it will only play once.
+'play sound Rain loop' // If loop isn't there, it will only play once.
 ```
 
 Without declaration:
 
 ```javascript
-"play sound rain.mp3 loop"
+'play sound rain.mp3 loop'
 ```
 
-You can also stop a sound with the "stop command.
+You can also stop a sound with the `'stop'` command.
 
 ```javascript
-"stop sound"
+'stop sound'
 ```

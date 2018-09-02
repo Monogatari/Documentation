@@ -5,24 +5,24 @@ A notification may be useful to let the user notice something. You could also us
 First you need to declare your notification, it consists on an Identifier, Title, a A subtitle and the message body.
 
 ```javascript
-var notifications = {
-    "SampleNotification":{
-        title: "Hey!",
-        body: "This is a notification",
-        icon: "img/logo.png"
+Monogatari.action ('Notification').notifications ({
+    'SampleNotification':{
+        title: 'Hey!',
+        body: 'This is a notification',
+        icon: 'img/logo.png'
     },
-}
+});
 ```
 
 Next, to show them up in your game, yo just need the notify command.
 
 ```javascript
-"notify SampleNotification"
+'show notification SampleNotification'
 ```
 
 If you want your notification to hide after a while, you can tell after how many miliseconds it should go away:
 ```javascript
-"notify SampleNotification 300"
+'show notification SampleNotification 300'
 ```
 
 That way, the notification will pop up and then go away after the 300 miliseconds have passed.
