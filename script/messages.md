@@ -1,4 +1,4 @@
-## Messages
+# Messages
 
 A message is a nice way of showing the user some content. You could also use it as a mailbox or something for your game.
 
@@ -23,3 +23,4 @@ Next, to show them up in your game, yo just need the Display Message command.
 ```
 
 Each message has a close button so the user is able to close it when he's finished reading it.
+

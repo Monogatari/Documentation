@@ -1,4 +1,4 @@
-## Skip Menu
+# Skip Main Menu
 
 You may not want to have a main menu, in order for the game to start right away after the user enters.
 
@@ -15,3 +15,4 @@ To skip it, just change the value to `false`:
 ```javascript
 'ShowMenu': false
 ```
+

@@ -1,4 +1,4 @@
-## Video
+# Video
 
 Sometimes images and sound is just not enough and a video is needed. As always, you need to declare it first.
 
@@ -15,3 +15,4 @@ Then just use the command 'Play' to play it!.
 ```javascript
 'play video Dandelion'
 ```
+
