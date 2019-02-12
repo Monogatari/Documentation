@@ -1,4 +1,4 @@
-## Choices
+# Choices
 
 But what is a Visual Novel without choices right?
 
@@ -27,7 +27,7 @@ Every choice has 2 attributes, the text to display and what to do when it's clic
 }}
 ```
 
-### Conditional Choices
+#### Conditional Choices
 
 There are some cases where you would only want to show a choice if certain conditions are met. Conditional choices are possible by adding a simple "Condition" function.
 
@@ -38,7 +38,7 @@ For this example, let's assume this is your `storage` variable:
 // Persistent Storage Variable
 
 let storage = {
-	played: false
+    played: false
 };
 ```
 
@@ -62,8 +62,7 @@ As you can see, we added a "played" variable inside the storage and set it's def
 
 `"Player"` will only be shown if the `"played"` variable we added is `true`, since we defined it as `false`, then it won't be shown however, if somewhere along the script we were to change that variable to `true` then this choice will be shown.
 
-
-### Showing Text when Showing the Choices
+#### Showing Text when Showing the Choices
 
 You might want to show a dialog along with the choices, this is possible adding a text property inside the object:
 
@@ -85,3 +84,4 @@ You might want to show a dialog along with the choices, this is possible adding 
 ```
 
 That way the `"Dialog"` property is the one that will be shown with the choices, as you can see, just like with normal dialogs, you can specify what character is the one talking and take full advantage of other things loke side images on it.
+

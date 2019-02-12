@@ -1,8 +1,8 @@
-## Skip Menu
+# Skip Main Menu
 
 You may not want to have a main menu, in order for the game to start right away after the user enters.
 
-To do that, just change the "ShowMenu" property in the options.js.
+To do that, just change the `"ShowMenu"` property in the `options.js` file
 
 This property default value is `true` meaning it will show the Main menu.
 
@@ -15,3 +15,4 @@ To skip it, just change the value to `false`:
 ```javascript
 "ShowMenu": false
 ```
+
