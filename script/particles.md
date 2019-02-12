@@ -1,4 +1,4 @@
-## Particles
+# Particles
 
 You can show particles in your game, useful for representing rain, snow, fire, explosions etc!
 
@@ -132,3 +132,4 @@ And to stop them:
 ```
 
 If you want more examples, you can find them in the [GitHub page of the library](https://github.com/VincentGarreau/particles.js/)
+
