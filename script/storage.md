@@ -1,4 +1,4 @@
-## Storage
+# Storage
 
 The storage is an object in which we can put everything we want to save when a player saves the game.
 
@@ -27,9 +27,7 @@ storage.player.name = "Monogatari";           // example for saving a name
 "{{player.name}} is a visual novel engine."   // example for display the name
 ```
 
-To offer more possibilities in the game and to have a simpler overview in the storage file, 
-you can create as many properties as you want, just make sure to use a comma before adding a property. 
-Here is an example...
+To offer more possibilities in the game and to have a simpler overview in the storage file, you can create as many properties as you want, just make sure to use a comma before adding a property. Here is an example...
 
 ```javascript
 var storage = {
@@ -38,7 +36,7 @@ var storage = {
     age: "",
     city: ""
   },
-  
+
   player_stats: {
     hp: 100,
     mp: 100,
@@ -50,7 +48,7 @@ var storage = {
 }
 ```
 
-Which can be accessed as follows (examples)...
+Which can be accessed as follows \(examples\)...
 
 ```javascript
 {"Input": {                                                             // call input statement
@@ -73,4 +71,5 @@ function (){
 "{{player_stats.inventory.gold}}g is in his bag of gold."               // call gold = 1250
 ```
 
-If you want to see an example of the stat system (created with storage.js), [click me](https://hyuchia.com/Monogatari-Stat-System/).
+If you want to see an example of the stat system \(created with storage.js\), [click me](https://hyuchia.com/Monogatari-Stat-System/).
+

@@ -1,4 +1,4 @@
-## Characters
+# Characters
 
 Declaring characters is really simple!
 
@@ -11,6 +11,7 @@ var characters = {
     }
 }
 ```
+
 Each character has many properties, like the name that is shown to the player, and the color for it.
 
 ```javascript
@@ -21,6 +22,7 @@ var characters = {
     }
 }
 ```
+
 Since we are building visual novels, we also need images for our characters! You need the Directory inside the img directory where your files will be placed, and assign a simple identifier to each file.
 
 ```javascript
@@ -45,3 +47,4 @@ var characters = {
 ```
 
 * The directory attribute is a subdirectory of characters where the images will be pulled, if no Directory is given, it will be assumed to be the characters directory itself.
+

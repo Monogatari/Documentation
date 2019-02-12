@@ -1,7 +1,8 @@
-## Scenes
+# Scenes
+
 The scenes clear the screen and change the background. They will also remove the text, characters and images displayed.
 
-You can either use images or CSS properties like colors as backgrounds. 
+You can either use images or CSS properties like colors as backgrounds.
 
 If you'll use images, must declare them first, every scene image file must be placed in the scenes directory inside the img directory. Remember to add these files to your `service-worker.js` file if you want to improve asset preloading as stated in the [Asset Preload Section](https://monogatari.io/documentation/configuration/asset-preload/)
 
@@ -12,14 +13,13 @@ var scenes = {
 }
 ```
 
-Now, to change the scene, just use the scene command. Syntax: "scene [Scene Identifier]"
+Now, to change the scene, just use the scene command. Syntax: "scene \[Scene Identifier\]"
 
 ```javascript
 "scene mountain"
 ```
 
-If you'll use css to set your own background style, you must use the scene command as well. Syntax: "scene [CSS]":
-These are valid ways to use it:
+If you'll use css to set your own background style, you must use the scene command as well. Syntax: "scene \[CSS\]": These are valid ways to use it:
 
 ```javascript
 "scene #fff"
@@ -27,11 +27,11 @@ These are valid ways to use it:
 "scene url('img/scenes/mountain.svg')"
 ```
 
-### Animations
+#### Animations
 
 Since Monogatari v1.3.2, it is possible to use the same animations for characters and scenes, to use an animation to display your scene, you must use the scene command as follows:
 
- Syntax: "scene [CSS or Image Identifier] with [Animation Name]"
+Syntax: "scene \[CSS or Image Identifier\] with \[Animation Name\]"
 
 ```javascript
 "scene mountain with fadeIn"
@@ -41,7 +41,7 @@ Remember you can see the list of animations and visualize them [here](https://da
 
 You can also use CSS to create your own animations, you'll have to apply them to a CSS class and then use the scene statement as follows:
 
-Syntax: "scene [CSS or Image Identifier] with [CSS Class Name]"
+Syntax: "scene \[CSS or Image Identifier\] with \[CSS Class Name\]"
 
 For example, note the following CSS code creating a simple Ken Burn Animation:
 
@@ -78,3 +78,4 @@ In order to use that animation within your game, it would be as simple as this:
 ```javascript
 "scene mountain with ken-burn"
 ```
+
