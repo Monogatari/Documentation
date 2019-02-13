@@ -1,4 +1,4 @@
-# Getting Started
+# Monogatari Documentation
 
 **This documentation is still under revision.**
 

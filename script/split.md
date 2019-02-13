@@ -2,7 +2,7 @@
 
 Monogatari games are made pretty much by the script you create, that script is all wrapped up in one single variable and file. This may be convenient at first but as your game grows up, the script may start to be a bit too big for it to easily read, it can become somewhat stressful even and in worse cases, it may slow down your text editor while you make changes to it.
 
-In order to prevent this, you can split your script into several files. Spliting your script may also be a good idea when having many branches of your story, when you want to make proofreading somewhat simpler and of course really helpful when your game is available in multiple languages.
+In order to prevent this, you can split your script into several files. Splitting your script may also be a good idea when having many branches of your story, when you want to make proofreading somewhat simpler and of course really helpful when your game is available in multiple languages.
 
 This documentation page was Sponsored by [My Awesome Patrons](https://www.patreon.com/Hyuchia), thanks a lot guys!
 
@@ -41,7 +41,7 @@ Since we are splitting things up, that means the script.js file will not longer 
 <script src="js/script.js"></script>
 ```
 
-Let's suppose you are saving that level on a file with the same name: OtherLabel.js, to load it. Just insert another script tag like this one:
+Let's suppose you are saving that level on a file with the same name: `OtherLabel.js`, to load it. Just insert another script tag like this one:
 
 ```markup
 <script src="js/OtherLabel.js"></script>
@@ -53,7 +53,7 @@ Take a look at the sample project from the link above, it will definitely show y
 
 #### Wait but what happens if there are too many files now?
 
-Of course you may get to a point ehere there are simply too many files, if you are serving your game online, that can cause a slower load time which is of course not what we want.
+Of course you may get to a point where there are simply too many files, if you are serving your game online, that can cause a slower load time which is of course not what we want.
 
 For now, the best solution is to copy and paste all the contents of the files you created into a single one. Yes, you can copy and paste them just as they are one after another, the order is not really important in most cases, the only one that truly matters is the script.js file which should always go first.
 
