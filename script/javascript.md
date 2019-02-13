@@ -1,6 +1,6 @@
 # JavaScript
 
-Even though you can put more Javascript code in the main.js file and do a lot of things there, sometimes we want to do something in some part of our game. This is why you can also put some Javascript inside your game's script. To do it, you can actually using JavaScript functions. Yes, just like you would on any other JS file, you can use function syntax inside your script.
+Even though you can put more JavaScript code in the main.js file and do a lot of things there, sometimes we want to do something in some part of our game. This is why you can also put some Javascript inside your game's script. To do it, you can actually using JavaScript functions. Yes, just like you would on any other JS file, you can use function syntax inside your script.
 
 To control the flow of your game, you can make the function return either true \(Will immediately execute the next statement.\) or false \(Will wait until the user clicks again.\) if it does not return one of those two, it will wait by default.
 
@@ -103,7 +103,7 @@ let script = {
 }
 ```
 
-So, if we played this game, the first text would appear, then after we click for the next one, the function would be run adding 5 points to our intelligence stat and immediatly would show the next text. If we wanted to go back to the first text it wouldn't be possible. This is mainly due to Monogatari not knowing what you are doing exactly in your function, if it were to allow you to go back, we could be getting infinite points just by going back and playing it again because there is no way to know what changed.
+So, if we played this game, the first text would appear, then after we click for the next one, the function would be run adding 5 points to our intelligence stat and immediately would show the next text. If we wanted to go back to the first text it wouldn't be possible. This is mainly due to Monogatari not knowing what you are doing exactly in your function, if it were to allow you to go back, we could be getting infinite points just by going back and playing it again because there is no way to know what changed.
 
 To solve this problem and allow users to go back, Monoagatari v1.4 introduced reversible 'Function' objects, as with all the special script objects, these are defined in a JSON format, let's take a look at how the same situation as above would look like:
 
@@ -132,5 +132,5 @@ let script = {
 }
 ```
 
-As you can see, we replaced the function with a `'Function'` object which has 2 properties, an `'Apply'` function which will run when going over the game and the `'Reverse'` function which will be run when going back. This now solves the previous problem we had since we are using `'Apply'` to add the 5 points and `'Reverse'` to substract them in case the player went back and thus makes possible for players to go back even when a function was run. Just as with common functions, you can use Promises and also control the flow of the game by returning `true` or `false` in the `'Apply'` function.
+As you can see, we replaced the function with a `'Function'` object which has 2 properties, an `'Apply'` function which will run when going over the game and the `'Reverse'` function which will be run when going back. This now solves the previous problem we had since we are using `'Apply'` to add the 5 points and `'Reverse'` to subtract them in case the player went back and thus makes possible for players to go back even when a function was run. Just as with common functions, you can use Promises and also control the flow of the game by returning `true` or `false` in the `'Apply'` function.
 

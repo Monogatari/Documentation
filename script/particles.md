@@ -5,7 +5,7 @@ You can show particles in your game, useful for representing rain, snow, fire, e
 You must first declare your particles:
 
 ```javascript
-monogatari.action ('Particles').particles ({
+Monogatari.action ('Particles').particles ({
     'Snow': {
         'particles': {
             'number': {

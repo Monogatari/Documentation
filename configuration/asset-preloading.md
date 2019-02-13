@@ -20,13 +20,13 @@ To skip it, just change the value to false but remember that every asset will be
 
 #### Service Workers Cache
 
-One of the benefits the Service Workers in Monogatari provide is the use of the Cache to serve your files even when offline once they've been loaded, this means that instead of taking the asset from the network, Monogatari will first check if the asset has been loaded in the cache, if it has then it will inmediatly load it from there but still making a network request to update the asset in the cache.
+One of the benefits the Service Workers in Monogatari provide is the use of the Cache to serve your files even when offline once they've been loaded, this means that instead of taking the asset from the network, Monogatari will first check if the asset has been loaded in the cache, if it has then it will immediately load it from there but still making a network request to update the asset in the cache.
 
 This means the users will see the asset load instantly and will still receive the updates you make. More details about this strategy are [available here](https://serviceworke.rs/strategy-cache-and-update_service-worker_doc.html) and [here](https://css-tricks.com/serviceworker-for-offline/).
 
 This functionality is inside the `service-worker.js` file. There you'll need to take notice of the three properties: `name`, `version`.
 
-The `name` and `version` properties are used to control the cache of your game, change the `name` to your game's name, whith no spaces or special characters and the `version` property as a control.
+The `name` and `version` properties are used to control the cache of your game, change the `name` to your game's name, with no spaces or special characters and the `version` property as a control.
 
 ```javascript
 // The name of your game, no spaces or special characters.
@@ -41,7 +41,7 @@ What does using the `version` as a control means? changing the version will forc
 
 This makes part of the effort to transform Monogatari games deployed online into full [Progressive Web Apps](https://en.wikipedia.org/wiki/Progressive_web_app) which provides a lot of benefits. You can read more about what you need to do and what that means for your players in the [Web Deployment Section](https://monogatari.io/documentation/release/web/)
 
-Use of Service Workers can also be disabled from the `options.js` file using the 'ServiceWorkers' property.
+Use of Service Workers can also be disabled from the `options.js` file using the `'ServiceWorkers'` property.
 
 This property default value is true meaning it will make use of Service Workers to cache your assets, Service Workers may be used for other activities in the future as well, disabling this option will disable them all.
 

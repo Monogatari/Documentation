@@ -14,7 +14,7 @@ Monogatari.script ({
 });
 ```
 
-The `wait` statement allows us to make the game wait for a certain amount of time before continuing. In this case, the first dialog will be shown, then, when the player continues, the `wait` statement will make it wait for 5 seconds and then the next dialog will be shown.
+The `wait` action allows us to make the game wait for a certain amount of time before continuing. In this case, the first dialog will be shown, then, when the player continues, the `wait` statement will make it wait for 5 seconds and then the next dialog will be shown.
 
-You may be wondering why it says `5000` instead of just `5` in order to wait 5 seconds, the reason behind it is that the `wait` statement accepts the time in milliseconds, therefore we have to make the conversion from seconds to milliseconds for it to work as we want.
+You may be wondering why it says `5000` instead of just `5` in order to wait 5 seconds, the reason behind it is that the `wait` statement accepts the time in **milliseconds**, therefore we have to make the conversion from seconds to milliseconds for it to work as we want.
 

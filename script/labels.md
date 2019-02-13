@@ -10,7 +10,7 @@ Monogatari.script ({
 });
 ```
 
-See that 'Start' string? That's how a label is defined. Your game will always start in that 'Start' label and every game must have one.
+See that `'Start'` string? That's how a label is defined. Your game will always start in that `'Start'` label and every game must have one.
 
 Inside it, you'll see a statement, which are the lines that tell your story and the way you'll do many things. As labels are as chapters, you can have as many as you want!
 

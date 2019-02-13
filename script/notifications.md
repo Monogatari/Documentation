@@ -20,11 +20,11 @@ Next, to show them up in your game, yo just need the notify command.
 'show notification SampleNotification'
 ```
 
-If you want your notification to hide after a while, you can tell after how many miliseconds it should go away:
+If you want your notification to hide after a while, you can tell after how many milliseconds it should go away:
 
 ```javascript
 'show notification SampleNotification 300'
 ```
 
-That way, the notification will pop up and then go away after the 300 miliseconds have passed.
+That way, the notification will pop up and then go away after the 300 milliseconds have passed.
 
