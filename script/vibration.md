@@ -4,7 +4,7 @@ You can make the mobile phones that support this feature vibrate! to do so, you 
 
 If you want it to vibrate once: **"vibrate \[time\]"** If you want it to vibrate in a pattern: **"vibrate \[time\] \[time\] \[time\] ..."**
 
-The following will make the device vibrate for 100 miliseconds.
+The following will make the device vibrate for 100 milliseconds.
 
 ```javascript
 "vibrate 100"

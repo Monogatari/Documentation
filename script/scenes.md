@@ -4,7 +4,7 @@ The scenes clear the screen and change the background. They will also remove the
 
 You can either use images or CSS properties like colors as backgrounds.
 
-If you'll use images, must declare them first, every scene image file must be placed in the scenes directory inside the img directory. Remember to add these files to your `service-worker.js` file if you want to improve asset preloading as stated in the [Asset Preload Section](https://monogatari.io/documentation/configuration/asset-preload/)
+If you'll use images, must declare them first, every scene image file must be placed in the scenes directory inside the img directory. Remember to add these files to your `service-worker.js` file if you want to improve asset preloading as stated in the [Asset Preload Section](../configuration/asset-preloading.md)
 
 ```javascript
 var scenes = {
