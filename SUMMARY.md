@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Monogatari Documentation](README.md)
+* [Welcome](README.md)
 * [Getting Started](getting-started/README.md)
   * [Step 1: Setup Your Environment](getting-started/step-1-setup-your-environment.md)
   * [Step 2: Download Monogatari](getting-started/getting-monogatari.md)
