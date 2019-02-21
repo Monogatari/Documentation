@@ -1,6 +1,12 @@
+---
+description: Control the flow of your game
+---
+
 # Conditionals
 
-Chances are, at some point you'll want to control the flow of your game depending on certain conditions, like jumping to certain labels or even show different dialogs depending on some condition. To do this, Monogatari has Conditional objects, let's take a look at this Conditional taken from the Demo:
+Chances are, at some point you'll want to control the flow of your game depending on certain conditions, like jumping to certain labels or even show different dialogs depending on some condition. 
+
+To do this, Monogatari has Conditional objects, let's take a look at this example:
 
 ```javascript
 {'Conditional': {

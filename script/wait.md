@@ -1,6 +1,36 @@
+---
+description: Wait an amount of time before continuing
+---
+
 # Wait
 
-What if you would want to wait some seconds before something happening? let's take a look at this script:
+### Description
+
+```javascript
+'wait <time>'
+```
+
+The `wait` action allows us to make the game wait for a certain amount of `time` before continuing. Once the time has passed, the game will automatically continue to the next statement.
+
+
+
+**Action ID**: Wait
+
+**Reversible**: Yes
+
+**Requires User Interaction**: No
+
+
+
+### Parameters
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| time | `number` | The time in **milliseconds** that you want the game to wait. |
+
+
+
+### Examples
 
 ```javascript
 Monogatari.script ({
@@ -14,7 +44,7 @@ Monogatari.script ({
 });
 ```
 
-The `wait` action allows us to make the game wait for a certain amount of time before continuing. In this case, the first dialog will be shown, then, when the player continues, the `wait` statement will make it wait for 5 seconds and then the next dialog will be shown.
+In this case, the first dialog will be shown, then, when the player clicks to continue, the `wait` statement will make it wait for 5 seconds before the next dialog is shown.
 
-You may be wondering why it says `5000` instead of just `5` in order to wait 5 seconds, the reason behind it is that the `wait` statement accepts the time in **milliseconds**, therefore we have to make the conversion from seconds to milliseconds for it to work as we want.
+You may be wondering why it says `5000` instead of just `5` in order to wait for 5 seconds, the reason behind it is that the `wait` action accepts the time in **milliseconds**, therefore we have to make the conversion from seconds to milliseconds for it to work as we want.
 

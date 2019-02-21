@@ -1,4 +1,4 @@
-# Video
+# Show Video
 
 Sometimes images and sound is just not enough and a video is needed. As always, you need to declare it first.
 
@@ -9,6 +9,14 @@ Monogatari.assets ('videos', {
     'Dandelion': 'DandelionTimelapse.mp4'
 });
 ```
+
+
+
+
+
+
+
+
 
 Then just use the command 'Play' to play it!.
 

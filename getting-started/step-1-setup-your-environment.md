@@ -4,7 +4,7 @@ description: Install all the tools you need to create your visual novel
 
 # Step 1: Setup Your Environment
 
-To develop in Monogatari you would need the same tools used for web development. This means that all you need is a **text editor** since you'll be editing _HTML, JavaScript_ and _CSS_ files and, **optionally**, you may also use a **local web server** while developing your novel.
+To develop in Monogatari you'll need the same tools used for web development. This means that all you need is a **text editor**, with which ****you'll be editing _HTML, JavaScript_ and _CSS_ files. **Optionally**, you may also use a **local web server** while developing your novel.
 
 ### Getting a Text Editor
 
