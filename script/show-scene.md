@@ -4,7 +4,7 @@ description: Change the background
 
 # Show Scene
 
-### Description
+## Description
 
 ```javascript
 'show scene <resource> [with [animations] [classes] [properties]]'
@@ -18,9 +18,7 @@ The `scene` action will change the background and clear the screen, removing all
 
 **Requires User Interaction**: No
 
-
-
-### Parameters
+## Parameters
 
 <table>
   <thead>
@@ -66,19 +64,17 @@ The `scene` action will change the background and clear the screen, removing all
       <td style="text-align:left">Optional. A list of comma separated properties with their respective value.</td>
     </tr>
   </tbody>
-</table>
+</table>### Properties
 
-#### Properties
+The following is a comprehensive list of the properties available for you to modify certain behaviors of the scene action.
 
 | Property Name | Type | Description |
 | :--- | :--- | :--- |
 | duration | `string` | The duration for the animations used.  The value for this property must be a non-spaced valid value for the [`animation-duration`](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration) CSS property. |
 
+## Examples
 
-
-### Examples
-
-#### Using an image as the background
+### Using an image as the background
 
 If you want to use an image for the background, remember you first have to declare your image assets and place all your files under the `assets/scenes/` directory.
 
@@ -104,9 +100,7 @@ Monogatari.assets ('scenes', {
 {% endtab %}
 {% endtabs %}
 
-
-
-#### Using CSS properties as the background
+### Using CSS properties as the background
 
 If you'll use CSS to set a custom background, you can use any valid non-spaced value for the [`background`](https://developer.mozilla.org/en-US/docs/Web/CSS/background) CSS property. Using CSS is perfect for when you want your background to be a **solid color**. Here are some valid statements:
 
@@ -126,9 +120,7 @@ Since only non-spaced values are accepted, the following are samples of invalid 
 * `no-repeat center/80% url("../img/image.png");`
 * `rgb(0, 0, 0)` \(However, note that removing the spaces between the numbers would make it valid\)
 
-
-
-#### Using Animations
+### Using Animations
 
 Monogatari comes with some built-in animations ready for you to use, you can see the list of animations and visualize them [here](https://daneden.github.io/animate.css/). Using animations is as simple as indicating their name!
 
@@ -154,9 +146,7 @@ Monogatari.assets ('scenes', {
 {% endtab %}
 {% endtabs %}
 
-\*\*\*\*
-
-**Modifying an animation duration**
+#### **Modifying an animation duration**
 
 The following will set the background to a solid color using a CSS value and modify the duration of the _fadeIn_ animation to 20 seconds.
 
@@ -169,9 +159,7 @@ Monogatari.script ({
 });
 ```
 
-\*\*\*\*
-
-**Creating a custom animation**
+#### **Creating a custom animation**
 
 You can also use CSS to create your own animations, you'll have to apply them to a CSS class and then use the scene statement as follows:
 
