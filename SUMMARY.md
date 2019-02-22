@@ -50,14 +50,13 @@
 * [Messages](script/messages.md)
 * [Notifications](script/notifications.md)
 * [Particles](script/particles.md)
-* [Scenes](script/scenes.md)
 * [Split Files](script/split.md)
 * [Storage](script/storage.md)
-* [Vibration](script/vibration.md)
 * [Show Scene](script/show-scene.md)
 * [Show Video](script/show-video.md)
 * [Show Image](script/show-image.md)
 * [Show Character](script/show-character.md)
+* [Vibrate](script/vibrate.md)
 * [Wait](script/wait.md)
 
 ## Advanced: Monogatari Development
