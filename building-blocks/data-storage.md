@@ -1,4 +1,4 @@
-# Storage
+# Data Storage
 
 The storage is an object in which we can put everything we want to save when a player saves the game.
 

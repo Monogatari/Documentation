@@ -12,7 +12,7 @@ description: Change the background
 
 The `scene` action will change the background and clear the screen, removing all characters, images and text currently displayed.
 
-**Action ID**: Show\_Scene
+**Action ID**: `Scene`
 
 **Reversible**: Yes
 

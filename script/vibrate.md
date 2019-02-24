@@ -12,7 +12,7 @@ description: Make the player's device vibrate
 
 The `vibrate` action allows you to make the player's device vibrate on a given pattern. If this feature is not supported on the player's device, nothing will happen and the game will continue with it's normal flow.
 
-**Action ID**: Vibrate
+**Action ID**: `Vibrate`
 
 **Reversible**: Yes
 

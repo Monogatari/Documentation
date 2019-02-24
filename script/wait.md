@@ -12,7 +12,7 @@ description: Wait an amount of time before continuing
 
 The `wait` action allows us to make the game wait for a certain amount of `time` before continuing. Once the time has passed, the game will automatically continue to the next statement.
 
-**Action ID**: Wait
+**Action ID**: `Wait`
 
 **Reversible**: Yes
 

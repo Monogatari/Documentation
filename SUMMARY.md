@@ -9,13 +9,53 @@
   * [Step 5: Get More Help](getting-started/step-5-get-more-help.md)
   * [Step 6: Have Fun!](getting-started/step-6-have-fun.md)
 
+## Building Blocks
+
+* [Characters](building-blocks/characters.md)
+* [Assets](building-blocks/assets/README.md)
+  * [Music Assets](building-blocks/assets/music-assets.md)
+  * [Sound Effects Assets](building-blocks/assets/sound-effects-assets.md)
+  * [Voice Assets](building-blocks/assets/voice-assets.md)
+  * [Scene Backgrounds](building-blocks/assets/scene-backgrounds.md)
+* [Script & Labels](building-blocks/script-and-labels.md)
+* [Data Storage](building-blocks/data-storage.md)
+
+## Script Actions
+
+* [Audio](script/audio.md)
+* [Canvas](script/canvas.md)
+* [Choices](script/choices.md)
+* [Conditionals](script/conditionals.md)
+* [Dialogs](script/dialogs.md)
+* [Hide Particles](script/hide-particles.md)
+* [Images](script/images.md)
+* [Input](script/input.md)
+* [JavaScript](script/javascript.md)
+* [Play Music](script/play-music.md)
+* [Play Sound](script/play-sound.md)
+* [Show Character](script/characters.md)
+* [Show Image](script/show-image.md)
+* [Show Message](script/message.md)
+* [Show Notification](script/notifications.md)
+* [Show Particles](script/particles.md)
+* [Show Scene](script/show-scene.md)
+* [Show Video](script/show-video.md)
+* [Split Files](script/split.md)
+* [Stop Music](script/stop-music.md)
+* [Stop Sound](script/stop-sound.md)
+* [Vibrate](script/vibrate.md)
+* [Wait](script/wait.md)
+
 ## Configuration Options
 
-* [Asset Preloading](configuration/asset-preloading.md)
-* [Internationalization](configuration/internationalization.md)
-* [Saving](configuration/saving.md)
-* [Skip Main Menu](configuration/skip-menu.md)
-* [Storage Engine](configuration/storage-engine.md)
+* [Game Configuration](configuration/game-configuration/README.md)
+  * [Asset Preloading](configuration/game-configuration/asset-preloading.md)
+  * [Internationalization](configuration/game-configuration/internationalization.md)
+  * [Saving](configuration/game-configuration/saving.md)
+  * [Skip Main Menu](configuration/game-configuration/skip-menu.md)
+  * [Storage Engine](configuration/game-configuration/storage-engine.md)
+* [Player Preferences](configuration/player-preferences.md)
+* [Untitled](configuration/untitled.md)
 
 ## Style & Design
 
@@ -24,10 +64,6 @@
 * [Icons](design/icons.md)
 * [Image Menus](design/image-menus.md)
 
-## Porting From Other Engines
-
-* [Ren'py](port/renpy.md)
-
 ## Releasing Your Game
 
 * [Chrome App](release/chrome.md)
@@ -35,29 +71,9 @@
 * [Mobile](release/mobile.md)
 * [Web](release/web.md)
 
-## Script Actions
+## Porting From Other Engines
 
-* [Audio](script/audio.md)
-* [Canvas](script/canvas.md)
-* [Characters](script/characters.md)
-* [Choices](script/choices.md)
-* [Conditionals](script/conditionals.md)
-* [Dialogs](script/dialogs.md)
-* [Images](script/images.md)
-* [Input](script/input.md)
-* [JavaScript](script/javascript.md)
-* [Labels](script/labels.md)
-* [Messages](script/messages.md)
-* [Notifications](script/notifications.md)
-* [Particles](script/particles.md)
-* [Split Files](script/split.md)
-* [Storage](script/storage.md)
-* [Show Scene](script/show-scene.md)
-* [Show Video](script/show-video.md)
-* [Show Image](script/show-image.md)
-* [Show Character](script/show-character.md)
-* [Vibrate](script/vibrate.md)
-* [Wait](script/wait.md)
+* [Ren'py](port/renpy.md)
 
 ## Advanced: Monogatari Development
 

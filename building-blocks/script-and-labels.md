@@ -1,4 +1,4 @@
-# Labels
+# Script & Labels
 
 Labels are just like the book's chapters, they define parts in your game. Take a look at this sample script:
 

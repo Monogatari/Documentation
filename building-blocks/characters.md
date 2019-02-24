@@ -1,4 +1,4 @@
-# Show Character
+# Characters
 
 Declaring characters is really simple!
 
