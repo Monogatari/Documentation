@@ -45,9 +45,9 @@ The following is a comprehensive list of the properties available for you to mod
       <td style="text-align:left"><code>string</code>
       </td>
       <td style="text-align:left">
-        <p>The fade property let's you add a fade in effect to the music, it accepts
-          a time in seconds, representing how much time you want it to take until
-          the music reaches it's maximum volume.</p>
+        <p>The fade property let&apos;s you add a fade in effect to the music, it
+          accepts a time in seconds, representing how much time you want it to take
+          until the music reaches it&apos;s maximum volume.</p>
         <p></p>
       </td>
     </tr>
@@ -55,7 +55,7 @@ The following is a comprehensive list of the properties available for you to mod
       <td style="text-align:left">volume</td>
       <td style="text-align:left"><code>number</code>
       </td>
-      <td style="text-align:left">The volume property let's you define how high the music will be played.</td>
+      <td style="text-align:left">The volume property let&apos;s you define how high the music will be played.</td>
     </tr>
     <tr>
       <td style="text-align:left">loop</td>
