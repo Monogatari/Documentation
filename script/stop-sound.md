@@ -93,7 +93,7 @@ Monogatari.assets ('sound', {
 
 ### Fade Out Effect
 
-The following will stop the song, and will use a fade out effect to do so. You can also use a fade out effect when stopping all music.
+The following will stop the sound, and will use a fade out effect to do so. You can also use a fade out effect when stopping all sounds.
 
 {% tabs %}
 {% tab title="Script" %}

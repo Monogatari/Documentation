@@ -22,17 +22,18 @@
 
 ## Script Actions
 
-* [Audio](script/audio.md)
 * [Canvas](script/canvas.md)
 * [Choices](script/choices.md)
 * [Conditionals](script/conditionals.md)
 * [Dialogs](script/dialogs.md)
+* [Hide Character](script/hide-character.md)
+* [Hide Image](script/hide-image.md)
 * [Hide Particles](script/hide-particles.md)
-* [Images](script/images.md)
 * [Input](script/input.md)
 * [JavaScript](script/javascript.md)
 * [Play Music](script/play-music.md)
 * [Play Sound](script/play-sound.md)
+* [Play Voice](script/play-voice.md)
 * [Show Character](script/characters.md)
 * [Show Image](script/show-image.md)
 * [Show Message](script/message.md)
@@ -40,9 +41,9 @@
 * [Show Particles](script/particles.md)
 * [Show Scene](script/show-scene.md)
 * [Show Video](script/show-video.md)
-* [Split Files](script/split.md)
 * [Stop Music](script/stop-music.md)
 * [Stop Sound](script/stop-sound.md)
+* [Stop Voice](script/stop-voice.md)
 * [Vibrate](script/vibrate.md)
 * [Wait](script/wait.md)
 
@@ -55,6 +56,7 @@
   * [Skip Main Menu](configuration/game-configuration/skip-menu.md)
   * [Storage Engine](configuration/game-configuration/storage-engine.md)
 * [Player Preferences](configuration/player-preferences.md)
+* [Split Files](configuration/split.md)
 * [Untitled](configuration/untitled.md)
 
 ## Style & Design

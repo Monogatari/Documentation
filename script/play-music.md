@@ -116,7 +116,7 @@ The following will play the song, and once the song ends, it will start over on 
 ```javascript
 Monogatari.script ({
     'Start': [
-        'play music mainTheme loop'
+        'play music mainTheme with loop'
         'end'
     ]
 });
@@ -141,7 +141,7 @@ The following will play the song, and will use a fade in effect.
 ```javascript
 Monogatari.script ({
     'Start': [
-        'play music mainTheme fade 3'
+        'play music mainTheme with fade 3'
         'end'
     ]
 });
@@ -166,7 +166,7 @@ The following will set the volume of this song to 73%.
 ```javascript
 Monogatari.script ({
     'Start': [
-        'play music mainTheme volume 73'
+        'play music mainTheme with volume 73'
         'end'
     ]
 });
@@ -197,7 +197,7 @@ Of course, you can combine all of this properties, and remember the order doesn'
 ```javascript
 Monogatari.script ({
     'Start': [
-        'play music mainTheme volume 100 loop fade 20'
+        'play music mainTheme with volume 100 loop fade 20'
         'end'
     ]
 });

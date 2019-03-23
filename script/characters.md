@@ -1,50 +1,35 @@
+---
+description: Show a character's sprite
+---
+
 # Show Character
 
-Declaring characters is really simple!
-
-First, you need an identifier, this is what you'll use for the 'Say' and 'Show' commands. We'll choose the identifier 'e' for this tutorial.
+## Description
 
 ```javascript
-Monogatari.characters ({
-    'e': {
-
-    }
-});
+'show character <character_id> <sprite_id> [at [class]] [with [animations] [classes]]'
 ```
 
-Each character has many properties, like the name that is shown to the player, and the color for it.
+The character action allows you to display a character's sprite. For other kind of images, take a look at the [show image action](show-image.md).
+
+**Action ID**: `Show::Character`
+
+**Reversible**: Yes
+
+**Requires User Interaction**: No
+
+## Examples
+
+Remember every character image must be declared in the characters object.
 
 ```javascript
-Monogatari.characters ({
-    'e': {
-        'Name': 'Evelyn', // The name that will be shown when this character speaks.
-        'Color': '#00bfff' // It could also be an rgb or rgba value.
-    }
-});
+'show character e normal center with fadeIn',
 ```
 
-Since we are building visual novels, we also need images for our characters! You need the Directory inside the img directory where your files will be placed, and assign a simple identifier to each file.
+The [animation](https://daneden.github.io/animate.css/) is completely optional, and if a position is not given, it will show in the center by default.
 
 ```javascript
-Monogatari.characters ({
-    'e': {
-        'Name': 'Evelyn',
-        'Color': '#00bfff',
-        'Directory': 'Evelyn', // Optional*
-        'Images':{ // Images Identifier for the 'Show' statement.
-            'Normal': 'normal.png',
-            'Mad': 'hmph!.png',
-            'Doubt': 'uhh.png',
-            'Disappointed':'ngggg....png',
-            'Happy': 'hehehehe.png'
-        },
-        'Face': 'face.png', // Optional, side image to show every time the character speaks.
-        'Side': { // Side images identifiers to show on dialogs
-             'Smiling': 'smiling.png'
-        }
-    }
-});
+'show character e normal',
+'show character e normal with fadeIn',
 ```
-
-The directory attribute is a subdirectory of characters where the images will be pulled, if no Directory is given, it will be assumed to be the characters directory itself.
 

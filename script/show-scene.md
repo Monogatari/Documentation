@@ -102,23 +102,18 @@ Monogatari.assets ('scenes', {
 
 ### Using CSS properties as the background
 
-If you'll use CSS to set a custom background, you can use any valid non-spaced value for the [`background`](https://developer.mozilla.org/en-US/docs/Web/CSS/background) CSS property. Using CSS is perfect for when you want your background to be a **solid color**. Here are some valid statements:
+If you'll use CSS to set a custom background, you can use any valid non-spaced value for the [`background-image`](https://developer.mozilla.org/en-US/docs/Web/CSS/background) or [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color)  CSS properties. Using CSS is perfect for when you want your background to be a **solid color**. Here are some valid statements:
 
 ```javascript
 Monogatari.script ({
     'Start': [
         'show scene #fff'
-        'show scene rgb(0,0,0)'
+        'show scene rgb(0, 0, 0)'
         'show scene url("assets/scenes/mountain.png")'
         'end'
     ]
 });
 ```
-
-Since only non-spaced values are accepted, the following are samples of invalid values:
-
-* `no-repeat center/80% url("../img/image.png");`
-* `rgb(0, 0, 0)` \(However, note that removing the spaces between the numbers would make it valid\)
 
 ### Using Animations
 

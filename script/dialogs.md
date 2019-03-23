@@ -1,5 +1,11 @@
 # Dialogs
 
+## Description
+
+```javascript
+'[character_id][:[expression_id]] <dialog_text>'
+```
+
 #### Show Text
 
 The say statement is used... well, for a character to say something. The syntax is as follows:
@@ -39,4 +45,18 @@ If you've defined the 'Side' property for your characters, adding a list of imag
 ```
 
 This assumes you have a Side image called Smiling, which means with every dialog you can specify what side image to use. If you add the 'Face' property then that image will be shown with every dialog without the need of specifying it inside the statement.
+
+## Centered Dialogs
+
+```javascript
+'centered <dialog_text>'
+```
+
+## NVL Dialogs
+
+```javascript
+'nvl <dialog_text>'
+```
+
+#### 
 
