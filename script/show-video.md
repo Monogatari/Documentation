@@ -3,7 +3,7 @@
 ## Description
 
 ```javascript
-'show video <mode> <video_id> [with [properties]]'
+'show video <video_id> <mode> [with [properties]]'
 ```
 
 The video action allows you to show videos on your novel in different modes.
@@ -82,7 +82,7 @@ If you wish to use other formats, you can check a [compatibility table](https://
 ```javascript
 Monogatari.script ({
     'Start': [
-        'show video modal flowerTimelapse'
+        'show video flowerTimelapse modal'
         'end'
     ]
 });

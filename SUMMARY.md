@@ -84,4 +84,16 @@
   * [Life Cycle](advanced-monogatari-development/actions/life-cycle.md)
 * [Components](advanced-monogatari-development/components/README.md)
   * [Life Cycle](advanced-monogatari-development/components/life-cycle.md)
+  * [Built-in Properties](advanced-monogatari-development/components/built-in-properties.md)
+  * [Built-in Functions](advanced-monogatari-development/components/built-in-functions.md)
+* [Events](advanced-monogatari-development/untitled.md)
+
+## Components
+
+* [Loading Screen](components/loading-screen.md)
+
+## Releases
+
+* [v2.0.0.alpha.3](releases/v2.0.0.alpha.3.md)
+* [Untitled](releases/untitled-1.md)
 
