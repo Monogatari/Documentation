@@ -25,3 +25,8 @@ To hide this images, you'll use the hide command as well.
 'hide image flower.png' // If flower isn't declared
 ```
 
+You can also hide them with one of the [exit animations](https://daneden.github.io/animate.css/) available.
+
+```javascript
+'hide image flower with fadeOut'
+```
