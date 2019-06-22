@@ -4,7 +4,7 @@ description: Control the flow of your game
 
 # Conditionals
 
-Chances are, at some point you'll want to control the flow of your game depending on certain conditions, like jumping to certain labels or even show different dialogs depending on some condition. 
+Chances are, at some point you'll want to control the flow of your game depending on certain conditions, like jumping to certain labels or even show different dialogs depending on some condition.
 
 To do this, Monogatari has Conditional objects, let's take a look at this example:
 
@@ -34,3 +34,20 @@ Of course dialogs is not the only thing we can do here, we can also use Conditio
 }},
 ```
 
+## Non-Boolean Conditions
+
+The `'Conditional'` object also supports strings. In this example, assume your storage contains a variable called `'money'` and that the money variable represents currency the player can find, and then an ending is chosen when they come to a place to purchase food.
+
+```js
+{'Conditional': {
+    'Condition': function(){
+        return this.storage ('money');
+    },
+    '0': 'jump goHomeEmptyHanded',
+    '1': 'jump buyADollarItem',
+    '2': 'jump buySomethingGood',
+    '3': 'jump buyAComboMeal'
+}},
+```
+
+You could write multiple conditional statements, that first check if you have 0 or not, then check if you have 1 or not, etc, but *this* way you only need to write one. It's a little like a switch statement! Just keep in mind that this only works with strings, or things Javascript's weak typing can interpret as a string, and there's no 'else' so structure your `'Condition'` function accordingly.
