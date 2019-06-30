@@ -34,6 +34,7 @@
 * [Play Music](script-actions/play-music.md)
 * [Play Sound](script-actions/play-sound.md)
 * [Play Voice](script-actions/play-voice.md)
+* [Show Background](script-actions/show-background.md)
 * [Show Character](script-actions/characters.md)
 * [Show Image](script-actions/show-image.md)
 * [Show Message](script-actions/message.md)
