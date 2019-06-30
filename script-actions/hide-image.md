@@ -30,3 +30,4 @@ You can also hide them with one of the [exit animations](https://daneden.github.
 ```javascript
 'hide image flower with fadeOut'
 ```
+

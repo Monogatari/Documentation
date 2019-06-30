@@ -38,7 +38,7 @@ Of course dialogs is not the only thing we can do here, we can also use Conditio
 
 The `'Conditional'` object also supports strings. In this example, assume your storage contains a variable called `'money'` and that the money variable represents currency the player can find, and then an ending is chosen when they come to a place to purchase food.
 
-```js
+```javascript
 {'Conditional': {
     'Condition': function(){
         return this.storage ('money');
@@ -50,4 +50,5 @@ The `'Conditional'` object also supports strings. In this example, assume your s
 }},
 ```
 
-You could write multiple conditional statements, that first check if you have 0 or not, then check if you have 1 or not, etc, but *this* way you only need to write one. It's a little like a switch statement! Just keep in mind that this only works with strings, or things Javascript's weak typing can interpret as a string, and there's no 'else' so structure your `'Condition'` function accordingly.
+You could write multiple conditional statements, that first check if you have 0 or not, then check if you have 1 or not, etc, but _this_ way you only need to write one. It's a little like a switch statement! Just keep in mind that this only works with strings, or things Javascript's weak typing can interpret as a string, and there's no 'else' so structure your `'Condition'` function accordingly.
+

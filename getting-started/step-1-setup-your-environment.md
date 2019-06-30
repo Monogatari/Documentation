@@ -24,7 +24,7 @@ A web server, in simple terms is the piece of software that retrieves and sends 
 
 Here is a list of features that will only work if your game is running under a web server:
 
-* [Asset preloading](../configuration/game-configuration/asset-preloading.md): Asset preloading, as it's name sounds, is the feature that allows your game to preload all images, sounds, videos etc. and save them up in the browser cache so that they are loaded faster and work offline. This feature is only available under a web server since it uses  will only work under a web server so if you want to test that out. 
+* [Asset preloading](../configuration-options/game-configuration/asset-preloading.md): Asset preloading, as it's name sounds, is the feature that allows your game to preload all images, sounds, videos etc. and save them up in the browser cache so that they are loaded faster and work offline. This feature is only available under a web server since it uses  will only work under a web server so if you want to test that out. 
 
 #### Which server should you use?
 

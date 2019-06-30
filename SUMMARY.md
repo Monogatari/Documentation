@@ -22,60 +22,60 @@
 
 ## Script Actions
 
-* [Canvas](script/canvas.md)
-* [Choices](script/choices.md)
-* [Conditionals](script/conditionals.md)
-* [Dialogs](script/dialogs.md)
-* [Hide Character](script/hide-character.md)
-* [Hide Image](script/hide-image.md)
-* [Hide Particles](script/hide-particles.md)
-* [Input](script/input.md)
-* [JavaScript](script/javascript.md)
-* [Play Music](script/play-music.md)
-* [Play Sound](script/play-sound.md)
-* [Play Voice](script/play-voice.md)
-* [Show Character](script/characters.md)
-* [Show Image](script/show-image.md)
-* [Show Message](script/message.md)
-* [Show Notification](script/notifications.md)
-* [Show Particles](script/particles.md)
-* [Show Scene](script/show-scene.md)
-* [Show Video](script/show-video.md)
-* [Stop Music](script/stop-music.md)
-* [Stop Sound](script/stop-sound.md)
-* [Stop Voice](script/stop-voice.md)
-* [Vibrate](script/vibrate.md)
-* [Wait](script/wait.md)
+* [Canvas](script-actions/canvas.md)
+* [Choices](script-actions/choices.md)
+* [Conditionals](script-actions/conditionals.md)
+* [Dialogs](script-actions/dialogs.md)
+* [Hide Character](script-actions/hide-character.md)
+* [Hide Image](script-actions/hide-image.md)
+* [Hide Particles](script-actions/hide-particles.md)
+* [Input](script-actions/input.md)
+* [JavaScript](script-actions/javascript.md)
+* [Play Music](script-actions/play-music.md)
+* [Play Sound](script-actions/play-sound.md)
+* [Play Voice](script-actions/play-voice.md)
+* [Show Character](script-actions/characters.md)
+* [Show Image](script-actions/show-image.md)
+* [Show Message](script-actions/message.md)
+* [Show Notification](script-actions/notifications.md)
+* [Show Particles](script-actions/particles.md)
+* [Show Scene](script-actions/show-scene.md)
+* [Show Video](script-actions/show-video.md)
+* [Stop Music](script-actions/stop-music.md)
+* [Stop Sound](script-actions/stop-sound.md)
+* [Stop Voice](script-actions/stop-voice.md)
+* [Vibrate](script-actions/vibrate.md)
+* [Wait](script-actions/wait.md)
 
 ## Configuration Options
 
-* [Game Configuration](configuration/game-configuration/README.md)
-  * [Asset Preloading](configuration/game-configuration/asset-preloading.md)
-  * [Internationalization](configuration/game-configuration/internationalization.md)
-  * [Saving](configuration/game-configuration/saving.md)
-  * [Skip Main Menu](configuration/game-configuration/skip-menu.md)
-  * [Storage Engine](configuration/game-configuration/storage-engine.md)
-* [Player Preferences](configuration/player-preferences.md)
-* [Split Files](configuration/split.md)
-* [Untitled](configuration/untitled.md)
+* [Game Configuration](configuration-options/game-configuration/README.md)
+  * [Asset Preloading](configuration-options/game-configuration/asset-preloading.md)
+  * [Internationalization](configuration-options/game-configuration/internationalization.md)
+  * [Saving](configuration-options/game-configuration/saving.md)
+  * [Skip Main Menu](configuration-options/game-configuration/skip-menu.md)
+  * [Storage Engine](configuration-options/game-configuration/storage-engine.md)
+* [Player Preferences](configuration-options/player-preferences.md)
+* [Split Files](configuration-options/split.md)
+* [Untitled](configuration-options/untitled.md)
 
 ## Style & Design
 
-* [CSS Classes](design/classes.md)
-* [HTML Data Attributes](design/data-attributes.md)
-* [Icons](design/icons.md)
-* [Image Menus](design/image-menus.md)
+* [CSS Classes](style-and-design/classes.md)
+* [HTML Data Attributes](style-and-design/data-attributes.md)
+* [Icons](style-and-design/icons.md)
+* [Image Menus](style-and-design/image-menus.md)
 
 ## Releasing Your Game
 
-* [Chrome App](release/chrome.md)
-* [Desktop App](release/desktop.md)
-* [Mobile](release/mobile.md)
-* [Web](release/web.md)
+* [Chrome App](releasing-your-game/chrome.md)
+* [Desktop App](releasing-your-game/desktop.md)
+* [Mobile](releasing-your-game/mobile.md)
+* [Web](releasing-your-game/web.md)
 
 ## Porting From Other Engines
 
-* [Ren'py](port/renpy.md)
+* [Ren'py](porting-from-other-engines/renpy.md)
 
 ## Advanced: Monogatari Development
 
@@ -94,6 +94,7 @@
 
 ## Releases
 
+* [v2.0.0.alpha.4](releases/v2.0.0.alpha.4.md)
 * [v2.0.0.alpha.3](releases/v2.0.0.alpha.3.md)
 * [Untitled](releases/untitled-1.md)
 
