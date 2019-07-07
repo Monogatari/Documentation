@@ -14,7 +14,6 @@ You'll find some directories, here is what you should use them for.
 | :--- | :--- |
 | assets | This is where all your assets such as images, audio files, font files etc. should go |
 | engine | The core engine files that make everything work. Updating Monogatari is as simple as replacing this directory. |
-| error | Custom error pages for your web server. You may modify them as you wish. |
 | js | This is where you'll set your game configuration and create your game script. |
 | style | CSS files for your project \(CSS defines the look and style of your game\). |
 

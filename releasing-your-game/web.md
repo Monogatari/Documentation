@@ -74,7 +74,7 @@ Many come already pre-filled but others are for you to fill in, in the case of a
 
 #### Optimize your images
 
-Optimizing your images is imperative to provide a betetr experience, we all hate when pages take a lot of time to load, even when using the preload features built in on Monogatari, optimizing your images will provide a better experience, the method you choose to do so is entirely yours to pick.
+Optimizing your images is imperative to provide a better experience, we all hate when pages take a lot of time to load, even when using the preload features built in on Monogatari, optimizing your images will provide a better experience, the method you choose to do so is entirely yours to pick.
 
 #### Improve Asset Loading
 
