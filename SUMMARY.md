@@ -16,9 +16,11 @@
   * [Music Assets](building-blocks/assets/music-assets.md)
   * [Sound Effects Assets](building-blocks/assets/sound-effects-assets.md)
   * [Voice Assets](building-blocks/assets/voice-assets.md)
-  * [Scene Backgrounds](building-blocks/assets/scene-backgrounds.md)
+  * [Scenes & Backgrounds](building-blocks/assets/scene-backgrounds.md)
 * [Script & Labels](building-blocks/script-and-labels.md)
 * [Data Storage](building-blocks/data-storage.md)
+* [Engine Methods](building-blocks/engine-methods/README.md)
+  * [characters](building-blocks/engine-methods/characters.md)
 
 ## Script Actions
 
