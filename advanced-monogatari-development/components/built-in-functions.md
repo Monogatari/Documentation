@@ -13,7 +13,7 @@ This function allows you to either get the HTML structure from a component, or s
 ### Examples
 
 ```javascript
-Monogatari.component ('main_screen').template (() => {
+monogatari.component ('main_screen').template (() => {
     return `
         <h1>My Awesome Game</h1>
         <main-menu></main-menu>

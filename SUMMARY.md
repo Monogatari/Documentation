@@ -60,7 +60,6 @@
   * [Storage Engine](configuration-options/game-configuration/storage-engine.md)
 * [Player Preferences](configuration-options/player-preferences.md)
 * [Split Files](configuration-options/split.md)
-* [Untitled](configuration-options/untitled.md)
 
 ## Style & Design
 
@@ -96,9 +95,14 @@
 
 * [Quick Menu](components/quick-menu.md)
 * [Loading Screen](components/loading-screen.md)
+* [Main Screen](components/main-screen.md)
+* [Choice Container](components/choice-container.md)
+* [Save Slot](components/save-slot.md)
+* [Text Box](components/text-box.md)
 
 ## Releases
 
+* [v2.0.0.alpha.5](releases/v2.0.0.alpha.5.md)
 * [v2.0.0.alpha.4](releases/v2.0.0.alpha.4.md)
 * [v2.0.0.alpha.3](releases/v2.0.0.alpha.3.md)
 * [Untitled](releases/untitled-1.md)

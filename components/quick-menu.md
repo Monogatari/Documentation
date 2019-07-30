@@ -40,5 +40,47 @@ monogatari.component ('quick-menu').addButton ({
 });
 ```
 
+#### Add Button After
 
+```javascript
+static addButtonAfter (after: string, { string, icon, data, ... }): void
+```
+
+Adds a button immediately after the button that has the string specified in the `after` argument.
+
+**Example**
+
+The following sample will add the button after the `Back` button
+
+```javascript
+monogatari.component ('quick-menu').addButtonAfter ('Back', {
+	string: 'Stats',
+	icon: 'fas fa-tasks',
+	data: {
+		action: 'show-stats'
+	}
+});
+```
+
+#### Add Button Before
+
+```javascript
+static addButtonBefore (before: string, { string, icon, data, ... }): void
+```
+
+Adds a button immediately before the button that has the string specified in the `before` argument.
+
+**Example**
+
+The following sample will add the button before the `Back` button
+
+```javascript
+monogatari.component ('quick-menu').addButtonBefore ('Back', {
+	string: 'Stats',
+	icon: 'fas fa-tasks',
+	data: {
+		action: 'show-stats'
+	}
+});
+```
 

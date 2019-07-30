@@ -122,15 +122,15 @@ monogatari.characters ({
         color: '#00bfff', 
         directory: 'Evelyn', // Optional*
         sprites :{ // Images Identifier for the 'Show' statement.
-            'Normal': 'normal.png',
-            'Mad': 'hmph!.png',
-            'Doubt': 'uhh.png',
-            'Disappointed':'ngggg....png',
-            'Happy': 'hehehehe.png'
+            normal: 'normal.png',
+            mad: 'hmph!.png',
+            doubt: 'uhh.png',
+            disappointed: 'ngggg....png',
+            happy: 'hehehehe.png'
         },
         default_expression: 'face.png', // Optional, side image to show every time the character speaks.
         expressions: { // Side images identifiers to show on dialogs
-             'Smiling': 'smiling.png'
+             smiling: 'smiling.png'
         }
     }
 });
