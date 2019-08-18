@@ -39,7 +39,7 @@ var characters = {
             "Happy": "hehehehe.png"
         },
         "Face": "face.png", // Optional, side image to show every time the character speaks.
-        "Side": { // Side images identifiers to show on dialogs
+        "Side": { // Side images identifiers to show on dialogs when the character speaks with a colon and side image name, like e:Smiling
              "Smiling": "smiling.png"
         }
     }
