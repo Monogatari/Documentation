@@ -8,6 +8,8 @@
   * [Step 4: Make Your First Visual Novel](getting-started/step-4-make-your-first-visual-novel.md)
   * [Step 5: Get More Help](getting-started/step-5-get-more-help.md)
   * [Step 6: Have Fun!](getting-started/step-6-have-fun.md)
+* [F.A.Q.](f.a.q..md)
+* [Untitled](untitled.md)
 
 ## Building Blocks
 

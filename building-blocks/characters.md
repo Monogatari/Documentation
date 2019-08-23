@@ -136,5 +136,5 @@ monogatari.characters ({
 });
 ```
 
-The directory attribute is a subdirectory of characters where the images will be pulled, if no Directory is given, it will be assumed to be the characters directory itself.
+The `directory` attribute is a subdirectory of characters where the images will be pulled, if no `directory` is given, it will be assumed to be the characters directory itself.
 
