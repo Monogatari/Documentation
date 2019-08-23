@@ -6,6 +6,10 @@ description: Learn the purpose of all directories and files
 
 Once you've [downloaded the latest Monogatari release](getting-monogatari.md), take some time to get familiar with the files and directories inside it.
 
+{% hint style="info" %}
+You can take a look at a more visual representation of the Monogatari project structure [in this simple mind map](https://www.mindmeister.com/1136161346/monogatari-project-structure).
+{% endhint %}
+
 ### Directories
 
 You'll find some directories, here is what you should use them for.
