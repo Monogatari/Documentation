@@ -9,7 +9,6 @@
   * [Step 5: Get More Help](getting-started/step-5-get-more-help.md)
   * [Step 6: Have Fun!](getting-started/step-6-have-fun.md)
 * [F.A.Q.](f.a.q..md)
-* [Untitled](untitled.md)
 
 ## Building Blocks
 
@@ -30,6 +29,7 @@
 * [Choices](script-actions/choices.md)
 * [Conditionals](script-actions/conditionals.md)
 * [Dialogs](script-actions/dialogs.md)
+* [Gallery](script-actions/gallery.md)
 * [Hide Character](script-actions/hide-character.md)
 * [Hide Image](script-actions/hide-image.md)
 * [Hide Particles](script-actions/hide-particles.md)
@@ -101,9 +101,11 @@
 * [Choice Container](components/choice-container.md)
 * [Save Slot](components/save-slot.md)
 * [Text Box](components/text-box.md)
+* [Image Gallery](components/image-gallery.md)
 
 ## Releases
 
+* [v2.0.0.alpha.6](releases/v2.0.0.alpha.6.md)
 * [v2.0.0.alpha.5](releases/v2.0.0.alpha.5.md)
 * [v2.0.0.alpha.4](releases/v2.0.0.alpha.4.md)
 * [v2.0.0.alpha.3](releases/v2.0.0.alpha.3.md)
