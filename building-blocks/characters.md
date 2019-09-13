@@ -92,11 +92,11 @@ Characters are probably one of the most important parts of your novel, not only 
   </tbody>
 </table>## Examples
 
-Declaring characters is really simple, first, you need an identifier, this is what you'll use for the 'Say' and 'Show' commands. We'll choose the identifier 'e' for this tutorial.
+Declaring characters is really simple, first, you need an identifier, this is what you'll use for the [`dialog`](../script-actions/dialogs.md) and [`show character`](../script-actions/characters.md) actions. We'll choose the identifier y, short for Yui in this tutorial.
 
 ```javascript
 monogatari.characters ({
-    'e': {
+    'y': {
 
     }
 });
@@ -106,8 +106,8 @@ Each character has many properties, like the name that is shown to the player, a
 
 ```javascript
 monogatari.characters ({
-    'e': {
-        name: 'Evelyn',
+    'y': {
+        name: 'Yui',
         color: '#00bfff'
     }
 });

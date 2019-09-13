@@ -8,6 +8,7 @@
   * [Step 4: Make Your First Visual Novel](getting-started/step-4-make-your-first-visual-novel.md)
   * [Step 5: Get More Help](getting-started/step-5-get-more-help.md)
   * [Step 6: Have Fun!](getting-started/step-6-have-fun.md)
+* [Upgrading from v1.4.1](upgrading-from-v1.4.1.md)
 * [F.A.Q.](f.a.q..md)
 
 ## Building Blocks
@@ -20,7 +21,7 @@
   * [Scenes & Backgrounds](building-blocks/assets/scene-backgrounds.md)
 * [Script & Labels](building-blocks/script-and-labels.md)
 * [Data Storage](building-blocks/data-storage.md)
-* [Engine Methods](building-blocks/engine-methods/README.md)
+* [Engine Core Methods](building-blocks/engine-methods/README.md)
   * [characters](building-blocks/engine-methods/characters.md)
 
 ## Script Actions
@@ -29,7 +30,7 @@
 * [Choices](script-actions/choices.md)
 * [Conditionals](script-actions/conditionals.md)
 * [Dialogs](script-actions/dialogs.md)
-* [Gallery](script-actions/gallery.md)
+* [Gallery](script-actions/image-gallery.md)
 * [Hide Character](script-actions/hide-character.md)
 * [Hide Image](script-actions/hide-image.md)
 * [Hide Particles](script-actions/hide-particles.md)
@@ -101,7 +102,6 @@
 * [Choice Container](components/choice-container.md)
 * [Save Slot](components/save-slot.md)
 * [Text Box](components/text-box.md)
-* [Image Gallery](components/image-gallery.md)
 
 ## Releases
 
@@ -109,5 +109,4 @@
 * [v2.0.0.alpha.5](releases/v2.0.0.alpha.5.md)
 * [v2.0.0.alpha.4](releases/v2.0.0.alpha.4.md)
 * [v2.0.0.alpha.3](releases/v2.0.0.alpha.3.md)
-* [Untitled](releases/untitled-1.md)
 

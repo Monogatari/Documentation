@@ -53,7 +53,10 @@ Which can be accessed as follows \(examples\)...
 ```javascript
 {'Input': {                                                             // call input statement
   'Text': 'What is your name?',                                         // show text of the input box
-  'Validation': function(input) { return input.trim().length > 0; },    // validation rule for the value
+  'Validation': function(input) {
+      // Validation rule for the value
+      return input.trim().length > 0;
+  },
   'Save': function(input) {                                             // call save statement and start a function
       this.storage ('player_info', {                                    // store the value in the variable name
           name: input,
