@@ -7,22 +7,22 @@ Choices are built as JSONs, with the key 'Choice', and every choice available as
 Every choice requires 2 properties: the text to display and what to do when it's clicked.
 
 ```javascript
-{'Choice': {
-    'Developer': {
-        'Text': 'I’m a developer.',
-        'Do': 'jump Developer'
+{"Choice":{
+    "Developer":{
+        "Text": "I'm a developer.",
+        "Do": "jump Developer"
     },
-    'Writer': {
-        'Text': 'I’m a writer.',
-        'Do': 'jump Writer'
+    "Writer":{
+        "Text": "I'm a writer.",
+        "Do": "jump Writer"
     },
-    'Artist': {
-        'Text': 'I’m an artist.',
-        'Do': 'jump Artist'
+    "Artist":{
+        "Text": "I'm an artist.",
+        "Do": "jump Artist"
     },
-    'Player': {
-        'Text': 'I’m a Player.',
-        'Do': 'jump Player'
+    "Player":{
+        "Text": "I'm a Player.",
+        "Do": "jump Player"
     }
 }}
 ```
@@ -34,28 +34,28 @@ There are some cases where you would only want to show a choice if certain condi
 For this example, let's assume this is your `storage` variable:
 
 ```javascript
-'use strict';
+"use strict";
 // Persistent Storage Variable
 
-Monogatari.storage ({
+let storage = {
     played: false
-});
+};
 ```
 
 As you can see, we added a 'played' variable inside the storage and set its default to `false`. Now, let's see what would happen with the following Choices:
 
 ```javascript
-{'Choice': {
-    'Developer': {
-        'Text': 'I’m a developer.',
-        'Do': 'Developer'
+{"Choice":{
+    "Developer":{
+        "Text": "I'm a developer.",
+        "Do": "Developer"
     },
-    'Player': {
-        'Text': 'I’m a Player.',
-        'Do': 'Player',
-        'Condition': function () {
-            return this.storage ('played'); // The 'Player' option will only be shown if this returns true.
-        }
+    "Player":{ 
+        "Text": "I'm a Player.",
+        "Do": "Player",
+        "Condition": function () {
+            return storage.played == true; // The "Player" option will only be shown if this returns true.
+        } 
     }
 }}
 ```
@@ -67,18 +67,18 @@ As you can see, we added a 'played' variable inside the storage and set its defa
 You might want to show a dialog along with the choices, this is possible adding a text property inside the object:
 
 ```javascript
-{'Choice': {
-    'Dialog': 'e Before I continue, let me ask you, what are you?',
-    'Developer': {
-        'Text': 'I’m a developer.',
-        'Do': 'Developer'
+{"Choice":{
+    "Dialog": "e Before I continue, let me ask you, what are you?",
+    "Developer":{
+        "Text": "I'm a developer.",
+        "Do": "Developer"
     },
-    'Player':{
-        'Text': 'I’m a Player.',
-        'Do': 'Player',
-        'Condition': function () {
-            return this.storage ('played'); // The 'Player' option will only be shown if this returns true.
-        }
+    "Player":{
+        "Text": "I'm a Player.",
+        "Do": "Player",
+        "Condition": function () {
+            return storage.played == true; // The "Player" option will only be shown if this returns true.
+        } 
     }
 }}
 ```
