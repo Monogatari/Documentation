@@ -212,17 +212,17 @@ monogatari.storage ({
 });
 ```
 
-In our `main.js` file, we could have a simple example function for attacking the enemy.
+In our `script.js` file, somewhere _outside_ of our game's script, we could have a simple example function for attacking the enemy.
 
 ```javascript
 function attackEnemy(){
-    monogatari.storage ({
-        enemyHealth: monogatari.storage ().enemyHealth - playerAttack
-    });
-}
+    monogatari.storage().enemyHealth = monogatari.storage().enemyHealth - monogatari.storage().playerAttack
+    };
 ```
 
-And then in our script, we could have a choice for the player.
+This function sets the `enemyHealth` value to be equal to its current value minus the `playerAttack` value.
+
+Then, in our script, we could have a choice for the player:
 
 ```javascript
 {"Choice":{
@@ -248,9 +248,7 @@ You could also have the function written out in the script itself for one-time f
     "FirstOption":{
         "Text": "Attack!",
         "onChosen": function (){
-             monogatari.storage ({
-                enemyHealth: monogatari.storage ().enemyHealth - playerAttack
-            });
+ monogatari.storage().enemyHealth = monogatari.storage().enemyHealth - monogatari.storage().playerAttack
         },
         "Do": "You attack the enemy for {{playerAttack}} damage!"
 },
