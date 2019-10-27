@@ -61,7 +61,7 @@ It's important to note that Service Workers are only available through HTTP or H
 
 Or, if using a newer Monogatari version, a warning that says:
 
-`Service Workers are available only when serving your files through a server, once you upload your game this warning will go away. You can also try using a simple server like this one for development: https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb/`
+`Service Workers are available only when serving your files through a server, once you upload your game this warning will go away. You can also try using a simple server like this one for development:` [`Web Server for Chrome.`](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb/)\`\`
 
 Either way is completely normal, as soon as you upload your game online to make it playable, that message will go away on it's own.
 
