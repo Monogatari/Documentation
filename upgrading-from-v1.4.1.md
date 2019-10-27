@@ -32,7 +32,8 @@ Your players most likely have lots of save files and we want them to keep them e
 
 1. Go over to the `options.js` file
 2. Find the `Storage` configuration almost at the bottom of the file
-3. Edit the `Store` property and set it to an empty string \(`''`\)
+3. Edit the `Adapter` property and set it to an empty string \(`''`\)
+4. Edit the `Store` property and set it to an empty string \(`''`\)
 
 ### Copy your storage object
 
