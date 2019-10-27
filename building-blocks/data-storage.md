@@ -20,7 +20,7 @@ monogatari.storage ({   // object
 });
 ```
 
-If we now want to get the name after saving one in there, this would look like this in the `script.js`.
+If we now want to get the name after saving one in there, Monogatari features some custom string interpolation, which you can use by writing a storage key inside of two curly braces. This is how it would look in`script.js`.
 
 ```javascript
 monogatari.storage ('player', { name: 'Monogatari'});              // example for saving a name
@@ -84,4 +84,6 @@ function (){
 ```
 
 If you want to see an example of the stat system \(created with storage.js\), [click me](https://hyuchia.com/Monogatari-Stat-System/).
+
+
 

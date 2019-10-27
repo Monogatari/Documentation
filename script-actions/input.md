@@ -5,7 +5,7 @@ There are many cases where we need input from the user, like to ask their name. 
 This is a sample script with an input statement:
 
 ```javascript
-Monogatari.script ({
+monogatari.script ({
     // The game starts here.
     'Start': [
         'You’ll see an input next',
@@ -15,7 +15,7 @@ Monogatari.script ({
                 return input.trim ().length > 0;
             },
             'Save': function(input) {
-                this.storage. ('player', { Name: input});
+                this.storage('player', { Name: input});
             },
             'Warning': 'You must enter a name!'
             }
@@ -26,6 +26,8 @@ Monogatari.script ({
 });
 ```
 
+![The Input panel, displaying its warning after clicking &quot;Ok&quot; without entering in any text.](../.gitbook/assets/image%20%286%29.png)
+
 As you can see, the input statement is in fact an object, with 4 properties, Text, Validation, Save and Warning.
 
 #### Text
@@ -34,11 +36,11 @@ The text to be displayed in the input dialog
 
 #### Validation
 
-The validation function, there are times when you want to validate the user input, to see if it's not empty for example, the Validation property should be a function returning a boolean, the validation process is up to what you want.
+The validation function, there are times when you want to validate the user input, to see if it's not empty for example, the Validation property should be a function returning a boolean, the validation process is up to what you want. This example checks to see if it is empty, but you might put in if trees to disable certain names, or something like that.
 
 #### Save
 
-The save function, what Monogatari will do with the input once it's validated, normally you would save it on storage, but you can do whatever you want with it, the save property is then a function that receives the input, what you do with it is also uo to you.
+The save function, what Monogatari will do with the input once it's validated, normally you would save it on storage, but you can do whatever you want with it, the save property is then a function that receives the input, what you do with it is also up to you.
 
 #### Warning
 

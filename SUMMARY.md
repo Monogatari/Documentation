@@ -21,8 +21,6 @@
   * [Scenes & Backgrounds](building-blocks/assets/scene-backgrounds.md)
 * [Script & Labels](building-blocks/script-and-labels.md)
 * [Data Storage](building-blocks/data-storage.md)
-* [Engine Core Methods](building-blocks/engine-methods/README.md)
-  * [characters](building-blocks/engine-methods/characters.md)
 
 ## Script Actions
 

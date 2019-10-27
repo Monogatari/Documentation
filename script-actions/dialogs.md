@@ -16,7 +16,7 @@ The say statement is used... well, for a character to say something. The syntax 
 'y Hi! My name is Yui.'
 ```
 
-![A fresh Monogatari game showing Yui speaking, saying &quot;Hi! My name is Yui.&quot;](../.gitbook/assets/image%20%2812%29.png)
+![A fresh Monogatari game showing Yui speaking, saying &quot;Hi! My name is Yui.&quot;](../.gitbook/assets/image%20%2813%29.png)
 
 It also accepts HTML, so you can show many things in a text like the Font Awesome icons.
 
@@ -32,7 +32,7 @@ If no character identifier is given, it will be considered as a narration and no
 'This would be a narrator.'
 ```
 
-![The narrator speaking. ](../.gitbook/assets/image%20%288%29.png)
+![The narrator speaking. ](../.gitbook/assets/image%20%289%29.png)
 
 ### Clear the Text
 
@@ -64,7 +64,7 @@ The `'centered'` command is like a special character-id that goes at the beginni
 'centered This is an example of centered text.'
 ```
 
-![](../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/image%20%2812%29.png)
 
 The text box that displays `'centered'` text is special. Rather than being inside of a `<text-box>` tag, it is instead inside of a `<centered-dialog>` tag.
 
@@ -88,13 +88,13 @@ The `'nvl'` command is similar to the `'centered'` command in that it is used at
 'nvl One more line.'
 ```
 
-![](../.gitbook/assets/image%20%286%29.png)
+![](../.gitbook/assets/image%20%287%29.png)
 
 The `'nvl'` text differs from normal Monogatari text in that clicking does not clear the current text off of the screen, and instead leaves it there, feeding consecutive NVL dialogue one at a time as the player clicks to progress.
 
 NVL text is displayed on screen inside of a `<text-box>` with a CSS class`'nvl'`. By default, this textbox is styled to fill the entire screen. Additionally, each line of NVL text is contained inside of a `<div>` with a `data-spoken` value for whichever character is speaking. Normally it's the narrator, but if you give a character the `nvl` attribute and set it to `true` then that character can be used as an NVL character, and their text can have special CSS rules if you want to get creative with that.
 
-![An example of some characters speaking in NVL mode.](../.gitbook/assets/image%20%2810%29.png)
+![An example of some characters speaking in NVL mode.](../.gitbook/assets/image%20%2811%29.png)
 
 Note that Expression side images are not supported in NVL mode.
 
