@@ -105,6 +105,7 @@
 
 ## Releases
 
+* [v2.0.0.alpha.8](releases/v2.0.0.alpha.8.md)
 * [v2.0.0.alpha.7](releases/v2.0.0.alpha.7.md)
 * [v2.0.0.alpha.6](releases/v2.0.0.alpha.6.md)
 * [v2.0.0.alpha.5](releases/v2.0.0.alpha.5.md)
