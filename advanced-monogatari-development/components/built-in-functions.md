@@ -21,5 +21,11 @@ monogatari.component ('main_screen').template (() => {
 });
 ```
 
+## Running an arbitrary line of Monogatari
 
+```javascript
+monogatari.run ("string")
+```
+
+Runs a line of the script as though it were a regular line in the script array. Can be invoked from the JavaScript development console for testing, such as `monogatari.run("jump myLabel")` if you want to rapidly test a particular label. This can also be used as part of a function if you need to do something specific or fancy. Up to you.
 
