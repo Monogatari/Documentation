@@ -32,7 +32,7 @@ Choices allow players to take decisions and then react based on whatever they ch
 
 Every choice requires 2 properties: the text to display and what to do when it's clicked.
 
-```javascript
+```
 {'Choice': {
     'Developer': {
         'Text': 'I’m a developer.',
@@ -57,7 +57,7 @@ Every choice requires 2 properties: the text to display and what to do when it's
 
 There are some cases where you would only want to show a choice if certain conditions are met. For this example, let's assume this is your `storage` variable:
 
-```javascript
+```
 'use strict';
 // Persistent Storage Variable
 
@@ -68,7 +68,7 @@ monogatari.storage ({
 
 As you can see, we added a 'played' variable inside the storage and set its default to `false`. Now, let's see what would happen with the following Choices:
 
-```javascript
+```
 {'Choice': {
     'Developer': {
         'Text': 'I’m a developer.',
@@ -90,7 +90,7 @@ As you can see, we added a 'played' variable inside the storage and set its defa
 
 You might want to show a dialog along with the choices, this is possible using the `Dialog` property inside the object:
 
-```javascript
+```
 {'Choice': {
     'Dialog': 'e Before I continue, let me ask you, what are you?',
     'Developer': {
@@ -115,7 +115,7 @@ Earlier we made a conditional choice that would only be shown if a condition was
 
 For this example, let's assume this is your `storage` variable:
 
-```javascript
+```
 'use strict';
 // Persistent Storage Variable
 monogatari.storage ({
@@ -125,7 +125,7 @@ monogatari.storage ({
 
 As you can see, we added a `haveKey` variable inside the storage and set its default value to `false`. With that established, consider the following code.
 
-```javascript
+```
 {'Choice':{
     'Dialog': 'Do you unlock the locked door?',
     'FirstOption':{
@@ -150,7 +150,7 @@ The `'Clickable'` property, as its name implies, decides whether or not a button
 
 The `'Class'` property allows you to give a CSS class to your buttons for special styles. Suppose you had the following CSS in your `main.css` file:
 
-```css
+```
 .boldedText {
     font-weight: bold;
 }
@@ -161,7 +161,7 @@ The `'Class'` property allows you to give a CSS class to your buttons for specia
 
 The `boldedText` and `italicText` classes can then be applied to your buttons by setting their `'Class'` properties in your script, like so:
 
-```javascript
+```
 {"Choice":{
     "FirstOption":{
         "Text": "Yes",
@@ -180,7 +180,7 @@ This way, the `'Yes'` button will have its text **bolded** and the `'No'` button
 
 Earlier, we mentioned you could style unclickable buttons as well. This is easy to do as the buttons in Monogatari's choices are HTML buttons, and when a button is made unclickable, it is given the `'disabled'` attribute. This means that we can style disabled buttons with CSS attribute styling. Consider the following example:
 
-```css
+```
 [disabled] {
     opacity: .5;
 }
@@ -190,7 +190,7 @@ With this CSS styling, buttons containing the `'disabled'` attribute will render
 
 You can also use classes and attributes at the same time:
 
-```css
+```
 [disabled].classname {
     text-decoration: line-through;
 }
@@ -202,7 +202,7 @@ In this example, the text would have a line through it if and only if it is both
 
 The `'onChosen'` property allows us to run a function when the player clicks your button. For this example, we'll assume that our storage contains the following:
 
-```javascript
+```
 'use strict';
 // Persistent Storage Variable
 
@@ -214,7 +214,7 @@ monogatari.storage ({
 
 In our `script.js` file, somewhere _outside_ of our game's script, we could have a simple example function for attacking the enemy.
 
-```javascript
+```
 function attackEnemy(){
     monogatari.storage().enemyHealth = monogatari.storage().enemyHealth - monogatari.storage().playerAttack
     };
@@ -224,7 +224,7 @@ This function sets the `enemyHealth` value to be equal to its current value minu
 
 Then, in our script, we could have a choice for the player:
 
-```javascript
+```
 {"Choice":{
     "Dialog": "The enemy wants to fight! What do you do?",
     "FirstOption":{
@@ -242,7 +242,7 @@ Then, in our script, we could have a choice for the player:
 
 You could also have the function written out in the script itself for one-time functions that won't be called again.
 
-```javascript
+```
 {"Choice":{
     "Dialog": "The enemy wants to fight! What do you do?",
     "FirstOption":{

@@ -8,13 +8,13 @@ The asset preloading will show a progress bar when you enter the game, the entir
 
 This property default value is true meaning it will show the Preload Screen and do all the Asset Preloading
 
-```javascript
+```
 'Preload': true
 ```
 
 To skip it, just change the value to false but remember that every asset will be loaded when you use it and may make a poor experience for users on slow connections.
 
-```javascript
+```
 'Preload': false
 ```
 
@@ -28,7 +28,7 @@ This functionality is inside the `service-worker.js` file. There you'll need to 
 
 The `name` and `version` properties are used to control the cache of your game, change the `name` to your game's name, with no spaces or special characters and the `version` property as a control.
 
-```javascript
+```
 // The name of your game, no spaces or special characters.
 const name = 'Monogatari';
 
@@ -45,13 +45,13 @@ Use of Service Workers can also be disabled from the `options.js` file using the
 
 This property default value is true meaning it will make use of Service Workers to cache your assets, Service Workers may be used for other activities in the future as well, disabling this option will disable them all.
 
-```javascript
+```
 'ServiceWorkers': true
 ```
 
 To disable it, just change it to false but remember that every asset will be loaded when you use it and may make a poor experience for users on slow connections.
 
-```javascript
+```
 'ServiceWorkers': false
 ```
 

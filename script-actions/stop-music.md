@@ -6,7 +6,7 @@ description: Stop playing music
 
 ## Description
 
-```javascript
+```
 'stop music [music_id] [with [properties]]'
 ```
 
@@ -41,7 +41,7 @@ The following will stop a specific music, identified by it's name.
 
 {% tabs %}
 {% tab title="Script" %}
-```javascript
+```
 Monogatari.script ({
     'Start': [
         'play music mainTheme loop',
@@ -56,7 +56,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Music Assets" %}
-```javascript
+```
 Monogatari.assets ('music', {
     'mainTheme': 'mainThemeSong.mp3',
     'mistery': 'misterious_song.ogg'
@@ -71,7 +71,7 @@ The following will stop all music currently playing
 
 {% tabs %}
 {% tab title="Script" %}
-```javascript
+```
 Monogatari.script ({
     'Start': [
         'play music mainTheme loop',
@@ -86,7 +86,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Music Assets" %}
-```javascript
+```
 Monogatari.assets ('music', {
     'mainTheme': 'mainThemeSong.mp3',
     'mistery': 'misterious_song.ogg'
@@ -101,7 +101,7 @@ The following will stop the song, and will use a fade out effect to do so. You c
 
 {% tabs %}
 {% tab title="Script" %}
-```javascript
+```
 Monogatari.script ({
     'Start': [
         'play music mainTheme loop',
@@ -116,7 +116,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Music Assets" %}
-```javascript
+```
 Monogatari.assets ('music', {
     'mainTheme': 'mainThemeSong.mp3',
     'mistery': 'misterious_song.ogg'

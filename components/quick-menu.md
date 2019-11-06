@@ -2,7 +2,7 @@
 
 ## Description
 
-```markup
+```
 <quick-menu></quick-menu>
 ```
 
@@ -22,7 +22,7 @@ The quick menu will render each of the buttons it has on its global configuratio
 
 #### Add Button
 
-```javascript
+```
 static addButton ({ string, icon, data, ... }): void
 ```
 
@@ -30,7 +30,7 @@ Adds a button to the end of the menu.
 
 **Example**
 
-```javascript
+```
 monogatari.component ('quick-menu').addButton ({
 	string: 'Stats',
 	icon: 'fas fa-tasks',
@@ -42,7 +42,7 @@ monogatari.component ('quick-menu').addButton ({
 
 #### Add Button After
 
-```javascript
+```
 static addButtonAfter (after: string, { string, icon, data, ... }): void
 ```
 
@@ -52,7 +52,7 @@ Adds a button immediately after the button that has the string specified in the 
 
 The following sample will add the button after the `Back` button
 
-```javascript
+```
 monogatari.component ('quick-menu').addButtonAfter ('Back', {
 	string: 'Stats',
 	icon: 'fas fa-tasks',
@@ -64,7 +64,7 @@ monogatari.component ('quick-menu').addButtonAfter ('Back', {
 
 #### Add Button Before
 
-```javascript
+```
 static addButtonBefore (before: string, { string, icon, data, ... }): void
 ```
 
@@ -74,7 +74,7 @@ Adds a button immediately before the button that has the string specified in the
 
 The following sample will add the button before the `Back` button
 
-```javascript
+```
 monogatari.component ('quick-menu').addButtonBefore ('Back', {
 	string: 'Stats',
 	icon: 'fas fa-tasks',

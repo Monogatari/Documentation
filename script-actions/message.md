@@ -6,7 +6,7 @@ description: Show a message
 
 ## Description
 
-```javascript
+```
 'show message <message_id>'
 ```
 
@@ -30,7 +30,7 @@ Each message has a close button so the user is able to close it when he's finish
 
 To show a message, you must first declare it with all of it's characteristics. To do so, the message action has a configuration function where you can define your id or name for each message and their respective information.
 
-```javascript
+```
 Monogatari.action ('Message').messages ({
     '<message_id>': {
         title: '',
@@ -56,7 +56,7 @@ The following script will show a simple text message:
 
 {% tabs %}
 {% tab title="Script" %}
-```javascript
+```
 Monogatari.script ({
     'Start': [
         'show message SampleWriting',
@@ -67,7 +67,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Message Configuration" %}
-```javascript
+```
 Monogatari.action ('Message').messages ({
     'SampleWriting':{
         title: 'Some sample writing',
@@ -85,7 +85,7 @@ You can also include HTML on your message, the following script and configuratio
 
 {% tabs %}
 {% tab title="Script" %}
-```javascript
+```
 Monogatari.script ({
     'Start': [
         'show message SampleHTML',
@@ -96,18 +96,16 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Message Configuration" %}
-```javascript
-Monogatari.action ('Message').messages ({
-    'SampleHTML':{
-        title: 'Some sample writing',
-        subtitle: 'From Evelyn',
-        body: `
-            <p>This message is being formatted with HTML</p>
-            <img src="assets/images/message.png">
-        `
-    }
-});
-```
+    Monogatari.action ('Message').messages ({
+        'SampleHTML':{
+            title: 'Some sample writing',
+            subtitle: 'From Evelyn',
+            body: `
+                <p>This message is being formatted with HTML</p>
+                <img src="assets/images/message.png">
+            `
+        }
+    });
 {% endtab %}
 {% endtabs %}
 

@@ -4,7 +4,7 @@ The storage is an object in which we can put everything we want to save when a p
 
 We have to create a property where the player can store his data in it. So in `storage.js` we start with...
 
-```javascript
+```
 monogatari.storage ({
   player: {   // add property
     name: ''  // add placeholder
@@ -22,14 +22,14 @@ monogatari.storage ({   // object
 
 If we now want to get the name after saving one in there, Monogatari features some custom string interpolation, which you can use by writing a storage key inside of two curly braces. This is how it would look in`script.js`.
 
-```javascript
+```
 monogatari.storage ('player', { name: 'Monogatari'});              // example for saving a name
 '{{player.name}} is a visual novel engine.'                       // example for display the name
 ```
 
 To offer more possibilities in the game and to have a simpler overview in the storage file, you can create as many properties as you want, just make sure to use a comma before adding a property. Here is an example...
 
-```javascript
+```
 monogatari.storage ({ 
   player_info: {
     name: '',
@@ -50,7 +50,7 @@ monogatari.storage ({
 
 Which can be accessed as follows \(examples\)...
 
-```javascript
+```
 {'Input': {                                                             // call input statement
   'Text': 'What is your name?',                                         // show text of the input box
   'Validation': function(input) {

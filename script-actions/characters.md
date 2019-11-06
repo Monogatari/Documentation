@@ -6,7 +6,7 @@ description: Show a character's sprite
 
 ## Description
 
-```javascript
+```
 'show character <character_id> <sprite_id> [at [class]] [with [animations] [classes]]'
 ```
 
@@ -22,13 +22,13 @@ The character action allows you to display a character's sprite. For other kind 
 
 Remember every character image must be declared in the characters object.
 
-```javascript
-'show character e normal center with fadeIn',
+```
+'show character e normal at center with fadeIn',
 ```
 
 The [animation](https://daneden.github.io/animate.css/) is completely optional, and if a position is not given, it will show in the center by default.
 
-```javascript
+```
 'show character e normal',
 'show character e normal with fadeIn',
 ```

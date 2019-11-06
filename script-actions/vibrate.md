@@ -6,7 +6,7 @@ description: Make the player's device vibrate
 
 ## Description
 
-```javascript
+```
 'vibrate <pattern>'
 ```
 
@@ -30,7 +30,7 @@ The `vibrate` action allows you to make the player's device vibrate on a given p
 
 You can make the device vibrate only once, for example, the following will make it vibrate for 200ms and then stop.
 
-```javascript
+```
 Monogatari.script ({
     'Start': [
         'vibrate 200'
@@ -43,7 +43,7 @@ Monogatari.script ({
 
 You can also make the device vibrate following a pattern by providing a list of times, the following will make the device vibrate for 200ms, then 100ms, then 150ms and so on.
 
-```javascript
+```
 Monogatari.script ({
     'Start': [
         'vibrate 200 100 150 50 200 300'

@@ -6,7 +6,7 @@ description: Wait an amount of time before continuing
 
 ## Description
 
-```javascript
+```
 'wait <time>'
 ```
 
@@ -26,7 +26,7 @@ The `wait` action allows us to make the game wait for a certain amount of `time`
 
 ## Examples
 
-```javascript
+```
 Monogatari.script ({
     'Start': [
         'Hello there! I want you to wait 5 seconds now',

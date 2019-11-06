@@ -16,9 +16,7 @@ If there is a translation already available for your language, then all you'll h
   
 All translations take the [English strings file](https://github.com/Monogatari/Monogatari/blob/develop/core/translations/English.js) as its base so you'll need to check it out to see what you need to translate. Below is a sample of the file, be ware this is for demonstration purposes only and may be outdated so you should always check [the source file instead](https://github.com/Monogatari/Monogatari/blob/develop/core/translations/English.js). It is important that you only translate the strings on the right, as opposed to their keys on the left \(`'SomeKey': 'Some string to translate'`\).
 
-{% code-tabs %}
-{% code-tabs-item title="English.js" %}
-```javascript
+```
 /**
  * ============================================================
  * English
@@ -111,8 +109,6 @@ Monogatari.translation ('English', {
 	'Windowed': 'Windowed'
 });
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 ## Updating an Available Language
 

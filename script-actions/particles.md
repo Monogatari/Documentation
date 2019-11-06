@@ -6,7 +6,7 @@ description: Show a particle system animation
 
 ## Description
 
-```javascript
+```
 'show particles <particles_id>'
 ```
 
@@ -30,7 +30,7 @@ To hide the particle systems, read the [Hide Particles documentation](hide-parti
 
 To use a particle system, you must first declare it with all of it's characteristics. To do so, the particles action has a configuration function where you can define your id for each particle system and their configuration on a JSON Object.
 
-```javascript
+```
 Monogatari.action ('Particles').particles ({
     '<particles_id>': ParticlesJSONObject
 });
@@ -44,7 +44,7 @@ Here are some examples that may be useful and also provide a good start point:
 
 {% tabs %}
 {% tab title="Snow" %}
-```javascript
+```
 Monogatari.action('Particles').particles({
 	'snow': {
 		'particles': {
@@ -161,7 +161,7 @@ Monogatari.action('Particles').particles({
 {% endtab %}
 
 {% tab title="Night Sky" %}
-```javascript
+```
 Monogatari.action('Particles').particles({
 	'stars': {
 		'particles': {
@@ -278,7 +278,7 @@ Monogatari.action('Particles').particles({
 {% endtab %}
 
 {% tab title="Fireflies" %}
-```javascript
+```
 Monogatari.action('Particles').particles({
     'fireflies': {
         'particles': {
@@ -395,7 +395,7 @@ Monogatari.action('Particles').particles({
 {% endtab %}
 
 {% tab title="Fire Sparks" %}
-```javascript
+```
 Monogatari.action('Particles').particles({
     'fireSparks': {
         'particles': {
@@ -518,7 +518,7 @@ You can also play with the [Particles.js interactive tool](https://vincentgarrea
 
 For this examples, we'll assume you've used one of the sample configurations provided. Showing a particle system is as simple as:
 
-```javascript
+```
 Monogatari.script ({
     'Start': [
         'show particles snow',
