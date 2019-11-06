@@ -4,7 +4,7 @@ You can show particles in your game, useful for representing rain, snow, fire, e
 
 You must first declare your particles:
 
-```javascript
+```
 var particles = {
     "Snow": {
         "particles": {
@@ -121,13 +121,13 @@ var particles = {
 
 Then, whenever you want to show them, just use the particles command:
 
-```javascript
+```
 "particles Snow"
 ```
 
 And to stop them:
 
-```javascript
+```
 "stop particles"
 ```
 

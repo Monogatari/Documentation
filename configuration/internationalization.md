@@ -7,7 +7,7 @@ You can create a multi-language Game also pretty easily. To do so you need to do
 
 The default Script looks like this:
 
-```javascript
+```
 var script = {
     "Start":[
         "Hi, welcome to your first Visual Novel with Monogatari."
@@ -17,7 +17,7 @@ var script = {
 
 Your new Multi Language script will have language labels that look like this:
 
-```javascript
+```
 var script = {
     "English":{
         "Start":[
@@ -35,7 +35,7 @@ var script = {
 1. Add translations to the strings.js file for your Interface.
 2. Finally, add your language options to the select element in the settings page of your HTML.
 
-```markup
+```
 <select data-action="set-language">
     <option value="English">English</option>
     <option value="Español">Español</option>
