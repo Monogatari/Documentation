@@ -4,7 +4,7 @@ Declaring characters is really simple!
 
 First, you need an identifier, this is what you'll use for the "Say" and "Show" commands. We'll choose the identifier "e" for this tutorial.
 
-```javascript
+```
 var characters = {
     "e":{
 
@@ -14,7 +14,7 @@ var characters = {
 
 Each character has many properties, like the name that is shown to the player, and the color for it.
 
-```javascript
+```
 var characters = {
     "e": {
         "Name": "Evelyn", // The name that will be shown when this character speaks.
@@ -25,7 +25,7 @@ var characters = {
 
 Since we are building visual novels, we also need images for our characters! You need the Directory inside the img directory where your files will be placed, and assign a simple identifier to each file.
 
-```javascript
+```
 var characters = {
     "e": {
         "Name": "Evelyn",
