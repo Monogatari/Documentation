@@ -12,9 +12,7 @@ Apart from translating the game contents, Monogatari's UI can also be translated
 
 The file containing all the translations is found at `js/strings.js`. In it, you'll find multiple JSON objects describing the translations for each string on its own language. 
 
-{% code-tabs %}
-{% code-tabs-item title="strings.js" %}
-```javascript
+```
 "English": {
 		"AdvanceHelp": "To advance through the game, press the space key or click.",
 		"Audio": "Audio",
@@ -77,8 +75,6 @@ The file containing all the translations is found at `js/strings.js`. In it, you
 		"Windowed": "Windowed"
 },
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 To add a new language, simply copy one of these blocks and add your own translations!
 

@@ -6,7 +6,7 @@ To control the flow of your game, you can make the function return either true \
 
 Example:
 
-```javascript
+```
 "Hi there!",
 function(){
     alert("This is pretty useful!");
@@ -17,7 +17,7 @@ function(){
 
 While that may be ok for a few functions, as you can see after a while your code starts to become more complicated, a way to simplify things is declaring the functions before your script and then just using the name to call it in the script like this:
 
-```javascript
+```
 function sendAlert(){
     alert("This is pretty useful!");
     return true;
@@ -39,7 +39,7 @@ Using that technique will make your game a lot more easy to debug and update!
 
 While the advanced way adds a lot of more possibilities to your game, it still doesn't solve the fact that you may need to realize some async tasks such as a request or other activities. Since v1.3.2, using [JavaScript Promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) is possible.
 
-```javascript
+```
 function asyncFunction(){
     return new Promise((resolve, reject) => {
             // All your code should be here
@@ -71,7 +71,7 @@ So far, we've been using normal JavaScript functions to achieve more functionali
 
 Let's see what we mean by that, let's say you are building some kind of RPG elements in your game and thus your player has stats. Normally, those stats would be declared inside your storage variable like this:
 
-```javascript
+```
 "use strict";
 // Persistent Storage Variable
 
@@ -86,7 +86,7 @@ let storage = {
 
 Now, inside your script you would probably make some modifications of those stats depending on what the user does or how the story goes.
 
-```javascript
+```
 let script = {
     // The game starts here.
     "Start": [
@@ -105,7 +105,7 @@ So, if we played this game, the first text would appear, then after we click for
 
 To solve this problem and allow users to go back, Monoagatari v1.4 introduced reversible "Function" objects, as with all the special script objects, these are defined in a JSON format, let's take a look at how the same situation as above would look like:
 
-```javascript
+```
 let script = {
     // The game starts here.
     "Start": [
