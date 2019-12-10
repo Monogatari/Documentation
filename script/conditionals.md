@@ -2,7 +2,7 @@
 
 Chances are, at some point you'll want to control the flow of your game depending on certain conditions, like jumping to certain labels or even show different dialogs depending on some condition. To do this, Monogatari has Conditional objects, let's take a look at this Conditional taken from the Demo:
 
-```
+```javascript
 {"Conditional": {
     "Condition": function(){
         return storage.evelyn_name == "Evelyn";
@@ -18,7 +18,7 @@ In this case, those statements are dialogs so that simply means that if the cond
 
 Of course dialogs is not the only thing we can do here, we can also use Conditionals to jump to certain labels like this:
 
-```
+```javascript
 {"Conditional": {
     "Condition": function(){
         return storage.played == true;

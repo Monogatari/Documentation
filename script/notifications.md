@@ -4,7 +4,7 @@ A notification may be useful to let the user notice something. You could also us
 
 First you need to declare your notification, it consists on an Identifier, Title, a A subtitle and the message body.
 
-```
+```javascript
 var notifications = {
     "SampleNotification":{
         title: "Hey!",
@@ -16,13 +16,13 @@ var notifications = {
 
 Next, to show them up in your game, yo just need the notify command.
 
-```
+```javascript
 "notify SampleNotification"
 ```
 
 If you want your notification to hide after a while, you can tell after how many miliseconds it should go away:
 
-```
+```javascript
 "notify SampleNotification 300"
 ```
 

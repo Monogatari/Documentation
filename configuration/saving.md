@@ -4,7 +4,7 @@
 
 You may have multiple games in the same domain, if you keep the default save name in all of them, you'll notice they'll share the save and load slots. That's why, you can change the name prefix of the save slots in the options.js file, just change the value of the `engine["SaveLabel"]` variable.
 
-```
+```javascript
 "SaveLabel": "Save"
 ```
 
@@ -12,7 +12,7 @@ You may have multiple games in the same domain, if you keep the default save nam
 
 You can easily increase or decrease the number of save slots available for your game. Simply go to the options.js file and change the `engine["Slots"]` value to any number you want.
 
-```
+```javascript
 "Slots": 0
 ```
 
@@ -22,13 +22,13 @@ You can make your game have autosaves every certain time, to do so, just change 
 
 By default, this property is set to 0, meaning AutoSaving is off.
 
-```
+```javascript
 "AutoSave": 0
 ```
 
 You can change this number to the number of every minutes you want your game to be autosaved. For example, the following will autosave the game every 5 minutes:
 
-```
+```javascript
 "AutoSave": 5
 ```
 

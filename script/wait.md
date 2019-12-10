@@ -2,7 +2,7 @@
 
 What if you would want to wait some seconds before something happening? let's take a look at this script:
 
-```
+```javascript
 let script = {
     // The game starts here.
     "Start": [
