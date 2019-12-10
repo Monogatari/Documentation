@@ -6,7 +6,7 @@ Choices are built as JSON, with the key "Choice", and every choice available as 
 
 Every choice has 2 attributes, the text to display and what to do when it's clicked.
 
-```
+```javascript
 {"Choice":{
     "Developer":{
         "Text": "I'm a developer.",
@@ -29,7 +29,7 @@ Every choice has 2 attributes, the text to display and what to do when it's clic
 
 You can also show some options only if some condition is true.
 
-```
+```javascript
 {"Choice":{
     "Developer":{
         "Text": "I'm a developer.",
