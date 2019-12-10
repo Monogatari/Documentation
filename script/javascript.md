@@ -6,7 +6,7 @@ The simple one, is using the $ command:
 
 The syntax is pretty easy: "$ \[Javascript Code\]". Here are some examples:
 
-```
+```javascript
 // All variables must be declared as a window property. var x = 0; will not work as expected.
 "$ var window.x = 0",
 "$ x+=1",
@@ -19,7 +19,7 @@ To control the flow of your game, you can make the function return either true \
 
 Example:
 
-```
+```javascript
 "Hi there!",
 function(){
     alert("This is pretty useful!");
@@ -30,7 +30,7 @@ function(){
 
 You can as well use variables in your script.
 
-```
+```javascript
 "The result of 2+2 is: " + (2+2),
 "Isn't that right?"
 ```

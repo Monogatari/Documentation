@@ -2,7 +2,7 @@
 
 You may want to split your game in more files, and you can do so in a very easy way. Just create another javascript file, and if for example you want to put a label in there, just declare it like this:
 
-```
+```javascript
 script["NewLabel"] = {
     "Statements..."
 }
@@ -10,7 +10,7 @@ script["NewLabel"] = {
 
 In case of Multi Language Games:
 
-```
+```javascript
 script["Language"]["NewLabel"] = {
     "Statements..."
 }
