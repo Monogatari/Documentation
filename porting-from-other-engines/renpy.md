@@ -4,7 +4,7 @@ If you already have a Ren'py game and would like to export it to Monogatari, you
 
 You can take a look to the script of The Question in [Ren'py](http://www.renpy.org/doc/html/thequestion.html) and this Monogatari Script so you can compare and learn more! If you want, you can also [download the full The Question game made in Monogatari here](https://web.tresorit.com/l#rVQ-obo0UOwTP59dSS6doA).
 
-```
+```javascript
 // Define the backgrounds for each scene.
 const scenes = {
 	"lecturehall": "lecturehall.jpg",

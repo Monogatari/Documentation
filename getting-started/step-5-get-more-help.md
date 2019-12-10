@@ -14,7 +14,7 @@ But of course, you are not alone! If you have any doubt, problem or just want so
 
 ### Where to Ask Questions
 
-The best place to ask questions is the [Discord Server](https://discord.gg/sj4uPrP), where there is a good community and you can receive help from people making games just like you!
+The best place to ask questions is the [Community Forums](https://community.monogatari.io/), where there is a good community and you can receive help from people making games just like you! You can also find us on the [Discord Server](https://discord.gg/sj4uPrP), if you prefer something a little more immediate.
 
 If you have some other doubts or prefer other type of communication, you can contact me on [Mastodon](https://mastodon.social/@HyuchiaDiego) or via email which you can find in my [website](https://hyuchia.com/).
 

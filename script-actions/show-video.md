@@ -2,7 +2,7 @@
 
 ## Description
 
-```
+```javascript
 'show video <video_id> <mode> [with [properties]]'
 ```
 
@@ -63,7 +63,7 @@ The following is a comprehensive list of the properties available for you to mod
 
 To play a video, you must first add the file to your **`assets/video/`** directory and then declare it. To do so, Monogatari has an  has a function that will let you declare all kinds of assets for your game.
 
-```
+```javascript
 Monogatari.assets ('video', {
     '<video_id>': 'videoFileName'
 });
@@ -79,7 +79,7 @@ If you wish to use other formats, you can check a [compatibility table](https://
 
 {% tabs %}
 {% tab title="Script" %}
-```
+```javascript
 Monogatari.script ({
     'Start': [
         'show video flowerTimelapse modal'
@@ -90,7 +90,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Video Assets" %}
-```
+```javascript
 Monogatari.assets ('video', {
     '<video_id>': 'videoFileName'
 });

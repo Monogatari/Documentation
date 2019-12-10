@@ -14,13 +14,13 @@ You can make your game have autosaves every certain time, to do so, just change 
 
 By default, this property is set to 0, meaning AutoSaving is off.
 
-```
+```javascript
 'AutoSave': 0
 ```
 
 You can change this number to the number of every minutes you want your game to be autosaved. For example, the following will autosave the game every 5 minutes:
 
-```
+```javascript
 'AutoSave': 5
 ```
 

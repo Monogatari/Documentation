@@ -4,7 +4,7 @@ There are many cases where we need input from the user, like to ask their name. 
 
 This is a sample script with an input statement:
 
-```
+```javascript
 monogatari.script ({
     // The game starts here.
     'Start': [

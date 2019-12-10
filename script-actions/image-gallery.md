@@ -18,7 +18,7 @@ This is easily fixed by simply declaring some images! First you put some images 
 
 Once you have an image or images in the gallery folder, you'll declare them in `script.js` . 
 
-```
+```javascript
 monogatari.assets ('gallery', {
 	'someImage': 'happy-shine.png'
 });
@@ -36,7 +36,7 @@ By default, on a fresh new game, all gallery images are locked, as these are rew
 
 In order for the player to see this locked image, the player must reach a part of the script that enables it. To make this possible for your player, you'll include `"gallery unlock"` in your game script.
 
-```
+```javascript
 "y You've unlocked the gallery image",
 "gallery unlock someImage", //unlocks the image
 "y Great job!"
@@ -48,7 +48,7 @@ Once the player crosses over this line in the script, it will unlock the gallery
 
 Monogatari gallery unlocks are not dependent on any save files, so if you, for whatever reason, want to lock the player out of being able to see any of the gallery images for any reason, like as part of, for instance, a story event that master resets the game, which includes losing the gallery, you may re-lock images by writing `"gallery lock someImage"` in your script.
 
-```
+```javascript
 "y This will lock the image away so that you can't see it anymore.",
 "gallery lock someImage",
 "y Goodbye, Protagonist-sama. I'll never forget you."

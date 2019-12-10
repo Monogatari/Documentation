@@ -6,7 +6,7 @@ description: Hide a particle system animation
 
 ## Description
 
-```
+```javascript
 'hide particles'
 ```
 
@@ -28,7 +28,7 @@ The following sample will show the particle system named snow, previously declar
 
 {% tabs %}
 {% tab title="Script" %}
-```
+```javascript
 Monogatari.script ({
     'Start': [
         'show particles snow',
@@ -42,7 +42,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Particles Configuration" %}
-```
+```javascript
 Monogatari.action('Particles').particles({
 	'snow': {
 		'particles': {
