@@ -6,13 +6,13 @@ If you want it to vibrate once: **"vibrate \[time\]"** If you want it to vibrate
 
 The following will make the device vibrate for 100 milliseconds.
 
-```javascript
+```
 "vibrate 100"
 ```
 
 While this will make it vibrate in a pattern:
 
-```javascript
+```
 "vibrate 100 200 300 200 100"
 ```
 
