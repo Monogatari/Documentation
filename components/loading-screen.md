@@ -12,7 +12,7 @@ description: The screen showing the asset preloading progress
 
 This is the first screen that will be shown if Asset Preloading is enabled on the game's configuration.
 
-**Component ID:** loading-screen
+**Component tag:** loading-screen
 
 ## Component Structure
 

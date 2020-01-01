@@ -51,6 +51,15 @@
 * [Vibrate](script-actions/vibrate.md)
 * [Wait](script-actions/wait.md)
 
+## Components
+
+* [Quick Menu](components/quick-menu.md)
+* [Loading Screen](components/loading-screen.md)
+* [Main Screen](components/main-screen.md)
+* [Choice Container](components/choice-container.md)
+* [Save Slot](components/save-slot.md)
+* [Text Box](components/text-box.md)
+
 ## Configuration Options
 
 * [Game Configuration](configuration-options/game-configuration/README.md)
@@ -91,15 +100,6 @@
   * [Built-in Functions](advanced-monogatari-development/components/built-in-functions.md)
 * [Translations](advanced-monogatari-development/translations.md)
 * [Events](advanced-monogatari-development/untitled.md)
-
-## Components
-
-* [Quick Menu](components/quick-menu.md)
-* [Loading Screen](components/loading-screen.md)
-* [Main Screen](components/main-screen.md)
-* [Choice Container](components/choice-container.md)
-* [Save Slot](components/save-slot.md)
-* [Text Box](components/text-box.md)
 
 ## Releases
 

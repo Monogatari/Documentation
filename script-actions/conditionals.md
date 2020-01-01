@@ -8,7 +8,7 @@ Chances are, at some point you'll want to control the flow of your game dependin
 
 To do this, Monogatari has Conditional objects, let's take a look at this example:
 
-```javascript
+```
 {'Conditional': {
     'Condition': function () {
         return this.storage ('evelyn_name') == 'Evelyn';
@@ -24,7 +24,7 @@ In this case, those statements are dialogs so that simply means that if the cond
 
 Of course dialogs is not the only thing we can do here, we can also use Conditionals to jump to certain labels like this:
 
-```javascript
+```
 {'Conditional': {
     'Condition': function(){
         return this.storage ('played');
@@ -38,7 +38,7 @@ Of course dialogs is not the only thing we can do here, we can also use Conditio
 
 The `'Conditional'` object also supports strings. In this example, assume your storage contains a variable called `'money'` and that the money variable represents currency the player can find, and then an ending is chosen when they come to a place to purchase food.
 
-```javascript
+```
 {'Conditional': {
     'Condition': function(){
         return this.storage ('money');

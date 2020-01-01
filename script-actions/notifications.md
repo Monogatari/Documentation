@@ -6,7 +6,7 @@ description: Show a notification to the player
 
 ## Description
 
-```javascript
+```
 'show notification <notification_id> [time]'
 ```
 
@@ -29,7 +29,7 @@ The `notification` action let's you show a notification to the player. Notificat
 
 To show a notification, you must first declare it with all of it's characteristics. To do so, the notification action has a configuration function where you can define your id or name for each notification and their respective information.
 
-```javascript
+```
 Monogatari.action ('Notification').notifications ({
     '<notification_id>': {
         title: '',
@@ -55,7 +55,7 @@ The following script will show a notification that the player will have to manua
 
 {% tabs %}
 {% tab title="Script" %}
-```javascript
+```
 Monogatari.script ({
     'Start': [
         'show notification SampleNotification',
@@ -66,7 +66,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Notification Configuration" %}
-```javascript
+```
 Monogatari.action ('Notification').notifications ({
     'SampleNotification':{
         title: 'Hey!',
@@ -84,7 +84,7 @@ The following script will make the notification go away automatically after 5 se
 
 {% tabs %}
 {% tab title="Script" %}
-```javascript
+```
 Monogatari.script ({
     'Start': [
         'show notification SampleNotification 5000',
@@ -95,7 +95,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Notification Configuration" %}
-```javascript
+```
 Monogatari.action ('Notification').notifications ({
     'SampleNotification':{
         title: 'Hey!',
