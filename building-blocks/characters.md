@@ -114,7 +114,7 @@ monogatari.characters ({
 });
 ```
 
-Since we are building visual novels, we also need images for our characters! You need the Directory inside the `assets/characters` directory where your files will be placed, and assign a simple identifier to each file.
+Since we are building visual novels, we also need images for our characters! You need the Directory inside the img directory where your files will be placed, and assign a simple identifier to each file.
 
 ```javascript
 monogatari.characters ({
@@ -137,5 +137,5 @@ monogatari.characters ({
 });
 ```
 
-The `directory` attribute is a sub directory of characters where the images will be pulled, if no `directory` is given, it will be assumed to be the characters directory itself.
+The `directory` attribute is a subdirectory of characters where the images will be pulled, if no `directory` is given, it will be assumed to be the characters directory itself.
 

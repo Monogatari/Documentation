@@ -34,6 +34,7 @@
 * [Hide Particles](script-actions/hide-particles.md)
 * [Input](script-actions/input.md)
 * [JavaScript](script-actions/javascript.md)
+* [Placeholder](script-actions/placeholder.md)
 * [Play Music](script-actions/play-music.md)
 * [Play Sound](script-actions/play-sound.md)
 * [Play Voice](script-actions/play-voice.md)
