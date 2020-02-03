@@ -6,7 +6,7 @@ You can either use images or CSS properties like colors as backgrounds.
 
 If you'll use images, must declare them first, every scene image file must be placed in the scenes directory inside the img directory. Remember to add these files to your `service-worker.js` file if you want to improve asset preloading as stated in the [Asset Preload Section](../configuration/asset-preloading.md)
 
-```
+```javascript
 var scenes = {
     "mountain": "mountain.svg",
     "sea": "sea.png"
@@ -15,13 +15,13 @@ var scenes = {
 
 Now, to change the scene, just use the scene command. Syntax: "scene \[Scene Identifier\]"
 
-```
+```javascript
 "scene mountain"
 ```
 
 If you'll use css to set your own background style, you must use the scene command as well. Syntax: "scene \[CSS\]": These are valid ways to use it:
 
-```
+```javascript
 "scene #fff"
 "scene rgb(0,0,0)"
 "scene url('img/scenes/mountain.svg')"
@@ -33,7 +33,7 @@ Since Monogatari v1.3.2, it is possible to use the same animations for character
 
 Syntax: "scene \[CSS or Image Identifier\] with \[Animation Name\]"
 
-```
+```javascript
 "scene mountain with fadeIn"
 ```
 
@@ -45,7 +45,7 @@ Syntax: "scene \[CSS or Image Identifier\] with \[CSS Class Name\]"
 
 For example, note the following CSS code creating a simple Ken Burn Animation:
 
-```
+```css
 .ken-burn {
     animation-name: ken-burns; /* Name of the animation to use */
     animation-duration: 30s;
@@ -75,7 +75,7 @@ For example, note the following CSS code creating a simple Ken Burn Animation:
 
 In order to use that animation within your game, it would be as simple as this:
 
-```
+```javascript
 "scene mountain with ken-burn"
 ```
 

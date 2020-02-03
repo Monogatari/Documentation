@@ -8,13 +8,13 @@ The asset preloading will show a progress bar when you enter the game, the entir
 
 This property default value is true meaning it will show the Preload Screen and do all the Asset Preloading
 
-```
+```javascript
 "Preload": true
 ```
 
 To skip it, just change the value to false but remember that every asset will be loaded when you use it and may make a poor experience for users on slow connections.
 
-```
+```javascript
 "Preload": false
 ```
 
@@ -28,7 +28,7 @@ This functionality is inside the `service-worker.js` file. There you'll need to 
 
 The `name` and `version` properties are used to control the cache of your game, change the `name` to your game's name, whith no spaces or special characters and the `version` property as a control.
 
-```
+```javascript
 // The name of your game, no spaces or special characters.
 var name = 'Monogatari';
 
@@ -39,7 +39,7 @@ var version = '0.1.0';
 
 What does using the `version` as a control means? Well, lets take a look at the `files` variable first, this array defines all the files you want to store in the cache, by default this just caches files that most likely won't change nad it's up to you to add your game assets and other files:
 
-```
+```javascript
 var files = [
 
     // General Files
@@ -103,7 +103,7 @@ var files = [
 
 If you were to leave it like that, offline playing would not be possible because you are not caching your assets such as images and audio, more importantly you can notice how important files like the monogatari.js files are commented out in that code, this is mainly to ease your development and prevent you having cache problems but for deployment, you should uncomment those out and add your own assets files as well. Let's take a look at how this variable looks like for the [demo in the website](https://monogatari.io/demo/):
 
-```
+```javascript
 var files = [
     '/',
     'manifest.json',
@@ -170,13 +170,13 @@ Use of Service Workers can also be disabled from the `options.js` file using the
 
 This property default value is true meaning it will make use of Service Workers to cache your assets, Service Workers may be used for other activities in the future as well, disabling this option will disable them all.
 
-```
+```javascript
 "ServiceWorkers": true
 ```
 
 To disable it, just change it to false but remember that every asset will be loaded when you use it and may make a poor experience for users on slow connections.
 
-```
+```javascript
 "ServiceWorkers": false
 ```
 

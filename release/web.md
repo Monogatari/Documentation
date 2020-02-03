@@ -8,7 +8,7 @@ Inside your `index.html` file, you'll notice there's a lot of meta tags, every s
 
 Many come already pre-filled but others are for you to fill in, in the case of all the icon files, since v1.3.2 Monogatari provides placeholder icons inside the `img/icons/` directory, be sure to replace those with your own as well as the `favicon.ico` file before releasing your game. Here is the section of meta tags you'll find and that need to be filled in case they aren't already:
 
-```
+```markup
     <title></title> <!--Up to 60-70 Characters. Optimal Format: Primary Keyword - Secondary Keyword | Brand Name-->
 
     <meta charset="UTF-8">
@@ -86,7 +86,7 @@ A manifest.json file is shipped on Monogatari since v1.3.2, this file is needed 
 
 Inside this file you'll only need to pay attention to four properties:
 
-```
+```javascript
 "short_name": "Monogatari", // Maximum 12 characters
 "name": "Monogatari Visual Novel", // Maximum 45 characters
 "background_color": "#F7F7F7", // Background color for the Splash Screen

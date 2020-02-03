@@ -6,13 +6,13 @@ To do that, just change the `"ShowMenu"` property in the `options.js` file
 
 This property default value is `true` meaning it will show the Main menu.
 
-```
+```javascript
 "ShowMenu": true
 ```
 
 To skip it, just change the value to `false`:
 
-```
+```javascript
 "ShowMenu": false
 ```
 

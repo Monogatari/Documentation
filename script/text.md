@@ -6,19 +6,19 @@ The say statement is used... well, for a character to say something. The syntax 
 
 `"[Character Identifier] [Text to Say]"`
 
-```
+```javascript
 "e Hi! My name is Evelyn."
 ```
 
 It also accepts HTML, so you can show many things in a text like the Font Awesome icons.
 
-```
+```javascript
 "e The <span class='fa fa-arrow-left'></span> button is the back button, press it to return to a previous state of the game.",
 ```
 
 If no character identifier is given, it will be considered as a narration and no name will be shown.
 
-```
+```javascript
 "This would be a narrator."
 ```
 
@@ -26,7 +26,7 @@ If no character identifier is given, it will be considered as a narration and no
 
 You may want in some point to clear/remove the text. There's a "clear command" for that.
 
-```
+```javascript
 "clear"
 ```
 
@@ -34,7 +34,7 @@ You may want in some point to clear/remove the text. There's a "clear command" f
 
 If you've defined the "Side" property for your characters, adding a list of images to show, you can use them as side images with each dialog, to do so, you should use a format like this one:
 
-```
+```javascript
 "e:Smiling Hi! My name is Evelyn."
 ```
 

@@ -6,7 +6,7 @@ Choices are built as JSONs, with the key 'Choice', and every choice available as
 
 Every choice requires 2 properties: the text to display and what to do when it's clicked.
 
-```
+```javascript
 {"Choice":{
     "Developer":{
         "Text": "I'm a developer.",
@@ -33,7 +33,7 @@ There are some cases where you would only want to show a choice if certain condi
 
 For this example, let's assume this is your `storage` variable:
 
-```
+```javascript
 "use strict";
 // Persistent Storage Variable
 
@@ -44,7 +44,7 @@ let storage = {
 
 As you can see, we added a 'played' variable inside the storage and set its default to `false`. Now, let's see what would happen with the following Choices:
 
-```
+```javascript
 {"Choice":{
     "Developer":{
         "Text": "I'm a developer.",
@@ -66,7 +66,7 @@ As you can see, we added a 'played' variable inside the storage and set its defa
 
 You might want to show a dialog along with the choices, this is possible adding a text property inside the object:
 
-```
+```javascript
 {"Choice":{
     "Dialog": "e Before I continue, let me ask you, what are you?",
     "Developer":{
@@ -89,7 +89,7 @@ That way the `'Dialog'` property is the one that will be shown with the choices,
 
 The `'Class'` property allows you to give a CSS class to your buttons for special styles. Suppose you had the following CSS in your `main.css` file:
 
-```
+```css
 .boldedText {
     font-weight: bold;
 }
@@ -100,7 +100,7 @@ The `'Class'` property allows you to give a CSS class to your buttons for specia
 
 The `boldedText` and `italicText` classes can then be applied to your buttons by setting their `'Class'` properties in your script, like so:
 
-```
+```javascript
 {"Choice":{
     "FirstOption":{
         "Text": "Yes",

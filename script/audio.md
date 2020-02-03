@@ -8,7 +8,7 @@ To view the supported formats, you can take a look at [this page](http://www.w3s
 
 Declarations:
 
-```
+```javascript
 var music = {
     "Theme": "song.mp3"
 }
@@ -26,29 +26,29 @@ Playing music:
 
 With declaration:
 
-```
+```javascript
 "play music Theme loop" // If loop isn't there, it will only play once.
 ```
 
 Without declaration:
 
-```
+```javascript
 "play music song.mp3 loop"
 ```
 
 You can stop or pause music:
 
-```
+```javascript
 "stop music"
 ```
 
-```
+```javascript
 "pause music"
 ```
 
 #### Voice
 
-```
+```javascript
 "play voice f1"
 ```
 
@@ -56,7 +56,7 @@ You can stop or pause music:
 
 With declaration:
 
-```
+```javascript
 "play sound Rain loop" // If loop isn't there, it will only play once.
 ```
 
