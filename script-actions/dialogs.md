@@ -1,8 +1,12 @@
+---
+description: The text your players are going to read.
+---
+
 # Dialogs
 
 ## Description
 
-```
+```javascript
 '[character_id][:[expression_id]] <dialog_text>'
 ```
 
@@ -12,15 +16,15 @@ The say statement is used... well, for a character to say something. The syntax 
 
 '\[Character Identifier\] \[Text to Say\]'
 
-```
+```javascript
 'y Hi! My name is Yui.'
 ```
 
-![A fresh Monogatari game showing Yui speaking, saying &quot;Hi! My name is Yui.&quot;](../.gitbook/assets/image%20%2813%29.png)
+![A fresh Monogatari game showing Yui speaking, saying &quot;Hi! My name is Yui.&quot;](../.gitbook/assets/image%20%2815%29.png)
 
 It also accepts HTML, so you can show many things in a text like the Font Awesome icons.
 
-```
+```javascript
 'y The <span class="fa fa-arrow-left"></span> button is the back button, press it to return to a previous state of the game.'
 ```
 
@@ -28,7 +32,7 @@ It also accepts HTML, so you can show many things in a text like the Font Awesom
 
 If no character identifier is given, it will be considered as a narration and no name will be shown.
 
-```
+```javascript
 'This would be a narrator.'
 ```
 
@@ -38,7 +42,7 @@ If no character identifier is given, it will be considered as a narration and no
 
 The `'clear'` command sends an empty line of dialog to remove all text on the screen.
 
-```
+```javascript
 'clear'
 ```
 
@@ -48,7 +52,7 @@ The clear command automatically runs the next line without requiring a click fro
 
 If you've defined the `expressions` property for your characters, adding a list of images to show, you can use them as side images with each dialog, to do so, you should use a format like this one:
 
-```
+```javascript
 'y:Smiling Hi! My name is Yui.'
 ```
 
@@ -60,15 +64,15 @@ This assumes you have a Side image called Smiling, which means with every dialog
 
 The `'centered'` command is like a special character-id that goes at the beginning of dialog text to display a special floating box that hovers in the very center of the screen.
 
-```
+```javascript
 'centered This is an example of centered text.'
 ```
 
-![](../.gitbook/assets/image%20%2812%29.png)
+![](../.gitbook/assets/image%20%2813%29.png)
 
 The text box that displays `'centered'` text is special. Rather than being inside of a `<text-box>` tag, it is instead inside of a `<centered-dialog>` tag.
 
-```
+```markup
 <centered-dialog class="animated" data-component="centered-dialog">
             <div data-content="wrapper">Here's some more centered text.</div>
         </centered-dialog>
@@ -82,7 +86,7 @@ HTML can be used inside of `'centered'` text the same as normal dialog, so you c
 
 The `'nvl'` command is similar to the `'centered'` command in that it is used at the beginning of a line of dialog to present a special display, similar to games like Fate/stay Night, or Radical Dreamers.
 
-```
+```javascript
 'nvl Here is an example of NVL text.',
 'nvl Here is some more NVL text.',
 'nvl One more line.'
@@ -94,7 +98,7 @@ The `'nvl'` text differs from normal Monogatari text in that clicking does not c
 
 NVL text is displayed on screen inside of a `<text-box>` with a CSS class`'nvl'`. By default, this textbox is styled to fill the entire screen. Additionally, each line of NVL text is contained inside of a `<div>` with a `data-spoken` value for whichever character is speaking. Normally it's the narrator, but if you give a character the `nvl` attribute and set it to `true` then that character can be used as an NVL character, and their text can have special CSS rules if you want to get creative with that.
 
-![An example of some characters speaking in NVL mode.](../.gitbook/assets/image%20%2811%29.png)
+![An example of some characters speaking in NVL mode.](../.gitbook/assets/image%20%2812%29.png)
 
 Note that Expression side images are not supported in NVL mode.
 

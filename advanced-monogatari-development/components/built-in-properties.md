@@ -4,13 +4,13 @@ Every component has some built-in properties that are used for its functionality
 
 ## ID
 
-```
+```javascript
 Component._id = '';
 ```
 
 ## Configuration
 
-```
+```javascript
 Component._configuration = {};
 ```
 
@@ -18,7 +18,7 @@ Component._configuration = {};
 
 ## State
 
-```
+```javascript
 Component._state = {};
 ```
 

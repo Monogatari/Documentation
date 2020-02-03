@@ -16,7 +16,7 @@ Each label has an id that you specify, the initial label \(as in the one with wh
 
 To have a label in another file, you just need to declare it like this:
 
-```
+```javascript
 monogatari.label ('OtherLabel', [
     "This is another label!"
 ]);
@@ -24,7 +24,7 @@ monogatari.label ('OtherLabel', [
 
 That declaration is the same as if you had the following \(I'm omitting the contents of the Start label for simplicity\):
 
-```
+```javascript
 monogatari.script ({
     "Start": [...],
    "OtherLabel": [
@@ -37,13 +37,13 @@ That means you can declare labels not only in the var script = {...}; code but a
 
 Since we are splitting things up, that means the `script.js` file will not longer be the only place where our story resides. You'll be saving that label \(the first code showed in this post\) in other file, remember you need to load that file as well, so just add it in your `index.html` file, right below the line that says:
 
-```
+```markup
 <script src="js/script.js"></script>
 ```
 
 Let's suppose you are saving that level on a file with the same name: `OtherLabel.js`, to load it. Just insert another script tag like this one:
 
-```
+```markup
 <script src="js/OtherLabel.js"></script>
 ```
 

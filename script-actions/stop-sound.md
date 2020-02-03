@@ -2,7 +2,7 @@
 
 ## Description
 
-```
+```javascript
 'stop sound [sound_id] [with [properties]]'
 ```
 
@@ -37,7 +37,7 @@ The following will stop a specific sound, identified by it's name.
 
 {% tabs %}
 {% tab title="Script" %}
-```
+```javascript
 Monogatari.script ({
     'Start': [
         'play sound night loop',
@@ -52,7 +52,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Sound Assets" %}
-```
+```javascript
 Monogatari.assets ('sound', {
     'fireCracks': 'fire-cracks.mp3',
     'night': 'night.mp3'
@@ -67,7 +67,7 @@ The following will stop all sounds currently playing.
 
 {% tabs %}
 {% tab title="Script" %}
-```
+```javascript
 Monogatari.script ({
     'Start': [
         'play sound night loop',
@@ -82,7 +82,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Sound Assets" %}
-```
+```javascript
 Monogatari.assets ('sound', {
     'fireCracks': 'fire-cracks.mp3',
     'night': 'night.mp3'
@@ -97,7 +97,7 @@ The following will stop the sound, and will use a fade out effect to do so. You 
 
 {% tabs %}
 {% tab title="Script" %}
-```
+```javascript
 Monogatari.script ({
     'Start': [
         'play sound night loop',
@@ -112,7 +112,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Sound Assets" %}
-```
+```javascript
 Monogatari.assets ('sound', {
     'fireCracks': 'fire-cracks.mp3',
     'night': 'night.mp3'
