@@ -64,7 +64,7 @@ The following is a comprehensive list of the properties available for you to mod
 To play a video, you must first add the file to your **`assets/video/`** directory and then declare it. To do so, Monogatari has an  has a function that will let you declare all kinds of assets for your game.
 
 ```javascript
-Monogatari.assets ('video', {
+Monogatari.assets ('videos', {
     '<video_id>': 'videoFileName'
 });
 ```
