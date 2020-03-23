@@ -15,13 +15,13 @@ monogatari.script ({
                 return input.trim ().length > 0;
             },
             'Save': function(input) {
-                this.storage('player', { Name: input});
+                this.storage().player.name = input;
             },
             'Warning': 'You must enter a name!'
             }
         },
 
-        'Hi {{player.Name}} Welcome to Monogatari!'
+        'Hi {{player.name}}! Welcome to Monogatari!'
     ]
 });
 ```
