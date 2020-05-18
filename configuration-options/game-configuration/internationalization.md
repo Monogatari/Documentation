@@ -47,7 +47,7 @@ These language labels are are objects that contain script labels. Their names mu
 
 ![Picture of monogatari.\_translations for version &quot;2.0.0-beta.10&quot;](../../.gitbook/assets/image%20%2816%29.png)
 
-Please note, each individual translation of your game is its own complete game, effectively. They are not modifications of each other, and there is no "default" game. Nothing is stopping you from making two different language versions of the same game entirely different. They don't need to have the same number of strings, and they also don't need to have the same game logic. On that note, if you have a `jump someLabel` to a label that exists in one translation, but does not exist in the other, then you will get an error telling you that `someLabel` does not exist.
+Please note, each individual translation of your game is its own complete game, effectively. They are not modifications of each other, and there is no "default" game. Nothing is stopping you from making two different language versions of the same game entirely different. They don't need to have the same number of strings, and they also don't need to have the same game logic. On that note, if you have a `jump someLabel` to a label that exists in one translation, but does not exist in the language that the player has selected, then they will get an error telling them that `someLabel` does not exist, so be careful when crafting your script!
 
 ## Translating the Engine UI for a not-yet-supported language
 
