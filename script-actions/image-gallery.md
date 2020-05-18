@@ -14,7 +14,7 @@ By default, the Image Gallery doesn't appear, since it would be pretty disappoin
 
 This is easily fixed by simply declaring some images! First you put some images in the Gallery folder. If you don't already have a Gallery folder because you previously updated the Engine Folder from an earlier version of Monogatari v2, then you may create a new one.
 
-![The &quot;gallery&quot; folder is located inside of your &quot;assets&quot; folder in your game&apos;s directory.](../.gitbook/assets/image%20%2816%29.png)
+![The &quot;gallery&quot; folder is located inside of your &quot;assets&quot; folder in your game&apos;s directory.](../.gitbook/assets/image%20%2814%29%20%281%29.png)
 
 Once you have an image or images in the gallery folder, you'll declare them in `script.js` . 
 
@@ -44,7 +44,7 @@ In order for the player to see this locked image, the player must reach a part o
 
 Once the player crosses over this line in the script, it will unlock the gallery image!
 
-![The default Gallery screen with one image, with that one image being Unlocked.](../.gitbook/assets/image%20%2811%29.png)
+![The default Gallery screen with one image, with that one image being Unlocked.](../.gitbook/assets/image%20%2810%29%20%281%29.png)
 
 Monogatari gallery unlocks are not dependent on any save files, so if you, for whatever reason, want to lock the player out of being able to see any of the gallery images for any reason, like as part of, for instance, a story event that master resets the game, which includes losing the gallery, you may re-lock images by writing `"gallery lock someImage"` in your script.
 
