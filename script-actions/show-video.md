@@ -49,7 +49,9 @@ The video action allows you to show videos on your novel in different modes.
       <td style="text-align:left">The ID of a video asset previously defined.</td>
     </tr>
   </tbody>
-</table>### Properties
+</table>
+
+### Properties
 
 The following is a comprehensive list of the properties available for you to modify certain behaviors of the video action.
 

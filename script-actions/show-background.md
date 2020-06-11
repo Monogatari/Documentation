@@ -66,7 +66,9 @@ This action uses the assets from the scene action so they still need to be decla
       <td style="text-align:left">Optional. A list of comma separated properties with their respective value.</td>
     </tr>
   </tbody>
-</table>### Properties
+</table>
+
+### Properties
 
 The following is a comprehensive list of the properties available for you to modify certain behaviors of the background action.
 

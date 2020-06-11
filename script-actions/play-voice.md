@@ -64,7 +64,9 @@ The following is a comprehensive list of the properties available for you to mod
       <td style="text-align:left">Make the voice loop. This property does not require any value.</td>
     </tr>
   </tbody>
-</table>## Assets Declarations
+</table>
+
+## Assets Declarations
 
 To play a voice, you must first add the file to your **`assets/voice/`** directory and then declare it. To do so, Monogatari has an  has a function that will let you declare all kinds of assets for your game.
 

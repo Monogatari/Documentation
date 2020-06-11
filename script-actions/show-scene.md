@@ -64,7 +64,9 @@ The `scene` action will change the background and clear the screen, removing all
       <td style="text-align:left">Optional. A list of comma separated properties with their respective value.</td>
     </tr>
   </tbody>
-</table>### Properties
+</table>
+
+### Properties
 
 The following is a comprehensive list of the properties available for you to modify certain behaviors of the scene action.
 
@@ -81,7 +83,7 @@ If you want to use an image for the background, remember you first have to decla
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script ({
     'Start': [
         'show scene mountain'
         'end'
@@ -92,7 +94,7 @@ Monogatari.script ({
 
 {% tab title="Scenes Assets" %}
 ```javascript
-Monogatari.assets ('scenes', {
+monogatari.assets ('scenes', {
     'mountain': 'mountain.png',
     'sea': 'sea.png'
 });
@@ -105,7 +107,7 @@ Monogatari.assets ('scenes', {
 If you'll use CSS to set a custom background, you can use any valid non-spaced value for the [`background-image`](https://developer.mozilla.org/en-US/docs/Web/CSS/background) or [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color)  CSS properties. Using CSS is perfect for when you want your background to be a **solid color**. Here are some valid statements:
 
 ```javascript
-Monogatari.script ({
+monogatari.script ({
     'Start': [
         'show scene #fff'
         'show scene rgb(0, 0, 0)'
@@ -122,7 +124,7 @@ Monogatari comes with some built-in animations ready for you to use, you can see
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script ({
     'Start': [
         'show scene sea with fadeIn'
         'end'
@@ -133,7 +135,7 @@ Monogatari.script ({
 
 {% tab title="Scenes Assets" %}
 ```javascript
-Monogatari.assets ('scenes', {
+monogatari.assets ('scenes', {
     'mountain': 'mountain.png',
     'sea': 'sea.png'
 });
@@ -146,7 +148,7 @@ Monogatari.assets ('scenes', {
 The following will set the background to a solid color using a CSS value and modify the duration of the _fadeIn_ animation to 20 seconds.
 
 ```javascript
-Monogatari.script ({
+monogatari.script ({
     'Start': [
         'show scene #424242 with fadeIn duration 20s'
         'end'
@@ -163,7 +165,7 @@ For example, note the following CSS code creating a simple Ken Burn Animation:
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script ({
     'Start': [
         'show scene mountain with ken-burn'
         'end'
@@ -174,7 +176,7 @@ Monogatari.script ({
 
 {% tab title="Scenes Assets" %}
 ```javascript
-Monogatari.assets ('scenes', {
+monogatari.assets ('scenes', {
     'mountain': 'mountain.png',
     'sea': 'sea.png'
 });
