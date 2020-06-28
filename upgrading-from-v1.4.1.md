@@ -19,7 +19,7 @@ Lets start with the assets, they are now saved on a directory called assets. Her
 | Music | `audio/music/` | `assets/music/` |
 | Voice | `audio/voice/` | `assets/voices/` |
 | Sounds | `audio/sound/` | `assets/sounds/` |
-| Characters | `img/characters` | `assets/music` |
+| Characters | `img/characters` | `assets/characters/` |
 | Backgrounds / Scenes | `img/scenes/` | `assets/scenes/` |
 | UI Assets | `img/ui/` | `assets/ui/` |
 | Video | `video` | `assets/videos/` |
