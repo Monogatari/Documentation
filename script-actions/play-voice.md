@@ -71,7 +71,7 @@ The following is a comprehensive list of the properties available for you to mod
 To play a voice, you must first add the file to your **`assets/voice/`** directory and then declare it. To do so, Monogatari has an  has a function that will let you declare all kinds of assets for your game.
 
 ```javascript
-Monogatari.assets ('voice', {
+monogatari.assets ('voice', {
     '<voice_id>': 'voiceFileName'
 });
 ```
@@ -91,7 +91,7 @@ The following will play the sound, and once the sound ends, it will simply stop.
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script ({
     'Start': [
         'play voice dialog_001',
         'This is the dialog that the voice file is narrating',
@@ -103,7 +103,7 @@ Monogatari.script ({
 
 {% tab title="Voice Assets" %}
 ```javascript
-Monogatari.assets ('voice', {
+monogatari.assets ('voice', {
     'dialog_001': 'dialog_file_1.mp3'
 });
 ```
@@ -117,7 +117,7 @@ The following will play the voice file, and once it ends, it will start over on 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script ({
     'Start': [
         'play voice dialog_001 with loop',
         'This is the dialog that the voice file is narrating',
@@ -129,7 +129,7 @@ Monogatari.script ({
 
 {% tab title="Sound Assets" %}
 ```javascript
-Monogatari.assets ('voice', {
+monogatari.assets ('voice', {
     'dialog_001': 'dialog_file_1.mp3'
 });
 ```
@@ -143,7 +143,7 @@ The following will play the voice file, and will use a fade in effect.
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script ({
     'Start': [
         'play voice dialog_001 with fade 3',
         'This is the dialog that the voice file is narrating',
@@ -155,7 +155,7 @@ Monogatari.script ({
 
 {% tab title="Sound Assets" %}
 ```javascript
-Monogatari.assets ('voice', {
+monogatari.assets ('voice', {
     'dialog_001': 'dialog_file_1.mp3'
 });
 ```
@@ -169,7 +169,7 @@ The following will set the volume of this voice to 73%.
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script ({
     'Start': [
         'play voice dialog_001 with volume 73',
         'This is the dialog that the voice file is narrating',
@@ -181,7 +181,7 @@ Monogatari.script ({
 
 {% tab title="Sound Assets" %}
 ```javascript
-Monogatari.assets ('voice', {
+monogatari.assets ('voice', {
     'dialog_001': 'dialog_file_1.mp3'
 });
 ```
@@ -201,7 +201,7 @@ Of course, you can combine all of this properties, and remember the order doesn'
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script ({
     'Start': [
         'play voice dialog_001 with volume 100 loop fade 20',
         'This is the dialog that the voice file is narrating',
@@ -211,9 +211,9 @@ Monogatari.script ({
 ```
 {% endtab %}
 
-{% tab title="" %}
+{% tab title="Sound Assets" %}
 ```javascript
-Monogatari.assets ('voice', {
+monogatari.assets ('voice', {
     'dialog_001': 'dialog_file_1.mp3'
 });
 ```
