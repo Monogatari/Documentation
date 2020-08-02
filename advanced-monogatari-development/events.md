@@ -38,7 +38,7 @@ Below is an in-progress list of all events Monogatari has.
 | :--- | :--- | :--- |
 | willRunAction |  |  |
 | didRunAction |  |  |
-| willReventAction |  |  |
+| willRevertAction |  |  |
 | didRevertAction |  |  |
 
 ## Configurations
