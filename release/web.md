@@ -4,7 +4,7 @@ Monogatari was built with this in mind, releasing your game online and thus maki
 
 #### Complete your Meta Tags
 
-Inside your `index.html` file, you'll notice there's a lot of meta tags, every single one of them have the purpose of improving your game SEO so it comes up in search result, make social sharing better and improve the experience on mobile devices. Filling them up is not necesary for your game to work but when releasing it online, failing to do so may result in a poor experience for your players.
+Inside your `index.html` file, you'll notice there's a lot of meta tags, every single one of them have the purpose of improving your game SEO so it comes up in search result, make social sharing better and improve the experience on mobile devices. Filling them up is not necessary for your game to work but when releasing it online, failing to do so may result in a poor experience for your players.
 
 Many come already pre-filled but others are for you to fill in, in the case of all the icon files, since v1.3.2 Monogatari provides placeholder icons inside the `img/icons/` directory, be sure to replace those with your own as well as the `favicon.ico` file before releasing your game. Here is the section of meta tags you'll find and that need to be filled in case they aren't already:
 
@@ -74,7 +74,7 @@ Many come already pre-filled but others are for you to fill in, in the case of a
 
 #### Optimize your images
 
-Optimizing your images is imperative to provide a betetr experience, we all hate when pages take a lot of time to load, even when using the preload features built in on Monogatari, optimizing your images will provide a better experience, the method you choose to do so is entirely yours to pick.
+Optimizing your images is imperative to provide a better experience, we all hate when pages take a lot of time to load, even when using the preload features built in on Monogatari, optimizing your images will provide a better experience, the method you choose to do so is entirely yours to pick.
 
 #### Improve Asset Loading
 
