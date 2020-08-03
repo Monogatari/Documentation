@@ -10,11 +10,11 @@ Apart from allowing you to have a script for different languages, Monogatari's U
 
 ## Getting started
 
-The first step is to figure out whether a translation for you language already exists or if it has to be created, you can find all languages available [here](https://github.com/Monogatari/Monogatari/tree/develop/core/translations).    
+The first step is to figure out whether a translation for you language already exists or if it has to be created, you can find all languages available [here](https://github.com/Monogatari/Monogatari/tree/develop/src/translations).    
   
 If there is a translation already available for your language, then all you'll have to do is update or add whatever strings are missing, if there isn't one yet, then you'll have to create a new file for it.  
   
-All translations take the [English strings file](https://github.com/Monogatari/Monogatari/blob/develop/core/translations/English.js) as its base so you'll need to check it out to see what you need to translate. Below is a sample of the file, be ware this is for demonstration purposes only and may be outdated so you should always check [the source file instead](https://github.com/Monogatari/Monogatari/blob/develop/core/translations/English.js). It is important that you only translate the strings on the right, as opposed to their keys on the left \(`'SomeKey': 'Some string to translate'`\).
+All translations take the [English strings file](https://github.com/Monogatari/Monogatari/blob/develop/src/translations/English.js) as its base so you'll need to check it out to see what you need to translate. Below is a sample of the file, be aware this is for demonstration purposes only and may be outdated so you should always check [the source file instead](https://github.com/Monogatari/Monogatari/blob/develop/src/translations/English.js). It is important that you only translate the strings on the right, as opposed to their keys on the left \(`'SomeKey': 'Some string to translate'`\).
 
 {% code title="English.js" %}
 ```javascript
