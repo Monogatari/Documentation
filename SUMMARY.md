@@ -54,6 +54,7 @@
 
 ## Components
 
+* [Credits](components/credits.md)
 * [Quick Menu](components/quick-menu.md)
 * [Loading Screen](components/loading-screen.md)
 * [Main Screen](components/main-screen.md)
@@ -100,7 +101,7 @@
   * [Built-in Properties](advanced-monogatari-development/components/built-in-properties.md)
   * [Built-in Functions](advanced-monogatari-development/components/built-in-functions.md)
 * [Translations](advanced-monogatari-development/translations.md)
-* [Events](advanced-monogatari-development/untitled.md)
+* [Events](advanced-monogatari-development/events.md)
 
 ## Releases
 

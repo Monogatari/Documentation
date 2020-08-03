@@ -4,7 +4,7 @@ Components come with a series of built-in functions that will make it easier to 
 
 ## Modify the HTML structure
 
-```
+```javascript
 static template ()
 ```
 
@@ -12,16 +12,18 @@ This function allows you to either get the HTML structure from a component, or s
 
 ### Examples
 
-    monogatari.component ('main-screen').template (() => {
-        return `
-            <h1>My Awesome Game</h1>
-            <main-menu></main-menu>
-        `;
-    });
+```javascript
+monogatari.component ('main-screen').template (() => {
+    return `
+        <h1>My Awesome Game</h1>
+        <main-menu></main-menu>
+    `;
+});
+```
 
 ## Running an arbitrary line of Monogatari
 
-```
+```javascript
 monogatari.run ("string")
 ```
 

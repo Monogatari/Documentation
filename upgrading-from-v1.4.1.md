@@ -19,7 +19,7 @@ Lets start with the assets, they are now saved on a directory called assets. Her
 | Music | `audio/music/` | `assets/music/` |
 | Voice | `audio/voice/` | `assets/voices/` |
 | Sounds | `audio/sound/` | `assets/sounds/` |
-| Characters | `img/characters` | `assets/music` |
+| Characters | `img/characters` | `assets/characters/` |
 | Backgrounds / Scenes | `img/scenes/` | `assets/scenes/` |
 | UI Assets | `img/ui/` | `assets/ui/` |
 | Video | `video` | `assets/videos/` |
@@ -41,23 +41,27 @@ Now its time to copy your storage object. The `js/storage.js` file is still the 
   
 **Storage on v1.4.1**
 
-```
+{% code title="storage.js" %}
+```javascript
 let storage = {
 	player: {
 		name: ""
 	}
 };
 ```
+{% endcode %}
 
 **Storage on v2.0.0**
 
-```
+{% code title="storage.js" %}
+```javascript
 monogatari.storage ({
 	player: {
 		name: ''
 	}
 });
 ```
+{% endcode %}
 
 As you can see, it really is just a matter of changing the `let storage = { ...storage };` format to the new `monogatari.storage ({ ...storage });` format, you can copy your storage object exactly as it is!  
 
@@ -66,13 +70,15 @@ As you can see, it really is just a matter of changing the `let storage = { ...s
 
 Previously, when you wanted to modify the storage, you would modify the variable directly like this:
 
-```
+{% code title="script.js" %}
+```javascript
 storage.someVariable = someValue;
 ```
+{% endcode %}
 
 Modifying the storage like that is no longer possible since it has been moved to a function. While you can look at all the new syntax on the [storage documentation](building-blocks/data-storage.md), the easiest way to update the syntax is by replacing all occurrences of it you have on your script for something like this:
 
-```
+```javascript
 monogatari.storage ().someVariable = someValue;
 ```
 
@@ -83,7 +89,8 @@ Just like with the storage, assets declaration syntax has changed just a bit, he
   
 **Assets declaration on v1.4.1**
 
-```
+{% code title="script.js" %}
+```javascript
 // Define the Particles JS Configurations used in the game
 let particles = {
 
@@ -119,10 +126,12 @@ const scenes = {
 
 };
 ```
+{% endcode %}
 
 **Assets declaration on v2.0.0**
 
-```
+{% code title="script.js" %}
+```javascript
 // Define the Particles JS Configurations used in the game
 monogatari.action ('particles').particles ({
 
@@ -158,6 +167,7 @@ monogatari.assets ('scenes', {
 
 });
 ```
+{% endcode %}
 
 ## 4. Script and Labels Declarations
 
@@ -165,7 +175,7 @@ Just as with the storage and assets, the way to declare the script for your game
 
 **Script declaration on v1.4.1**
 
-```
+```javascript
 let script = {
 	// The game starts here.
 	"Start": [
@@ -224,7 +234,7 @@ let script = {
 
 **Script declaration on v2.0.0**
 
-```
+```javascript
 monogatari.script ({
 	// The game starts here.
 	'Start': [
@@ -297,7 +307,7 @@ Declaring independent labels for your script is possible as always, and really u
 
 {% tabs %}
 {% tab title="Singe Language" %}
-```
+```javascript
 script["myLabel"]["English"] = [
     "some statement",
     "other statement"
@@ -306,7 +316,7 @@ script["myLabel"]["English"] = [
 {% endtab %}
 
 {% tab title="Multi Language" %}
-```
+```javascript
 script["myLabel"] = [
     "some statement",
     "other statement"
@@ -319,7 +329,7 @@ Individual Labels on v2.0.0
 
 {% tabs %}
 {% tab title="Single Language" %}
-```
+```javascript
 monogatari.label ('myLabel', [
     "some statement",
     "other statement"
@@ -328,7 +338,7 @@ monogatari.label ('myLabel', [
 {% endtab %}
 
 {% tab title="Multi Language" %}
-```
+```javascript
 monogatari.label ('myLabel', 'English', [
     "some statement",
     "other statement"
@@ -359,7 +369,7 @@ Previously, a file called strings.js was distributed with Monogatari where you w
 
 **Strings declaration on v1.4.1**
 
-```
+```javascript
 const strings = {
 
 	"Español": {
@@ -371,13 +381,13 @@ const strings = {
 
 **Strings addition on v1.4.1**
 
-```
+```javascript
 strings["Español"]["AllowPlaybac"] = "Click here to allow audio playback";
 ```
 
 **Strings declaration and addition on v2.0.0**
 
-```
+```javascript
 monogatari.translation ('Español', {
 	'AdvanceHelp': 'Para avanzar en el juego, presiona espacio o haz click',
 	'AllowPlayback': 'Click here to allow audio playback'

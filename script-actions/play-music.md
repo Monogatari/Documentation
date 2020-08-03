@@ -6,7 +6,7 @@ description: Play music media
 
 ## Description
 
-```
+```javascript
 'play music <music_id> [with [properties]]'
 ```
 
@@ -64,12 +64,14 @@ The following is a comprehensive list of the properties available for you to mod
       <td style="text-align:left">Make the music loop. This property does not require any value.</td>
     </tr>
   </tbody>
-</table>## Assets Declarations
+</table>
+
+## Assets Declarations
 
 To play a song, you must first add the file to your **`assets/music/`** directory and then declare it. To do so, Monogatari has an  has a function that will let you declare all kinds of assets for your game.
 
-```
-Monogatari.assets ('music', {
+```javascript
+monogatari.assets ('music', {
     '<music_id>': 'musicFileName'
 });
 ```
@@ -88,8 +90,8 @@ The following will play the song, and once the song ends, it will simply stop.
 
 {% tabs %}
 {% tab title="Script" %}
-```
-Monogatari.script ({
+```javascript
+monogatari.script ({
     'Start': [
         'play music mainTheme'
         'end'
@@ -99,8 +101,8 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Music Assets" %}
-```
-Monogatari.assets ('music', {
+```javascript
+monogatari.assets ('music', {
     'mainTheme': 'mainThemeSong.mp3'
 });
 ```
@@ -113,8 +115,8 @@ The following will play the song, and once the song ends, it will start over on 
 
 {% tabs %}
 {% tab title="Script" %}
-```
-Monogatari.script ({
+```javascript
+monogatari.script ({
     'Start': [
         'play music mainTheme with loop'
         'end'
@@ -124,8 +126,8 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Music Assets" %}
-```
-Monogatari.assets ('music', {
+```javascript
+monogatari.assets ('music', {
     'mainTheme': 'mainThemeSong.mp3'
 });
 ```
@@ -138,8 +140,8 @@ The following will play the song, and will use a fade in effect.
 
 {% tabs %}
 {% tab title="Script" %}
-```
-Monogatari.script ({
+```javascript
+monogatari.script ({
     'Start': [
         'play music mainTheme with fade 3'
         'end'
@@ -149,8 +151,8 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Music Assets" %}
-```
-Monogatari.assets ('music', {
+```javascript
+monogatari.assets ('music', {
     'mainTheme': 'mainThemeSong.mp3'
 });
 ```
@@ -163,8 +165,8 @@ The following will set the volume of this song to 73%.
 
 {% tabs %}
 {% tab title="Script" %}
-```
-Monogatari.script ({
+```javascript
+monogatari.script ({
     'Start': [
         'play music mainTheme with volume 73'
         'end'
@@ -174,8 +176,8 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Music Assets" %}
-```
-Monogatari.assets ('music', {
+```javascript
+monogatari.assets ('music', {
     'mainTheme': 'mainThemeSong.mp3'
 });
 ```
@@ -194,8 +196,8 @@ Of course, you can combine all of this properties, and remember the order doesn'
 
 {% tabs %}
 {% tab title="Script" %}
-```
-Monogatari.script ({
+```javascript
+monogatari.script ({
     'Start': [
         'play music mainTheme with volume 100 loop fade 20'
         'end'
@@ -205,8 +207,8 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Music Assets" %}
-```
-Monogatari.assets ('music', {
+```javascript
+monogatari.assets ('music', {
     'mainTheme': 'mainThemeSong.mp3'
 }
 ```

@@ -4,7 +4,7 @@ There are many cases where we need input from the user, like to ask their name. 
 
 This is a sample script with an input statement:
 
-```
+```javascript
 monogatari.script ({
     // The game starts here.
     'Start': [
@@ -15,13 +15,13 @@ monogatari.script ({
                 return input.trim ().length > 0;
             },
             'Save': function(input) {
-                this.storage('player', { Name: input});
+                this.storage().player.name = input;
             },
             'Warning': 'You must enter a name!'
             }
         },
 
-        'Hi {{player.Name}} Welcome to Monogatari!'
+        'Hi {{player.name}}! Welcome to Monogatari!'
     ]
 });
 ```

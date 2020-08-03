@@ -91,7 +91,9 @@ Characters are probably one of the most important parts of your novel, not only 
       </td>
     </tr>
   </tbody>
-</table>## Examples
+</table>
+
+## Examples
 
 Declaring characters is really simple, first, you need an identifier, this is what you'll use for the [`dialog`](../script-actions/dialogs.md) and [`show character`](../script-actions/characters.md) actions. We'll choose the identifier y, short for Yui in this tutorial.
 
@@ -114,7 +116,7 @@ monogatari.characters ({
 });
 ```
 
-Since we are building visual novels, we also need images for our characters! You need the Directory inside the img directory where your files will be placed, and assign a simple identifier to each file.
+Since we are building visual novels, we also need images for our characters! You need the Directory inside the `assets/characters` directory where your files will be placed, and assign a simple identifier to each file.
 
 ```javascript
 monogatari.characters ({
@@ -137,5 +139,5 @@ monogatari.characters ({
 });
 ```
 
-The `directory` attribute is a subdirectory of characters where the images will be pulled, if no `directory` is given, it will be assumed to be the characters directory itself.
+The `directory` attribute is a sub directory of characters where the images will be pulled, if no `directory` is given, it will be assumed to be the characters directory itself.
 

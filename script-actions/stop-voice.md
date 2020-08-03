@@ -2,7 +2,7 @@
 
 ## Description
 
-```
+```javascript
 'stop voice [voice_id] [with [properties]]'
 ```
 
@@ -37,7 +37,7 @@ The following will stop a specific voice, identified by it's name.
 
 {% tabs %}
 {% tab title="Script" %}
-```
+```javascript
 Monogatari.script ({
     'Start': [
         'play voice dialog_002 with loop',
@@ -53,7 +53,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Voice Assets" %}
-```
+```javascript
 Monogatari.assets ('voice', {
     'dialog_001': 'dialog_file_1.mp3',
     'dialog_002': 'dialog_file_2.mp3'
@@ -68,7 +68,7 @@ The following will stop all sounds currently playing.
 
 {% tabs %}
 {% tab title="Script" %}
-```
+```javascript
 Monogatari.script ({
     'Start': [
         'play voice dialog_002 with loop',
@@ -84,7 +84,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Voice Assets" %}
-```
+```javascript
 Monogatari.assets ('voice', {
     'dialog_001': 'dialog_file_1.mp3',
     'dialog_002': 'dialog_file_2.mp3'
@@ -99,7 +99,7 @@ The following will stop the voice, and will use a fade out effect to do so. You 
 
 {% tabs %}
 {% tab title="Script" %}
-```
+```javascript
 Monogatari.script ({
     'Start': [
         'play voice dialog_002 with loop',
@@ -115,7 +115,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Voice Assets" %}
-```
+```javascript
 Monogatari.assets ('voice', {
     'dialog_001': 'dialog_file_1.mp3',
     'dialog_002': 'dialog_file_2.mp3'
