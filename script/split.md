@@ -10,7 +10,7 @@ This documentation page was Sponsored by [My Awesome Patrons](https://www.patreo
 
 #### So, how to do it?
 
-Figured the best way to show you how to do it was to provide an example project so you can [download it here](https://web.tresorit.com/l#bodWbeyU-QOWNb7Iuo3XZQ).
+Figured the best way to show you how to do it was to provide an example project so you can [download it here](https://datadyne.perfectdark.space/monogatari/community/samples/Monogatari-Split-Files.zip).
 
 Splitting your script is more about splitting labels really, remember that every label is like a chapter or a scene in your visual novel so splitting your game in labels makes a lot of sense, of course splitting those labels in different files makes even more sense.
 
