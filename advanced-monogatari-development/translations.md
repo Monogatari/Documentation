@@ -10,10 +10,10 @@ Apart from allowing you to have a script for different languages, Monogatari's U
 
 ## Getting started
 
-The first step is to figure out whether a translation for you language already exists or if it has to be created, you can find all languages available [here](https://github.com/Monogatari/Monogatari/tree/develop/src/translations).    
-  
-If there is a translation already available for your language, then all you'll have to do is update or add whatever strings are missing, if there isn't one yet, then you'll have to create a new file for it.  
-  
+The first step is to figure out whether a translation for you language already exists or if it has to be created, you can find all languages available [here](https://github.com/Monogatari/Monogatari/tree/develop/src/translations).
+
+If there is a translation already available for your language, then all you'll have to do is update or add whatever strings are missing, if there isn't one yet, then you'll have to create a new file for it.
+
 All translations take the [English strings file](https://github.com/Monogatari/Monogatari/blob/develop/src/translations/English.js) as its base so you'll need to check it out to see what you need to translate. Below is a sample of the file, be aware this is for demonstration purposes only and may be outdated so you should always check [the source file instead](https://github.com/Monogatari/Monogatari/blob/develop/src/translations/English.js). It is important that you only translate the strings on the right, as opposed to their keys on the left \(`'SomeKey': 'Some string to translate'`\).
 
 {% code title="English.js" %}
@@ -31,83 +31,83 @@ All translations take the [English strings file](https://github.com/Monogatari/M
 import { Monogatari } from '../monogatari';
 
 Monogatari.translation ('English', {
-	'AdvanceHelp': 'To advance through the game, left-click or tap anywhere on the game screen or press the space key',
-	'AllowPlayback': 'Click here to allow audio playback',
-	'Audio': 'Audio',
-	'AutoPlay': 'Auto',
-	'AutoPlayButton': 'Enable auto play',
-	'AutoPlaySpeed': 'Autoplay Speed',
+    'AdvanceHelp': 'To advance through the game, left-click or tap anywhere on the game screen or press the space key',
+    'AllowPlayback': 'Click here to allow audio playback',
+    'Audio': 'Audio',
+    'AutoPlay': 'Auto',
+    'AutoPlayButton': 'Enable auto play',
+    'AutoPlaySpeed': 'Autoplay Speed',
 
-	'Back': 'Back',
-	'BackButton': 'Go back',
+    'Back': 'Back',
+    'BackButton': 'Go back',
 
-	'Cancel': 'Cancel',
-	'Close': 'Close',
-	'Confirm': 'Do you want to quit?',
-	'Credits': 'Credits',
+    'Cancel': 'Cancel',
+    'Close': 'Close',
+    'Confirm': 'Do you want to quit?',
+    'Credits': 'Credits',
 
-	'Delete': 'Delete',
-	'DialogLogButton': 'Show the dialog log',
+    'Delete': 'Delete',
+    'DialogLogButton': 'Show the dialog log',
 
-	'FullScreen': 'Full Screen',
+    'FullScreen': 'Full Screen',
 
-	'Gallery': 'Gallery',
+    'Gallery': 'Gallery',
 
-	'Help': 'Help',
-	'Hide': 'Hide',
-	'HideButton': 'Hide the text box',
+    'Help': 'Help',
+    'Hide': 'Hide',
+    'HideButton': 'Hide the text box',
 
-	'iOSAudioWarning': 'Audio settings are not supported on iOS',
+    'iOSAudioWarning': 'Audio settings are not supported on iOS',
 
-	'KeyboardShortcuts': 'Keyboard Shortcuts',
+    'KeyboardShortcuts': 'Keyboard Shortcuts',
 
-	'Language': 'Language',
-	'Load': 'Load',
-	'LoadAutoSaveSlots': 'Auto Saved Games',
-	'LoadButton': 'Open the Load Screen',
-	'Loading': 'Loading',
-	'LoadingMessage': 'Wait while the assets are loaded',
-	'LoadSlots': 'Saved Games',
-	'LocalStorageWarning': 'Local Storage is not available in this browser',
-	'Log': 'Log',
+    'Language': 'Language',
+    'Load': 'Load',
+    'LoadAutoSaveSlots': 'Auto Saved Games',
+    'LoadButton': 'Open the Load Screen',
+    'Loading': 'Loading',
+    'LoadingMessage': 'Wait while the assets are loaded',
+    'LoadSlots': 'Saved Games',
+    'LocalStorageWarning': 'Local Storage is not available in this browser',
+    'Log': 'Log',
 
-	'Music': 'Music Volume',
+    'Music': 'Music Volume',
 
-	'NewContent': 'There is new content available, reload the page to get the latest version',
-	'NoSavedGames': 'No saved games',
-	'NoAutoSavedGames': 'No automatically saved games',
-	'NoDialogsAvailable': 'No dialogs available. Dialogs will appear here as they show up',
+    'NewContent': 'There is new content available, reload the page to get the latest version',
+    'NoSavedGames': 'No saved games',
+    'NoAutoSavedGames': 'No automatically saved games',
+    'NoDialogsAvailable': 'No dialogs available. Dialogs will appear here as they show up',
 
-	'OrientationWarning': 'Please rotate your device to play',
-	'Overwrite': 'Overwrite',
+    'OrientationWarning': 'Please rotate your device to play',
+    'Overwrite': 'Overwrite',
 
-	'QuickButtons': 'Quick Menu Buttons',
-	'QuickMenu': 'Quick Menu',
-	'Quit': 'Quit',
-	'QuitButton': 'Quit Game',
+    'QuickButtons': 'Quick Menu Buttons',
+    'QuickMenu': 'Quick Menu',
+    'Quit': 'Quit',
+    'QuitButton': 'Quit Game',
 
-	'Resolution': 'Resolution',
+    'Resolution': 'Resolution',
 
-	'Save': 'Save',
-	'SaveButton': 'Open the Save Screen',
-	'SaveInSlot': 'Save in slot',
-	'Settings': 'Settings',
-	'SettingsButton': 'Open the Settings Screen',
-	'Show': 'Show',
-	'Skip': 'Skip',
-	'SkipButton': 'Enter skip mode',
-	'SlotDeletion': 'Are you sure you want to delete this slot?',
-	'SlotOverwrite': 'Are you sure you want to overwrite this slot?',
-	'Sound': 'Sound Volume',
-	'Start': 'Start',
-	'Stop': 'Stop',
+    'Save': 'Save',
+    'SaveButton': 'Open the Save Screen',
+    'SaveInSlot': 'Save in slot',
+    'Settings': 'Settings',
+    'SettingsButton': 'Open the Settings Screen',
+    'Show': 'Show',
+    'Skip': 'Skip',
+    'SkipButton': 'Enter skip mode',
+    'SlotDeletion': 'Are you sure you want to delete this slot?',
+    'SlotOverwrite': 'Are you sure you want to overwrite this slot?',
+    'Sound': 'Sound Volume',
+    'Start': 'Start',
+    'Stop': 'Stop',
 
-	'TextSpeed': 'Text Speed',
+    'TextSpeed': 'Text Speed',
 
-	'Video': 'Video Volume',
-	'Voice': 'Voice Volume',
+    'Video': 'Video Volume',
+    'Voice': 'Voice Volume',
 
-	'Windowed': 'Windowed'
+    'Windowed': 'Windowed'
 });
 ```
 {% endcode %}
@@ -126,7 +126,6 @@ If there was no translation for your language available, then you first need to 
 >
 > Japanese =&gt; `日本語.js`
 
-  
 You get the idea. Once you've created the file, simply copy the contents of the English translation file and you're all set to start translating all the strings there!
 
 ## Credit Yourself

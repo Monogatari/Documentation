@@ -116,3 +116,66 @@ monogatari.$ ('_dialog', function () {
 });
 ```
 
+### Passing Arguments into Placeholders
+
+Arguments can be used in Placeholders like so:
+
+```javascript
+monogatari.$ ('_myAction', (arg1, arg2) => {
+    return `${arg1} ${arg2}`;
+});
+```
+
+Which would be called like this:
+
+```javascript
+'$ _myAction something something'
+```
+
+Placeholders can also have argument passed into them for dynamic functions. The following is an example of a placeholder action that yields a returnable function object block that adds a string argument to an array.
+
+```javascript
+monogatari.$ ('_addToInventory', (myArgument) => ({'Function':{
+	'Apply': function(){
+		monogatari.storage().inventory.unshift(myArgument);
+	},
+	'Reverse':function(){
+		monogatari.storage().inventory.shift();
+	}
+}}));
+```
+
+We'll declare our `inventory` as an array in storage.js
+
+```javascript
+monogatari.storage ({
+	inventory: ["Sword"],
+});
+```
+
+And then in our script, we'd call the placeholder like this!
+
+```javascript
+monogatari.script ({
+	'Start': [
+		"That's a cool potion. Let's pick it up and put it into our inventory.",
+		"$ _addToInventory Potion",
+		"Now I am holding a {{inventory.0}}",
+	]
+});
+```
+
+Please note that placeholder arguments are delimited by spaces, so if you want to use spaces in the passed argument strings, you'll need to get a little creative. There are plenty of ways around this. One easy way is to use `&nbsp;` instead of spaces.
+
+```javascript
+monogatari.script ({
+	'Start': [
+		"That's a cool potion. Let's pick it up and put it into our inventory.",
+		"$ _addToInventory Potion&nbsp;of&nbsp;Strength.",
+		"Now I am holding a {{inventory.0}}",
+	]
+});
+```
+
+Another way to do this would be to capture all arguments and concatenate them into one string, then process that string. Up to you how you want to work with this feature!
+
