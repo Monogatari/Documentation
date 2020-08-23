@@ -1,67 +1,123 @@
+---
+description: Splitting your Script into multiple files.
+---
+
 # Split Files
 
-Monogatari games are made pretty much by the script you create, that script is all wrapped up in one single variable and file. This may be convenient at first but as your game grows up, the script may start to be a bit too big for it to easily read, it can become somewhat stressful even and in worse cases, it may slow down your text editor while you make changes to it.
+As you work on your Monogatari game, you might find that your script.js file becomes very long and cumbersome to work with. This was an involved process in 1.4.1 but luckily, in Monogatari 2.0 it is now very easy to split your script into multiple files and for Monogatari to run all of them without issue.
 
-In order to prevent this, you can split your script into several files. Splitting your script may also be a good idea when having many branches of your story, when you want to make proofreading somewhat simpler and of course really helpful when your game is available in multiple languages.
+### Formatting Your Second Script File
 
-This documentation page was Sponsored by [My Awesome Patrons](https://www.patreon.com/Hyuchia), thanks a lot guys!
-
-#### So, how to do it?
-
-Figured the best way to show you how to do it was to provide an example project so you can [download it here](https://web.tresorit.com/l#bodWbeyU-QOWNb7Iuo3XZQ).
-
-Splitting your script is more about splitting labels really, remember that every label is like a chapter or a scene in your visual novel so splitting your game in labels makes a lot of sense, of course splitting those labels in different files makes even more sense.
-
-Each label has an id that you specify, the initial label \(as in the one with which your games always starts\) is the one with the "Start" id. You then use the "jump" statements to go from there to any other label you created.
-
-To have a label in another file, you just need to declare it like this:
-
-```javascript
-monogatari.label ('OtherLabel', [
-    "This is another label!"
-]);
-```
-
-That declaration is the same as if you had the following \(I'm omitting the contents of the Start label for simplicity\):
+In Monogatari 2.0, your second script file can be formatted the same way your first script file is formatted. For example, the script section of your `script.js` file might read:
 
 ```javascript
 monogatari.script ({
-    "Start": [...],
-   "OtherLabel": [
-        "This is another label!"     
-    ]
+	// The game starts here.
+	'Start': [
+	"y Hello there Protaganist-senpai!",
+	"y Wow after one line of dialog this is starting to feel pretty long.",
+	"y Let's jump to another label in another file!",
+	"jump theNextLabel",
+	]
 });
 ```
 
-That means you can declare labels not only in the var script = {...}; code but also from outside of it. `"OtherLabel"` is being used as the id but remember it can be pretty much anything you want.
+And the script of your second script file can say:
 
-Since we are splitting things up, that means the `script.js` file will not longer be the only place where our story resides. You'll be saving that label \(the first code showed in this post\) in other file, remember you need to load that file as well, so just add it in your `index.html` file, right below the line that says:
-
-```markup
-<script src="js/script.js"></script>
+```javascript
+monogatari.script ({
+	// The Game Continues!!
+	'theNextLabel': [
+	"y Yeah there we go! That feels so much better.",
+	"end"
+	]
+});
 ```
 
-Let's suppose you are saving that level on a file with the same name: `OtherLabel.js`, to load it. Just insert another script tag like this one:
+And this will work just fine! All you have to do after that is make sure your index.html file actually reads the file. 
+
+### Getting Monogatari to read your Split Files
+
+All we need to do in order to achieve this is to edit our index.html file's source. Find this part of the source code:
 
 ```markup
-<script src="js/OtherLabel.js"></script>
+		<!-- Monogatari JavaScript Libraries -->
+		<script src="./engine/debug/debug.js"></script>
+		<script src="./engine/core/monogatari.js"></script>
+		<script src="./js/options.js"></script>
+		<script src="./js/storage.js"></script>
+		<script src="./js/script.js"></script>
+		<script src="./js/main.js"></script>
 ```
 
-If everything worked up correctly, you should be able to jump from one label to another even when they are in different files.
+And we're going to add another `<script src=""></script>`, with the source pointing to your file. For example, if you named your file `script2.js` and put it in the same folder with `script.js`, then we would change this to:
 
-Take a look at the sample project from the link above, it will definitely show you what it is all about and you'll probably get a better understanding of it all, it is really simple and can be quite advantageous.
+```markup
+		<!-- Monogatari JavaScript Libraries -->
+		<script src="./engine/debug/debug.js"></script>
+		<script src="./engine/core/monogatari.js"></script>
+		<script src="./js/options.js"></script>
+		<script src="./js/storage.js"></script>
+		<script src="./js/script.js"></script>
+		
+		<script src="./js/script2.js"></script>
+		
+		<script src="./js/main.js"></script>
+```
 
-#### Wait but what happens if there are too many files now?
+Just like that!
 
-Of course you may get to a point where there are simply too many files, if you are serving your game online, that can cause a slower load time which is of course not what we want.
+Note that these files will load in order from top to bottom, so if you have any conflicting labels that are the same between them, whatever's in the later files will overwrite the ones above them. Also note that main.js should be the last file in the list.
 
-For now, the best solution is to copy and paste all the contents of the files you created into a single one. Yes, you can copy and paste them just as they are one after another, the order is not really important in most cases, the only one that truly matters is the script.js file which should always go first.
+## Internationalization with Split Files
 
-This would also need to be done if you are obfuscating your code, it's a lot easier to obfuscate just one file than a lot of them.
+Let's say you want to make your game multi-lingual, like in the [Internationalization](https://developers.monogatari.io/documentation/v/develop/configuration-options/game-configuration/internationalization) article. Split files can help to keep you organized with that too! Let's take this example from that page:
 
-This solution is of course not ideal, you can find many utilities for concatenating files, some are stand alone programs, some are websites and some are development utilities.
+```javascript
+monogatari.script ({
 
-I personally would recommend those development utilities such as [this one](https://www.npmjs.com/package/gulp-concat/) but the problem is that they are not the easier to use and requires you to install other things therefore you may want to stick with the manual solution or find a nice utility that does it.
+    'English':{
+        'Start':[
+            'Hi, welcome to your first Visual Novel with Monogatari.'
+        ]
+    },
+    'Español':{
+        'Start':[
+            'Hola, bienvenido a tu primer Novela Visual con Monogatari.'
+        ]
+    }
+});
+```
 
-This is one of the features I'm planning to add to the Monogatari Studio but haven't really got the time to work on it. Nonetheless, I hope you find the file splitting somewhat useful, once you find a nice work flow around it, you'll see how simple it can get!
+If you like, you could split this up into two files, like this:
+
+{% tabs %}
+{% tab title="script.js" %}
+```javascript
+monogatari.script ({
+
+    'English':{
+        'Start':[
+            'Hi, welcome to your first Visual Novel with Monogatari.'
+        ]
+    }
+});
+```
+{% endtab %}
+
+{% tab title="scriptES.js" %}
+```javascript
+monogatari.script ({
+
+    'Español':{
+        'Start':[
+            'Hola, bienvenido a tu primer Novela Visual con Monogatari.'
+        ]
+    }
+});
+```
+{% endtab %}
+{% endtabs %}
+
+Then just make sure your `index.html` file points to `scriptES.js` and you're on your way!
 
