@@ -121,3 +121,19 @@ monogatari.script ({
 
 Then just make sure your `index.html` file points to `scriptES.js` and you're on your way!
 
+### Another Way, for Splitting Internationalized Files
+
+After looking at the above two examples, you might want to split up files to help organize your story into chapters, and also have multiple languages at the same time! Unfortunately, if you did that by combining the above examples, you would more than likely come across a "Start Label Was Not Found" error. 
+
+This would happen because although the `monogatari.script()` method adds new labels, if any label names conflict with already existing ones, it replaces them. Normally this is fine, but when working with Multi-Language games, the "English" label would be replaced in the second file, overwriting all of the work you did at run time! Luckily, there's a way around this.
+
+```javascript
+monogatari.label('yourLabelName','English',[
+    "Let's continue the story here without issue!",
+]);
+```
+
+`monogatari.label()` looks at its arguments, first the name of the label you want to write to inside the monogatari.\_script object, and then if the next argument is a string, it processes that as a language. After that, it takes an array, and from there you just write the script to your game, the same way you do the script for a label, normally!
+
+You can also use monogatari.label\(\) for all of your labels. You have plenty of options!
+
