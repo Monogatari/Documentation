@@ -1,6 +1,10 @@
+---
+description: Run JavaScript functions in your script
+---
+
 # JavaScript
 
-Even though you can put more JavaScript code in the main.js file and do a lot of things there, sometimes we want to do something in some part of our game. This is why you can also put some Javascript inside your game's script. To do it, you can actually using JavaScript functions. Yes, just like you would on any other JS file, you can use function syntax inside your script.
+Even though you can put more JavaScript code in the `main.js` file and do a lot of things there, sometimes we want to do something in some part of our game. This is why you can also put some JavaScript inside your game's script. To do it, you can actually using JavaScript functions. Yes, just like you would on any other JS file, you can use function syntax inside your script.
 
 To control the flow of your game, you can make the function return either true \(Will immediately execute the next statement.\) or false \(Will wait until the user clicks again.\) if it does not return one of those two, it will wait by default.
 
