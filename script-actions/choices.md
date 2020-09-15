@@ -229,7 +229,7 @@ Then, in our script, we could have a choice for the player:
     "Dialog": "The enemy wants to fight! What do you do?",
     "FirstOption":{
         "Text": "Attack!",
-        "onChosen": attackEnemy,
+        "onChosen": function(){attackEnemy()},
         "Do": "You attack the enemy for {{playerAttack}} damage!"
 },
     "SecondOption":{
@@ -248,7 +248,8 @@ You could also have the function written out in the script itself for one-time f
     "FirstOption":{
         "Text": "Attack!",
         "onChosen": function (){
- monogatari.storage().enemyHealth = monogatari.storage().enemyHealth - monogatari.storage().playerAttack
+             monogatari.storage().enemyHealth = 
+             monogatari.storage().enemyHealth - monogatari.storage().playerAttack
         },
         "Do": "You attack the enemy for {{playerAttack}} damage!"
 },
@@ -257,8 +258,37 @@ You could also have the function written out in the script itself for one-time f
         "Do": "You defend instead of attacking."
     }
 }},
-"The enemy now has {{enemyHealth}} health points left."
+"The enemy now has {{enemyHealth}} health points left.",
 ```
 
 This achieves the same result. You could also use these functions to invisibly keep track of which options the player clicked, or any other ideas you might have.
+
+### onRevert
+
+The `'onRevert'` property should contain a function that will run when the player rewinds the game using the `back` button before a choice selection that runs an `onChosen` function. Ideally, this function should be used to undo whatever was done by the `onChosen` function, assuming the `onChosen` function did anything at all. For example, if you have an `onChosen` function that gives the player 5 gold, then the `onRevert` function should remove 5 gold, or else the player could just choose the option, rewind, choose it again, until they have as much gold as they want.
+
+```javascript
+{"Choice":{
+    "Dialog": "Would you like some Gold?",
+    "Yes": {
+        "Text": "Yes please.",
+        "Do": "p Yes please.",
+        "onChosen": function() {
+            monogatari.storage().playerGold += 5;
+        },
+        "onRevert": function() {
+            monogatari.storage().playerGold -= 5;
+        }
+    },
+    "No": {
+        "Text": "No thank you.",
+        "Do": "No thank you.",
+    },
+}},
+"Okay! As a result of your decision, you now have {{playerGold}} Gold!",
+```
+
+Monogatari remembers for the player which option they picked, so if they chose Yes in the above example, when they rewind, it will run the `onRevert` function for "yes", whereas if they chose no, it will not run anything special, as No does not contain an `onRevert` or `onChosen` function.
+
+The `'onRevert'` property is required when you use the `onChosen` function, or else the player will not be able to use the "back" button to revert before the choice. If you don't care whether or not your player is allowed to rewind before a decision, then you don't need to use `onRevert` but that might make your player assume that there's a bug if some choices are reversible and others aren't.
 
