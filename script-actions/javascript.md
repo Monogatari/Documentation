@@ -39,7 +39,7 @@ Monogatari.script ({
 
 Using that technique will make your game a lot more easy to debug and update!
 
-#### Async Functions
+## Async Functions
 
 While the advanced way adds a lot of more possibilities to your game, it still doesn't solve the fact that you may need to realize some async tasks such as a request or other activities. Since v1.3.2, using [JavaScript Promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) is possible.
 
@@ -69,7 +69,7 @@ Monogatari.script ({
 
 Just as with the common functions, if you return a true value from your promise, the next statement will be executed as soon as it's done and will wait if you return anything else. The game will also block on the meantime so the player won't be able to continue until the Promise is resolved.
 
-#### Reversible Functions
+## Reversible Functions
 
 So far, we've been using normal JavaScript functions to achieve more functionality but one problem was that this functions were not reversible, meaning that the players were not able to go back over a function.
 

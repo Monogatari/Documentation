@@ -35,7 +35,9 @@ There are many cases where we need input from the user, like when you want to kn
       </td>
       <td style="text-align:left">Yes</td>
       <td style="text-align:left">
-        <p>The kind of input you want to show.</p>
+        <p></p>
+        <p>
+          <br />The kind of input you want to show.</p>
         <p></p>
         <p>Possible Values:</p>
         <ul>
@@ -65,7 +67,7 @@ There are many cases where we need input from the user, like when you want to kn
     </tr>
     <tr>
       <td style="text-align:left">Options</td>
-      <td style="text-align:left"><code>Array&lt;Object&gt;</code>
+      <td style="text-align:left"><code>Array&lt;object&gt;</code>
       </td>
       <td style="text-align:left">Yes</td>
       <td style="text-align:left">The list of options to present to the player if the input has a type of
@@ -123,7 +125,7 @@ There are many cases where we need input from the user, like when you want to kn
   </tbody>
 </table>
 
-## Examples
+## 
 
 
 

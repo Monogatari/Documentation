@@ -11,8 +11,8 @@
 
 ## Building Blocks
 
-* [Characters](building-blocks/characters.md)
 * [Script & Labels](building-blocks/script-and-labels.md)
+* [Characters](building-blocks/characters.md)
 * [Variables & Data Storage](building-blocks/data-storage.md)
 
 ## Script Actions

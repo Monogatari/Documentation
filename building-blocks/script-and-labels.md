@@ -37,3 +37,13 @@ monogatari.script ({
 
 See that `'jump mylabel'`? that's how you can change between labels, the jump statement will take you to the label you give it.
 
+## Translating your  Script
+
+{% page-ref page="../configuration-options/game-configuration/internationalization.md" %}
+
+## Splitting your script in multiple files
+
+{% page-ref page="../configuration-options/split.md" %}
+
+
+
