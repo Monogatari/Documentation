@@ -2,7 +2,7 @@
 
 Monogatari was built with this in mind, releasing your game online and thus making it available to play almost anywhere! To release your game online, you should first take care of the following steps.
 
-#### Complete your Meta Tags
+## Complete your Meta Tags
 
 Inside your `index.html` file, you'll notice there's a lot of meta tags, every single one of them have the purpose of improving your game SEO so it comes up in search result, make social sharing better and improve the experience on mobile devices. Filling them up is not necessary for your game to work but when releasing it online, failing to do so may result in a poor experience for your players.
 
@@ -72,15 +72,15 @@ Many come already pre-filled but others are for you to fill in, in the case of a
     <link rel="canonical" href=""> <!--Canonical URL of your webpage-->
 ```
 
-#### Optimize your images
+## Optimize your images
 
 Optimizing your images is imperative to provide a better experience, we all hate when pages take a lot of time to load, even when using the preload features built in on Monogatari, optimizing your images will provide a better experience, the method you choose to do so is entirely yours to pick.
 
-#### Improve Asset Loading
+## Improve Asset Loading
 
 To improve asset loading and enable offline playing, you'll have to complete the files list you need to save in the cache for your game to be able to work, information about this can be found in the [Asset Preload Configuration](https://monogatari.io/documentation/configuration/asset-preload/).
 
-#### Improve the Mobile experience
+## Improve the Mobile experience
 
 A manifest.json file is shipped on Monogatari since v1.3.2, this file is needed to provide a better mobile experience, specifically it's another requirement to transform your app in a [Progressive Web App](https://en.wikipedia.org/wiki/Progressive_web_app) which will enable a great experience for your users, specially if they [add your game to their home screen](https://www.howtogeek.com/196087/how-to-add-websites-to-the-home-screen-on-any-smartphone-or-tablet/) which you should encourage! adding it to homescreen will show your game icon just as with other app, then show a splash screen when loaded using the `background_color` and icons defined in your `mainfest.json` file and if you've [set up correctly your service worker cache](https://monogatari.io/documentation/configuration/asset-preload/), it will also be possible to play it offline, making it work almost like a native mobile app, an experience your players will truly love.
 
@@ -95,5 +95,5 @@ Inside this file you'll only need to pay attention to four properties:
 
 For more information about the manifest and what every property does, [check this site](https://developer.mozilla.org/en-US/docs/Web/Manifest).
 
-#### Upload your game
+## Upload your game
 
