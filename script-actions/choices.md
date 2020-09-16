@@ -4,6 +4,8 @@ description: 'Learn about choices, their properties and how to use them!'
 
 # Choices
 
+![](../.gitbook/assets/choice-1-.png)
+
 ## Overview
 
 Choices allow players to take decisions and then react based on whatever they chose. They are represented on your script as `Objects` and they allow you to define as many choices as you can fit on the screen!

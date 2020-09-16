@@ -6,7 +6,7 @@ description: Making Monogatari games multilingual.
 
 ## Translating your Script
 
-You can create a multi-language Game also pretty easily. To do so you need to do 4 simple things:
+You can create a multi-language game pretty easily. To do so you need to do 4 simple things:
 
 Go to the `options.js` file and change the `'MultiLanguage'` value to `true`.
 

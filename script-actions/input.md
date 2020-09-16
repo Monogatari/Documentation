@@ -4,6 +4,8 @@ description: Displays an input dialog to the player
 
 # Input
 
+There are many cases where we need input from the user, like to ask their name. There is an input statement for this.
+
 ## Overview <a id="overview"></a>
 
 There are many cases where we need input from the user, like when you want to know their name.  The Input statement is represented in your Script as an Object and it allows you to define the text to show to your players, the type of input, the default value, validations, etc.

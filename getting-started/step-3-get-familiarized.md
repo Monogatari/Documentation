@@ -16,27 +16,30 @@ You'll find some directories, here is what you should use them for.
 
 | Directory | Contains |
 | :--- | :--- |
-| assets | This is where all your assets such as images, audio files, font files etc. should go |
-| engine | The core engine files that make everything work. Updating Monogatari is as simple as replacing this directory. |
-| js | This is where you'll set your game configuration and create your game script. |
-| style | CSS files for your project \(CSS defines the look and style of your game\). |
+| `assets` | This is where all your assets such as images, audio files, font files etc. should go |
+| `engine` | The core engine files that make everything work. Updating Monogatari is as simple as replacing this directory. |
+| `js` | This is where you'll set your game configuration and create your game script. |
+| `style` | CSS files for your project \(CSS defines the look and style of your game\). |
 
-**Root Directory**
+## **Root Directory**
+
+![](../.gitbook/assets/screenshot-from-2020-09-12-11.29.11.png)
 
 Inside the main directory you'll find some pretty useful files.
 
 | File | Contains |
 | :--- | :--- |
-| index.html | This is your main file, open this file in a browser and there's your game! |
-| electron.js | File used as an entry point for electron in case you are using it to make your game for the desktop |
-| manifest.json |  |
-| robots.txt | This file asks crawlers and other bots to keep your assets directory unindexed from web searches. |
-| service-worker.js | This file defines your service worker, used for asset preloading and caching |
-| .htaccess | This file provides a basic Apache configuration in case you are using that web server. |
+| `index.html` | This is your main file, open this file in a browser and there's your game! |
+| `manifest.json` |  |
+| `robots.txt` | This file asks crawlers and other bots to keep your assets directory unindexed from web searches. |
+| `service-worker.js` | This file defines your service worker, used for asset preloading and caching |
+| `.htaccess` | This file provides a basic Apache configuration in case you are using that web server. |
 
 More about what to do and how to use this specific files will come later as you read the documentation.
 
 **JS Directory**
+
+![](../.gitbook/assets/js-directory.png)
 
 JavaScript is the programming language you'll be using in Monogatari, it is what makes all your game work.
 
@@ -48,6 +51,8 @@ JavaScript is the programming language you'll be using in Monogatari, it is what
 | **storage.js** | This is where you'll declare your custom variables that you want to save in your games. |
 
 **Style Directory**
+
+![](../.gitbook/assets/style-directory.png)
 
 CSS is the markup language used to style your game, from setting colors to improving the appearance, CSS is what will allow you do them all. 
 

@@ -10,6 +10,12 @@ description: The text your players are going to read.
 '[character_id][:[expression_id]] <dialog_text>'
 ```
 
+**Action ID**: `Dialog`
+
+**Reversible**: Yes
+
+**Requires User Interaction**: Yes
+
 ### Show Text
 
 The say statement is used... well, for a character to say something. The syntax is as follows:

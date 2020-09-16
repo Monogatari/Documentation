@@ -4,7 +4,7 @@ Labels are just like the book's chapters, they define parts in your game. Take a
 
 ```javascript
 monogatari.script ({
-    'Start':[
+    'Start': [
         'This is a statement.'
     ]
 });

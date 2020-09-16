@@ -6,9 +6,15 @@ description: Install all the tools you need to create your visual novel
 
 To develop in Monogatari you'll need the same tools used for web development. This means that all you need is a **text editor**, with which **\*\*you'll be editing** _**HTML, JavaScript**_ **and** _**CSS**_ **files.** Optionally**, you may also use a** local web server\*\* while developing your novel.
 
-## Getting a Text Editor
+## Getting a Browser
 
-What editor to use comes down to personal preference but almost any text editor should work! You can even use _Windows Notepad._ However, to make your life easier, you should really try using a text editor that has been created for coding since those have features such as code syntax highlighting \(all the different colors for functions, variables etc.\) and some may even help you out while writing your code!
+You already have one of this but is it the best one for you to develop your game? 
+
+We recommend you using either [**Chrome**](https://www.google.com/chrome/) **or** [**Firefox** ](https://www.mozilla.org/en-US/firefox/)**for development**. While your game will run in any modern browser, not all of them offer a great experience while developing. Both Chrome and Firefox have some pretty cool developer tools that will certainly make your life easier.
+
+## Getting a Code Editor
+
+What editor to use comes down to personal preference but almost any text / code editor should work! You can even use _Windows Notepad._ However, to make your life easier, you should really try using a text editor that has been created for coding since those have features such as code syntax highlighting \(all the different colors for functions, variables etc.\) and some may even help you out while writing your code!
 
 Here are some that are pretty awesome to get you started and they are completely **free** to use:
 
@@ -16,7 +22,7 @@ Here are some that are pretty awesome to get you started and they are completely
 2. [Atom](https://atom.io/)
 3. [Brackets](http://brackets.io/)
 
-If you've never used a code text editor before, feel free to try them all! You should stick to the one you feel more comfortable with.
+If you've never used a code editor before, feel free to try them all! You should stick to the one you feel more comfortable with.
 
 ## Getting a Local Web Server \(Optional\)
 

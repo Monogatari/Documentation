@@ -93,7 +93,10 @@
 
 ## Advanced: Monogatari Development
 
-* [Core Libraries](advanced-monogatari-development/core-libraries.md)
+* [Core Libraries](advanced-monogatari-development/core-libraries/README.md)
+  * [Artemis](advanced-monogatari-development/core-libraries/artemis.md)
+  * [Kayros](advanced-monogatari-development/core-libraries/kayros.md)
+  * [Pandora](advanced-monogatari-development/core-libraries/pandora.md)
 * [Actions](advanced-monogatari-development/actions/README.md)
   * [Life Cycle](advanced-monogatari-development/actions/life-cycle.md)
 * [Components](advanced-monogatari-development/components/README.md)
