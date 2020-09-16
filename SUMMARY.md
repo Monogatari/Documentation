@@ -20,7 +20,7 @@
   * [Voice Assets](building-blocks/assets/voice-assets.md)
   * [Scenes & Backgrounds](building-blocks/assets/scene-backgrounds.md)
 * [Script & Labels](building-blocks/script-and-labels.md)
-* [Data Storage](building-blocks/data-storage.md)
+* [Variables & Data Storage](building-blocks/data-storage.md)
 
 ## Script Actions
 
@@ -69,7 +69,7 @@
   * [Internationalization](configuration-options/game-configuration/internationalization.md)
   * [Saving](configuration-options/game-configuration/saving.md)
   * [Skip Main Menu](configuration-options/game-configuration/skip-menu.md)
-  * [Storage Engine](configuration-options/game-configuration/storage-engine.md)
+  * [Storage](configuration-options/game-configuration/storage-engine.md)
 * [Player Preferences](configuration-options/player-preferences.md)
 * [Split Files](configuration-options/split.md)
 

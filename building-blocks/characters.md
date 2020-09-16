@@ -149,9 +149,7 @@ monogatari.characters ({
 
 ## Character Sprites
 
-Since we are building visual novels, chances are we also need images for our characters. To learn how to show a character sprite, go over to the Show Character action.
-
-{% page-ref page="../script-actions/characters.md" %}
+Since we are building visual novels, chances are we also need images for our characters. 
 
 All your character's sprites should be placed in your `assets/characters` directory, let's see what that looks like.
 
@@ -202,6 +200,10 @@ Both items are independent of each other so while in the last example we used id
  someKey: 'normal.png'
  happy: 'my_file_name.png'
 ```
+
+To learn how to show a character sprite, go over to the Show Character action.
+
+{% page-ref page="../script-actions/characters.md" %}
 
 ## Custom Sub-directory
 

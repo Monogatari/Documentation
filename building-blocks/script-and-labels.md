@@ -1,5 +1,7 @@
 # Script & Labels
 
+The script of your game is what 
+
 Labels are just like the book's chapters, they define parts in your game. Take a look at this sample script:
 
 ```javascript
