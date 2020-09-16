@@ -284,6 +284,10 @@ monogatari.characters ({
 
 Notice how we added the `expressions/` prefix to all of the file names to account for the `expressions` directory we put the files in. If we hadn't done that and we had placed them right with our sprites, the prefix would not be needed but we would have to change the names of the files so that they don't overlap with the sprites ones.
 
+To learn how to show this expressions in a dialog, go over the Dialog action.
+
+{% page-ref page="../script-actions/dialogs.md" %}
+
 ## Default Expression
 
 It is also possible to define a default side image / expression for your character. This default one will be shown for all of your character's dialogs that do not specify any other expression.

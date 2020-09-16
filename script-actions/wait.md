@@ -24,9 +24,7 @@ The `wait` action allows us to make the game wait for a certain amount of `time`
 | :--- | :--- | :--- | :--- |
 | time | `number` | Yes | The time in **milliseconds** that you want the game to wait. |
 
-## Examples
-
-### Waiting a certain amount of time
+## Waiting a certain amount of time
 
 ```javascript
 monogatari.script ({
@@ -43,7 +41,7 @@ In this case, the first dialog will be shown, then, when the player clicks to co
 
 You may be wondering why it says `5000` instead of just `5` in order to wait for 5 seconds, the reason behind it is that the `wait` action accepts the time in **milliseconds**, therefore we have to make the conversion from seconds to milliseconds for it to work as we want.
 
-### Waiting for player interaction
+## Waiting for player interaction
 
 ```javascript
 monogatari.script ({

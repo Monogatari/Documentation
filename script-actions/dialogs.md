@@ -16,7 +16,13 @@ description: The text your players are going to read.
 
 **Requires User Interaction**: Yes
 
-### Show Text
+## Narrator Dialogs
+
+Any statement in your script that does not match any other action will be displayed as a narrator dialog. Narrator dialogs do not show any name on the textbox.
+
+
+
+## Character Dialogs
 
 The say statement is used... well, for a character to say something. The syntax is as follows:
 

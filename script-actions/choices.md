@@ -4,7 +4,7 @@ description: 'Learn about choices, their properties and how to use them!'
 
 # Choices
 
-![](../.gitbook/assets/choice-1-.png)
+![](../.gitbook/assets/choices.png)
 
 ## Overview
 
