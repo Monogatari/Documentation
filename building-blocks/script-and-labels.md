@@ -1,20 +1,25 @@
 # Script & Labels
 
-The script of your game is what 
+## Overview
 
-Labels are just like the book's chapters, they define parts in your game. Take a look at this sample script:
+The script is the soul and body of your game, it is the place where you define everything that happens on it. It is made out of labels that are just like the chapters of a book and inside of each label, you have a list of statements that will be run one by one as your story unfolds.
+
+## Labels
+
+Let's take a look at an incredibly simple script, this is the most basic script a game could have:
 
 ```javascript
 monogatari.script ({
     'Start': [
-        'This is a statement.'
+        'This is a statement.',
+        'end'
     ]
 });
 ```
 
-See that `'Start'` string? That's how a label is defined. Your game will always start in that `'Start'` label and every game must have one.
+Notice that `Start` string. By default, `Start` is the first label that monogatari will play when a game starts. As you can see, this label is pointing to a list of statements that monogatari will run one by one.
 
-Inside it, you'll see a statement, which are the lines that tell your story and the way you'll do many things. As labels are as chapters, you can have as many as you want!
+As we said before, labels are just like the chapters of a book but can also provide you with logical ways of dividing your game. As books can have many chapters, you can have many labels as well!
 
 ```javascript
 monogatari.script ({
@@ -24,7 +29,8 @@ monogatari.script ({
     ],
     'mylabel':[
         'This is another statement.',
-        'Pretty easy huh?'
+        'Pretty easy huh?',
+        'end'
     ]
 });
 ```

@@ -6,19 +6,12 @@
   * [Step 2: Download Monogatari](getting-started/getting-monogatari.md)
   * [Step 3: Get Familiarized](getting-started/step-3-get-familiarized.md)
   * [Step 4: Make Your First Visual Novel](getting-started/step-4-make-your-first-visual-novel.md)
-  * [Step 5: Get More Help](getting-started/step-5-get-more-help.md)
-  * [Step 6: Have Fun!](getting-started/step-6-have-fun.md)
 * [Upgrading from v1.4.1](upgrading-from-v1.4.1.md)
 * [F.A.Q.](f.a.q..md)
 
 ## Building Blocks
 
 * [Characters](building-blocks/characters.md)
-* [Assets](building-blocks/assets/README.md)
-  * [Music Assets](building-blocks/assets/music-assets.md)
-  * [Sound Effects Assets](building-blocks/assets/sound-effects-assets.md)
-  * [Voice Assets](building-blocks/assets/voice-assets.md)
-  * [Scenes & Backgrounds](building-blocks/assets/scene-backgrounds.md)
 * [Script & Labels](building-blocks/script-and-labels.md)
 * [Variables & Data Storage](building-blocks/data-storage.md)
 
