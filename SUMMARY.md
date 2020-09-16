@@ -71,6 +71,7 @@
 
 ## Style & Design
 
+* [Responsiveness](style-and-design/responsiveness.md)
 * [CSS Classes](style-and-design/classes.md)
 * [HTML Data Attributes](style-and-design/data-attributes.md)
 * [Icons](style-and-design/icons.md)
