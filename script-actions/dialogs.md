@@ -18,9 +18,9 @@ description: The text your players are going to read.
 
 ## Narrator Dialogs
 
+![](../.gitbook/assets/narrator-dialog.png)
+
 Any statement in your script that does not match any other action will be displayed as a narrator dialog. Narrator dialogs do not show any name on the textbox.
-
-
 
 ## Character Dialogs
 
