@@ -16,6 +16,10 @@ description: The text your players are going to read.
 
 **Requires User Interaction**: Yes
 
+**Related Components:**
+
+* [Text Box](../components/text-box.md)
+
 ## Narrator Dialogs
 
 ![](../.gitbook/assets/narrator-dialog.png)

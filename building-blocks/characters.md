@@ -167,7 +167,7 @@ All your character's sprites should be placed in your `assets/characters` direct
 
 ### 4. Declare your assets
 
-Now that we have all our sprites in our assets directory, we need to declare them so monogatari knows about them. To do so, we'l use the `sprites` property of our character:
+Now that we have all our sprites in our assets directory, we need to declare them so monogatari knows about them. To do so, we'll use the `sprites` property of our character:
 
 ```javascript
 monogatari.characters ({

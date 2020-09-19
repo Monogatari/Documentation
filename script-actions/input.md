@@ -114,7 +114,12 @@ There are many cases where we need input from the user, like when you want to kn
       <td style="text-align:left"><code>string</code>
       </td>
       <td style="text-align:left">Yes</td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left">
+        <p>Default is <code>&apos;OK&apos;.</code>
+        </p>
+        <p>The Key of a translation string that contains the text to show in the
+          submit button of the element.</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>Class</code>
@@ -122,7 +127,7 @@ There are many cases where we need input from the user, like when you want to kn
       <td style="text-align:left"><code>string</code>
       </td>
       <td style="text-align:left">Yes</td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left">A space separated list of CSS class names to apply to the input element.</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>Timer</code>

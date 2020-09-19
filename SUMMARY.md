@@ -14,6 +14,11 @@
 * [Script & Labels](building-blocks/script-and-labels.md)
 * [Characters](building-blocks/characters.md)
 * [Variables & Data Storage](building-blocks/data-storage.md)
+* [Actions](building-blocks/actions.md)
+* [Components](building-blocks/components/README.md)
+  * [Life Cycle](building-blocks/components/life-cycle.md)
+  * [Built-in Properties](building-blocks/components/built-in-properties.md)
+  * [Built-in Functions](building-blocks/components/built-in-functions.md)
 
 ## Script Actions
 
@@ -96,10 +101,7 @@
   * [Pandora](advanced-monogatari-development/core-libraries/pandora.md)
 * [Actions](advanced-monogatari-development/actions/README.md)
   * [Life Cycle](advanced-monogatari-development/actions/life-cycle.md)
-* [Components](advanced-monogatari-development/components/README.md)
-  * [Life Cycle](advanced-monogatari-development/components/life-cycle.md)
-  * [Built-in Properties](advanced-monogatari-development/components/built-in-properties.md)
-  * [Built-in Functions](advanced-monogatari-development/components/built-in-functions.md)
+* [Components](advanced-monogatari-development/components.md)
 * [Translations](advanced-monogatari-development/translations.md)
 * [Events](advanced-monogatari-development/events.md)
 
