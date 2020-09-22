@@ -145,7 +145,7 @@ monogatari.$ ('_addToInventory', (myArgument) => ({'Function':{
 }}));
 ```
 
-We'll declare our `inventory` as an array in storage.js
+We'll declare our `inventory` as an array in `storage.js`
 
 ```javascript
 monogatari.storage ({
