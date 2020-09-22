@@ -6,7 +6,7 @@ It is important to note that responsiveness is not the same as simply scaling yo
 
 Adapting to the device is done using CSS media queries.
 
-## Default Breakpoints
+## Default Screen-Width Breakpoints
 
 ```css
 /** Extra Small Devices, Phones (480px) **/
