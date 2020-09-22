@@ -1,6 +1,10 @@
 # Chrome App
 
-If you want people to play your game offline, then they must have all the files, and even though you could give them a zip and they would only have to open the .html file, we all know that's just not right.
+Google has [discontinued Web Apps on the Chrome Web Store](https://blog.chromium.org/2020/01/moving-forward-from-chrome-apps.html). We recommend you release your game as a website instead.
 
-Now, a chrome extension is a way to distribute your game that will allow offline access. I will not cover this right now but here's a very simple [tutorial](https://developer.chrome.com/webstore/get_started_simple)
+{% page-ref page="web.md" %}
+
+
+
+
 

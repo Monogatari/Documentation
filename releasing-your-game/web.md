@@ -4,7 +4,7 @@ Monogatari was built with this in mind, releasing your game online and thus maki
 
 #### Complete your Meta Tags
 
-Inside your `index.html` file, you'll notice there's a lot of meta tags, every single one of them have the purpose of improving your game SEO so it comes up in search result, make social sharing better and improve the experience on mobile devices. Filling them up is not necesary for your game to work but when releasing it online, failing to do so may result in a poor experience for your players.
+Inside your `index.html` file, you'll notice there's a lot of meta tags, every single one of them have the purpose of improving your game SEO so it comes up in search result, make social sharing better and improve the experience on mobile devices. Filling them up is not necessary for your game to work but when releasing it online, failing to do so may result in a poor experience for your players.
 
 Many come already pre-filled but others are for you to fill in, in the case of all the icon files, since v1.3.2 Monogatari provides placeholder icons inside the `img/icons/` directory, be sure to replace those with your own as well as the `favicon.ico` file before releasing your game. Here is the section of meta tags you'll find and that need to be filled in case they aren't already:
 
@@ -82,7 +82,7 @@ To improve asset loading and enable offline playing, you'll have to complete the
 
 #### Improve the Mobile experience
 
-A manifest.json file is shipped on Monogatari since v1.3.2, this file is needed to provide a better mobile experience, specifically it's another requirement to transform your app in a [Progressive Web App](https://en.wikipedia.org/wiki/Progressive_web_app) which will enable a great experience for your users, specially if they [add your game to their home screen](https://www.howtogeek.com/196087/how-to-add-websites-to-the-home-screen-on-any-smartphone-or-tablet/) which you should encourage! adding it to homescreen will show your game icon just as with other app, then show a splash screen when loaded using the `background_color` and icons defined in your `mainfest.json` file and if you've [set up correctly your service worker cache](https://monogatari.io/documentation/configuration/asset-preload/), it will also be possible to play it offline, making it work almost like a native mobile app, an experience your players will truly love.
+A `manifest.json` file is shipped on Monogatari since v1.3.2, this file is needed to provide a better mobile experience, specifically it's another requirement to transform your app in a [Progressive Web App](https://en.wikipedia.org/wiki/Progressive_web_app) which will enable a great experience for your users, specially if they [add your game to their home screen](https://www.howtogeek.com/196087/how-to-add-websites-to-the-home-screen-on-any-smartphone-or-tablet/) which you should encourage! adding it to home screen will show your game icon just as with other app, then show a splash screen when loaded using the `background_color` and icons defined in your `mainfest.json` file and if you've [set up correctly your service worker cache](https://monogatari.io/documentation/configuration/asset-preload/), it will also be possible to play it offline, making it work almost like a native mobile app, an experience your players will truly love.
 
 Inside this file you'll only need to pay attention to four properties:
 
