@@ -679,8 +679,6 @@ If the player doesn't enter any value, the `Validation` and `Save` functions wil
 
 You can also provide a default value for the input by providing a `Default` property. For text-based inputs such as text and password, whatever you pass as the value of this property will be what's written by default on the input field.
 
-
-
 ```javascript
 {'Input': {
 	'Text': 'What is your name?',
