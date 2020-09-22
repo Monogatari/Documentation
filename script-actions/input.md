@@ -4,9 +4,15 @@ description: Displays an input dialog to the player
 
 # Input
 
-## Overview
+## Description
 
 There are many cases where we need input from the user, like when you want to know their name.  The Input statement is represented in your Script as an Object and it allows you to define the text to show to your players, the type of input, the default value, validations, etc.
+
+**Action ID**: `Input`
+
+**Reversible**: Yes, as long as a [`Revert` function](input.md#input-revert) is implemented.
+
+**Requires User Interaction**: Yes
 
 ## Properties
 
