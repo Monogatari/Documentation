@@ -26,7 +26,11 @@ There are many cases where we need input from the user, like when you want to kn
       <td style="text-align:left"><code>string</code>
       </td>
       <td style="text-align:left">No</td>
-      <td style="text-align:left">The text to be displayed in the input dialog</td>
+      <td style="text-align:left">
+        <p>The text to be displayed in the input dialog.</p>
+        <p></p>
+        <p>Supports storage and translation interpolations.</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>Type</code>
@@ -65,7 +69,11 @@ There are many cases where we need input from the user, like when you want to kn
       <td style="text-align:left"><code>string </code>
       </td>
       <td style="text-align:left">Yes</td>
-      <td style="text-align:left">The default value for the input</td>
+      <td style="text-align:left">
+        <p>The default value for the input.</p>
+        <p></p>
+        <p>Supports storage and translation interpolations.</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>Options</code>
@@ -73,8 +81,14 @@ There are many cases where we need input from the user, like when you want to kn
       <td style="text-align:left"><code>Array&lt;object&gt;</code>
       </td>
       <td style="text-align:left">Yes</td>
-      <td style="text-align:left">The list of options to present to the player if the input has a type of
-        select, radio or checkbox</td>
+      <td style="text-align:left">
+        <p>The list of options to present to the player if the input has a type of
+          select, radio or checkbox<b>.</b>
+        </p>
+        <p>&lt;b&gt;&lt;/b&gt;</p>
+        <p>Both the label and value properties in the options support storage and
+          translation interpolations.</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>Validation</code>
@@ -105,8 +119,12 @@ There are many cases where we need input from the user, like when you want to kn
       <td style="text-align:left"><code>string</code>
       </td>
       <td style="text-align:left">Yes</td>
-      <td style="text-align:left">The message that will be shown in case the input fails the validation,
-        something useful for the player to know what you expect from them.</td>
+      <td style="text-align:left">
+        <p>The message that will be shown in case the input fails the validation,
+          something useful for the player to know what you expect from them.</p>
+        <p></p>
+        <p>Supports storage and translation interpolations.</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>actionString</code>
@@ -257,8 +275,7 @@ The `Warning` property expects a `string` value that will be shown to the player
 		monogatari.storage ({ player: { name: '' }});
 	},
 	'Warning': 'You must enter a name!'
-}},
-
+}}
 ```
 
 If the player provided an empty value \(thus causing the validation function to deem it invalid\), the text in the `Warning` property will be shown to the player so they know something was wrong with the info they provided and try again:
@@ -308,6 +325,46 @@ If we take a closer look to the `Save` function, we can see it's saving the play
 Something really important to know about this function is that the value it returns will affect the flow of the game. If the value returns `void` \(nothing like the one above\) or `true`, the game will continue to the next statement on the script as soon as the save operation finishes. If it returns `false`, then the input dialog will disappear but the player will have to click once more for the game to carry on.
 
 Just like the [Validation function](input.md#input-validation), this one is also able to perform asynchronous operations and the flow will be affected by what the [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) it returns resolves to.
+
+## Input Revert
+
+You probably want players to be able to go back and enter a different value or simply go back to any point of the script even if that means passing through a previously answered input statement.
+
+In order to do so, you need to provide a `Revert` function. This function should be implemented by you and should do everything that's needed to revert what you did in your `Save` function. Let's take the following input as an example:
+
+```javascript
+{'Input': {
+	'Text': 'What is your name?',
+	'Validation': (input) => {
+		return input.trim ().length > 0;
+	},
+	'Save': (input) => {
+		monogatari.storage ({ player: { name: input }});
+	},
+	'Revert': () => {
+		monogatari.storage ({ player: { name: '' }});
+	},
+	'Warning': 'You must enter a name!'
+}}
+```
+
+In the `Save` function, we're saving the player's name to the storage:
+
+```javascript
+'Save': (input) => {
+	monogatari.storage ({ player: { name: input }});
+}
+```
+
+Therefore, what we need to do in our `Revert` function is return that value in the storage to its original or default value:
+
+```javascript
+'Revert': () => {
+	monogatari.storage ({ player: { name: '' }});
+}
+```
+
+That way, whenever the player rolls back an input, the state of your game gets reset to what it was before. If you do not provide a `Revert` function however, players won't be able to go back when reaching an input statement, you can of course use this fact to your advantage if that's the behaviour you want, otherwise we always recommend implementing your `Revert`function so players can have the best experience possible.
 
 ## Input Styling
 
@@ -360,6 +417,8 @@ This will result in a stylized input dialog such as this one:
 
 ![](../.gitbook/assets/styled-input.png)
 
+
+
 ## Input Timer
 
 ```javascript
@@ -405,147 +464,324 @@ This will result in a stylized input dialog such as this one:
 
 ![](../.gitbook/assets/text-input.png)
 
-This is a sample script with an input statement:
+A `text` input allows the player to enter any kind of text, that includes numbers, symbols and even emojis. If the player doesn't enter any value, the `Validation` and `Save` functions will receive an empty string \(`''`\) as the player's input.
+
+#### Sample Code
 
 ```javascript
-monogatari.script ({
-	// The game starts here.
-	'Start': [
-		'You’ll see an input next',
-		{'Input': {
-			'Text': 'What is your name?',
-			'Validation': (input) => {
-				return input.trim ().length > 0;
-			},
-			'Save': (input) => {
-				monogatari.storage ({ player: { name: input }});
-			},
-			'Revert': () => {
-				monogatari.storage ({ player: { name: '' }});
-			},
-			'Warning': 'You must enter a name!'
-		}},
-		'Hi {{player.name}}! Welcome to Monogatari!'
-	]
-});
+{'Input': {
+	'Text': 'What is your name?',
+	'Validation': (input) => {
+		return input.trim ().length > 0;
+	},
+	'Save': (input) => {
+		monogatari.storage ({ player: { name: input }});
+	},
+	'Revert': () => {
+		monogatari.storage ({ player: { name: '' }});
+	},
+	'Warning': 'You must enter a name!'
+}}
 ```
-
-![](../.gitbook/assets/text-input-warning.png)
 
 ### Password
 
 ![](../.gitbook/assets/password-input.png)
 
+A `password` will allow the player to enter any text just like the `text` input but whatever they type will be obscured with a symbol such as the asterisk \(`*`\) or a dot \(`•`\). If the player doesn't enter any value, the `Validation` and `Save` functions will receive an empty string \(`''`\) as the player's input.
+
+#### Sample Code
+
 ```javascript
-monogatari.script ({
-	// The game starts here.
-	'Start': [
-		'You’ll see an input next',
-		{'Input': {
-			'Text': 'What is your name?',
-			'Type': 'password',
-			'Validation': (input) => {
-				return input.trim ().length > 0;
-			},
-			'Save': (input) => {
-				monogatari.storage ({ player: { name: input }});
-			},
-			'Revert': () => {
-				monogatari.storage ({ player: { name: '' }});
-			},
-			'Warning': 'You must enter a name!'
-		}},
-		'Hi {{player.name}}! Welcome to Monogatari!'
-	]
-});
+{'Input': {
+	'Text': 'Enter the secret code',
+	'Type': 'password',
+	'Validation': (input) => {
+		// Check what the player entered against our code
+		return input.trim () === 'SecretC0de';
+	},
+	'Save': (input) => {
+		// Do something here, might not be necessary to
+		// save anything for password inputs.
+	},
+	'Revert': () => {
+		// Revert what we did in the save function
+	},
+	'Warning': 'That\'s not the right code.'
+}}
 ```
 
 ### Select
 
 ![](../.gitbook/assets/select-input.png)
 
+A `select` input allows you to provide different possible values for the player to choose from, they however will only be able to choose one of them. If the player doesn't enter any value, the `Validation` and `Save` functions will receive an empty string \(`''`\) as the player's input.
 
+#### Sample Code
 
 ```javascript
-monogatari.script ({
-	// The game starts here.
-	'Start': [
-		'You’ll see an input next',
-		{'Input': {
-			'Text': 'What is your name?',
-			'Validation': (input) => {
-				return input.trim ().length > 0;
-			},
-			'Save': (input) => {
-				monogatari.storage ({ player: { name: input }});
-			},
-			'Revert': () => {
-				monogatari.storage ({ player: { name: '' }});
-			},
-			'Warning': 'You must enter a name!'
-		}},
-		'Hi {{player.name}}! Welcome to Monogatari!'
-	]
-});
+{'Input': {
+	'Text': 'What\'s your favorite color?',
+	'Type': 'select',
+	'Options': [
+		{
+			label: 'Pink',
+			value: 'pink',
+		},
+		{
+			label: 'Red',
+			value: 'red',
+		},
+		{
+			label: 'Orange',
+			value: 'orange',
+		},
+		{
+			label: 'Blue',
+			value: 'blue',
+		},
+		{
+			label: 'Yellow',
+			value: 'yellow',
+		},
+		{
+			label: 'Green',
+			value: 'green',
+		}
+	],
+	'Validation': (input) => {
+		// We'll receive the 'value' property of the option
+		// the player selected.
+		return input.trim ().length > 0;
+	},
+	'Save': (input) => {
+		// Save the favorite color in the storage
+		monogatari.storage ({ player: { favorite_color: input }});
+	},
+	'Revert': () => {
+		// Reset the favorite color property
+		monogatari.storage ({ player: { favorite_color: '' }});
+	},
+	'Warning': 'You must select a color.'
+}}
 ```
 
 ### Radio
 
 ![](../.gitbook/assets/radio-input.png)
 
-
+A `radio` input, just like the `select`  input allows you to provide different possible values for the player to choose from and only allows them to choose one. If the player doesn't enter any value, the `Validation` and `Save` functions will receive an empty string \(`''`\) as the player's input.
 
 ```javascript
-monogatari.script ({
-	// The game starts here.
-	'Start': [
-		'You’ll see an input next',
-		{'Input': {
-			'Text': 'What is your name?',
-			'Validation': (input) => {
-				return input.trim ().length > 0;
-			},
-			'Save': (input) => {
-				monogatari.storage ({ player: { name: input }});
-			},
-			'Revert': () => {
-				monogatari.storage ({ player: { name: '' }});
-			},
-			'Warning': 'You must enter a name!'
-		}},
-		'Hi {{player.name}}! Welcome to Monogatari!'
-	]
-});
+{'Input': {
+	'Text': 'What\'s your favorite color?',
+	'Type': 'radio',
+	'Options': [
+		{
+			label: 'Pink',
+			value: 'pink',
+		},
+		{
+			label: 'Red',
+			value: 'red',
+		},
+		{
+			label: 'Orange',
+			value: 'orange',
+		},
+		{
+			label: 'Blue',
+			value: 'blue',
+		},
+		{
+			label: 'Yellow',
+			value: 'yellow',
+		},
+		{
+			label: 'Green',
+			value: 'green',
+		}
+	],
+	'Validation': (input) => {
+		// We'll receive the 'value' property of the option
+		// the player selected.
+		return input.trim ().length > 0;
+	},
+	'Save': (input) => {
+		// Save the favorite color in the storage
+		monogatari.storage ({ player: { favorite_color: input }});
+	},
+	'Revert': () => {
+		// Reset the favorite color property
+		monogatari.storage ({ player: { favorite_color: '' }});
+	},
+	'Warning': 'You must select a color.'
+}}
 ```
 
 ### Checkbox
 
 ![](../.gitbook/assets/checkbox-input.png)
 
+A `checkbox` also allows you to provide different possible values for the player to choose from but, contrary to the `radio` or `select` inputs, players will be able to choose more than one option. Since this input allows multiple choices to be chosen, the input argument received by the `Validation` and `Save` functions will be an array of strings instead of a string, for example:
+
+```javascript
+['pink', 'yellow']
+```
+
+If the player doesn't enter any value, the `Validation` and `Save` functions will receive an empty array \(`[]`\) as the player's input.
+
+#### Sample Code
+
+```javascript
+{'Input': {
+	'Text': 'What are your favorite colors?',
+	'Type': 'checkbox',
+	'Options': [
+		{
+			label: 'Pink',
+			value: 'pink',
+		},
+		{
+			label: 'Red',
+			value: 'red',
+		},
+		{
+			label: 'Orange',
+			value: 'orange',
+		},
+		{
+			label: 'Blue',
+			value: 'blue',
+		},
+		{
+			label: 'Yellow',
+			value: 'yellow',
+		},
+		{
+			label: 'Green',
+			value: 'green',
+		}
+	],
+	'Validation': (input) => {
+		// In this case, input is not a single string but an array
+		// of strings.
+		return input.length > 0;
+	},
+	'Save': (input) => {
+		monogatari.storage ({ player: { favorite_colors: input }});
+	},
+	'Warning': 'You must select at least one color!'
+}}
+```
+
+## Input Default Value
+
+You can also provide a default value for the input by providing a `Default` property. For text-based inputs such as text and password, whatever you pass as the value of this property will be what's written by default on the input field.
+
 
 
 ```javascript
-monogatari.script ({
-	// The game starts here.
-	'Start': [
-		'You’ll see an input next',
-		{'Input': {
-			'Text': 'What is your name?',
-			'Validation': (input) => {
-				return input.trim ().length > 0;
-			},
-			'Save': (input) => {
-				monogatari.storage ({ player: { name: input }});
-			},
-			'Revert': () => {
-				monogatari.storage ({ player: { name: '' }});
-			},
-			'Warning': 'You must enter a name!'
-		}},
-		'Hi {{player.name}}! Welcome to Monogatari!'
-	]
+{'Input': {
+	'Text': 'What is your name?',
+	'Default': 'Jane Doe',
+	'Validation': (input) => {
+		return input.trim ().length > 0;
+	},
+	'Save': (input) => {
+		monogatari.storage ({ player: { name: input }});
+	},
+	'Revert': () => {
+		monogatari.storage ({ player: { name: '' }});
+	},
+	'Warning': 'You must enter a name!'
+}}
+```
+
+For option-based inputs such as select, radio and checkbox, your `Default` property will have to match one of the value properties of the options you provided:
+
+```javascript
+{'Input': {
+	'Text': 'What are your favorite colors?',
+	'Type': 'checkbox',
+	'Default': 'orange',
+	'Options': [
+		{
+			label: 'Pink',
+			value: 'pink',
+		},
+		{
+			label: 'Red',
+			value: 'red',
+		},
+		{
+			label: 'Orange',
+			value: 'orange',
+		},
+		{
+			label: 'Blue',
+			value: 'blue',
+		},
+		{
+			label: 'Yellow',
+			value: 'yellow',
+		},
+		{
+			label: 'Green',
+			value: 'green',
+		}
+	],
+	'Validation': (input) => {
+		// In this case, input is not a single string but an array
+		// of strings.
+		return input.length > 0;
+	},
+	'Save': (input) => {
+		monogatari.storage ({ player: { favorite_colors: input }});
+	},
+	'Warning': 'You must select at least one color!'
+}}
+```
+
+## Input Action String
+
+By default, the submit button in an input has the text `'OK'` in it, however this may not match the purpose or context of your input. This text can be changed by providing a translation key as the value for the `actionString` property. 
+
+First, you'll need to register your new string, if your game is a multilanguage one, you'll have to register it for all of the languages your game is available on. Otherwise, you will only need to register in the default language of your game.
+
+```javascript
+monogatari.translation ('English', {
+    'EnterCode': 'Enter Code' 
+});
+
+monogatari.translation ('Español', {
+    'EnterCode': 'Ingresar Código' 
 });
 ```
 
+Once you've registered your translation string, you can pass it to the input:
 
+```javascript
+{'Input': {
+	'Text': 'Enter the secret code',
+	'Type': 'password',
+	'actionString': 'EnterCode',
+	'Validation': (input) => {
+		// Check what the player entered against our code
+		return input.trim () === 'SecretC0de';
+	},
+	'Save': (input) => {
+		// Do something here, might not be necessary to
+		// save anything for password inputs.
+	},
+	'Revert': () => {
+		// Revert what we did in the save function
+	},
+	'Warning': 'That\'s not the right code.'
+}}
+```
+
+Your input will then show the text of your string rather than the default one:
+
+![](../.gitbook/assets/input-action-string.png)
 
