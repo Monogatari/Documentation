@@ -34,3 +34,5 @@ A lot of awesome people help developing Monogatari, you can view the whole list 
 
 
 
+
+
