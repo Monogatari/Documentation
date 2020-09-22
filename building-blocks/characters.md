@@ -28,7 +28,11 @@ The following table lists all the properties you can set for each character.
       <td style="text-align:left"><code>string</code>
       </td>
       <td style="text-align:left">Yes</td>
-      <td style="text-align:left">The name that will be shown when this character speaks.</td>
+      <td style="text-align:left">
+        <p>The name that will be shown when this character speaks.</p>
+        <p></p>
+        <p>Supports storage and translation interpolations.</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>color</code>
