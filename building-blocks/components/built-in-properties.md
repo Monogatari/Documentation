@@ -8,12 +8,6 @@ Every component has some built-in properties that are used for its functionality
 Component._id = '';
 ```
 
-## Configuration
-
-```javascript
-Component._configuration = {};
-```
-
 
 
 ## State
