@@ -1,20 +1,34 @@
-# Text Box
+# Text-Box
 
-## Component Structure
+## Properties
 
-The following code is this component's initial HTML structure. Remember you can change this structure any time by using the [`template()` component built-in function](../building-blocks/components/built-in-functions.md#get-or-modify-the-html-structure).
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>mode</code>
+      </td>
+      <td style="text-align:left">
+        <p>Default is <code>adv</code>.</p>
+        <p></p>
+        <p>The mode the textbox is currently displaying dialogs on, whether <code>adv</code> or <code>nvl</code> mode.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-```markup
-<div data-content="wrapper">
-	<div data-content="side-image">
-		<img data-ui="face" alt="" data-content="character_expression">
-	</div>
-	<div data-content="text">
-		<span data-ui="who" data-content="character-name"></span>
-		<p data-ui="say" data_content="dialog"></p>
-	</div>
-</div>
-```
+## Methods
 
+### `show (): void`
 
+Shows the text-box element.
+
+### `checkUnread (): void`
+
+This method is called by the [Dialog action ](../script-actions/dialogs.md)after writing an NVL dialog. It will check if the player has an unread dialog \(one that was added and the player has to scroll to read it\). If there is one, the class `unread` will be added to the `text-box` element.
 

@@ -31,7 +31,7 @@ And finally, just place it in our `index.html` with the tag we defined for it:
 When monogatari gets initialized, our component will be registered and its render method will be executed, making its final HTML be:
 
 ```markup
-<my-custom-element>
+<my-custom-element class="animated" data-component="my-custom-element">
     <h1>This is my component</h1>
 </my-custom-element>
 ```
@@ -290,4 +290,173 @@ With components being self-contained, you can share it using just two files: a J
 ### The problems it created
 
 This change has brought some confusion to people who expect all the HTML to be there for them to edit. It now results confusing where the code is coming from and how to update it which has caused monogatari not to be as beginner friendly as it used to be. However, I strongly believe these problems are the result of the lack of proper documentation. Components are in fact simple to use and work with, it just needs a mind shift and a proper explanation.
+
+## Changing the contents of a component
+
+You might want to change the HTML of a component, either to add some elements for your game or because you want to change the way it looks. Every component has a render function like the one we showed in the simple example above. This function defines the default structure of any component but there are several ways to modify it.
+
+### Appending Elements
+
+If all you want is to add some HTML element to the component, you can do so by adding your HTML in the `index.html` file as children of the component you want to edit. Let's retake our simple component example:
+
+```javascript
+class MyCustomElement extends Monogatari.Component {
+    render () {
+     return `<h1>This is my component</h1>`;   
+    }
+}
+
+MyCustomElement.tag = 'my-custom-element';
+```
+
+We already know that we need to add it in our `index.html` by placing the tags for it but notice how our tags are left empty, there's nothing inside of them.
+
+```markup
+<my-custom-element></my-custom-element>
+```
+
+When it gets rendered, the component runs its render function and places the results inside of it:
+
+```markup
+<my-custom-element class="animated" data-component="my-custom-element">
+    <h1>This is my component</h1>
+</my-custom-element>
+```
+
+So now, let's say we wanted to add another element to it, a subtitle right below our `h1` element we already defined. We could of course simply update our render function to include the new element:
+
+```javascript
+render () {
+    return `
+        <h1>This is my component</h1>
+        <h2>This is my subtitle</h2>
+    `;   
+}
+```
+
+However, this time we were able to modify the render function because we had created our own component. What if we want to append some content to a component we didn't create like the ones monogatari ships with by default?
+
+Well, you can just place your contents in the `index.html` file. Instead of leaving the component tags empty, you can place any content you want there and it will get appended to the contents of your render function:
+
+```markup
+<my-custom-element>
+    <h2>This is my subtitle</h2>
+</my-custom-element>
+```
+
+### Changing the Template
+
+Some times however, the changes we want to do are more complex than simply appending something to the HTML of an element. This is where the `template` method that all components have by default comes in.
+
+If you wanted to change a component, for example the game-screen element monogatari ships with, these are the steps you'd need to follow:
+
+#### 1. Identify the component's render method
+
+To modify the structure of any component, we first need to know what it looks like by default. To do so, we need to dive into the code of the component we want to change, you'll find all component's in the [monogatari source code repository](https://github.com/Monogatari/Monogatari/tree/develop/src/components). 
+
+Inside the `index.js` file of every component, you'll find the class that defines it and most importantly, its render method. Let's take a look at the `game-screen` component it's render method looks something like this \(It may have changed since the writing of this documentation\):
+
+```javascript
+render () {
+	return `
+		<div data-content="visuals">
+			<div id="tsparticles" data-ui="particles"></div>
+			<div id="background" data-ui="background"></div>
+		</div>
+	`;
+}
+```
+
+#### 2. Create your template method
+
+Now that we know the contents of its render method, we can create our own template to add or modify the code as we need. In our `main.js`, we would get the component and then, use its template method, copying the contents it currently has on the `render` method:
+
+```javascript
+monogatari.component ('game-screen').template (() => {
+	return `
+		<div data-content="visuals">
+			<div id="tsparticles" data-ui="particles"></div>
+			<div id="background" data-ui="background"></div>
+		</div>
+	`;
+});
+```
+
+#### 3. Modify the contents to fit your needs
+
+Now that our template method is ready, we can use it to modify the component's structure by changing it any way we need to:
+
+```javascript
+monogatari.component ('game-screen').template (() => {
+	return `
+		<h1>My Title</h1>
+		<div data-content="visuals">
+			<div id="tsparticles" data-ui="particles"></div>
+			<div id="background" data-ui="background"></div>
+			<div id="someCustomElement"></div>
+		</div>
+	`;
+});
+```
+
+This will cause the component to use the template method we provided for it instead of the render method to get its contents giving us the freedom to modify the structure in a way almost as simple as if we had created the component ourselves.
+
+### Performing DOM Operations
+
+A component in the end is just another HTML element, you can still perform operations over it using the DOM as you normally would. Let's try to replicate what we did to the game-screen component just using DOM operations.
+
+#### Vanilla JavaScript
+
+{% hint style="danger" %}
+Due to current limitations in the [Pandora library](../../advanced-monogatari-development/core-libraries/pandora.md) used for Monogatari's components, it is not recommended to interact with the `innerHTML` property of any component as it's prone to cause the duplication of the children inside such component. The approach shown here, while more verbose, avoids this situation.
+{% endhint %}
+
+```javascript
+// Get the game-screen HTML element
+const gameScreen = document.querySelector ('game-screen');
+
+// Create the title element
+const title = document.createElement ('h1');
+title.innerText = 'My Title';
+
+// Add our title
+gameScreen.insertBefore (title, gameScreen.childNodes[0]);
+
+// Get the visuals HTML element
+const visuals = document.querySelector ('game-screen [data-content="visuals"]');
+
+// Create the custom div element
+const div = document.createElement ('div');
+div.id = 'someCustomElement';
+
+// Add our custom div to the visuals element
+visuals.appendChild (div);
+```
+
+#### Using the Component built-in DOM Operations
+
+```javascript
+// Get the game-screen Artemis element
+const gameScreen = document.querySelector ('game-screen').element ();
+
+// Add our title
+gameScreen.prepend ('<h1>My Title</h1>');
+
+// Add our custom div to the visuals element
+gameScreen.content ('visuals').append ('<div id="someCustomElement"></div>');
+```
+
+#### Using Artemis
+
+The component built in operations from above actually use [Artemis](../../advanced-monogatari-development/core-libraries/artemis.md) internally, so they're equivalent to the following code:
+
+```javascript
+const { $_ } = Monogatari;
+
+// Add our title
+$_('game-screen').prepend ('<h1>My Title</h1>');
+
+// Add our custom div to the visuals element
+$_('game-screen [data-content="visuals"]').append ('<div id="someCustomElement"></div>');
+```
 

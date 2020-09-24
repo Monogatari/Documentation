@@ -62,7 +62,7 @@
 * [Main Screen](components/main-screen.md)
 * [Choice Container](components/choice-container.md)
 * [Save Slot](components/save-slot.md)
-* [Text Box](components/text-box.md)
+* [Text-Box](components/text-box.md)
 
 ## Configuration Options
 

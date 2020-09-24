@@ -4,7 +4,7 @@
 
 * [Node.js](https://nodejs.org/en/)
 
-## Installing Cordova
+## Installing Apache Cordova
 
 ```text
 $ npm install -g cordova 

@@ -7,7 +7,7 @@ description: The text your players are going to read.
 ## Description
 
 ```javascript
-'[character_id][:[expression_id]] <dialog_text>'
+'[character_id][:<expression_id>] <dialog_text>'
 ```
 
 **Action ID**: `Dialog`
