@@ -2,16 +2,20 @@
 description: The credits page so players can see who made the game
 ---
 
-# Credits
+# Credits Screen
 
 ## Description
+
+```markup
+<credits-screen></credits-screen>
+```
 
 Attribution is important. People like knowing who made the games they love, and collaborators deserve credit for their work.
 
 ```javascript
 monogatari.configuration ('credits', {
-	Developers: {
-		Artist: "Yui",
+	"Developers": {
+		"Artist": "Yui",
 		"Scenario Writer": "Gale",
 	},
 	"Donors": {

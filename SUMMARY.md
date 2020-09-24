@@ -56,7 +56,7 @@
 
 ## Components
 
-* [Credits](components/credits.md)
+* [Credits Screen](components/credits.md)
 * [Quick Menu](components/quick-menu.md)
 * [Loading Screen](components/loading-screen.md)
 * [Main Screen](components/main-screen.md)
