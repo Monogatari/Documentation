@@ -1,5 +1,11 @@
 # Text-Box
 
+## Description
+
+```markup
+<text-box></text-box>
+```
+
 ## Properties
 
 <table>
