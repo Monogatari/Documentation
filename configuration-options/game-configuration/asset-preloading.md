@@ -4,7 +4,7 @@ When releasing your game online, the asset loading is one of the most important 
 
 #### Built In Preloading
 
-The asset preloading will show a progress bar when you enter the game, the entire preloading can be disabled using the `Preload` property in the options.js:
+The asset preloading will show a progress bar when you enter the game, the entire preloading can be disabled using the `Preload` property in the `options.js`:
 
 This property default value is true meaning it will show the Preload Screen and do all the Asset Preloading
 

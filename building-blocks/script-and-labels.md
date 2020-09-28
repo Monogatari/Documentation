@@ -15,7 +15,7 @@ const person = {
 };
 ```
 
-This is what we call key/value pairs, where a key like `name` or `age` points to a value like `Jane Doe` or `24`. Notice how each key/value pair has a comma in the end separating it from the next one. Missing commas is the \#1 issue that people have on their scripts.
+This is what we call key/value pairs, where a key like `name` or `age` points to a value like `Jane Doe` or `24`. Notice how each key/value pair has a comma in the end separating it from the next one. **Missing commas is the \#1 issue that people have on their scripts.**
 
 In Monogatari's case, your script is a list of keys \(the names of the [labels](script-and-labels.md#labels) on your game\) and values \(the list of statements these labels are made of\). For example:
 
