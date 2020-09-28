@@ -90,10 +90,6 @@
 * [Mobile](releasing-your-game/mobile.md)
 * [Web](releasing-your-game/web.md)
 
-## Porting From Other Engines
-
-* [Ren'py](porting-from-other-engines/renpy.md)
-
 ## Advanced: Monogatari Development
 
 * [Core Libraries](advanced-monogatari-development/core-libraries/README.md)
