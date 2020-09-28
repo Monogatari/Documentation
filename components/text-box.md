@@ -6,6 +6,8 @@
 <text-box></text-box>
 ```
 
+**Source Code**: [https://github.com/Monogatari/Monogatari/tree/develop/src/components/text-box](https://github.com/Monogatari/Monogatari/tree/develop/src/components/text-box)
+
 ## Properties
 
 <table>

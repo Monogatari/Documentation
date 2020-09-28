@@ -1,14 +1,14 @@
 # Events
 
-Monogatari has a lot of useful events that fire when certain engine events happen. These can be used to run your own custom functions with `monogatari.on()`. For example:
+Monogatari has a lot of useful events that fire when certain engine events happen. These can be used to run your own custom functions with `monogatari.on ()`. 
+
+For example, the following code will create a function that will be run every time the didLoadGame event fires:
 
 ```javascript
 monogatari.on ('didLoadGame', () => {
   // Something here
 });
 ```
-
-This function would run after loading any save file.
 
 Below is an in-progress list of all events Monogatari has.
 

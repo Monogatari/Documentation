@@ -1,8 +1,10 @@
 # HTML Data Attributes
 
+## Overview
 
 
-### Understanding all the Datas
+
+## Built-in Attributes
 
 If you've already seen the HTML, you'll notice many "data" attributes in the elements; this are used by the engine so you may change the structure and using the right datas everything will just work.
 
@@ -10,7 +12,7 @@ This table will resume the general datas and what are they for.
 
 | Data | Function |
 | :--- | :--- |
-| data-action | All data-actions well... do something, they are handled by the $\("\[data-action\]"\).click\(\) function in the engine. |
+| `data-action` | All data-actions well... do something, they are handled by the $\("\[data-action\]"\).click\(\) function in the engine. |
 | data-ui | The data-uis are part of the user interface, things that the user will see. |
 | data-component | The data-uis are part of the user interface, however the user will not see them. |
 | data-menu | The data-menus are the screens and menus of your game. |

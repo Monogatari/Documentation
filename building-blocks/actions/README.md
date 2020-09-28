@@ -2,7 +2,7 @@
 
 ## Overview
 
-Actions are what defines what any given statement in a script should do.
+Actions are what defines what any given statement in a script should do. 
 
 
 
