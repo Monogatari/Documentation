@@ -74,9 +74,9 @@ The following is a comprehensive list of the properties available for you to mod
 | :--- | :--- | :--- |
 | duration | `string` | The duration for the animations used.  The value for this property must be a non-spaced valid value for the [`animation-duration`](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration) CSS property. |
 
-## Examples
+## Using an image as the background
 
-### Using an image as the background
+The most common case of
 
 If you want to use an image for the background, remember you first have to declare your image assets and place all your files under the `assets/scenes/` directory.
 
