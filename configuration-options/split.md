@@ -14,10 +14,10 @@ In Monogatari 2.0, your second script file can be formatted the same way your fi
 monogatari.script ({
 	// The game starts here.
 	'Start': [
-	"y Hello there Protaganist-senpai!",
-	"y Wow after one line of dialog this is starting to feel pretty long.",
-	"y Let's jump to another label in another file!",
-	"jump theNextLabel",
+		"y Hello there Protaganist-senpai!",
+		"y Wow after one line of dialog this is starting to feel pretty long.",
+		"y Let's jump to another label in another file!",
+		"jump theNextLabel",
 	]
 });
 ```
@@ -28,8 +28,8 @@ And the script of your second script file can say:
 monogatari.script ({
 	// The Game Continues!!
 	'theNextLabel': [
-	"y Yeah there we go! That feels so much better.",
-	"end"
+		"y Yeah there we go! That feels so much better.",
+		"end"
 	]
 });
 ```
