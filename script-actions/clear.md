@@ -10,7 +10,7 @@ description: Clear the textbox
 'clear'
 ```
 
-The `clear` action will, as it name says, clear the textbox removing any dialogs in it and leaving it completely blank.
+The `clear` action will clear the textbox, removing any dialogs in it and leaving it completely blank.
 
 **Action ID**: Clear
 
