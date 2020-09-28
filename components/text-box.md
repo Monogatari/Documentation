@@ -30,11 +30,11 @@
 
 ## Methods
 
-### `show (): void`
+### `show(): void`
 
 Shows the text-box element.
 
-### `checkUnread (): void`
+### `checkUnread(): void`
 
 This method is called by the [Dialog action ](../script-actions/dialogs.md)after writing an NVL dialog. It will check if the player has an unread dialog \(one that was added and the player has to scroll to read it\). If there is one, the class `unread` will be added to the `text-box` element.
 
