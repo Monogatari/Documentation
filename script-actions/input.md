@@ -156,9 +156,18 @@ There are many cases where we need input from the user, like when you want to kn
     <tr>
       <td style="text-align:left"><code>Timer</code>
       </td>
-      <td style="text-align:left">object</td>
+      <td style="text-align:left"><code>object</code>
+      </td>
       <td style="text-align:left">Yes</td>
       <td style="text-align:left">A timer configuration object.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>Attributes</code>
+      </td>
+      <td style="text-align:left"><code>object</code>
+      </td>
+      <td style="text-align:left">Yes</td>
+      <td style="text-align:left">The list of attributes to add to the <code>input</code> HTML element created.</td>
     </tr>
   </tbody>
 </table>
