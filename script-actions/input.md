@@ -490,6 +490,39 @@ A `text` input allows the player to enter any kind of text, that includes number
 }}
 ```
 
+### Number
+
+![](../.gitbook/assets/number-input.png)
+
+A number input allows the player to enter any kind of numeric value. Note however that the `input` received in the `Validation` and `Save` functions will be a string so **it has to be parsed to a number**. If the player doesn't enter any value, the `Validation` and `Save` functions will receive an empty string \(`''`\) as the player's input.
+
+#### Sample Code
+
+```javascript
+{'Input': {
+	'Text': 'Enter your age',
+	'Type': 'number',
+	'Validation': (input) => {
+		// Check if the input wasn't empty
+		if (input.trim ().length === 0) {
+			return false;
+		}
+		
+		// Transform the input string to an integer number
+		const age = parseInt (input);
+		
+		return age > 18;
+	},
+	'Save': (input) => {
+		monogatari.storage ({ player: { age: parseInt (input) }});
+	},
+	'Revert': () => {
+		monogatari.storage ({ player: { name: '' }});
+	},
+	'Warning': 'You must be at least 18 years old to continue.'
+}}
+```
+
 ### Password
 
 ![](../.gitbook/assets/password-input.png)
@@ -788,4 +821,45 @@ Once you've registered your translation string, you can pass it to the input:
 Your input will then show the text of your string rather than the default one:
 
 ![](../.gitbook/assets/input-action-string.png)
+
+## Input Attributes
+
+HTML inputs allow you to set some very useful attributes for them, such as the max and min values they allow. You'll be able to set these attributes using the `Attributes` property.
+
+```javascript
+{'Input': {
+	'Text': 'What is your name?',
+	'Validation': (input) => {
+		return input.trim ().length > 0;
+	},
+	'Save': (input) => {
+		monogatari.storage ({ player: { name: input }});
+	},
+	'Revert': () => {
+		monogatari.storage ({ player: { name: '' }});
+	},
+	'Warning': 'You must enter a name!',
+	'Attributes': {
+		'placeholder': 'Enter your name',
+		'minlength': 3,
+		'maxlength': 20
+	}
+}}
+```
+
+### Available Attributes
+
+The following table shows the possible attributes you can set. Some may only be available for a certain type of input. If you have doubts on the usage of these attributes, you should refer to the [documentation for the HTML input element and its types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
+
+| Attribute | Description |
+| :--- | :--- |
+| `maxlength` | The maximum number of characters the input should accept. For numeric inputs you should use the `max` attribute instead. |
+| `minlength` | The minimum number of characters long the input can be and still be considered valid. For numeric inputs you should use the `min` attribute instead. |
+| `placeholder` | An exemplar value to display in the input field whenever it is empty. |
+| `pattern` | A regular expression the input's contents must match in order to be valid. |
+| `max` | The maximum value to accept for this input. |
+| `min` | The minimum value to accept for this input. |
+| `step` | A stepping interval to use when using up and down arrows to adjust the value, as well as for validation. The amount a numeric value will increment or decrement by. |
+
+
 
