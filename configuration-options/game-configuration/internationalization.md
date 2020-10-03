@@ -88,14 +88,24 @@ If you have your script split in multiple files, you can read more on how to con
 Once you've formatted your script correctly, a language selection screen will appear for players that haven't selected a language yet. It will automatically detect the languages in your script and show buttons like the ones shown in the image.
 
 {% hint style="warning" %}
-You most likely **won't see this screen** appear to you because you transitioned from a single language game to a multilanguage one and thus, your settings were already set. 
+You most likely **won't see this screen** appear to you because you transitioned from a single language game to a _multi language_ one and thus, your settings were already set. 
 
 If you want to trigger this screen, you'll have to remove the settings from your storage using the dev tools.
 {% endhint %}
 
-Players are also able to change their language from the settings screen. The following image shows the language selection setting that appears automatically when a multilanguage game is configured:
+Players are also able to change their language from the settings screen. The following image shows the language selection setting that appears automatically when a _multi language_ game is configured:
 
 ![](../../.gitbook/assets/settings-language.png)
+
+In case you don't want the language selection screen to appear or have built your own, it can be disabled from the options.js file by changing the `LanguageSelectionScreen` property to `false`:
+
+```javascript
+// If the 'Multilanguage' setting is set to `true`. This will enable a
+	// language selection screen that will be shown before the asset loading
+	// screen. If set to false, the loading screen will appear first instead and
+	// players will have to change the language from the settings screen.
+	'LanguageSelectionScreen': false,
+```
 
 ### 4. Set the Default Language Preference
 
@@ -138,11 +148,31 @@ monogatari.translation ('YourLanguage', {
 });
 ```
 
-If you want to use this new translation as a language for your game, you'll have to add translations for all the strings the UI needs.
+### Adding the UI translations
 
-A new Language select will be added to the Settings screen showing all the languages your game has available!
+To make a new language available for your players to choose from, you'll have to add translations for all the strings the UI requires. You can take the [English strings file](https://github.com/Monogatari/Monogatari/blob/develop/src/translations/English.js) as reference so you can gather all the required strings and add your own translations for your language.
 
-The value attribute of each option has to match the language labels available. You can get a complete list of every string to translate for the UI from `monogatari.translation ('English')` or whatever language you would like to see using your browser's developer console.
+You can also get a complete list of every string to translate programmatically by using the `monogatari.translation ('<language_key>')` function, for example:
 
-![A picture of the developer console displaying all English translation strings for version &quot;2.0.0-beta.10&quot; ](../../.gitbook/assets/image%20%2818%29.png)
+![](../../.gitbook/assets/language-translation.png)
+
+### Adding the language metadata
+
+Each language also requires some metadata that will be used by monogatari.
+
+| Metadata | Description |
+| :--- | :--- |
+| `code` | The 2 letter code that represents that language. This code must be a valid [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) since it will be used to format the dates shown on the save slots. |
+| `icon` | An emoji that will be shown as the icon for the language in the language selection screen. |
+
+ Here's an example of the definition of a language metadata:
+
+```javascript
+monogatari.languageMetadata ('Español', {
+    code: 'es', 
+    icon: '🇲🇽'
+});
+```
+
+Once you've setup all the string translations and language metadata, all you need is adding your script for your new language and the option will appear automatically both on the language selection and the settings screens.
 
