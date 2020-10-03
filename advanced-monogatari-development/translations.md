@@ -28,87 +28,89 @@ All translations take the [English strings file](https://github.com/Monogatari/M
  * Hyuchia <diego@hyuchia.com>
  */
 
-import { Monogatari } from '../monogatari';
 
-Monogatari.translation ('English', {
-    'AdvanceHelp': 'To advance through the game, left-click or tap anywhere on the game screen or press the space key',
-    'AllowPlayback': 'Click here to allow audio playback',
-    'Audio': 'Audio',
-    'AutoPlay': 'Auto',
-    'AutoPlayButton': 'Enable auto play',
-    'AutoPlaySpeed': 'Autoplay Speed',
 
-    'Back': 'Back',
-    'BackButton': 'Go back',
+export default {
+	'AdvanceHelp': 'To advance through the game, left-click or tap anywhere on the game screen or press the space key',
+	'AllowPlayback': 'Click here to allow audio playback',
+	'Audio': 'Audio',
+	'AutoPlay': 'Auto',
+	'AutoPlayButton': 'Enable auto play',
+	'AutoPlaySpeed': 'Autoplay Speed',
 
-    'Cancel': 'Cancel',
-    'Close': 'Close',
-    'Confirm': 'Do you want to quit?',
-    'Credits': 'Credits',
+	'Back': 'Back',
+	'BackButton': 'Go back',
 
-    'Delete': 'Delete',
-    'DialogLogButton': 'Show the dialog log',
+	'Cancel': 'Cancel',
+	'Close': 'Close',
+	'Confirm': 'Do you want to quit?',
+	'Credits': 'Credits',
 
-    'FullScreen': 'Full Screen',
+	'Delete': 'Delete',
+	'DialogLogButton': 'Show the dialog log',
 
-    'Gallery': 'Gallery',
+	'FullScreen': 'Full Screen',
 
-    'Help': 'Help',
-    'Hide': 'Hide',
-    'HideButton': 'Hide the text box',
+	'Gallery': 'Gallery',
 
-    'iOSAudioWarning': 'Audio settings are not supported on iOS',
+	'Help': 'Help',
+	'Hide': 'Hide',
+	'HideButton': 'Hide the text box',
 
-    'KeyboardShortcuts': 'Keyboard Shortcuts',
+	'iOSAudioWarning': 'Audio settings are not supported on iOS',
 
-    'Language': 'Language',
-    'Load': 'Load',
-    'LoadAutoSaveSlots': 'Auto Saved Games',
-    'LoadButton': 'Open the Load Screen',
-    'Loading': 'Loading',
-    'LoadingMessage': 'Wait while the assets are loaded',
-    'LoadSlots': 'Saved Games',
-    'LocalStorageWarning': 'Local Storage is not available in this browser',
-    'Log': 'Log',
+	'KeyboardShortcuts': 'Keyboard Shortcuts',
 
-    'Music': 'Music Volume',
+	'Language': 'Language',
+	'Load': 'Load',
+	'LoadAutoSaveSlots': 'Auto Saved Games',
+	'LoadButton': 'Open the Load Screen',
+	'Loading': 'Loading',
+	'LoadingMessage': 'Wait while the assets are loaded',
+	'LoadSlots': 'Saved Games',
+	'LocalStorageWarning': 'Local Storage is not available in this browser',
+	'Log': 'Log',
 
-    'NewContent': 'There is new content available, reload the page to get the latest version',
-    'NoSavedGames': 'No saved games',
-    'NoAutoSavedGames': 'No automatically saved games',
-    'NoDialogsAvailable': 'No dialogs available. Dialogs will appear here as they show up',
+	'Music': 'Music Volume',
 
-    'OrientationWarning': 'Please rotate your device to play',
-    'Overwrite': 'Overwrite',
+	'NewContent': 'There is new content available, reload the page to get the latest version',
+	'NoSavedGames': 'No saved games',
+	'NoAutoSavedGames': 'No automatically saved games',
+	'NoDialogsAvailable': 'No dialogs available. Dialogs will appear here as they show up',
 
-    'QuickButtons': 'Quick Menu Buttons',
-    'QuickMenu': 'Quick Menu',
-    'Quit': 'Quit',
-    'QuitButton': 'Quit Game',
+	'OK': 'OK',
+	'OrientationWarning': 'Please rotate your device to play',
+	'Overwrite': 'Overwrite',
 
-    'Resolution': 'Resolution',
+	'QuickButtons': 'Quick Menu Buttons',
+	'QuickMenu': 'Quick Menu',
+	'Quit': 'Quit',
+	'QuitButton': 'Quit Game',
 
-    'Save': 'Save',
-    'SaveButton': 'Open the Save Screen',
-    'SaveInSlot': 'Save in slot',
-    'Settings': 'Settings',
-    'SettingsButton': 'Open the Settings Screen',
-    'Show': 'Show',
-    'Skip': 'Skip',
-    'SkipButton': 'Enter skip mode',
-    'SlotDeletion': 'Are you sure you want to delete this slot?',
-    'SlotOverwrite': 'Are you sure you want to overwrite this slot?',
-    'Sound': 'Sound Volume',
-    'Start': 'Start',
-    'Stop': 'Stop',
+	'Resolution': 'Resolution',
 
-    'TextSpeed': 'Text Speed',
+	'Save': 'Save',
+	'SaveButton': 'Open the Save Screen',
+	'SaveInSlot': 'Save in slot',
+	'SelectYourLanguage': 'Select your language',
+	'Settings': 'Settings',
+	'SettingsButton': 'Open the Settings Screen',
+	'Show': 'Show',
+	'Skip': 'Skip',
+	'SkipButton': 'Enter skip mode',
+	'SlotDeletion': 'Are you sure you want to delete this slot?',
+	'SlotOverwrite': 'Are you sure you want to overwrite this slot?',
+	'Sound': 'Sound Volume',
+	'Start': 'Start',
+	'Stop': 'Stop',
 
-    'Video': 'Video Volume',
-    'Voice': 'Voice Volume',
+	'TextSpeed': 'Text Speed',
 
-    'Windowed': 'Windowed'
-});
+	'Video': 'Video Volume',
+	'Voice': 'Voice Volume',
+
+	'Windowed': 'Windowed'
+};
 ```
 {% endcode %}
 

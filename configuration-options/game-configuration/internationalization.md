@@ -4,9 +4,11 @@ description: Making Monogatari games multilingual.
 
 # Internationalization
 
-## Translating your Script
+## Overview
 
-You can create a multi-language game pretty easily. To do so you need to do 4 simple things:
+You can create a multi-language game pretty easily. To do so you need to follow these simple steps:
+
+### 1. Enable the `MultiLanguage` setting
 
 Go to the `options.js` file and change the `'MultiLanguage'` value to `true`.
 
@@ -15,43 +17,120 @@ Go to the `options.js` file and change the `'MultiLanguage'` value to `true`.
 	'MultiLanguage': true,
 ```
 
-Next we will be changing the script to support Multi Language games. A single language game's script will look something like this.
+This will let monogatari know that you're planning to have your script in multiple languages. If you reload the page however, you'll most likely get an error like this one:
+
+![](../../.gitbook/assets/missing-language-metadata.png)
+
+This is normal and is caused because while we have indicated we would be having multiple versions of our script in multiple languages, we haven't changed the structure of our script to match that.
+
+### 2. Change your Script Format
+
+Next we will be changing the script to support Multi Language games. A single language script as you know is defined as an object with a list of labels and usually looks something like this:
 
 ```javascript
 monogatari.script ({
-    'Start':[
-        'Hi, welcome to your first Visual Novel with Monogatari.'
+    'Start': [
+        'Hi, welcome to your first Visual Novel with Monogatari.',
+        'jump other'
+    ],
+    'other': [
+        'Another Label!',
+        'end'
     ]
 });
 ```
 
-Your new _Multi Language_ script will have language labels that look like this:
+Note how each label is in the top level of the script objects hierarchy. 
+
+A _Multi Language_ script will instead have language objects in the top level and inside of them, the labels of the script that correspond to that language, for example:
 
 ```javascript
 monogatari.script ({
-
     'English':{
-        'Start':[
-            'Hi, welcome to your first Visual Novel with Monogatari.'
+        'Start': [
+            'Hi, welcome to your first Visual Novel with Monogatari.',
+            'jump other'
+        ],
+        'other': [
+            'Another Label!',
+            'end'
         ]
     },
     'Español':{
-        'Start':[
-            'Hola, bienvenido a tu primer Novela Visual con Monogatari.'
+        'Start': [
+            'Hola, bienvenido a tu primer Novela Visual con Monogatari.',
+            'jump other'
+        ],
+        'other': [
+            'Otro label!',
+            'end'
         ]
     }
 });
 ```
 
-These language labels are are objects that contain script labels. Their names must be one of the supported languages that are available in the list of available translations. A full list of all available translations for your current version can be found in `monogatari._translations`.
+Note how we essentially duplicated our script inside this new language objects and translated it for each language. 
 
-![Picture of monogatari.\_translations for version &quot;2.0.0-beta.10&quot;](../../.gitbook/assets/image%20%2816%29.png)
+{% hint style="danger" %}
+When saving a game, monogatari saves the `label` and `step` \(index of the statement\) it's currently on. For saved games to be fully compatible with each other, **your different scripts should have the same label names and number of statements in them**, otherwise, a game saved in one language would be invalid if the player changed language again and tried to load it. If you do a [jump](../../script-actions/jump.md) to a label that exists in one translation, but does not exist in the language that the player has selected for example, they will get an error telling them that the label does not exist, so be careful when crafting your script!  
+  
+In case some differences can't be avoided, you can rely on the [next action](../../script-actions/next.md) to fill act as a filler and make all scripts have the same size. 
+{% endhint %}
 
-Please note, each individual translation of your game is its own complete game, effectively. They are not modifications of each other, and there is no "default" game. Nothing is stopping you from making two different language versions of the same game entirely different. They don't need to have the same number of strings, and they also don't need to have the same game logic. On that note, if you have a `jump someLabel` to a label that exists in one translation, but does not exist in the language that the player has selected, then they will get an error telling them that `someLabel` does not exist, so be careful when crafting your script!
+If you have your script split in multiple files, you can read more on how to configure internationalization with split files here:
+
+{% page-ref page="../split.md" %}
+
+### 3. The Language Selection Screen
+
+![](../../.gitbook/assets/language-selection-screen.png)
+
+Once you've formatted your script correctly, a language selection screen will appear for players that haven't selected a language yet. It will automatically detect the languages in your script and show buttons like the ones shown in the image.
+
+{% hint style="warning" %}
+You most likely **won't see this screen** appear to you because you transitioned from a single language game to a multilanguage one and thus, your settings were already set. 
+
+If you want to trigger this screen, you'll have to remove the settings from your storage using the dev tools.
+{% endhint %}
+
+Players are also able to change their language from the settings screen. The following image shows the language selection setting that appears automatically when a multilanguage game is configured:
+
+![](../../.gitbook/assets/settings-language.png)
+
+### 4. Set the Default Language Preference
+
+Finally, you need to provide a default language for your game. While players will be able to choose their language, monogatari does need something to fall back to. Go to the `options.js` file once more and this time, go to the preferences section in the bottom. There, you should change the `'Language'` property to the name of the language you want to have by default. 
+
+```javascript
+// Initial Language for Multilanguage Games or for the Default GUI Language.
+'Language': 'Français',
+```
+
+## Supported Languages
+
+Monogatari already has built-in support for the following languages:
+
+* `Беларуская`
+* `Deutsch`
+* `English`
+* `Español`
+* `Français`
+* `Nederlands`
+* `Português`
+* `Русский`
+* `اللغه العربية`
+* `한국어`
+* `日本語`
+* `简体中文`
+* `toki pona`
+
+That means UI translations for those languages are available and the full UI will be shown in the correct language. You can also retrieve the list of available translations programmatically using the `monogatari.translations ()` function. This function will return an object with all the available languages and the UI string translations for them.
+
+![](../../.gitbook/assets/screenshot-from-2020-10-03-00-09-41.png)
 
 ## Translating the Engine UI for a not-yet-supported language
 
-If you need to translate the game into a language that Monogatari doesn't support, you can define new UI translations as follows:
+If you need to translate the game into a language that Monogatari doesn't include in the [supported languages](internationalization.md#supported-languages) or simply want to modify an existing translation, you can define your own UI translations as follows:
 
 ```javascript
 monogatari.translation ('YourLanguage', {
@@ -59,9 +138,11 @@ monogatari.translation ('YourLanguage', {
 });
 ```
 
+If you want to use this new translation as a language for your game, you'll have to add translations for all the strings the UI needs.
+
 A new Language select will be added to the Settings screen showing all the languages your game has available!
 
-The value attribute of each option has to match the language labels available. You can get a complete list of every string to translate for the UI from `monogatari._translations.English` or whatever language you would like to see using your browser's developer console.
+The value attribute of each option has to match the language labels available. You can get a complete list of every string to translate for the UI from `monogatari.translation ('English')` or whatever language you would like to see using your browser's developer console.
 
 ![A picture of the developer console displaying all English translation strings for version &quot;2.0.0-beta.10&quot; ](../../.gitbook/assets/image%20%2818%29.png)
 

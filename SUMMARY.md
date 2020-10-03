@@ -38,6 +38,7 @@
 * [Input](script-actions/input.md)
 * [Functions](script-actions/javascript.md)
 * [Jump](script-actions/jump.md)
+* [Next](script-actions/next.md)
 * [Placeholder](script-actions/placeholder.md)
 * [Play Music](script-actions/play-music.md)
 * [Play Sound](script-actions/play-sound.md)
