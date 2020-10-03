@@ -8,6 +8,7 @@
   * [Step 4: Make Your First Visual Novel](getting-started/step-4-make-your-first-visual-novel.md)
 * [Upgrading from v1.4.1](upgrading-from-v1.4.1.md)
 * [F.A.Q.](f.a.q..md)
+* [Diagnosing Errors](diagnosing-errors.md)
 
 ## Building Blocks
 
@@ -23,16 +24,17 @@
 
 ## Script Actions
 
-* [Canvas](script-actions/canvas.md)
 * [Choices](script-actions/choices.md)
 * [Clear](script-actions/clear.md)
 * [Conditionals](script-actions/conditionals.md)
 * [Dialogs](script-actions/dialogs.md)
 * [End](script-actions/end.md)
 * [Gallery](script-actions/image-gallery.md)
+* [Hide Canvas](script-actions/hide-canvas.md)
 * [Hide Character](script-actions/hide-character.md)
 * [Hide Image](script-actions/hide-image.md)
 * [Hide Particles](script-actions/hide-particles.md)
+* [Hide Video](script-actions/hide-video.md)
 * [Input](script-actions/input.md)
 * [Functions](script-actions/javascript.md)
 * [Jump](script-actions/jump.md)
@@ -40,6 +42,7 @@
 * [Play Music](script-actions/play-music.md)
 * [Play Sound](script-actions/play-sound.md)
 * [Play Voice](script-actions/play-voice.md)
+* [Show Canvas](script-actions/canvas.md)
 * [Show Background](script-actions/show-background.md)
 * [Show Character](script-actions/characters.md)
 * [Show Image](script-actions/show-image.md)
