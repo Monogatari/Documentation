@@ -148,6 +148,10 @@ monogatari.translation ('YourLanguage', {
 });
 ```
 
+You can also contribute to monogatari by adding new language translations to it or updating existing ones. You can learn more here:
+
+{% page-ref page="../../advanced-monogatari-development/translations.md" %}
+
 ### Adding the UI translations
 
 To make a new language available for your players to choose from, you'll have to add translations for all the strings the UI requires. You can take the [English strings file](https://github.com/Monogatari/Monogatari/blob/develop/src/translations/English.js) as reference so you can gather all the required strings and add your own translations for your language.
