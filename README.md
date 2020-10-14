@@ -1,7 +1,7 @@
 # Getting Started
 
 {% hint style="warning" %}
-**If you are looking for the documentation of the v2.x.x \(Nightly\) release,** [**click here**](https://developers.monogatari.io/documentation/v/develop/)**.**
+**If you are looking for the documentation of the v2.x.x \(Latest or Nightly\) release,** [**click here**](https://developers.monogatari.io/documentation/v/develop/)**.**
 {% endhint %}
 
 The first thing about Monogatari that you should probably know is that with it, your visual novel is a web page first and a game later. That means that Monogatari has been created specifically for the web, putting things like responsiveness \(the fact that your game will adapt to any screen or device size\) first. You don't necessarily need to think of your game this way as well, but you'll certainly take the most out of Monogatari if you do.
