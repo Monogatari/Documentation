@@ -116,7 +116,7 @@ let script = {
                 return true;
             },
 
-            "Reverse": function () {
+            "Revert": function () {
                 storage.player.intelligence -= 5;
             }   
         }},
