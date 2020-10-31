@@ -116,7 +116,7 @@ let script = {
                 return true;
             },
 
-            "Reverse": function () {
+            "Revert": function () {
                 storage.player.intelligence -= 5;
             }   
         }},
@@ -126,5 +126,5 @@ let script = {
 }
 ```
 
-As you can see, we replaced the function with a `"Function"` object which has 2 properties, an `"Apply"` function which will run when going over the game and the `"Reverse"` function which will be run when going back. This now solves the previous problem we had since we are using `"Apply"` to add the 5 points and `"Reverse"` to substract them in case the player went back and thus makes possible for players to go back even when a function was run. Just as with common functions, you can use Promises and also control the flow of the game by returning `true` or `false` in the `"Apply"` function.
+As you can see, we replaced the function with a `"Function"` object which has 2 properties, an `"Apply"` function which will run when going over the game and the `"Revert"` function which will be run when going back. This now solves the previous problem we had since we are using `"Apply"` to add the 5 points and `"Revert"` to substract them in case the player went back and thus makes possible for players to go back even when a function was run. Just as with common functions, you can use Promises and also control the flow of the game by returning `true` or `false` in the `"Apply"` function.
 

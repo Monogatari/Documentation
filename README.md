@@ -1,12 +1,14 @@
 # Getting Started
 
-**This documentation is still under revision.**
+{% hint style="warning" %}
+**If you are looking for the documentation of the v2.x.x \(Latest or Nightly\) release,** [**click here**](https://developers.monogatari.io/documentation/v/develop/)**.**
+{% endhint %}
 
 The first thing about Monogatari that you should probably know is that with it, your visual novel is a web page first and a game later. That means that Monogatari has been created specifically for the web, putting things like responsiveness \(the fact that your game will adapt to any screen or device size\) first. You don't necessarily need to think of your game this way as well, but you'll certainly take the most out of Monogatari if you do.
 
 #### Set up your environment
 
-To develop in Monogatari you would need the same as to develop a webpage, you just need a text editor capable of editing HTML, JavaScript and CSS, which means that pretty much any text editor should work, even Windows NotePad but to make it easier, you probably want one with code syntax highlightning.
+To develop in Monogatari you would need the same as to develop a webpage, you just need a text editor capable of editing HTML, JavaScript and CSS, which means that pretty much any text editor should work, even Windows NotePad but to make it easier, you probably want one with code syntax highlighting.
 
 Some recommended \(and free\) ones include:
 
@@ -82,25 +84,25 @@ Ok so now you have the environment set up, you have some idea on what the files 
 
 1. Try the game first, open the index.html file inside the directory you just unzipped and play the sample game through.
 2. Once you've played it once, open the directory \(the one you unzipped\) with the editor you chose to start making changes.
-3. Open the script.js file with your editor, find the variable called ˋscriptˋ, as you'll see, all the dialogs you just saw are just a simple list in there. More information can be found in [the documentation](https://monogatari.io/documentation/script/text/).
+3. Open the script.js file with your editor, find the variable called ˋscriptˋ, as you'll see, all the dialogs you just saw are just a simple list in there. More information can be found in [the documentation](script/text.md).
 4. Change one of the dialogs, save the file and reload the game \(just like you reload a website\).
 5. Play it again and you'll see the dialog changed just like you made it. 
 6. Now try adding more dialog to it and you'll quickly get how things are done.
-7. Once you've gotten yourself used to adding dialogs, [add a scene](https://monogatari.io/documentation/script/scenes/) as a challenge, that means you'll have to add your image file to the ˋimg/scenes/ directoryˋ, more instructions are on the link.
+7. Once you've gotten yourself used to adding dialogs, [add a scene](script/scenes.md) as a challenge, that means you'll have to add your image file to the ˋimg/scenes/ directoryˋ, more instructions are on the link.
 
 If you manage to do all that, congratulations! You just made your first game and are probably more familiarized with the workflow you'll be using, just make changes, save, reload, try and repeat!
 
 #### Getting Help
 
-While this documentation covers many parts of Monogatari's functioning, it does not cover everything you could actually do with it, remember, your VN is a website now and that means the posibilities are endless. Everything you've seen on a website before can be done in your game.
+While this documentation covers many parts of Monogatari's functioning, it does not cover everything you could actually do with it, remember, your VN is a website now and that means the possibilities are endless. Everything you've seen on a website before can be done in your game.
 
 But how to look out for help on doing this things? Well, another benefit of your game being a website is: There is lots and lots of tutorials and documentation out there!
 
-If you google something, for example if you want something to happen when someone clicks an image, you can google it as "javascript click image", there's no need to look for a Monogatari-specific answer, everything that applies to a website also applies for Monogatari, even the step-by-step tutorials on web development are useful to get you started.
+If you google something, for example if you want something to happen when someone clicks an image, you can google it as "JavaScript click image", there's no need to look for a Monogatari-specific answer, everything that applies to a website also applies for Monogatari, even the step-by-step tutorials on web development are useful to get you started.
 
 But of course, you are not alone! If you have any doubt, problem or just want some help please contact me, I'll be glad to help in any way I can. Even though Monogatari is simple enough and you can find many resources online, I know it can be hard to get started and sometimes the documentation is not clear enough, so really, contact me anytime!
 
-You can use my  [email](diego%28at%29hyuchia%28dot%29com), DM me at [Twitter](https://twitter.com/Hyuchia), contact me through [Google+](https://plus.google.com/+HyuchiaDiego/) or Hangouts and [Mastodon](https://mastodon.social/@HyuchiaDiego) as well.
+You can join the [Discord server](https://discord.gg/sj4uPrP) or contact me through [Mastodon](https://mastodon.social/@HyuchiaDiego) as well!
 
 If you like Monogatari and would like to support it's creation you can do so by supporting me via [Patreon](https://www.patreon.com/Hyuchia), you can even get the personalized support reward for Monogatari \(which is something I do for free if you contact me as previously mentioned but making a pledge through Patreon shows your support and really helps the project :\) \)
 

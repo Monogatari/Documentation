@@ -164,7 +164,7 @@ By caching all the assets of the demo, you can play it even offline once you've 
 
 Back to the `version` variable, changing the version will force all the assets to re-cache, useful specially when you make significant changes to them but remember that the cache strategy used will update your files eventually without the need of changing this version. Also the version does not need to be changed when removing/adding files to the cache. Most of the times you won't need to change it at all.
 
-This makes part of the effort to transform Monogatari games deployed online into full [Progressive Web Apps](https://en.wikipedia.org/wiki/Progressive_web_app) which provides a lot of benefits. You can read more about what you need to do and what that means for your players in the [Web Deployment Section](https://monogatari.io/documentation/release/web/)
+This makes part of the effort to transform Monogatari games deployed online into full [Progressive Web Apps](https://en.wikipedia.org/wiki/Progressive_web_app) which provides a lot of benefits. You can read more about what you need to do and what that means for your players in the [Web Deployment Section](../release/web.md)
 
 Use of Service Workers can also be disabled from the `options.js` file using the "ServiceWorkers" property.
 

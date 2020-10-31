@@ -48,3 +48,7 @@
 * [Video](script/video.md)
 * [Wait](script/wait.md)
 
+## Contribute
+
+* [Translations](contribute/translations.md)
+
