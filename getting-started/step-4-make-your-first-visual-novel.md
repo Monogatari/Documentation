@@ -12,7 +12,7 @@ Ok, now you have some idea on [what the files you got are for](step-3-get-famili
 4. Change one of the dialogs, save the file and reload the game \(just like you reload a website\).
 5. Play it again and you'll see the dialog changed just like you made it. 
 6. Now try adding more dialog to it and you'll quickly get how things are done.
-7. Once you've gotten yourself used to adding dialogs, [add a scene](https://monogatari.io/documentation/script/scenes/) as a challenge, that means you'll have to add your image file to the `img/scenes/` directory, more instructions are on the link.
+7. Once you've gotten yourself used to adding dialogs, [add a scene](../script-actions/show-scene.md) as a challenge, that means you'll have to add your image file to the `assets/scenes/` directory, more instructions are on the link.
 
 If you manage to do all that, congratulations! You just made your first game and are probably more familiarized with the workflow you'll be using, just make changes, save, reload, try and repeat!
 
