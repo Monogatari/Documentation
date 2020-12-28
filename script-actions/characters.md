@@ -72,15 +72,6 @@ The following code will show the character with a `fadeIn` animation that will t
 'show character e normal with fadeIn duration 20s'
 ```
 
-### Move + Transition
-
-The following code will show the character positioned at the left side of the string, and then, when it reaches the second line, it will move that character nicely to the right side of the screen. Because of the `transition` property being provided, the movement will take 6 seconds to complete.
-
-```javascript
-'show character e normal at left',
-'show character e normal at right with move transition 6s'
-```
-
 ### End Animations
 
 End animations are a way of preparing an animation to happen whenever a sprite gets changed, the following code will show the character first and when it reaches the next line, the character will fade out while the new sprite fades in.
