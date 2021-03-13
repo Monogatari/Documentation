@@ -8,7 +8,7 @@ Ok, now you have some idea on [what the files you got are for](step-3-get-famili
 
 1. Try the game first, open the index.html file inside the directory you just unzipped and play the sample game through.
 2. Once you've played it once, open the directory \(the one you unzipped\) with the editor you chose to start making changes.
-3. Open the `script.js` file with your editor and find the `script` section, as you'll see, all the dialogs you just saw are just a simple list in there. More information can be found in [the documentation](https://monogatari.io/documentation/script/text/).
+3. Open the `script.js` file with your editor and find the `script` section, as you'll see, all the dialogs you just saw are just a simple list in there. More information can be found in [the documentation](../building-blocks/script-and-labels.md).
 4. Change one of the dialogs, save the file and reload the game \(just like you reload a website\).
 5. Play it again and you'll see the dialog changed just like you made it. 
 6. Now try adding more dialog to it and you'll quickly get how things are done.
