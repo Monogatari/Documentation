@@ -104,6 +104,24 @@ The following table lists all the properties you can set for each character.
           when the character speaks or not.</p>
       </td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>layers</code>
+      </td>
+      <td style="text-align:left"><code>Array&lt;string&gt;</code>
+      </td>
+      <td style="text-align:left">Yes</td>
+      <td style="text-align:left">A list of the layers that can compose a sprite for this character in order
+        from back to front.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>layer_assets</code>
+      </td>
+      <td style="text-align:left"><code>object</code>
+      </td>
+      <td style="text-align:left">Yes</td>
+      <td style="text-align:left">An object with the identifiers and file names for each of the individual
+        assets available for each layer.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -208,6 +226,77 @@ Both items are independent of each other so while in the last example we used id
 To learn how to show a character sprite, go over to the Show Character action.
 
 {% page-ref page="../script-actions/characters.md" %}
+
+## Layered Sprites
+
+### 1. Enter the `assets` directory
+
+![](../.gitbook/assets/screenshot-from-2020-09-12-11.29.29.png)
+
+### 2. Enter the `characters` directory
+
+![](../.gitbook/assets/screenshot-from-2020-09-12-11.29.40.png)
+
+### 3. Place all your layer images
+
+### 4. Declare your layers and their assets
+
+Now that we have all our sprites in our assets directory, we need to declare them so monogatari knows about them. To do so, we'll use once again the `sprites` property of our character as well as two layer-specific properties `layers` and `layer_assets`:
+
+```javascript
+monogatari.characters ({
+    'y': {
+        name: 'Yui',
+        color: '#00bfff',
+        layers: ['base', 'mouth', 'eyes'],
+        sprites: {
+            angry: {
+                base: 'normal',
+                mouth: 'alone',
+                eyes: 'alone'
+            },
+            happy: 'happy.png',
+            normal: 'normal.png',
+            sad: 'sad.png',
+            surprised: 'surprised.png'
+        },
+        layer_assets: {
+            base: {
+                normal: 'layers/base.png'
+            },
+            mouth: {
+                pout: 'layers/mouth_pout.png',
+                smile: 'layers/mouth_smile.png'
+            },
+            eyes: {
+                angry: 'layers/eyes_angry.png'
+            }
+        }
+    }
+});
+```
+
+The `layers` property is simply a list of the layers that can be stacked to create a full character sprite. These layers must be ordered from back to front. In this example, the `base` layer is placed first, then the `mouth` and finally the `eyes` in that exact order.
+
+Now we can declare all our image assets for the layers we just specified. Inside the `layer_assets` property, we can define a key or identifier for each of the variants we have for each layer.
+
+Notice how for each sprite we assigned two things:
+
+1.  A **key or identifier** which is the way we'll refer to that specific sprite.
+2. The name of the file.
+
+```javascript
+identifier: 'file.name'
+```
+
+Both items are independent of each other so while in the last example we used identifiers similar to the file names, we could have chosen any identifier, the following would be perfectly valid for example:
+
+```javascript
+ someKey: 'normal.png'
+ happy: 'my_file_name.png'
+```
+
+To learn how to show a character sprite, go over to the Show Character action.
 
 ## Custom Sub-directory
 
@@ -399,4 +488,6 @@ monogatari.characters ({
     }
 });
 ```
+
+
 
