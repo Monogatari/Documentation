@@ -120,7 +120,6 @@ Finally, you need to provide a default language for your game. While players wil
 
 Monogatari already has built-in support for the following languages:
 
-* `Bahasa Indonesia`
 * `Беларуская`
 * `Deutsch`
 * `English`
