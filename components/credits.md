@@ -36,7 +36,7 @@ monogatari.configuration ('credits', {
 
 This will create a credits page that looks like this!
 
-![A credits page listing all of the people written in the example code above.](../.gitbook/assets/image%20%2817%29.png)
+![A credits page listing all of the people written in the example code above.](../.gitbook/assets/image%20%2817%29%20%281%29.png)
 
 As you can see, Credits are stored as an object, just like most things in Monogatari. Also, like most things in Monogatari, the Credits page supports HTML, so if you want to make each of those names a clickable link that leads to the person's website, or email address, or something like that, you can easily achieve all of these things by inserting hyperlinks, like:
 
