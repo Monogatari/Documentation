@@ -41,44 +41,44 @@ If you're sharing code, ensuring it's properly indented will help a lot for the 
 
 ```javascript
 monogatari.script ({
-	// The game starts here.
-	'Start': [
-		'show scene #f7f6f6 with fadeIn',
-		'show notification Welcome',
-		{
-			'Input': {
-						'Text': 'What is your name?',
-	'Validation': function (input) {
-					return input.trim ().length > 0;
-		},
-			'Save': function (input) {
-					this.storage ({
-								player: {
-							name: input}});
-					return true;
-				},
-				'Revert': function () {
-					this.storage ({
-						player: {
-							name: ''
-						}
-					});},
-	'Warning': 'You must enter a name!'
-			}
-							},
-		'y Hi {{player.name}} Welcome to Monogatari!',
+    // The game starts here.
+    'Start': [
+        'show scene #f7f6f6 with fadeIn',
+        'show notification Welcome',
+        {
+            'Input': {
+                        'Text': 'What is your name?',
+    'Validation': function (input) {
+                    return input.trim ().length > 0;
+        },
+            'Save': function (input) {
+                    this.storage ({
+                                player: {
+                            name: input}});
+                    return true;
+                },
+                'Revert': function () {
+                    this.storage ({
+                        player: {
+                            name: ''
+                        }
+                    });},
+    'Warning': 'You must enter a name!'
+            }
+                            },
+        'y Hi {{player.name}} Welcome to Monogatari!',
 {
-			'Choice': { 'Dialog': 'y Have you already read some documentation?',
-				'Yes': {
-						'Text': 'Yes', 			'Do': 'jump Yes'
-				},
-				'No': {
-					'Text': 'No',
-					'Do': 'jump No'
-				}
-			}
-		}
-	]
+            'Choice': { 'Dialog': 'y Have you already read some documentation?',
+                'Yes': {
+                        'Text': 'Yes',             'Do': 'jump Yes'
+                },
+                'No': {
+                    'Text': 'No',
+                    'Do': 'jump No'
+                }
+            }
+        }
+    ]
 });
 ```
 
@@ -86,49 +86,49 @@ monogatari.script ({
 
 ```javascript
 monogatari.script ({
-	// The game starts here.
-	'Start': [
-		'show scene #f7f6f6 with fadeIn',
-		'show notification Welcome',
-		{
-			'Input': {
-				'Text': 'What is your name?',
-				'Validation': function (input) {
-					return input.trim ().length > 0;
-				},
-				'Save': function (input) {
-					this.storage ({
-						player: {
-							name: input
-						}
-					});
-					return true;
-				},
-				'Revert': function () {
-					this.storage ({
-						player: {
-							name: ''
-						}
-					});
-				},
-				'Warning': 'You must enter a name!'
-			}
-		},
-		'y Hi {{player.name}} Welcome to Monogatari!',
-		{
-			'Choice': {
-				'Dialog': 'y Have you already read some documentation?',
-				'Yes': {
-					'Text': 'Yes',
-					'Do': 'jump Yes'
-				},
-				'No': {
-					'Text': 'No',
-					'Do': 'jump No'
-				}
-			}
-		}
-	]
+    // The game starts here.
+    'Start': [
+        'show scene #f7f6f6 with fadeIn',
+        'show notification Welcome',
+        {
+            'Input': {
+                'Text': 'What is your name?',
+                'Validation': function (input) {
+                    return input.trim ().length > 0;
+                },
+                'Save': function (input) {
+                    this.storage ({
+                        player: {
+                            name: input
+                        }
+                    });
+                    return true;
+                },
+                'Revert': function () {
+                    this.storage ({
+                        player: {
+                            name: ''
+                        }
+                    });
+                },
+                'Warning': 'You must enter a name!'
+            }
+        },
+        'y Hi {{player.name}} Welcome to Monogatari!',
+        {
+            'Choice': {
+                'Dialog': 'y Have you already read some documentation?',
+                'Yes': {
+                    'Text': 'Yes',
+                    'Do': 'jump Yes'
+                },
+                'No': {
+                    'Text': 'No',
+                    'Do': 'jump No'
+                }
+            }
+        }
+    ]
 });
 ```
 
@@ -142,7 +142,7 @@ This specific example of an error was caused by the following script:
 
 ![](.gitbook/assets/screenshot-from-2020-10-02-15-04-12.png)
 
-Paying some attention to it might reveal there's a missing comma after the `show scene` statement.  Going to the browser's console, allowed us to see more information about it.
+Paying some attention to it might reveal there's a missing comma after the `show scene` statement. Going to the browser's console, allowed us to see more information about it.
 
 This is what Firefox showed:
 
@@ -182,11 +182,11 @@ After every statement of your script, there must be a comma unless it is the las
 
 ```javascript
 monogatari.script ({
-	'Start': [
-		'show scene #f7f6f6 with fadeIn', // This comma right here
-		'Hi!', // This comma right here
-		'end'
-	]
+    'Start': [
+        'show scene #f7f6f6 with fadeIn', // This comma right here
+        'Hi!', // This comma right here
+        'end'
+    ]
 });
 ```
 
@@ -194,15 +194,15 @@ A comma must be used to separate different labels in a script:
 
 ```javascript
 monogatari.script ({
-	'Start': [
-		'show scene #f7f6f6 with fadeIn',
-		'Hi!',
-		'jump myLabel'
-	], // This comma right here
-	'myLabel': [
-		'How are you?',
-		'end'
-	]
+    'Start': [
+        'show scene #f7f6f6 with fadeIn',
+        'Hi!',
+        'jump myLabel'
+    ], // This comma right here
+    'myLabel': [
+        'How are you?',
+        'end'
+    ]
 });
 ```
 

@@ -10,7 +10,7 @@ description: Wait an amount of time before continuing
 'wait [time]'
 ```
 
-The `wait` action allows us to make the game wait for a certain amount of `time` or for  before continuing. Once the time has passed, the game will automatically continue to the next statement.
+The `wait` action allows us to make the game wait for a certain amount of `time` or for before continuing. Once the time has passed, the game will automatically continue to the next statement.
 
 **Action ID**: `Wait`
 
@@ -37,7 +37,7 @@ monogatari.script ({
 });
 ```
 
-In this case, the first dialog will be shown, then, when the player clicks to continue, the `wait`  statement will make it wait for 5 seconds before the next dialog is shown.
+In this case, the first dialog will be shown, then, when the player clicks to continue, the `wait` statement will make it wait for 5 seconds before the next dialog is shown.
 
 You may be wondering why it says `5000` instead of just `5` in order to wait for 5 seconds, the reason behind it is that the `wait` action accepts the time in **milliseconds**, therefore we have to make the conversion from seconds to milliseconds for it to work as we want.
 

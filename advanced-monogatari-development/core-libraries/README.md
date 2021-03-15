@@ -6,7 +6,7 @@ description: >-
 
 # Core Libraries
 
-On the very core of Monogatari, you'll find it has been built around the [Aegis Framework](https://aegisframework.com/) libraries. 
+On the very core of Monogatari, you'll find it has been built around the [Aegis Framework](https://aegisframework.com/) libraries.
 
 These libraries are used both for functionality and styling so learning more about them will allow you to create even more amazing things!
 

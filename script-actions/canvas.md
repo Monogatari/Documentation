@@ -35,7 +35,6 @@
       <td style="text-align:left">No</td>
       <td style="text-align:left">
         <p>Defines what way you want to show the video like.</p>
-        <p></p>
         <p>Possible Values:</p>
         <ul>
           <li><code>modal</code> - Shows the video as a</li>
@@ -98,7 +97,6 @@
           is a list of strings (names of layers) that you want your canvas to have.
           A HTML canvas element with a <code>data-layer</code> property will be created
           for every layer you list here.</p>
-        <p></p>
         <p>If none is provided, a single canvas will be created with a default <code>base</code> layer.</p>
       </td>
     </tr>
@@ -155,13 +153,13 @@
 
 ### Defining the Object
 
-The first thing we need to do is create our canvas object, we'll call this one `stars`. 
+The first thing we need to do is create our canvas object, we'll call this one `stars`.
 
 ```javascript
 monogatari.action ('Canvas').objects ({
-		stars: {
-		
-		}
+        stars: {
+
+        }
 });
 ```
 
@@ -169,9 +167,9 @@ We want two layers for it, one represents the sky and the other one is where the
 
 ```javascript
 monogatari.action ('Canvas').objects ({
-		stars: {
-				layers: ['sky', 'stars'],
-		}
+        stars: {
+                layers: ['sky', 'stars'],
+        }
 });
 ```
 
@@ -179,60 +177,60 @@ Next, we'll define the functions used to draw both the sky and stars in the obje
 
 ```javascript
 monogatari.action ('Canvas').objects ({
-	stars: {
-		layers: ['sky', 'stars'],
-		props: {
-			drawStar: (ctx, r) => {
-				ctx.save();
-				ctx.beginPath();
-				ctx.moveTo(r, 0);
-				for (let i = 0; i < 9; i++) {
-					ctx.rotate(Math.PI / 5);
-					if (i % 2 === 0) {
-						ctx.lineTo((r / 0.525731) * 0.200811, 0);
-					} else {
-						ctx.lineTo(r, 0);
-					}
-				}
-				ctx.closePath();
-				ctx.fill();
-				ctx.restore();
-			},
-			drawSky: (sky) => {
-				const width = sky.width;
-				const height = sky.height;
-				const ctx = sky.getContext('2d');
-				ctx.fillRect(0, 0, width, height);
-				ctx.translate(width / 2, height / 2);
+    stars: {
+        layers: ['sky', 'stars'],
+        props: {
+            drawStar: (ctx, r) => {
+                ctx.save();
+                ctx.beginPath();
+                ctx.moveTo(r, 0);
+                for (let i = 0; i < 9; i++) {
+                    ctx.rotate(Math.PI / 5);
+                    if (i % 2 === 0) {
+                        ctx.lineTo((r / 0.525731) * 0.200811, 0);
+                    } else {
+                        ctx.lineTo(r, 0);
+                    }
+                }
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            },
+            drawSky: (sky) => {
+                const width = sky.width;
+                const height = sky.height;
+                const ctx = sky.getContext('2d');
+                ctx.fillRect(0, 0, width, height);
+                ctx.translate(width / 2, height / 2);
 
-				// Create a circular clipping path
-				ctx.beginPath();
-				ctx.arc(0, 0, width * 0.4, 0, Math.PI * 2, true);
-				ctx.clip();
+                // Create a circular clipping path
+                ctx.beginPath();
+                ctx.arc(0, 0, width * 0.4, 0, Math.PI * 2, true);
+                ctx.clip();
 
-				// draw background
-				const lingrad = ctx.createLinearGradient(0, -1 * width / 2, 0, height / 2);
-				lingrad.addColorStop(0, '#232256');
-				lingrad.addColorStop(1, '#143778');
+                // draw background
+                const lingrad = ctx.createLinearGradient(0, -1 * width / 2, 0, height / 2);
+                lingrad.addColorStop(0, '#232256');
+                lingrad.addColorStop(1, '#143778');
 
-				ctx.fillStyle = lingrad;
-				ctx.fillRect(-width/2, -height/2, width, height);
-			},
-			drawStars: (stars, drawStar) => {
-				const width = stars.width;
-				const height = stars.height;
-				const ctx = stars.getContext('2d');
-				// draw stars
-				for (var j = 1; j < 50; j++) {
-					ctx.save();
-					ctx.fillStyle = '#fff';
-					ctx.translate(width - Math.floor(Math.random() * width), height - Math.floor(Math.random() * height));
-					drawStar(ctx, Math.floor(Math.random() * 4) + 2);
-					ctx.restore();
-				}
-			}
-		},
-	}
+                ctx.fillStyle = lingrad;
+                ctx.fillRect(-width/2, -height/2, width, height);
+            },
+            drawStars: (stars, drawStar) => {
+                const width = stars.width;
+                const height = stars.height;
+                const ctx = stars.getContext('2d');
+                // draw stars
+                for (var j = 1; j < 50; j++) {
+                    ctx.save();
+                    ctx.fillStyle = '#fff';
+                    ctx.translate(width - Math.floor(Math.random() * width), height - Math.floor(Math.random() * height));
+                    drawStar(ctx, Math.floor(Math.random() * 4) + 2);
+                    ctx.restore();
+                }
+            }
+        },
+    }
 });
 ```
 
@@ -240,79 +238,79 @@ We're now set to create our `start` function. On it we'll use the functions we a
 
 ```javascript
 monogatari.action ('Canvas').objects ({
-	stars: {
-		layers: ['sky', 'stars'],
-		props: {
-			drawStar: (ctx, r) => {
-				ctx.save();
-				ctx.beginPath();
-				ctx.moveTo(r, 0);
-				for (let i = 0; i < 9; i++) {
-					ctx.rotate(Math.PI / 5);
-					if (i % 2 === 0) {
-						ctx.lineTo((r / 0.525731) * 0.200811, 0);
-					} else {
-						ctx.lineTo(r, 0);
-					}
-				}
-				ctx.closePath();
-				ctx.fill();
-				ctx.restore();
-			},
-			drawSky: (sky) => {
-				const width = sky.width;
-				const height = sky.height;
-				const ctx = sky.getContext('2d');
-				ctx.fillRect(0, 0, width, height);
-				ctx.translate(width / 2, height / 2);
+    stars: {
+        layers: ['sky', 'stars'],
+        props: {
+            drawStar: (ctx, r) => {
+                ctx.save();
+                ctx.beginPath();
+                ctx.moveTo(r, 0);
+                for (let i = 0; i < 9; i++) {
+                    ctx.rotate(Math.PI / 5);
+                    if (i % 2 === 0) {
+                        ctx.lineTo((r / 0.525731) * 0.200811, 0);
+                    } else {
+                        ctx.lineTo(r, 0);
+                    }
+                }
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            },
+            drawSky: (sky) => {
+                const width = sky.width;
+                const height = sky.height;
+                const ctx = sky.getContext('2d');
+                ctx.fillRect(0, 0, width, height);
+                ctx.translate(width / 2, height / 2);
 
-				// Create a circular clipping path
-				ctx.beginPath();
-				ctx.arc(0, 0, width * 0.4, 0, Math.PI * 2, true);
-				ctx.clip();
+                // Create a circular clipping path
+                ctx.beginPath();
+                ctx.arc(0, 0, width * 0.4, 0, Math.PI * 2, true);
+                ctx.clip();
 
-				// draw background
-				const lingrad = ctx.createLinearGradient(0, -1 * width / 2, 0, height / 2);
-				lingrad.addColorStop(0, '#232256');
-				lingrad.addColorStop(1, '#143778');
+                // draw background
+                const lingrad = ctx.createLinearGradient(0, -1 * width / 2, 0, height / 2);
+                lingrad.addColorStop(0, '#232256');
+                lingrad.addColorStop(1, '#143778');
 
-				ctx.fillStyle = lingrad;
-				ctx.fillRect(-width/2, -height/2, width, height);
-			},
-			drawStars: (stars, drawStar) => {
-				const width = stars.width;
-				const height = stars.height;
-				const ctx = stars.getContext('2d');
-				// draw stars
-				for (var j = 1; j < 50; j++) {
-					ctx.save();
-					ctx.fillStyle = '#fff';
-					ctx.translate(width - Math.floor(Math.random() * width), height - Math.floor(Math.random() * height));
-					drawStar(ctx, Math.floor(Math.random() * 4) + 2);
-					ctx.restore();
-				}
-			}
-		},
-		start: function ({ sky, stars }, props, state, container) {
-			let width = 150;
-			let height = 150;
+                ctx.fillStyle = lingrad;
+                ctx.fillRect(-width/2, -height/2, width, height);
+            },
+            drawStars: (stars, drawStar) => {
+                const width = stars.width;
+                const height = stars.height;
+                const ctx = stars.getContext('2d');
+                // draw stars
+                for (var j = 1; j < 50; j++) {
+                    ctx.save();
+                    ctx.fillStyle = '#fff';
+                    ctx.translate(width - Math.floor(Math.random() * width), height - Math.floor(Math.random() * height));
+                    drawStar(ctx, Math.floor(Math.random() * 4) + 2);
+                    ctx.restore();
+                }
+            }
+        },
+        start: function ({ sky, stars }, props, state, container) {
+            let width = 150;
+            let height = 150;
 
-			if (container.props.mode === 'background') {
-				width = this.width ();
-				height = this.height ();
-			}
+            if (container.props.mode === 'background') {
+                width = this.width ();
+                height = this.height ();
+            }
 
-			sky.width = width;
-			sky.height = height;
+            sky.width = width;
+            sky.height = height;
 
-			stars.width = width;
-			stars.height = height;
+            stars.width = width;
+            stars.height = height;
 
-			props.drawSky (sky);
-			props.drawStars (stars, props.drawStar);
+            props.drawSky (sky);
+            props.drawStars (stars, props.drawStar);
 
-			return Promise.resolve ();
-		}
+            return Promise.resolve ();
+        }
 });
 ```
 
@@ -320,83 +318,83 @@ Next, we'll create our `stop` function. On canvas objects that feature animation
 
 ```javascript
 monogatari.action ('Canvas').objects ({
-	stars: {
-		layers: ['sky', 'stars'],
-		props: {
-			drawStar: (ctx, r) => {
-				ctx.save();
-				ctx.beginPath();
-				ctx.moveTo(r, 0);
-				for (let i = 0; i < 9; i++) {
-					ctx.rotate(Math.PI / 5);
-					if (i % 2 === 0) {
-						ctx.lineTo((r / 0.525731) * 0.200811, 0);
-					} else {
-						ctx.lineTo(r, 0);
-					}
-				}
-				ctx.closePath();
-				ctx.fill();
-				ctx.restore();
-			},
-			drawSky: (sky) => {
-				const width = sky.width;
-				const height = sky.height;
-				const ctx = sky.getContext('2d');
-				ctx.fillRect(0, 0, width, height);
-				ctx.translate(width / 2, height / 2);
+    stars: {
+        layers: ['sky', 'stars'],
+        props: {
+            drawStar: (ctx, r) => {
+                ctx.save();
+                ctx.beginPath();
+                ctx.moveTo(r, 0);
+                for (let i = 0; i < 9; i++) {
+                    ctx.rotate(Math.PI / 5);
+                    if (i % 2 === 0) {
+                        ctx.lineTo((r / 0.525731) * 0.200811, 0);
+                    } else {
+                        ctx.lineTo(r, 0);
+                    }
+                }
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            },
+            drawSky: (sky) => {
+                const width = sky.width;
+                const height = sky.height;
+                const ctx = sky.getContext('2d');
+                ctx.fillRect(0, 0, width, height);
+                ctx.translate(width / 2, height / 2);
 
-				// Create a circular clipping path
-				ctx.beginPath();
-				ctx.arc(0, 0, width * 0.4, 0, Math.PI * 2, true);
-				ctx.clip();
+                // Create a circular clipping path
+                ctx.beginPath();
+                ctx.arc(0, 0, width * 0.4, 0, Math.PI * 2, true);
+                ctx.clip();
 
-				// draw background
-				const lingrad = ctx.createLinearGradient(0, -1 * width / 2, 0, height / 2);
-				lingrad.addColorStop(0, '#232256');
-				lingrad.addColorStop(1, '#143778');
+                // draw background
+                const lingrad = ctx.createLinearGradient(0, -1 * width / 2, 0, height / 2);
+                lingrad.addColorStop(0, '#232256');
+                lingrad.addColorStop(1, '#143778');
 
-				ctx.fillStyle = lingrad;
-				ctx.fillRect(-width/2, -height/2, width, height);
-			},
-			drawStars: (stars, drawStar) => {
-				const width = stars.width;
-				const height = stars.height;
-				const ctx = stars.getContext('2d');
-				// draw stars
-				for (var j = 1; j < 50; j++) {
-					ctx.save();
-					ctx.fillStyle = '#fff';
-					ctx.translate(width - Math.floor(Math.random() * width), height - Math.floor(Math.random() * height));
-					drawStar(ctx, Math.floor(Math.random() * 4) + 2);
-					ctx.restore();
-				}
-			}
-		},
-		start: function ({ sky, stars }, props, state, container) {
-			let width = 150;
-			let height = 150;
+                ctx.fillStyle = lingrad;
+                ctx.fillRect(-width/2, -height/2, width, height);
+            },
+            drawStars: (stars, drawStar) => {
+                const width = stars.width;
+                const height = stars.height;
+                const ctx = stars.getContext('2d');
+                // draw stars
+                for (var j = 1; j < 50; j++) {
+                    ctx.save();
+                    ctx.fillStyle = '#fff';
+                    ctx.translate(width - Math.floor(Math.random() * width), height - Math.floor(Math.random() * height));
+                    drawStar(ctx, Math.floor(Math.random() * 4) + 2);
+                    ctx.restore();
+                }
+            }
+        },
+        start: function ({ sky, stars }, props, state, container) {
+            let width = 150;
+            let height = 150;
 
-			if (container.props.mode === 'background') {
-				width = this.width ();
-				height = this.height ();
-			}
+            if (container.props.mode === 'background') {
+                width = this.width ();
+                height = this.height ();
+            }
 
-			sky.width = width;
-			sky.height = height;
+            sky.width = width;
+            sky.height = height;
 
-			stars.width = width;
-			stars.height = height;
+            stars.width = width;
+            stars.height = height;
 
-			props.drawSky (sky);
-			props.drawStars (stars, props.drawStar);
+            props.drawSky (sky);
+            props.drawStars (stars, props.drawStar);
 
-			return Promise.resolve ();
-		},
-		stop: ({ sky, stars }, props, state, container) => {
-			sky.getContext('2d').clearRect (0, 0, sky.width, sky.height);
-			stars.getContext('2d').clearRect (0, 0, stars.width, stars.height);
-		}
+            return Promise.resolve ();
+        },
+        stop: ({ sky, stars }, props, state, container) => {
+            sky.getContext('2d').clearRect (0, 0, sky.width, sky.height);
+            stars.getContext('2d').clearRect (0, 0, stars.width, stars.height);
+        }
 });
 ```
 
@@ -404,102 +402,102 @@ Finally, since we mentioned we wanted to re-draw our canvas when the window got 
 
 ```javascript
 monogatari.action ('Canvas').objects ({
-	stars: {
-		layers: ['sky', 'stars'],
-		props: {
-			drawStar: (ctx, r) => {
-				ctx.save();
-				ctx.beginPath();
-				ctx.moveTo(r, 0);
-				for (let i = 0; i < 9; i++) {
-					ctx.rotate(Math.PI / 5);
-					if (i % 2 === 0) {
-						ctx.lineTo((r / 0.525731) * 0.200811, 0);
-					} else {
-						ctx.lineTo(r, 0);
-					}
-				}
-				ctx.closePath();
-				ctx.fill();
-				ctx.restore();
-			},
-			drawSky: (sky) => {
-				const width = sky.width;
-				const height = sky.height;
-				const ctx = sky.getContext('2d');
-				ctx.fillRect(0, 0, width, height);
-				ctx.translate(width / 2, height / 2);
+    stars: {
+        layers: ['sky', 'stars'],
+        props: {
+            drawStar: (ctx, r) => {
+                ctx.save();
+                ctx.beginPath();
+                ctx.moveTo(r, 0);
+                for (let i = 0; i < 9; i++) {
+                    ctx.rotate(Math.PI / 5);
+                    if (i % 2 === 0) {
+                        ctx.lineTo((r / 0.525731) * 0.200811, 0);
+                    } else {
+                        ctx.lineTo(r, 0);
+                    }
+                }
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            },
+            drawSky: (sky) => {
+                const width = sky.width;
+                const height = sky.height;
+                const ctx = sky.getContext('2d');
+                ctx.fillRect(0, 0, width, height);
+                ctx.translate(width / 2, height / 2);
 
-				// Create a circular clipping path
-				ctx.beginPath();
-				ctx.arc(0, 0, width * 0.4, 0, Math.PI * 2, true);
-				ctx.clip();
+                // Create a circular clipping path
+                ctx.beginPath();
+                ctx.arc(0, 0, width * 0.4, 0, Math.PI * 2, true);
+                ctx.clip();
 
-				// draw background
-				const lingrad = ctx.createLinearGradient(0, -1 * width / 2, 0, height / 2);
-				lingrad.addColorStop(0, '#232256');
-				lingrad.addColorStop(1, '#143778');
+                // draw background
+                const lingrad = ctx.createLinearGradient(0, -1 * width / 2, 0, height / 2);
+                lingrad.addColorStop(0, '#232256');
+                lingrad.addColorStop(1, '#143778');
 
-				ctx.fillStyle = lingrad;
-				ctx.fillRect(-width/2, -height/2, width, height);
-			},
-			drawStars: (stars, drawStar) => {
-				const width = stars.width;
-				const height = stars.height;
-				const ctx = stars.getContext('2d');
-				// draw stars
-				for (var j = 1; j < 50; j++) {
-					ctx.save();
-					ctx.fillStyle = '#fff';
-					ctx.translate(width - Math.floor(Math.random() * width), height - Math.floor(Math.random() * height));
-					drawStar(ctx, Math.floor(Math.random() * 4) + 2);
-					ctx.restore();
-				}
-			}
-		},
-		start: function ({ sky, stars }, props, state, container) {
-			let width = 150;
-			let height = 150;
+                ctx.fillStyle = lingrad;
+                ctx.fillRect(-width/2, -height/2, width, height);
+            },
+            drawStars: (stars, drawStar) => {
+                const width = stars.width;
+                const height = stars.height;
+                const ctx = stars.getContext('2d');
+                // draw stars
+                for (var j = 1; j < 50; j++) {
+                    ctx.save();
+                    ctx.fillStyle = '#fff';
+                    ctx.translate(width - Math.floor(Math.random() * width), height - Math.floor(Math.random() * height));
+                    drawStar(ctx, Math.floor(Math.random() * 4) + 2);
+                    ctx.restore();
+                }
+            }
+        },
+        start: function ({ sky, stars }, props, state, container) {
+            let width = 150;
+            let height = 150;
 
-			if (container.props.mode === 'background') {
-				width = this.width ();
-				height = this.height ();
-			}
+            if (container.props.mode === 'background') {
+                width = this.width ();
+                height = this.height ();
+            }
 
-			sky.width = width;
-			sky.height = height;
+            sky.width = width;
+            sky.height = height;
 
-			stars.width = width;
-			stars.height = height;
+            stars.width = width;
+            stars.height = height;
 
-			props.drawSky (sky);
-			props.drawStars (stars, props.drawStar);
+            props.drawSky (sky);
+            props.drawStars (stars, props.drawStar);
 
-			return Promise.resolve ();
-		},
-		stop: ({ sky, stars }, props, state, container) => {
-			sky.getContext('2d').clearRect (0, 0, sky.width, sky.height);
-			stars.getContext('2d').clearRect (0, 0, stars.width, stars.height);
-		},
-		resize: function ({ sky, stars }, props, state, container) {
-			if (container.props.mode === 'background') {
-				const width = this.width ();
-				const height = this.height ();
+            return Promise.resolve ();
+        },
+        stop: ({ sky, stars }, props, state, container) => {
+            sky.getContext('2d').clearRect (0, 0, sky.width, sky.height);
+            stars.getContext('2d').clearRect (0, 0, stars.width, stars.height);
+        },
+        resize: function ({ sky, stars }, props, state, container) {
+            if (container.props.mode === 'background') {
+                const width = this.width ();
+                const height = this.height ();
 
-				sky.getContext('2d').clearRect (0, 0, sky.width, sky.height);
-				stars.getContext('2d').clearRect (0, 0, stars.width, stars.height);
+                sky.getContext('2d').clearRect (0, 0, sky.width, sky.height);
+                stars.getContext('2d').clearRect (0, 0, stars.width, stars.height);
 
-				sky.width = width;
-				sky.height = height;
+                sky.width = width;
+                sky.height = height;
 
-				stars.width = width;
-				stars.height = height;
+                stars.width = width;
+                stars.height = height;
 
-				props.drawSky (sky);
-				props.drawStars (stars, props.drawStar);
-			}
-		}
-	}
+                props.drawSky (sky);
+                props.drawStars (stars, props.drawStar);
+            }
+        }
+    }
 });
 ```
 
@@ -509,12 +507,12 @@ Once we've got our canvas object setup, we can go ahead and show it in our game.
 
 ```javascript
 monogatari.script ({
-	// The game starts here.
-	'Start': [
-		'show canvas stars background with fadeIn',
-		'Shooting for the stars!',
-		'end'
-	]
+    // The game starts here.
+    'Start': [
+        'show canvas stars background with fadeIn',
+        'Shooting for the stars!',
+        'end'
+    ]
 });
 ```
 

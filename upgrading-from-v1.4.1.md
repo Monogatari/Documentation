@@ -37,16 +37,16 @@ Your players most likely have lots of save files and we want them to keep them e
 
 ### Copy your storage object
 
-Now its time to copy your storage object. The `js/storage.js` file is still the place where you'll put all the items you want to save on your game, the syntax has changed just a bit.   
-  
+Now its time to copy your storage object. The `js/storage.js` file is still the place where you'll put all the items you want to save on your game, the syntax has changed just a bit.
+
 **Storage on v1.4.1**
 
 {% code title="storage.js" %}
 ```javascript
 let storage = {
-	player: {
-		name: ""
-	}
+    player: {
+        name: ""
+    }
 };
 ```
 {% endcode %}
@@ -56,15 +56,14 @@ let storage = {
 {% code title="storage.js" %}
 ```javascript
 monogatari.storage ({
-	player: {
-		name: ''
-	}
+    player: {
+        name: ''
+    }
 });
 ```
 {% endcode %}
 
-As you can see, it really is just a matter of changing the `let storage = { ...storage };` format to the new `monogatari.storage ({ ...storage });` format, you can copy your storage object exactly as it is!  
-
+As you can see, it really is just a matter of changing the `let storage = { ...storage };` format to the new `monogatari.storage ({ ...storage });` format, you can copy your storage object exactly as it is!
 
 ### Update the syntax to set / get values from the storage
 
@@ -84,9 +83,8 @@ monogatari.storage ().someVariable = someValue;
 
 ## 3. Assets Declarations
 
-Just like with the storage, assets declaration syntax has changed just a bit, here's a small comparative on how the assets declaration looks like on your `script.js` file on both the old and the new version.  
-  
-  
+Just like with the storage, assets declaration syntax has changed just a bit, here's a small comparative on how the assets declaration looks like on your `script.js` file on both the old and the new version.
+
 **Assets declaration on v1.4.1**
 
 {% code title="script.js" %}
@@ -177,58 +175,58 @@ Just as with the storage and assets, the way to declare the script for your game
 
 ```javascript
 let script = {
-	// The game starts here.
-	"Start": [
-		"notify Welcome",
-		{
-			"Input": {
-				"Text": "What is your name?",
-				"Validation": function (input) {
-					return input.trim().length > 0;
-				},
-				"Save": function (input) {
-					storage.player.Name = input;
-					return true;
-				},
-				"Warning": "You must enter a name!"
-			}
-		},
+    // The game starts here.
+    "Start": [
+        "notify Welcome",
+        {
+            "Input": {
+                "Text": "What is your name?",
+                "Validation": function (input) {
+                    return input.trim().length > 0;
+                },
+                "Save": function (input) {
+                    storage.player.Name = input;
+                    return true;
+                },
+                "Warning": "You must enter a name!"
+            }
+        },
 
-		"h Hi {{player.Name}} Welcome to Monogatari!",
+        "h Hi {{player.Name}} Welcome to Monogatari!",
 
-		{
-			"Choice": {
-				"Dialog": "h Have you already read some documentation?",
-				"Yes": {
-					"Text": "Yes",
-					"Do": "jump Yes"
-				},
-				"No": {
-					"Text": "No",
-					"Do": "jump No"
-				}
-			}
-		}
-	],
+        {
+            "Choice": {
+                "Dialog": "h Have you already read some documentation?",
+                "Yes": {
+                    "Text": "Yes",
+                    "Do": "jump Yes"
+                },
+                "No": {
+                    "Text": "No",
+                    "Do": "jump No"
+                }
+            }
+        }
+    ],
 
-	"Yes": [
+    "Yes": [
 
-		"h That's awesome!",
-		"h Then you are ready to go ahead and create an amazing Game!",
-		"h I can't wait to see what story you'll tell!",
-		"end"
-	],
+        "h That's awesome!",
+        "h Then you are ready to go ahead and create an amazing Game!",
+        "h I can't wait to see what story you'll tell!",
+        "end"
+    ],
 
-	"No": [
+    "No": [
 
-		"h You can do it now.",
+        "h You can do it now.",
 
-		"display message Help",
+        "display message Help",
 
-		"h Go ahead and create an amazing Game!",
-		"h I can't wait to see what story you'll tell!",
-		"end"
-	]
+        "h Go ahead and create an amazing Game!",
+        "h I can't wait to see what story you'll tell!",
+        "end"
+    ]
 };
 ```
 
@@ -236,66 +234,66 @@ let script = {
 
 ```javascript
 monogatari.script ({
-	// The game starts here.
-	'Start': [
-		'show notification Welcome',
-		{
-			'Input': {
-				'Text': 'What is your name?',
-				'Validation': function (input) {
-					return input.trim ().length > 0;
-				},
-				'Save': function (input) {
-					this.storage ({
-						player: {
-							name: input
-						}
-					});
-					return true;
-				},
-				'Revert': function () {
-					this.storage ({
-						player: {
-							name: ''
-						}
-					});
-				},
-				'Warning': 'You must enter a name!'
-			}
-		},
-		'y Hi {{player.name}} Welcome to Monogatari!',
-		{
-			'Choice': {
-				'Dialog': 'y Have you already read some documentation?',
-				'Yes': {
-					'Text': 'Yes',
-					'Do': 'jump Yes'
-				},
-				'No': {
-					'Text': 'No',
-					'Do': 'jump No'
-				}
-			}
-		}
-	],
+    // The game starts here.
+    'Start': [
+        'show notification Welcome',
+        {
+            'Input': {
+                'Text': 'What is your name?',
+                'Validation': function (input) {
+                    return input.trim ().length > 0;
+                },
+                'Save': function (input) {
+                    this.storage ({
+                        player: {
+                            name: input
+                        }
+                    });
+                    return true;
+                },
+                'Revert': function () {
+                    this.storage ({
+                        player: {
+                            name: ''
+                        }
+                    });
+                },
+                'Warning': 'You must enter a name!'
+            }
+        },
+        'y Hi {{player.name}} Welcome to Monogatari!',
+        {
+            'Choice': {
+                'Dialog': 'y Have you already read some documentation?',
+                'Yes': {
+                    'Text': 'Yes',
+                    'Do': 'jump Yes'
+                },
+                'No': {
+                    'Text': 'No',
+                    'Do': 'jump No'
+                }
+            }
+        }
+    ],
 
-	'Yes': [
-		'y Thats awesome!',
-		'y Then you are ready to go ahead and create an amazing Game!',
-		'y I can’t wait to see what story you’ll tell!',
-		'end'
-	],
+    'Yes': [
+        'y Thats awesome!',
+        'y Then you are ready to go ahead and create an amazing Game!',
+        'y I can’t wait to see what story you’ll tell!',
+        'end'
+    ],
 
-	'No': [
+    'No': [
 
-		'y You can do it now.',
+        'y You can do it now.',
 
-		'show message Help',
+        'show message Help',
 
-		'y Go ahead and create an amazing Game!',
-		'y I can’t wait to see what story you’ll tell!',
-		'end'
-	]
+        'y Go ahead and create an amazing Game!',
+        'y I can’t wait to see what story you’ll tell!',
+        'end'
+    ]
 });
 ```
 
@@ -372,10 +370,10 @@ Previously, a file called strings.js was distributed with Monogatari where you w
 ```javascript
 const strings = {
 
-	"Español": {
-		"AdvanceHelp": "Para avanzar en el juego, presiona espacio o haz click.",
-		"Audio": "Audio"
-	}
+    "Español": {
+        "AdvanceHelp": "Para avanzar en el juego, presiona espacio o haz click.",
+        "Audio": "Audio"
+    }
 };
 ```
 
@@ -389,8 +387,8 @@ strings["Español"]["AllowPlaybac"] = "Click here to allow audio playback";
 
 ```javascript
 monogatari.translation ('Español', {
-	'AdvanceHelp': 'Para avanzar en el juego, presiona espacio o haz click',
-	'AllowPlayback': 'Click here to allow audio playback'
+    'AdvanceHelp': 'Para avanzar en el juego, presiona espacio o haz click',
+    'AllowPlayback': 'Click here to allow audio playback'
 });
 ```
 

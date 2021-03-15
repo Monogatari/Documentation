@@ -6,7 +6,7 @@ description: Run JavaScript functions in your script
 
 ## Description
 
-Even though you can put more JavaScript code in the `main.js` file and do a lot of things there, sometimes we want to do something in some part of our game. This is why you can also put some JavaScript inside your game's script. 
+Even though you can put more JavaScript code in the `main.js` file and do a lot of things there, sometimes we want to do something in some part of our game. This is why you can also put some JavaScript inside your game's script.
 
 ## Reversible Functions
 
@@ -147,6 +147,4 @@ Monogatari.script ({
 ```
 
 Just as with the common functions, if you return a true value from your promise, the next statement will be executed as soon as it's done and will wait if you return anything else. The game will also block on the meantime so the player won't be able to continue until the Promise is resolved.
-
-## 
 

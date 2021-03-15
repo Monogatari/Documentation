@@ -4,9 +4,3 @@ Google has [discontinued Web Apps on the Chrome Web Store](https://blog.chromium
 
 {% page-ref page="web.md" %}
 
-
-
-
-
-
-

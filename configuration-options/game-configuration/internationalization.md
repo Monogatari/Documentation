@@ -13,8 +13,8 @@ You can create a multi-language game pretty easily. To do so you need to follow 
 Go to the `options.js` file and change the `'MultiLanguage'` value to `true`.
 
 ```javascript
-	// Change to true for a MultiLanguage GameScreen.
-	'MultiLanguage': true,
+    // Change to true for a MultiLanguage GameScreen.
+    'MultiLanguage': true,
 ```
 
 This will let monogatari know that you're planning to have your script in multiple languages. If you reload the page however, you'll most likely get an error like this one:
@@ -40,7 +40,7 @@ monogatari.script ({
 });
 ```
 
-Note how each label is in the top level of the script objects hierarchy. 
+Note how each label is in the top level of the script objects hierarchy.
 
 A _Multi Language_ script will instead have language objects in the top level and inside of them, the labels of the script that correspond to that language, for example:
 
@@ -69,17 +69,15 @@ monogatari.script ({
 });
 ```
 
-Note how we essentially duplicated our script inside this new language objects and translated it for each language. 
+Note how we essentially duplicated our script inside this new language objects and translated it for each language.
 
 {% hint style="danger" %}
-When saving a game, monogatari saves the `label` and `step` \(index of the statement\) it's currently on. For saved games to be fully compatible with each other, **your different scripts should have the same label names and number of statements in them**, otherwise, a game saved in one language would be invalid if the player changed language again and tried to load it. If you do a [jump](../../script-actions/jump.md) to a label that exists in one translation, but does not exist in the language that the player has selected for example, they will get an error telling them that the label does not exist, so be careful when crafting your script!  
-  
-In case some differences can't be avoided, you can rely on the [next action](../../script-actions/next.md) to fill act as a filler and make all scripts have the same size. 
+When saving a game, monogatari saves the `label` and `step` \(index of the statement\) it's currently on. For saved games to be fully compatible with each other, **your different scripts should have the same label names and number of statements in them**, otherwise, a game saved in one language would be invalid if the player changed language again and tried to load it. If you do a [jump](../../script-actions/jump.md) to a label that exists in one translation, but does not exist in the language that the player has selected for example, they will get an error telling them that the label does not exist, so be careful when crafting your script!
+
+In case some differences can't be avoided, you can rely on the [next action](../../script-actions/next.md) to fill act as a filler and make all scripts have the same size.
 {% endhint %}
 
 If you have your script split in multiple files, you can read more on how to configure internationalization with split files here:
-
-{% page-ref page="../split.md" %}
 
 ### 3. The Language Selection Screen
 
@@ -88,7 +86,7 @@ If you have your script split in multiple files, you can read more on how to con
 Once you've formatted your script correctly, a language selection screen will appear for players that haven't selected a language yet. It will automatically detect the languages in your script and show buttons like the ones shown in the image.
 
 {% hint style="warning" %}
-You most likely **won't see this screen** appear to you because you transitioned from a single language game to a _multi language_ one and thus, your settings were already set. 
+You most likely **won't see this screen** appear to you because you transitioned from a single language game to a _multi language_ one and thus, your settings were already set.
 
 If you want to trigger this screen, you'll have to remove the settings from your storage using the dev tools.
 {% endhint %}
@@ -101,15 +99,15 @@ In case you don't want the language selection screen to appear or have built you
 
 ```javascript
 // If the 'Multilanguage' setting is set to `true`. This will enable a
-	// language selection screen that will be shown before the asset loading
-	// screen. If set to false, the loading screen will appear first instead and
-	// players will have to change the language from the settings screen.
-	'LanguageSelectionScreen': false,
+    // language selection screen that will be shown before the asset loading
+    // screen. If set to false, the loading screen will appear first instead and
+    // players will have to change the language from the settings screen.
+    'LanguageSelectionScreen': false,
 ```
 
 ### 4. Set the Default Language Preference
 
-Finally, you need to provide a default language for your game. While players will be able to choose their language, monogatari does need something to fall back to. Go to the `options.js` file once more and this time, go to the preferences section in the bottom. There, you should change the `'Language'` property to the name of the language you want to have by default. 
+Finally, you need to provide a default language for your game. While players will be able to choose their language, monogatari does need something to fall back to. Go to the `options.js` file once more and this time, go to the preferences section in the bottom. There, you should change the `'Language'` property to the name of the language you want to have by default.
 
 ```javascript
 // Initial Language for Multilanguage Games or for the Default GUI Language.
@@ -170,7 +168,7 @@ Each language also requires some metadata that will be used by monogatari.
 | `code` | The 2 letter code that represents that language. This code must be a valid [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) since it will be used to format the dates shown on the save slots. |
 | `icon` | An emoji that will be shown as the icon for the language in the language selection screen. |
 
- Here's an example of the definition of a language metadata:
+Here's an example of the definition of a language metadata:
 
 ```javascript
 monogatari.languageMetadata ('Español', {

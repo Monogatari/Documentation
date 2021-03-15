@@ -14,22 +14,22 @@ Attribution is important. People like knowing who made the games they love, and 
 
 ```javascript
 monogatari.configuration ('credits', {
-	"Developers": {
-		"Artist": "Yui",
-		"Scenario Writer": "Gale",
-	},
-	"Donors": {
-		"Top Level Donors": [
-			"Tommy", "Scotty", "Lanny", "Robby", "Josie", "Freddy", "Bobby", "Lindsey"
-		],
-		"Patrons": [
-			"Alex", "Shine", "Mika"
-		],
-	},
-	"Special Thanks to": {
-		"My parents": ["Mom", "Dad"], 
-		"My siblings": ["Brother", "Sister"],
-	}
+    "Developers": {
+        "Artist": "Yui",
+        "Scenario Writer": "Gale",
+    },
+    "Donors": {
+        "Top Level Donors": [
+            "Tommy", "Scotty", "Lanny", "Robby", "Josie", "Freddy", "Bobby", "Lindsey"
+        ],
+        "Patrons": [
+            "Alex", "Shine", "Mika"
+        ],
+    },
+    "Special Thanks to": {
+        "My parents": ["Mom", "Dad"], 
+        "My siblings": ["Brother", "Sister"],
+    }
 
 });
 ```

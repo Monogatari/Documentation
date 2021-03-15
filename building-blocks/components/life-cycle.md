@@ -2,7 +2,7 @@
 
 A component represents an object or content in the game such as screens, menus and all other visual or structural elements.
 
-### Mounting Cycle
+## Mounting Cycle
 
 The life cycle of an component follows the Mounting cycle for actions.
 

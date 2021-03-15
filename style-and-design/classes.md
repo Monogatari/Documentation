@@ -15,5 +15,3 @@ There are already some CSS classes declared, to make your designing a little eas
 | `vertical` | Distributes the content vertically. |
 | `horizontal` | Distributes the content horizontally. |
 
-
-

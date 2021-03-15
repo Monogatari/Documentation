@@ -12,8 +12,6 @@ Monogatari can be found in three places:
 
 The website \([https://monogatari.io/](https://monogatari.io/)\) always has Here you will have the choice between the stable version and the Nightly version. Given that you are on the documentation for version 2.0, nightly is the version you want.
 
-
-
 ## 2. Dowloading it from GitHub
 
 ## 3. Dowloading it from a Release Announcement

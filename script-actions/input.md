@@ -6,7 +6,7 @@ description: Displays an input dialog to the player
 
 ## Description
 
-There are many cases where we need input from the user, like when you want to know their name.  The Input statement is represented in your Script as an Object and it allows you to define the text to show to your players, the type of input, the default value, validations, etc.
+There are many cases where we need input from the user, like when you want to know their name. The Input statement is represented in your Script as an Object and it allows you to define the text to show to your players, the type of input, the default value, validations, etc.
 
 **Action ID**: `Input`
 
@@ -34,7 +34,6 @@ There are many cases where we need input from the user, like when you want to kn
       <td style="text-align:left">No</td>
       <td style="text-align:left">
         <p>The text to be displayed in the input dialog.</p>
-        <p></p>
         <p>Supports storage and translation interpolations.</p>
       </td>
     </tr>
@@ -47,7 +46,6 @@ There are many cases where we need input from the user, like when you want to kn
       <td style="text-align:left">
         <p>Default is <code>text</code>.</p>
         <p>The kind of input you want to show.</p>
-        <p></p>
         <p>Possible Values:</p>
         <ul>
           <li><code>text</code>
@@ -72,12 +70,11 @@ There are many cases where we need input from the user, like when you want to kn
     <tr>
       <td style="text-align:left"><code>Default</code>
       </td>
-      <td style="text-align:left"><code>string </code>
+      <td style="text-align:left"><code>string</code>
       </td>
       <td style="text-align:left">Yes</td>
       <td style="text-align:left">
         <p>The default value for the input.</p>
-        <p></p>
         <p>Supports storage and translation interpolations.</p>
       </td>
     </tr>
@@ -128,7 +125,6 @@ There are many cases where we need input from the user, like when you want to kn
       <td style="text-align:left">
         <p>The message that will be shown in case the input fails the validation,
           something useful for the player to know what you expect from them.</p>
-        <p></p>
         <p>Supports storage and translation interpolations.</p>
       </td>
     </tr>
@@ -188,17 +184,17 @@ Let's take a look at the following input, by default an input that doesn't speci
 
 ```javascript
 {'Input': {
-	'Text': 'What is your name?',
-	'Validation': (input) => {
-		return input.trim ().length > 0;
-	},
-	'Save': (input) => {
-		monogatari.storage ({ player: { name: input }});
-	},
-	'Revert': () => {
-		monogatari.storage ({ player: { name: '' }});
-	},
-	'Warning': 'You must enter a name!'
+    'Text': 'What is your name?',
+    'Validation': (input) => {
+        return input.trim ().length > 0;
+    },
+    'Save': (input) => {
+        monogatari.storage ({ player: { name: input }});
+    },
+    'Revert': () => {
+        monogatari.storage ({ player: { name: '' }});
+    },
+    'Warning': 'You must enter a name!'
 }},
 ```
 
@@ -216,7 +212,7 @@ By returning the result of that validation, it will return `true` when the input
 
 ### Asynchronous Validation
 
-There may come a time when for some reason, you want some complex validation to be perform on an input's value. For example, when you have to check with a server to determine whether it's valid or not. 
+There may come a time when for some reason, you want some complex validation to be perform on an input's value. For example, when you have to check with a server to determine whether it's valid or not.
 
 Let's say we have a server setup that given a name, it will returns us an object like this one based on some requirements we have, for example whether it's a full name \(name and last name\) or not.
 
@@ -229,25 +225,25 @@ Now, checking with our server is not an operation that we can know how much it'l
 
 ```javascript
 {'Input': {
-	'Text': 'What is your name?',
-	'Validation': (input) => {
-		if (input.trim ().length === 0) {
-			return false;
-		}
-		return fetch (`https://myserver.com/api/validate?name=${input}`)
-			.then ((response) => {
-				return response.json ();
-			}).then (({ valid }) => {
-				return Promise.resolve (valid);
-			});
-	},
-	'Save': (input) => {
-		monogatari.storage ({ player: { name: input }});
-	},
-	'Revert': () => {
-		monogatari.storage ({ player: { name: '' }});
-	},
-	'Warning': 'You must enter a name!'
+    'Text': 'What is your name?',
+    'Validation': (input) => {
+        if (input.trim ().length === 0) {
+            return false;
+        }
+        return fetch (`https://myserver.com/api/validate?name=${input}`)
+            .then ((response) => {
+                return response.json ();
+            }).then (({ valid }) => {
+                return Promise.resolve (valid);
+            });
+    },
+    'Save': (input) => {
+        monogatari.storage ({ player: { name: input }});
+    },
+    'Revert': () => {
+        monogatari.storage ({ player: { name: '' }});
+    },
+    'Warning': 'You must enter a name!'
 }},
 ```
 
@@ -275,21 +271,21 @@ If the input was not empty, we perform the call to our server which should retur
 
 The `Warning` property expects a `string` value that will be shown to the player if the validation function determines the input was invalid.
 
- Keeping the name example from before, this input will validate the value provided by checking if it wasn't empty: 
+Keeping the name example from before, this input will validate the value provided by checking if it wasn't empty:
 
 ```javascript
 {'Input': {
-	'Text': 'What is your name?',
-	'Validation': (input) => {
-		return input.trim ().length > 0;
-	},
-	'Save': (input) => {
-		monogatari.storage ({ player: { name: input }});
-	},
-	'Revert': () => {
-		monogatari.storage ({ player: { name: '' }});
-	},
-	'Warning': 'You must enter a name!'
+    'Text': 'What is your name?',
+    'Validation': (input) => {
+        return input.trim ().length > 0;
+    },
+    'Save': (input) => {
+        monogatari.storage ({ player: { name: input }});
+    },
+    'Revert': () => {
+        monogatari.storage ({ player: { name: '' }});
+    },
+    'Warning': 'You must enter a name!'
 }}
 ```
 
@@ -305,25 +301,25 @@ Normally this operation would involve some variable in your game's storage:
 
 ```javascript
 {'Input': {
-	'Text': 'What is your name?',
-	'Validation': (input) => {
-		if (input.trim ().length === 0) {
-			return false;
-		}
-		return fetch (`https://myserver.com/api/validate?name=${input}`)
-			.then ((response) => {
-				return response.json ();
-			}).then (({ valid }) => {
-				return Promise.resolve (valid);
-			});
-	},
-	'Save': (input) => {
-		monogatari.storage ({ player: { name: input }});
-	},
-	'Revert': () => {
-		monogatari.storage ({ player: { name: '' }});
-	},
-	'Warning': 'You must enter a name!'
+    'Text': 'What is your name?',
+    'Validation': (input) => {
+        if (input.trim ().length === 0) {
+            return false;
+        }
+        return fetch (`https://myserver.com/api/validate?name=${input}`)
+            .then ((response) => {
+                return response.json ();
+            }).then (({ valid }) => {
+                return Promise.resolve (valid);
+            });
+    },
+    'Save': (input) => {
+        monogatari.storage ({ player: { name: input }});
+    },
+    'Revert': () => {
+        monogatari.storage ({ player: { name: '' }});
+    },
+    'Warning': 'You must enter a name!'
 }},
 ```
 
@@ -331,7 +327,7 @@ If we take a closer look to the `Save` function, we can see it's saving the play
 
 ```javascript
 (input) => {
-	monogatari.storage ({ player: { name: input }});
+    monogatari.storage ({ player: { name: input }});
 }
 ```
 
@@ -349,17 +345,17 @@ In order to do so, you need to provide a `Revert` function. This function should
 
 ```javascript
 {'Input': {
-	'Text': 'What is your name?',
-	'Validation': (input) => {
-		return input.trim ().length > 0;
-	},
-	'Save': (input) => {
-		monogatari.storage ({ player: { name: input }});
-	},
-	'Revert': () => {
-		monogatari.storage ({ player: { name: '' }});
-	},
-	'Warning': 'You must enter a name!'
+    'Text': 'What is your name?',
+    'Validation': (input) => {
+        return input.trim ().length > 0;
+    },
+    'Save': (input) => {
+        monogatari.storage ({ player: { name: input }});
+    },
+    'Revert': () => {
+        monogatari.storage ({ player: { name: '' }});
+    },
+    'Warning': 'You must enter a name!'
 }}
 ```
 
@@ -367,7 +363,7 @@ In the `Save` function, we're saving the player's name to the storage:
 
 ```javascript
 'Save': (input) => {
-	monogatari.storage ({ player: { name: input }});
+    monogatari.storage ({ player: { name: input }});
 }
 ```
 
@@ -375,7 +371,7 @@ Therefore, what we need to do in our `Revert` function is return that value in t
 
 ```javascript
 'Revert': () => {
-	monogatari.storage ({ player: { name: '' }});
+    monogatari.storage ({ player: { name: '' }});
 }
 ```
 
@@ -385,7 +381,7 @@ That way, whenever the player rolls back an input, the state of your game gets r
 
 While you can always modify the overall style of your input dialogs by adding your own css code, some times you might want to have different styles for specific inputs in your game. As with most of the things in Monogatari, doing this involves using CSS classes.
 
-In your input object, you can provide a `Class` property. This property expects a `string` with **space separated class names** that will be added to your input dialog when it gets shown. 
+In your input object, you can provide a `Class` property. This property expects a `string` with **space separated class names** that will be added to your input dialog when it gets shown.
 
 First, let's remind this is what a un-styled input dialog looks like:
 
@@ -397,7 +393,7 @@ Now, if we wanted to style it by adding some CSS classes that we have in our `ma
 .myInput .modal__content {
     background: #222;
     color: #fff;
-	width: 100%;
+    width: 100%;
 }
 
 .someClass {
@@ -413,18 +409,18 @@ Then, all we'd have to do is add the `Class` property to our input and list thos
 
 ```javascript
 {'Input': {
-	'Class': 'myInput someClass otherClass',
-	'Text': 'What is your name?',
-	'Validation': (input) => {
-		return input.trim ().length > 0;
-	},
-	'Save': (input) => {
-		monogatari.storage ({ player: { name: input }});
-	},
-	'Revert': () => {
-		monogatari.storage ({ player: { name: '' }});
-	},
-	'Warning': 'You must enter a name!'
+    'Class': 'myInput someClass otherClass',
+    'Text': 'What is your name?',
+    'Validation': (input) => {
+        return input.trim ().length > 0;
+    },
+    'Save': (input) => {
+        monogatari.storage ({ player: { name: input }});
+    },
+    'Revert': () => {
+        monogatari.storage ({ player: { name: '' }});
+    },
+    'Warning': 'You must enter a name!'
 }},
 ```
 
@@ -432,45 +428,42 @@ This will result in a stylized input dialog such as this one:
 
 ![](../.gitbook/assets/styled-input.png)
 
-
-
 ## Input Timer
 
 ```javascript
 {'Input': {
-	'Text': 'What is your name?',
-	'Validation': (input) => {
-		return input.trim ().length > 0;
-	},
-	'Save': (input) => {
-		monogatari.storage ({ player: { name: input }});
-	},
-	'Revert': () => {
-		monogatari.storage ({ player: { name: '' }});
-	},
-	'Warning': 'You must enter a name!'
-	'Timer': {
-		// Time in milliseconds
-		time: 5000,
-		// The function to run when the time is over
-		callback: () => {
-			// Get all choices being shown and that are not disabled
-			const input = monogatari.element ().find ('text-input').get (0);
+    'Text': 'What is your name?',
+    'Validation': (input) => {
+        return input.trim ().length > 0;
+    },
+    'Save': (input) => {
+        monogatari.storage ({ player: { name: input }});
+    },
+    'Revert': () => {
+        monogatari.storage ({ player: { name: '' }});
+    },
+    'Warning': 'You must enter a name!'
+    'Timer': {
+        // Time in milliseconds
+        time: 5000,
+        // The function to run when the time is over
+        callback: () => {
+            // Get all choices being shown and that are not disabled
+            const input = monogatari.element ().find ('text-input').get (0);
 
-			input.content ('field').value ('My Name');
+            input.content ('field').value ('My Name');
 
-			// // Pick one of those options randomly
-			const submit = input.element ().find ('button').get (0);
+            // // Pick one of those options randomly
+            const submit = input.element ().find ('button').get (0);
 
-			// // Fake a click on it
-			submit.click ();
+            // // Fake a click on it
+            submit.click ();
 
-			// Promise friendly!
-			return Promise.resolve ();
-		}
-	},
+            // Promise friendly!
+            return Promise.resolve ();
+        }
+    },
 }},
-
 ```
 
 ## Input Types
@@ -485,17 +478,17 @@ A `text` input allows the player to enter any kind of text, that includes number
 
 ```javascript
 {'Input': {
-	'Text': 'What is your name?',
-	'Validation': (input) => {
-		return input.trim ().length > 0;
-	},
-	'Save': (input) => {
-		monogatari.storage ({ player: { name: input }});
-	},
-	'Revert': () => {
-		monogatari.storage ({ player: { name: '' }});
-	},
-	'Warning': 'You must enter a name!'
+    'Text': 'What is your name?',
+    'Validation': (input) => {
+        return input.trim ().length > 0;
+    },
+    'Save': (input) => {
+        monogatari.storage ({ player: { name: input }});
+    },
+    'Revert': () => {
+        monogatari.storage ({ player: { name: '' }});
+    },
+    'Warning': 'You must enter a name!'
 }}
 ```
 
@@ -509,26 +502,26 @@ A number input allows the player to enter any kind of numeric value. Note howeve
 
 ```javascript
 {'Input': {
-	'Text': 'Enter your age',
-	'Type': 'number',
-	'Validation': (input) => {
-		// Check if the input wasn't empty
-		if (input.trim ().length === 0) {
-			return false;
-		}
-		
-		// Transform the input string to an integer number
-		const age = parseInt (input);
-		
-		return age > 18;
-	},
-	'Save': (input) => {
-		monogatari.storage ({ player: { age: parseInt (input) }});
-	},
-	'Revert': () => {
-		monogatari.storage ({ player: { name: '' }});
-	},
-	'Warning': 'You must be at least 18 years old to continue.'
+    'Text': 'Enter your age',
+    'Type': 'number',
+    'Validation': (input) => {
+        // Check if the input wasn't empty
+        if (input.trim ().length === 0) {
+            return false;
+        }
+
+        // Transform the input string to an integer number
+        const age = parseInt (input);
+
+        return age > 18;
+    },
+    'Save': (input) => {
+        monogatari.storage ({ player: { age: parseInt (input) }});
+    },
+    'Revert': () => {
+        monogatari.storage ({ player: { name: '' }});
+    },
+    'Warning': 'You must be at least 18 years old to continue.'
 }}
 ```
 
@@ -542,20 +535,20 @@ A `password` will allow the player to enter any text just like the `text` input 
 
 ```javascript
 {'Input': {
-	'Text': 'Enter the secret code',
-	'Type': 'password',
-	'Validation': (input) => {
-		// Check what the player entered against our code
-		return input.trim () === 'SecretC0de';
-	},
-	'Save': (input) => {
-		// Do something here, might not be necessary to
-		// save anything for password inputs.
-	},
-	'Revert': () => {
-		// Revert what we did in the save function
-	},
-	'Warning': 'That\'s not the right code.'
+    'Text': 'Enter the secret code',
+    'Type': 'password',
+    'Validation': (input) => {
+        // Check what the player entered against our code
+        return input.trim () === 'SecretC0de';
+    },
+    'Save': (input) => {
+        // Do something here, might not be necessary to
+        // save anything for password inputs.
+    },
+    'Revert': () => {
+        // Revert what we did in the save function
+    },
+    'Warning': 'That\'s not the right code.'
 }}
 ```
 
@@ -569,48 +562,48 @@ A `select` input allows you to provide different possible values for the player 
 
 ```javascript
 {'Input': {
-	'Text': 'What\'s your favorite color?',
-	'Type': 'select',
-	'Options': [
-		{
-			label: 'Pink',
-			value: 'pink',
-		},
-		{
-			label: 'Red',
-			value: 'red',
-		},
-		{
-			label: 'Orange',
-			value: 'orange',
-		},
-		{
-			label: 'Blue',
-			value: 'blue',
-		},
-		{
-			label: 'Yellow',
-			value: 'yellow',
-		},
-		{
-			label: 'Green',
-			value: 'green',
-		}
-	],
-	'Validation': (input) => {
-		// We'll receive the 'value' property of the option
-		// the player selected.
-		return input.trim ().length > 0;
-	},
-	'Save': (input) => {
-		// Save the favorite color in the storage
-		monogatari.storage ({ player: { favorite_color: input }});
-	},
-	'Revert': () => {
-		// Reset the favorite color property
-		monogatari.storage ({ player: { favorite_color: '' }});
-	},
-	'Warning': 'You must select a color.'
+    'Text': 'What\'s your favorite color?',
+    'Type': 'select',
+    'Options': [
+        {
+            label: 'Pink',
+            value: 'pink',
+        },
+        {
+            label: 'Red',
+            value: 'red',
+        },
+        {
+            label: 'Orange',
+            value: 'orange',
+        },
+        {
+            label: 'Blue',
+            value: 'blue',
+        },
+        {
+            label: 'Yellow',
+            value: 'yellow',
+        },
+        {
+            label: 'Green',
+            value: 'green',
+        }
+    ],
+    'Validation': (input) => {
+        // We'll receive the 'value' property of the option
+        // the player selected.
+        return input.trim ().length > 0;
+    },
+    'Save': (input) => {
+        // Save the favorite color in the storage
+        monogatari.storage ({ player: { favorite_color: input }});
+    },
+    'Revert': () => {
+        // Reset the favorite color property
+        monogatari.storage ({ player: { favorite_color: '' }});
+    },
+    'Warning': 'You must select a color.'
 }}
 ```
 
@@ -618,52 +611,52 @@ A `select` input allows you to provide different possible values for the player 
 
 ![](../.gitbook/assets/radio-input.png)
 
-A `radio` input, just like the `select`  input allows you to provide different possible values for the player to choose from and only allows them to choose one. If the player doesn't enter any value, the `Validation` and `Save` functions will receive an empty string \(`''`\) as the player's input.
+A `radio` input, just like the `select` input allows you to provide different possible values for the player to choose from and only allows them to choose one. If the player doesn't enter any value, the `Validation` and `Save` functions will receive an empty string \(`''`\) as the player's input.
 
 ```javascript
 {'Input': {
-	'Text': 'What\'s your favorite color?',
-	'Type': 'radio',
-	'Options': [
-		{
-			label: 'Pink',
-			value: 'pink',
-		},
-		{
-			label: 'Red',
-			value: 'red',
-		},
-		{
-			label: 'Orange',
-			value: 'orange',
-		},
-		{
-			label: 'Blue',
-			value: 'blue',
-		},
-		{
-			label: 'Yellow',
-			value: 'yellow',
-		},
-		{
-			label: 'Green',
-			value: 'green',
-		}
-	],
-	'Validation': (input) => {
-		// We'll receive the 'value' property of the option
-		// the player selected.
-		return input.trim ().length > 0;
-	},
-	'Save': (input) => {
-		// Save the favorite color in the storage
-		monogatari.storage ({ player: { favorite_color: input }});
-	},
-	'Revert': () => {
-		// Reset the favorite color property
-		monogatari.storage ({ player: { favorite_color: '' }});
-	},
-	'Warning': 'You must select a color.'
+    'Text': 'What\'s your favorite color?',
+    'Type': 'radio',
+    'Options': [
+        {
+            label: 'Pink',
+            value: 'pink',
+        },
+        {
+            label: 'Red',
+            value: 'red',
+        },
+        {
+            label: 'Orange',
+            value: 'orange',
+        },
+        {
+            label: 'Blue',
+            value: 'blue',
+        },
+        {
+            label: 'Yellow',
+            value: 'yellow',
+        },
+        {
+            label: 'Green',
+            value: 'green',
+        }
+    ],
+    'Validation': (input) => {
+        // We'll receive the 'value' property of the option
+        // the player selected.
+        return input.trim ().length > 0;
+    },
+    'Save': (input) => {
+        // Save the favorite color in the storage
+        monogatari.storage ({ player: { favorite_color: input }});
+    },
+    'Revert': () => {
+        // Reset the favorite color property
+        monogatari.storage ({ player: { favorite_color: '' }});
+    },
+    'Warning': 'You must select a color.'
 }}
 ```
 
@@ -683,43 +676,43 @@ If the player doesn't enter any value, the `Validation` and `Save` functions wil
 
 ```javascript
 {'Input': {
-	'Text': 'What are your favorite colors?',
-	'Type': 'checkbox',
-	'Options': [
-		{
-			label: 'Pink',
-			value: 'pink',
-		},
-		{
-			label: 'Red',
-			value: 'red',
-		},
-		{
-			label: 'Orange',
-			value: 'orange',
-		},
-		{
-			label: 'Blue',
-			value: 'blue',
-		},
-		{
-			label: 'Yellow',
-			value: 'yellow',
-		},
-		{
-			label: 'Green',
-			value: 'green',
-		}
-	],
-	'Validation': (input) => {
-		// In this case, input is not a single string but an array
-		// of strings.
-		return input.length > 0;
-	},
-	'Save': (input) => {
-		monogatari.storage ({ player: { favorite_colors: input }});
-	},
-	'Warning': 'You must select at least one color!'
+    'Text': 'What are your favorite colors?',
+    'Type': 'checkbox',
+    'Options': [
+        {
+            label: 'Pink',
+            value: 'pink',
+        },
+        {
+            label: 'Red',
+            value: 'red',
+        },
+        {
+            label: 'Orange',
+            value: 'orange',
+        },
+        {
+            label: 'Blue',
+            value: 'blue',
+        },
+        {
+            label: 'Yellow',
+            value: 'yellow',
+        },
+        {
+            label: 'Green',
+            value: 'green',
+        }
+    ],
+    'Validation': (input) => {
+        // In this case, input is not a single string but an array
+        // of strings.
+        return input.length > 0;
+    },
+    'Save': (input) => {
+        monogatari.storage ({ player: { favorite_colors: input }});
+    },
+    'Warning': 'You must select at least one color!'
 }}
 ```
 
@@ -729,18 +722,18 @@ You can also provide a default value for the input by providing a `Default` prop
 
 ```javascript
 {'Input': {
-	'Text': 'What is your name?',
-	'Default': 'Jane Doe',
-	'Validation': (input) => {
-		return input.trim ().length > 0;
-	},
-	'Save': (input) => {
-		monogatari.storage ({ player: { name: input }});
-	},
-	'Revert': () => {
-		monogatari.storage ({ player: { name: '' }});
-	},
-	'Warning': 'You must enter a name!'
+    'Text': 'What is your name?',
+    'Default': 'Jane Doe',
+    'Validation': (input) => {
+        return input.trim ().length > 0;
+    },
+    'Save': (input) => {
+        monogatari.storage ({ player: { name: input }});
+    },
+    'Revert': () => {
+        monogatari.storage ({ player: { name: '' }});
+    },
+    'Warning': 'You must enter a name!'
 }}
 ```
 
@@ -748,50 +741,50 @@ For option-based inputs such as select, radio and checkbox, your `Default` prope
 
 ```javascript
 {'Input': {
-	'Text': 'What are your favorite colors?',
-	'Type': 'checkbox',
-	'Default': 'orange',
-	'Options': [
-		{
-			label: 'Pink',
-			value: 'pink',
-		},
-		{
-			label: 'Red',
-			value: 'red',
-		},
-		{
-			label: 'Orange',
-			value: 'orange',
-		},
-		{
-			label: 'Blue',
-			value: 'blue',
-		},
-		{
-			label: 'Yellow',
-			value: 'yellow',
-		},
-		{
-			label: 'Green',
-			value: 'green',
-		}
-	],
-	'Validation': (input) => {
-		// In this case, input is not a single string but an array
-		// of strings.
-		return input.length > 0;
-	},
-	'Save': (input) => {
-		monogatari.storage ({ player: { favorite_colors: input }});
-	},
-	'Warning': 'You must select at least one color!'
+    'Text': 'What are your favorite colors?',
+    'Type': 'checkbox',
+    'Default': 'orange',
+    'Options': [
+        {
+            label: 'Pink',
+            value: 'pink',
+        },
+        {
+            label: 'Red',
+            value: 'red',
+        },
+        {
+            label: 'Orange',
+            value: 'orange',
+        },
+        {
+            label: 'Blue',
+            value: 'blue',
+        },
+        {
+            label: 'Yellow',
+            value: 'yellow',
+        },
+        {
+            label: 'Green',
+            value: 'green',
+        }
+    ],
+    'Validation': (input) => {
+        // In this case, input is not a single string but an array
+        // of strings.
+        return input.length > 0;
+    },
+    'Save': (input) => {
+        monogatari.storage ({ player: { favorite_colors: input }});
+    },
+    'Warning': 'You must select at least one color!'
 }}
 ```
 
 ## Input Action String
 
-By default, the submit button in an input has the text `'OK'` in it, however this may not match the purpose or context of your input. This text can be changed by providing a translation key as the value for the `actionString` property. 
+By default, the submit button in an input has the text `'OK'` in it, however this may not match the purpose or context of your input. This text can be changed by providing a translation key as the value for the `actionString` property.
 
 First, you'll need to register your new string, if your game is a multilanguage one, you'll have to register it for all of the languages your game is available on. Otherwise, you will only need to register in the default language of your game.
 
@@ -809,21 +802,21 @@ Once you've registered your translation string, you can pass it to the input:
 
 ```javascript
 {'Input': {
-	'Text': 'Enter the secret code',
-	'Type': 'password',
-	'actionString': 'EnterCode',
-	'Validation': (input) => {
-		// Check what the player entered against our code
-		return input.trim () === 'SecretC0de';
-	},
-	'Save': (input) => {
-		// Do something here, might not be necessary to
-		// save anything for password inputs.
-	},
-	'Revert': () => {
-		// Revert what we did in the save function
-	},
-	'Warning': 'That\'s not the right code.'
+    'Text': 'Enter the secret code',
+    'Type': 'password',
+    'actionString': 'EnterCode',
+    'Validation': (input) => {
+        // Check what the player entered against our code
+        return input.trim () === 'SecretC0de';
+    },
+    'Save': (input) => {
+        // Do something here, might not be necessary to
+        // save anything for password inputs.
+    },
+    'Revert': () => {
+        // Revert what we did in the save function
+    },
+    'Warning': 'That\'s not the right code.'
 }}
 ```
 
@@ -837,22 +830,22 @@ HTML inputs allow you to set some very useful attributes for them, such as the m
 
 ```javascript
 {'Input': {
-	'Text': 'What is your name?',
-	'Validation': (input) => {
-		return input.trim ().length > 0;
-	},
-	'Save': (input) => {
-		monogatari.storage ({ player: { name: input }});
-	},
-	'Revert': () => {
-		monogatari.storage ({ player: { name: '' }});
-	},
-	'Warning': 'You must enter a name!',
-	'Attributes': {
-		'placeholder': 'Enter your name',
-		'minlength': 3,
-		'maxlength': 20
-	}
+    'Text': 'What is your name?',
+    'Validation': (input) => {
+        return input.trim ().length > 0;
+    },
+    'Save': (input) => {
+        monogatari.storage ({ player: { name: input }});
+    },
+    'Revert': () => {
+        monogatari.storage ({ player: { name: '' }});
+    },
+    'Warning': 'You must enter a name!',
+    'Attributes': {
+        'placeholder': 'Enter your name',
+        'minlength': 3,
+        'maxlength': 20
+    }
 }}
 ```
 
@@ -869,6 +862,4 @@ The following table shows the possible attributes you can set. Some may only be 
 | `max` | The maximum value to accept for this input. |
 | `min` | The minimum value to accept for this input. |
 | `step` | A stepping interval to use when using up and down arrows to adjust the value, as well as for validation. The amount a numeric value will increment or decrement by. |
-
-
 

@@ -10,9 +10,9 @@ By default, the storage looks something like this:
 
 ```javascript
 monogatari.storage ({
-	player: {
-		name: ''
-	}
+    player: {
+        name: ''
+    }
 });
 ```
 
@@ -22,12 +22,12 @@ The storage is a simple JSON object, meaning we can add as much variables as we 
 
 ```javascript
 monogatari.storage ({
-	player: {
-		name: '',
-		age: 0
-	},
-	myFlag: false,
-	stats: {
+    player: {
+        name: '',
+        age: 0
+    },
+    myFlag: false,
+    stats: {
     hp: 100,
     mp: 100,
     inventory: {
@@ -46,9 +46,9 @@ When something happens in our game and we want to update the value for one of ou
 
 ```javascript
 monogatari.storage ({
-	player: {
-		age: 18
-	}
+    player: {
+        age: 18
+    }
 });
 ```
 
@@ -56,13 +56,13 @@ Calling the storage function and providing a new object will not replace the ini
 
 ```javascript
 monogatari.storage ({
-	player: {
-		age: 18
-	},
-	myFlag: true,
-	stats: {
-		hp: 80
-	}
+    player: {
+        age: 18
+    },
+    myFlag: true,
+    stats: {
+        hp: 80
+    }
 });
 ```
 
@@ -102,7 +102,7 @@ const flag = monogatari.storage ().myFlag;
 
 ### The retrieve, transform and update pattern
 
-Some times, we want to update a variable in a way that the new value is the result of performing an operation over the current value. For example, let's say we wanted to add or substract 20 hp points from the player's stats. 
+Some times, we want to update a variable in a way that the new value is the result of performing an operation over the current value. For example, let's say we wanted to add or substract 20 hp points from the player's stats.
 
 ```javascript
 // First, we have to retrieve the current value 
@@ -114,9 +114,9 @@ const newHP = hp + 20;
 
 // Finally, we can perform the update
 monogatari.storage ({
-	stats: {
-		hp: newHP
-	}
+    stats: {
+        hp: newHP
+    }
 });
 ```
 
@@ -130,15 +130,15 @@ const { hp } = monogatari.storage ('stats');
 // We add the 20 points and update the value
 // in a single step
 monogatari.storage ({
-	stats: {
-		hp: hp + 20
-	}
+    stats: {
+        hp: hp + 20
+    }
 });
 ```
 
 ## Data Interpolation
 
-It is possible that we'll want to use the variables in the storage inside a dialog or even in a character's name. Monogatari features some custom string interpolation which you can use by writing a storage variable's key or name inside of two curly braces. 
+It is possible that we'll want to use the variables in the storage inside a dialog or even in a character's name. Monogatari features some custom string interpolation which you can use by writing a storage variable's key or name inside of two curly braces.
 
 Let's say you wanted to use the player's name and age in a dialog. Here's what our statement would look like:
 
@@ -220,6 +220,4 @@ monogatari.script ({
 Here are some other resources that might be helpful to you regarding the usage of the storage.
 
 * A [tutorial](https://hyuchia.com/Monogatari-Stat-System/) on how to build a simple stat system using the storage \(outdated as it was made for v1.4.1\)
-
-
 

@@ -37,7 +37,3 @@ Adapting to the device is done using CSS media queries.
 @media screen and (min-width: 500em) {}
 ```
 
-
-
-
-

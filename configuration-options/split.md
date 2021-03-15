@@ -12,13 +12,13 @@ In Monogatari 2.0, your second script file can be formatted the same way your fi
 
 ```javascript
 monogatari.script ({
-	// The game starts here.
-	'Start': [
-		"y Hello there Protaganist-senpai!",
-		"y Wow after one line of dialog this is starting to feel pretty long.",
-		"y Let's jump to another label in another file!",
-		"jump theNextLabel",
-	]
+    // The game starts here.
+    'Start': [
+        "y Hello there Protaganist-senpai!",
+        "y Wow after one line of dialog this is starting to feel pretty long.",
+        "y Let's jump to another label in another file!",
+        "jump theNextLabel",
+    ]
 });
 ```
 
@@ -26,43 +26,43 @@ And the script of your second script file can say:
 
 ```javascript
 monogatari.script ({
-	// The Game Continues!!
-	'theNextLabel': [
-		"y Yeah there we go! That feels so much better.",
-		"end"
-	]
+    // The Game Continues!!
+    'theNextLabel': [
+        "y Yeah there we go! That feels so much better.",
+        "end"
+    ]
 });
 ```
 
-And this will work just fine! All you have to do after that is make sure your index.html file actually reads the file. 
+And this will work just fine! All you have to do after that is make sure your index.html file actually reads the file.
 
 ### Getting Monogatari to read your Split Files
 
 All we need to do in order to achieve this is to edit our index.html file's source. Find this part of the source code:
 
 ```markup
-		<!-- Monogatari JavaScript Libraries -->
-		<script src="./engine/debug/debug.js"></script>
-		<script src="./engine/core/monogatari.js"></script>
-		<script src="./js/options.js"></script>
-		<script src="./js/storage.js"></script>
-		<script src="./js/script.js"></script>
-		<script src="./js/main.js"></script>
+        <!-- Monogatari JavaScript Libraries -->
+        <script src="./engine/debug/debug.js"></script>
+        <script src="./engine/core/monogatari.js"></script>
+        <script src="./js/options.js"></script>
+        <script src="./js/storage.js"></script>
+        <script src="./js/script.js"></script>
+        <script src="./js/main.js"></script>
 ```
 
 And we're going to add another `<script src=""></script>`, with the source pointing to your file. For example, if you named your file `script2.js` and put it in the same folder with `script.js`, then we would change this to:
 
 ```markup
-		<!-- Monogatari JavaScript Libraries -->
-		<script src="./engine/debug/debug.js"></script>
-		<script src="./engine/core/monogatari.js"></script>
-		<script src="./js/options.js"></script>
-		<script src="./js/storage.js"></script>
-		<script src="./js/script.js"></script>
-		
-		<script src="./js/script2.js"></script>
-		
-		<script src="./js/main.js"></script>
+        <!-- Monogatari JavaScript Libraries -->
+        <script src="./engine/debug/debug.js"></script>
+        <script src="./engine/core/monogatari.js"></script>
+        <script src="./js/options.js"></script>
+        <script src="./js/storage.js"></script>
+        <script src="./js/script.js"></script>
+
+        <script src="./js/script2.js"></script>
+
+        <script src="./js/main.js"></script>
 ```
 
 Just like that!
@@ -123,7 +123,7 @@ Then just make sure your `index.html` file points to `scriptES.js` and you're on
 
 ### Another Way, for Splitting Internationalized Files
 
-After looking at the above two examples, you might want to split up files to help organize your story into chapters, and also have multiple languages at the same time! Unfortunately, if you did that by combining the above examples, you would more than likely come across a "Start Label Was Not Found" error. 
+After looking at the above two examples, you might want to split up files to help organize your story into chapters, and also have multiple languages at the same time! Unfortunately, if you did that by combining the above examples, you would more than likely come across a "Start Label Was Not Found" error.
 
 This would happen because although the `monogatari.script()` method adds new labels, if any label names conflict with already existing ones, it replaces them. Normally this is fine, but when working with Multi-Language games, the "English" label would be replaced in the second file, overwriting all of the work you did at run time! Luckily, there's a way around this.
 

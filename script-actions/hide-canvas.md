@@ -6,7 +6,7 @@
 'hide canvas <canvas_id> [with [animations] [classes]]'
 ```
 
-The `hide canvas` action allows you to stop and remove a canvas  object.
+The `hide canvas` action allows you to stop and remove a canvas object.
 
 To show a canvas, check the [`Show Canvas action`](canvas.md).
 

@@ -1,6 +1,6 @@
 # Events
 
-Monogatari has a lot of useful events that fire when certain engine events happen. These can be used to run your own custom functions with `monogatari.on ()`. 
+Monogatari has a lot of useful events that fire when certain engine events happen. These can be used to run your own custom functions with `monogatari.on ()`.
 
 For example, the following code will create a function that will be run every time the didLoadGame event fires:
 
@@ -69,6 +69,4 @@ Below is an in-progress list of all events Monogatari has.
 | :--- | :--- | :--- |
 | `didFinishTyping` | Event fires after dialog text finishes | After every line of dialog in Monogatari's typewriter animation finishes and the player is able to click to get a new line. This includes at the end of the animation, as well as after clicking to skip the animation, or after every fed line if typewriter animation is disabled. |
 |  |  |  |
-
-
 

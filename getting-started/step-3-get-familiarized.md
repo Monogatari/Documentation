@@ -54,7 +54,7 @@ JavaScript is the programming language you'll be using in Monogatari, it is what
 
 ![](../.gitbook/assets/style-directory.png)
 
-CSS is the markup language used to style your game, from setting colors to improving the appearance, CSS is what will allow you do them all. 
+CSS is the markup language used to style your game, from setting colors to improving the appearance, CSS is what will allow you do them all.
 
 | File | Contains |
 | :--- | :--- |

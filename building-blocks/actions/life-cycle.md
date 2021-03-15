@@ -1,7 +1,5 @@
 # Life Cycle
 
-
-
 An action describes the functionality for a Monogatari statement, when Monogatari reads a part of the script \(a statement\), it will look for an action that matches the statement and run it.
 
 The life cycle of an action is divided in three parts: Mounting, Application and Reverting.

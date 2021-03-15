@@ -18,5 +18,3 @@ The `end` action is how all of your scripts must finish. End will cause the game
 
 **Requires User Interaction**: No
 
-
-

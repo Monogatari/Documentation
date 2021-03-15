@@ -18,21 +18,3 @@ Yes, you can use it for commercial and non-commercial games completely free!
 
 A lot of awesome people help developing Monogatari, you can view the whole list here: [https://monogatari.io/contributors](https://monogatari.io/contributors)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

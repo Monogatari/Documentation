@@ -8,7 +8,7 @@ To develop in Monogatari you'll need the same tools used for web development. Th
 
 ## Getting a Browser
 
-You already have one of this but is it the best one for you to develop your game? 
+You already have one of this but is it the best one for you to develop your game?
 
 We recommend you using either [**Chrome**](https://www.google.com/chrome/) **or** [**Firefox** ](https://www.mozilla.org/en-US/firefox/)**for development**. While your game will run in any modern browser, not all of them offer a great experience while developing. Both Chrome and Firefox have some pretty cool developer tools that will certainly make your life easier.
 

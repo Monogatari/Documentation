@@ -7,7 +7,7 @@
 ## Installing Apache Cordova
 
 ```text
-$ npm install -g cordova 
+$ npm install -g cordova
 ```
 
 ## Creating your project
@@ -35,6 +35,4 @@ Distributing your game in the play store requires you to become a developer with
 ```text
 $ cordova build iOS --prod --release
 ```
-
-## 
 

@@ -6,7 +6,7 @@ description: Show a background without removing any game elements.
 
 ## Description
 
-```
+```text
 'show background <resource> [with [animations] [classes] [properties]]'
 ```
 
@@ -84,7 +84,7 @@ If you want to use an image for the background, remember you first have to decla
 
 {% tabs %}
 {% tab title="Script" %}
-```
+```text
 Monogatari.script ({
     'Start': [
         'show background mountain'
@@ -95,7 +95,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Scenes Assets" %}
-```
+```text
 Monogatari.assets ('scenes', {
     'mountain': 'mountain.png',
     'sea': 'sea.png'
@@ -106,9 +106,9 @@ Monogatari.assets ('scenes', {
 
 ### Using CSS properties as the background
 
-If you'll use CSS to set a custom background, you can use any valid non-spaced value for the [`background-image`](https://developer.mozilla.org/en-US/docs/Web/CSS/background) or [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color)  CSS properties. Using CSS is perfect for when you want your background to be a **solid color**. Here are some valid statements:
+If you'll use CSS to set a custom background, you can use any valid non-spaced value for the [`background-image`](https://developer.mozilla.org/en-US/docs/Web/CSS/background) or [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color) CSS properties. Using CSS is perfect for when you want your background to be a **solid color**. Here are some valid statements:
 
-```
+```text
 Monogatari.script ({
     'Start': [
         'show background #fff'
@@ -121,7 +121,7 @@ Monogatari.script ({
 
 You can also use CSS gradients for backgrounds.
 
-```
+```text
 Monogatari.script ({
     'Start': [
         "We're about to show a linear gradient.",
@@ -138,7 +138,7 @@ Monogatari comes with some built-in animations ready for you to use, you can see
 
 {% tabs %}
 {% tab title="Script" %}
-```
+```text
 Monogatari.script ({
     'Start': [
         'show background sea with fadeIn'
@@ -149,7 +149,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Scenes Assets" %}
-```
+```text
 Monogatari.assets ('scenes', {
     'mountain': 'mountain.png',
     'sea': 'sea.png'
@@ -162,7 +162,7 @@ Monogatari.assets ('scenes', {
 
 The following will set the background to a solid color using a CSS value and modify the duration of the _fadeIn_ animation to 20 seconds.
 
-```
+```text
 Monogatari.script ({
     'Start': [
         'show background #424242 with fadeIn duration 20s'
@@ -179,7 +179,7 @@ For example, note the following CSS code creating a simple Ken Burn Animation:
 
 {% tabs %}
 {% tab title="Script" %}
-```
+```text
 Monogatari.script ({
     'Start': [
         'show background mountain with ken-burn'
@@ -190,7 +190,7 @@ Monogatari.script ({
 {% endtab %}
 
 {% tab title="Scenes Assets" %}
-```
+```text
 Monogatari.assets ('scenes', {
     'mountain': 'mountain.png',
     'sea': 'sea.png'
@@ -199,7 +199,7 @@ Monogatari.assets ('scenes', {
 {% endtab %}
 
 {% tab title="CSS" %}
-```
+```text
 .ken-burn {
     animation-name: ken-burns; /* Name of the animation to use */
     animation-duration: 30s;

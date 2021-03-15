@@ -2,8 +2,6 @@
 
 ## Overview
 
-
-
 ## Built-in Attributes
 
 If you've already seen the HTML, you'll notice many "data" attributes in the elements; this are used by the engine so you may change the structure and using the right datas everything will just work.

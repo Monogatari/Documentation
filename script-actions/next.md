@@ -18,5 +18,3 @@ The `next` action will simply continue to the next statement on the script witho
 
 **Requires User Interaction**: No
 
-
-

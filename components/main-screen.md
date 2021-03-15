@@ -8,5 +8,3 @@ The following code is this component's initial HTML structure. Remember you can 
 
 ```
 
-
-

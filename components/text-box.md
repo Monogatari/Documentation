@@ -23,7 +23,6 @@
       </td>
       <td style="text-align:left">
         <p>Default is <code>adv</code>.</p>
-        <p></p>
         <p>The mode the textbox is currently displaying dialogs on, whether <code>adv</code> or <code>nvl</code> mode.</p>
       </td>
     </tr>

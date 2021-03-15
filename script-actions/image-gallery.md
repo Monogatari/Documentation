@@ -8,7 +8,7 @@ New to Monogatari v2 is an Image Gallery feature. With it you can create a galle
 
 ## Creating the Gallery
 
-By default, the Image Gallery doesn't appear, since it would be pretty disappointing to your players to see a Gallery button on the main menu and have nothing inside of it. 
+By default, the Image Gallery doesn't appear, since it would be pretty disappointing to your players to see a Gallery button on the main menu and have nothing inside of it.
 
 ![Monogatari&apos;s Default Main Menu with no Gallery](../.gitbook/assets/image%20%283%29.png)
 
@@ -16,11 +16,11 @@ This is easily fixed by simply declaring some images! First you put some images 
 
 ![The &quot;gallery&quot; folder is located inside of your &quot;assets&quot; folder in your game&apos;s directory.](../.gitbook/assets/image%20%2814%29%20%281%29.png)
 
-Once you have an image or images in the gallery folder, you'll declare them in `script.js` . 
+Once you have an image or images in the gallery folder, you'll declare them in `script.js` .
 
 ```javascript
 monogatari.assets ('gallery', {
-	'someImage': 'happy-shine.png'
+    'someImage': 'happy-shine.png'
 });
 ```
 
@@ -53,6 +53,4 @@ Monogatari gallery unlocks are not dependent on any save files, so if you, for w
 "gallery lock someImage",
 "y Goodbye, Protagonist-sama. I'll never forget you."
 ```
-
-
 

@@ -31,14 +31,13 @@ The video action allows you to show videos on your novel in different modes.
       </td>
       <td style="text-align:left">
         <p>Defines what way you want to show the video like.</p>
-        <p></p>
         <p>Possible Values:</p>
         <ul>
           <li><code>modal</code> - Shows the video as a</li>
           <li><code>immersive</code> - Shows the video covering the full game screen</li>
           <li><code>background</code> - Shows the video as a background for your characters</li>
           <li><code>fullscreen</code> - Attempts to show the video in full screen, if
-            permission is denied, it will fallback to the<code> immersive</code> mode.</li>
+            permission is denied, it will fallback to the <code>immersive</code> mode.</li>
         </ul>
       </td>
     </tr>
@@ -57,13 +56,13 @@ The following is a comprehensive list of the properties available for you to mod
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| controls | `No value required` | Optional. Adding this property will make the video controls \(play, pause, seeking\) visible for the player.  |
+| controls | `No value required` | Optional. Adding this property will make the video controls \(play, pause, seeking\) visible for the player. |
 | close | `No value required` | Optional. Adding this property will make the video close itself once it's over. |
 | loop | `No value required` | Optional. Adding this property will make the video loop. The `close` property will not have any effect if the `loop` property is added. |
 
 ## Assets Declarations
 
-To play a video, you must first add the file to your **`assets/video/`** directory and then declare it. To do so, Monogatari has an  has a function that will let you declare all kinds of assets for your game.
+To play a video, you must first add the file to your **`assets/video/`** directory and then declare it. To do so, Monogatari has an has a function that will let you declare all kinds of assets for your game.
 
 ```javascript
 Monogatari.assets ('videos', {
@@ -73,7 +72,7 @@ Monogatari.assets ('videos', {
 
 ### Supported Formats
 
-Each browser has it's own format compatibility. **MP4** however is the format supported by most browsers. 
+Each browser has it's own format compatibility. **MP4** however is the format supported by most browsers.
 
 If you wish to use other formats, you can check a [compatibility table](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#Browser_compatibility) to discover what browsers will be able to play it.
 

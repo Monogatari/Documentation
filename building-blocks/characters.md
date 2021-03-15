@@ -30,7 +30,6 @@ The following table lists all the properties you can set for each character.
       <td style="text-align:left">Yes</td>
       <td style="text-align:left">
         <p>The name that will be shown when this character speaks.</p>
-        <p></p>
         <p>Supports storage and translation interpolations.</p>
       </td>
     </tr>
@@ -87,7 +86,6 @@ The following table lists all the properties you can set for each character.
       <td style="text-align:left">Yes</td>
       <td style="text-align:left">
         <p>Default is <code>false</code>.</p>
-        <p></p>
         <p>Whether the character&apos;s dialogs should be shown in <a href="https://developers.monogatari.io/documentation/v/develop/script-actions/dialogs#nvl-dialogs">NVL mode</a>.</p>
       </td>
     </tr>
@@ -99,7 +97,6 @@ The following table lists all the properties you can set for each character.
       <td style="text-align:left">Yes</td>
       <td style="text-align:left">
         <p>Default is <code>true</code>.</p>
-        <p></p>
         <p>This property indicates whether the typewriter animation should be used
           when the character speaks or not.</p>
       </td>
@@ -109,11 +106,11 @@ The following table lists all the properties you can set for each character.
 
 ## Declaration
 
-Declaring characters is really simple. 
+Declaring characters is really simple.
 
 First, you need to define an identifier. This is what you'll use for the [`dialog`](../script-actions/dialogs.md) and [`show character`](../script-actions/characters.md) actions.
 
- We'll choose the identifier `y`, short for Yui in this tutorial.
+We'll choose the identifier `y`, short for Yui in this tutorial.
 
 ```javascript
 monogatari.characters ({
@@ -131,7 +128,7 @@ monogatari.characters ({
 
     },
     'm': {
-    
+
     }
 });
 ```
@@ -140,7 +137,7 @@ We've come up with our identifiers and they point to an empty object. Inside thi
 
 ## Name and Color
 
-The most basic properties are the name and color for our characters. The name will appear in the textbox every time the character speaks and the color specifies what color that name will be. 
+The most basic properties are the name and color for our characters. The name will appear in the textbox every time the character speaks and the color specifies what color that name will be.
 
 ```javascript
 monogatari.characters ({
@@ -153,7 +150,7 @@ monogatari.characters ({
 
 ## Character Sprites
 
-Since we are building visual novels, chances are we also need images for our characters. 
+Since we are building visual novels, chances are we also need images for our characters.
 
 All your character's sprites should be placed in your `assets/characters` directory, let's see what that looks like.
 
@@ -191,7 +188,7 @@ monogatari.characters ({
 
 Notice how for each sprite we assigned two things:
 
-1.  A **key or identifier** which is the way we'll refer to that specific sprite.
+1. A **key or identifier** which is the way we'll refer to that specific sprite.
 2. The name of the file.
 
 ```javascript
@@ -207,11 +204,9 @@ Both items are independent of each other so while in the last example we used id
 
 To learn how to show a character sprite, go over to the Show Character action.
 
-{% page-ref page="../script-actions/characters.md" %}
-
 ## Custom Sub-directory
 
-In the  [Character Sprites](characters.md#character-sprites) section we added all of our character sprite images into the `assets/characters` directory. This approach is pretty straight forward but can become a bit troublesome as you add more characters. For starters, the directory could start feeling cluttered and you would not be able to use the same name on different files without them getting overwritten.
+In the [Character Sprites](characters.md#character-sprites) section we added all of our character sprite images into the `assets/characters` directory. This approach is pretty straight forward but can become a bit troublesome as you add more characters. For starters, the directory could start feeling cluttered and you would not be able to use the same name on different files without them getting overwritten.
 
 A solution for this issue is to have a different directory for each character where we'll place all the assets for that character alone. This is achieved by specifying the `directory` property in your character declaration. This property expects the name of a sub-directory inside the `assets/characters` directory. For example, if you create a sub-directory `assets/characters/my-character` then you should set the `directory` property to `'my-character'`. Let's take a look at the whole process:
 
@@ -290,8 +285,6 @@ Notice how we added the `expressions/` prefix to all of the file names to accoun
 
 To learn how to show this expressions in a dialog, go over the Dialog action.
 
-{% page-ref page="../script-actions/dialogs.md" %}
-
 ## Default Expression
 
 It is also possible to define a default side image / expression for your character. This default one will be shown for all of your character's dialogs that do not specify any other expression.
@@ -364,6 +357,8 @@ monogatari.characters ({
 If you want to learn more about the different dialog modes, check the Dialog action and the Text Box component.
 
 {% page-ref page="../script-actions/dialogs.md" %}
+
+{% endpage-ref %}
 
 {% page-ref page="../components/text-box.md" %}
 

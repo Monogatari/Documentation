@@ -5,19 +5,19 @@
 Monogatari can use different storage engines so you can choose whichever works for your game best. This configuration can be found inside your `options.js` file. By default, it will look something like this:
 
 ```javascript
-	// Define what storage engine should be used to save the game data. *
-	// Adapters Available:
-	// - LocalStorage: This one is used by default
-	// - SessionStorage: Same as LocalStorage but will be cleared when the page
-	// 					 is closed.
-	// - IndexedDB: The information is saved using the IndexedDB web API
-	// - RemoteStorage: The information will be sent and retrieved from a given
-	//					URL Endpoint providing a REST API.
-	'Storage': {
-		'Adapter': 'LocalStorage',
-		'Store': 'GameData',
-		'Endpoint': ''
-	}
+    // Define what storage engine should be used to save the game data. *
+    // Adapters Available:
+    // - LocalStorage: This one is used by default
+    // - SessionStorage: Same as LocalStorage but will be cleared when the page
+    //                      is closed.
+    // - IndexedDB: The information is saved using the IndexedDB web API
+    // - RemoteStorage: The information will be sent and retrieved from a given
+    //                    URL Endpoint providing a REST API.
+    'Storage': {
+        'Adapter': 'LocalStorage',
+        'Store': 'GameData',
+        'Endpoint': ''
+    }
 ```
 
 {% hint style="warning" %}
@@ -35,6 +35,4 @@ The session storage works just like the local storage engine with the important 
 ## Indexed DB
 
 ## Remote Storage
-
-
 

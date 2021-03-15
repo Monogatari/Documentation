@@ -2,7 +2,7 @@
 
 When releasing your game online, the asset loading is one of the most important issues to be solved, it must be nice enough so that people can enjoy playing your game online even on slow connections and that's why since v1.3.2 Asset Preloading is built in right in the engine.
 
-#### Built In Preloading
+## Built In Preloading
 
 The asset preloading will show a progress bar when you enter the game, the entire preloading can be disabled using the `Preload` property in the `options.js`:
 
@@ -18,7 +18,7 @@ To skip it, just change the value to false but remember that every asset will be
 'Preload': false
 ```
 
-#### Service Workers Cache
+## Service Workers Cache
 
 One of the benefits the Service Workers in Monogatari provide is the use of the Cache to serve your files even when offline once they've been loaded, this means that instead of taking the asset from the network, Monogatari will first check if the asset has been loaded in the cache, if it has then it will immediately load it from there but still making a network request to update the asset in the cache.
 

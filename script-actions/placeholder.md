@@ -26,30 +26,30 @@ To declare an action placeholder, you need to provide a name for it and a value.
 
 ```javascript
 monogatari.$ ('menu', {"Choice":{
-	"Text":	"Let's see, what do you want to know about?",
-	"Animations":{
-		"Text": "Animations",
-		"Do": "jump Animations"
-	},
-	"Media":{
-		"Text": "Multimedia",
-		"Do": "jump Media"
-	},
-	"Scripting":{
-		"Text": "Scripting",
-		"Do": "jump Script"
-	},
-	"Playing":{
-		"Text": "Playing",
-		"Do": "jump Playing"
-	},
-	"Nothing": {
-		"Text": "Nothing",
-		"Do": "jump Nothing",
-		"Condition": function () {
-			return storage.playing && storage.media && storage.scripting && storage.animations;
-		}
-	}
+    "Text":    "Let's see, what do you want to know about?",
+    "Animations":{
+        "Text": "Animations",
+        "Do": "jump Animations"
+    },
+    "Media":{
+        "Text": "Multimedia",
+        "Do": "jump Media"
+    },
+    "Scripting":{
+        "Text": "Scripting",
+        "Do": "jump Script"
+    },
+    "Playing":{
+        "Text": "Playing",
+        "Do": "jump Playing"
+    },
+    "Nothing": {
+        "Text": "Nothing",
+        "Do": "jump Nothing",
+        "Condition": function () {
+            return storage.playing && storage.media && storage.scripting && storage.animations;
+        }
+    }
 }});
 ```
 
@@ -57,34 +57,34 @@ monogatari.$ ('menu', {"Choice":{
 
 ### Using a Choice in multiple places
 
-The following will declare the placeholder shown above, featuring a choice action. The recommended place to declare all your placeholders is your main.js file. 
+The following will declare the placeholder shown above, featuring a choice action. The recommended place to declare all your placeholders is your main.js file.
 
 ```javascript
 monogatari.$ ('menu', {"Choice":{
-	"Text":	"Let's see, what do you want to know about?",
-	"Animations":{
-		"Text": "Animations",
-		"Do": "jump Animations"
-	},
-	"Media":{
-		"Text": "Multimedia",
-		"Do": "jump Media"
-	},
-	"Scripting":{
-		"Text": "Scripting",
-		"Do": "jump Script"
-	},
-	"Playing":{
-		"Text": "Playing",
-		"Do": "jump Playing"
-	},
-	"Nothing": {
-		"Text": "Nothing",
-		"Do": "jump Nothing",
-		"Condition": function () {
-			return monogatari.storage ('someFlag');
-		}
-	}
+    "Text":    "Let's see, what do you want to know about?",
+    "Animations":{
+        "Text": "Animations",
+        "Do": "jump Animations"
+    },
+    "Media":{
+        "Text": "Multimedia",
+        "Do": "jump Media"
+    },
+    "Scripting":{
+        "Text": "Scripting",
+        "Do": "jump Script"
+    },
+    "Playing":{
+        "Text": "Playing",
+        "Do": "jump Playing"
+    },
+    "Nothing": {
+        "Text": "Nothing",
+        "Do": "jump Nothing",
+        "Condition": function () {
+            return monogatari.storage ('someFlag');
+        }
+    }
 }});
 ```
 
@@ -107,7 +107,7 @@ The value for your placeholder should be a function that can return any action. 
 ```javascript
 monogatari.$ ('_dialog', function () {
     // Within this function, `this` refers to the Monogatari object.
-    
+
     if (this.storage ().someFlag) {
         return 'y This means the flag was true!';
     } else {
@@ -136,12 +136,12 @@ Placeholders can also have argument passed into them for dynamic functions. The 
 
 ```javascript
 monogatari.$ ('_addToInventory', (myArgument) => ({'Function':{
-	'Apply': function(){
-		monogatari.storage().inventory.unshift(myArgument);
-	},
-	'Reverse':function(){
-		monogatari.storage().inventory.shift();
-	}
+    'Apply': function(){
+        monogatari.storage().inventory.unshift(myArgument);
+    },
+    'Reverse':function(){
+        monogatari.storage().inventory.shift();
+    }
 }}));
 ```
 
@@ -149,7 +149,7 @@ We'll declare our `inventory` as an array in `storage.js`
 
 ```javascript
 monogatari.storage ({
-	inventory: ["Sword"],
+    inventory: ["Sword"],
 });
 ```
 
@@ -157,11 +157,11 @@ And then in our script, we'd call the placeholder like this!
 
 ```javascript
 monogatari.script ({
-	'Start': [
-		"That's a cool potion. Let's pick it up and put it into our inventory.",
-		"$ _addToInventory Potion",
-		"Now I am holding a {{inventory.0}}",
-	]
+    'Start': [
+        "That's a cool potion. Let's pick it up and put it into our inventory.",
+        "$ _addToInventory Potion",
+        "Now I am holding a {{inventory.0}}",
+    ]
 });
 ```
 
@@ -169,11 +169,11 @@ Please note that placeholder arguments are delimited by spaces, so if you want t
 
 ```javascript
 monogatari.script ({
-	'Start': [
-		"That's a cool potion. Let's pick it up and put it into our inventory.",
-		"$ _addToInventory Potion&nbsp;of&nbsp;Strength.",
-		"Now I am holding a {{inventory.0}}",
-	]
+    'Start': [
+        "That's a cool potion. Let's pick it up and put it into our inventory.",
+        "$ _addToInventory Potion&nbsp;of&nbsp;Strength.",
+        "Now I am holding a {{inventory.0}}",
+    ]
 });
 ```
 

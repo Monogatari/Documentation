@@ -10,32 +10,30 @@ let background = '';
 const hasImage = this.props.image && this.engine.asset ('scenes', this.props.image);
 
 if (hasImage) {
-	background = `url(${this.engine.setting ('AssetsPath').root}/${this.engine.setting ('AssetsPath').scenes}/${this.engine.asset ('scenes', this.props.image)})`;
+    background = `url(${this.engine.setting ('AssetsPath').root}/${this.engine.setting ('AssetsPath').scenes}/${this.engine.asset ('scenes', this.props.image)})`;
 } else if (this.data.game.state.scene) {
-	background = this.data.game.state.scene;
+    background = this.data.game.state.scene;
 
-	if (background.indexOf (' with ') > -1) {
-		background = Text.prefix (' with ', background);
-	}
+    if (background.indexOf (' with ') > -1) {
+        background = Text.prefix (' with ', background);
+    }
 
-	background = Text.suffix ('show scene', background);
+    background = Text.suffix ('show scene', background);
 
 } else if (this.data.game.state.background) {
-	background = this.data.game.state.background;
+    background = this.data.game.state.background;
 
-	if (background.indexOf (' with ') > -1) {
-		background = Text.prefix (' with ', background);
-	}
+    if (background.indexOf (' with ') > -1) {
+        background = Text.prefix (' with ', background);
+    }
 
-	background = Text.suffix ('show background', background);
+    background = Text.suffix ('show background', background);
 }
 return `
-	<button data-delete='${this.props.slot}'><span class='fas fa-times'></span></button>
-	<small class='badge'>${this.props.name}</small>
-	<div data-content="background" style="${hasImage ? 'background-image' : 'background'}: ${background}"></div>
-	<figcaption>${moment (this.props.date).format ('MMMM Do YYYY, h:mm:ss a')}</figcaption>
+    <button data-delete='${this.props.slot}'><span class='fas fa-times'></span></button>
+    <small class='badge'>${this.props.name}</small>
+    <div data-content="background" style="${hasImage ? 'background-image' : 'background'}: ${background}"></div>
+    <figcaption>${moment (this.props.date).format ('MMMM Do YYYY, h:mm:ss a')}</figcaption>
 `;
 ```
-
-
 
