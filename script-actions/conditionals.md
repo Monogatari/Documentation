@@ -52,7 +52,7 @@ The `'Conditional'` object also supports strings. In this example, assume your s
     'Too poor': 'jump goHomeEmptyHanded',
     '1': 'jump buyADollarItem',
     '2': 'jump buySomethingGood',
-    '3': 'jump buyAComboMeal'
+    '3': 'jump buyAComboMeal',
     'Rich': 'jump buyTheWholeStore',
 }},
 ```
