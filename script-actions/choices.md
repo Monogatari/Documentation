@@ -16,6 +16,7 @@ Choices allow players to take decisions and then react based on whatever they ch
 | :--- | :--- | :--- | :--- |
 | `Class` | `string` | Yes | A space separated list of classes to add to the choice container. |
 | `Dialog` | `string` | Yes | Specifies a dialog to be shown along with the choices. |
+| `Timer` | `object` | `yes` | A timer configuration object. |
 | `...Choices` | `Objects` | No | Any other object added will be considered as a choice. Choices have their own individual properties that are described below. |
 
 ## Choices Properties
@@ -293,4 +294,48 @@ The `'onRevert'` property should contain a function that will run when the playe
 Monogatari remembers for the player which option they picked, so if they chose Yes in the above example, when they rewind, it will run the `onRevert` function for "yes", whereas if they chose no, it will not run anything special, as No does not contain an `onRevert` or `onChosen` function.
 
 The `'onRevert'` property is required when you use the `onChosen` function, or else the player will not be able to use the "back" button to revert before the choice. If you don't care whether or not your player is allowed to rewind before a decision, then you don't need to use `onRevert` but that might make your player assume that there's a bug if some choices are reversible and others aren't.
+
+### Timers
+
+The Timer object takes two methods: "time" and "callback". Time is simply the amount of time in miliseconds you want the timer to last, and callback is a function to run after that timer has finished.
+
+Timers can be used to require the player to think quickly, and make something happen if they take too long to select a choice. In this example, assume that we have a css class "Invisible" that simply applies a `display:none` to the element.
+
+```javascript
+{'Choice': {
+		'Dialog': 'y Have you already read some documentation?',
+		'Timer': {
+			// Time in milliseconds 
+			time: 5000,
+			// The function to run when the time is over
+			callback: () => {
+				//Click the "tookTooLong" button.
+				monogatari.element().find('[data-choice="tookTooLong"]').get(0).click();
+				
+		// Promise friendly!
+				return Promise.resolve ();
+			}
+		},
+		'Yes': {
+			'Text': 'Yes',
+			'Do': 'jump Yes'
+		},
+		'No': {
+			'Text': 'No',
+			'Do': 'jump No'
+		},
+		'tookTooLong':{
+			'Text': 'TookTooLong',
+			'Do': 'jump tookTooLong',
+			'Class': 'invisible',
+		}
+	}
+},
+```
+
+In this example, there are three buttons, but only two of them are actually visible to the player. After 5 seconds passes, the third button is clicked automatically.
+
+You can also do other things with timers, such as increment a counter, play a sound, or anything else you like. Please note, however, that there is no corresponding revert function for timers. Anything that happens in a timer will not be undone when the player clicks the back button. \(Of course, you'd probably not want the player to be able to undo a mistake like allowing a timer to conclude, so if you use timers in this way, consider [disabling the rollback function.](https://community.monogatari.io/d/10-how-to-disable-the-rollback-function)\)
+
+
 
