@@ -20,7 +20,7 @@ The quick menu will render each of the buttons it has on its global configuratio
 
 ## Methods
 
-#### Add Button
+### Add Button
 
 ```javascript
 static addButton ({ string, icon, data, ... }): void
@@ -82,5 +82,13 @@ monogatari.component ('quick-menu').addButtonBefore ('Back', {
 		action: 'show-stats'
 	}
 });
+```
+
+### Remove Button
+
+The following sample will remove the "Hide" button.
+
+```text
+monogatari.component ('quick-menu').removeButton ('Hide');
 ```
 
