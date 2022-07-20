@@ -6,7 +6,7 @@ description: Learn the basic workflow for working on your game
 
 Ok, now you have some idea on [what the files you got are for](step-3-get-familiarized.md) so how can you start developing your game?
 
-1. Try the game first, open the index.html file inside the directory you just unzipped and play the sample game through.
+1. Try the game first, open the `index.html` file inside the directory you just unzipped and play the sample game through.
 2. Once you've played it once, open the directory \(the one you unzipped\) with the editor you chose to start making changes.
 3. Open the `script.js` file with your editor and find the `script` section, as you'll see, all the dialogs you just saw are just a simple list in there. More information can be found in [the documentation](https://monogatari.io/documentation/script/text/).
 4. Change one of the dialogs, save the file and reload the game \(just like you reload a website\).
