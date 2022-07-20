@@ -35,7 +35,7 @@ Inside the main directory you'll find some pretty useful files.
 | `service-worker.js` | This file defines your service worker, used for asset preloading and caching |
 | `.htaccess` | This file provides a basic Apache configuration in case you are using that web server. |
 
-More about what to do and how to use this specific files will come later as you read the documentation.
+More about what to do and how to use these specific files will come later as you read the documentation.
 
 **JS Directory**
 
@@ -45,10 +45,10 @@ JavaScript is the programming language you'll be using in Monogatari, it is what
 
 | File | Contains |
 | :--- | :--- |
-| **main.js** | If you want to add more javascript, this is the file to do it! |
-| **options.js** | Initial settings of your game and engine settings. |
-| **script.js** | The main script of your game. \(Here's where your story, characters, images etc are declared\) |
-| **storage.js** | This is where you'll declare your custom variables that you want to save in your games. |
+| `main.js` | If you want to add more javascript, this is the file to do it! |
+| `options.js` | Initial settings of your game and engine settings. |
+| `script.js` | The main script of your game. \(Here's where your story, characters, images etc are declared\) |
+| `storage.js` | This is where you'll declare your custom variables that you want to save in your games. |
 
 **Style Directory**
 
@@ -58,5 +58,5 @@ CSS is the markup language used to style your game, from setting colors to impro
 
 | File | Contains |
 | :--- | :--- |
-| **main.css** | Add your styling in this file. |
+| `main.css` | Add your styling in this file. |
 
