@@ -7,7 +7,7 @@ description: The text your players are going to read.
 ## Description
 
 ```javascript
-'[character_id][:<expression_id>] <dialog_text>'
+'[character_id][:<expression_id>][:<class_names>] <dialog_text>'
 ```
 
 **Action ID**: `Dialog`
@@ -75,6 +75,50 @@ If you've defined the `expressions` property for your characters, adding a list 
 ![Yui saying "Hi! My name is Yui." with a side image of a picture of her smiling.](<../.gitbook/assets/image (12).png>)
 
 This assumes you have a Side image called Smiling, which means with every dialog you can specify what side image to use. If you add the `'expression'` property then that image will be shown with every dialog without the need of specifying it inside the statement.
+
+#### Custom Classes
+
+You can apply custom CSS classes to the text-box (or centered-dialog) element by adding a third parameter to the dialog syntax. This allows for custom styling of different dialog types.
+
+These classes get reset on every dialog so in order to mantain a class, you have to add it to every dialog you want it to be present on. The syntax is as follow:
+
+**Syntax**
+
+```javascript
+'[character_id]:[expression]:[class_names] <dialog_text>'
+```
+
+**Examples**
+
+**Single Class:**
+
+```javascript
+'y:happy:highlight Hello there!'
+```
+
+**Multiple Classes:**
+
+```javascript
+'m:sad:warning|urgent This is important!'
+```
+
+**Narrator with Class:**
+
+```javascript
+'narrator::thought This is a thought bubble'
+```
+
+**Centered Dialog with Class:**
+
+```javascript
+'centered::centered-highlight This is a centered message!'
+```
+
+**NVL Dialog with Class:**
+
+```javascript
+'nvl::nvl-style This is an NVL dialog!'
+```
 
 ## Centered Dialogs
 
