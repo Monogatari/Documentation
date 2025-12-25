@@ -168,6 +168,14 @@ monogatari.script ({
                     }
                 });                                   
             },
+            'Revert': () => {
+                monogatari.storage ({
+                    player: {
+                        name: '',
+                        age: 0
+                    }
+                });
+            }
         }},
         'Your name is {{player.name}}',
         {'Function':{
@@ -183,7 +191,7 @@ monogatari.script ({
                     oldName: name,
                     stats: {
                         hp: hp - 50,
-                        inventory {
+                        inventory: {
                             gold: gold + 250
                         }
                     }
@@ -199,7 +207,7 @@ monogatari.script ({
                     },
                     stats: {
                         hp: hp + 50,
-                        inventory {
+                        inventory: {
                             gold: gold - 250
                         }
                     }
@@ -207,7 +215,7 @@ monogatari.script ({
             }
         }},
 
-        '{{player.name}} is {{player_info.age}} years old.',
+        '{{player.name}} is {{player.age}} years old.',
         '{{stats.mp}} costs the ability "Fire Storm".',
         '{{stats.inventory.gold}}g is in his bag of gold.',
         'end'

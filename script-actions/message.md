@@ -31,7 +31,7 @@ Each message has a close button so the user is able to close it when he's finish
 To show a message, you must first declare it with all of it's characteristics. To do so, the message action has a configuration function where you can define your id or name for each message and their respective information.
 
 ```javascript
-Monogatari.action ('Message').messages ({
+monogatari.action ('Message').messages ({
     '<message_id>': {
         title: '',
         subtitle: '',
@@ -54,21 +54,21 @@ Monogatari.action ('Message').messages ({
 
 The following script will show a simple text message:
 
-{% tabs %}
-{% tab title="Script" %}
+**Script:**
+
 ```javascript
-Monogatari.script ({
+monogatari.script ({
     'Start': [
         'show message SampleWriting',
         'end'
     ] 
 });
 ```
-{% endtab %}
 
-{% tab title="Message Configuration" %}
+**Message Configuration:**
+
 ```javascript
-Monogatari.action ('Message').messages ({
+monogatari.action ('Message').messages ({
     'SampleWriting':{
         title: 'Some sample writing',
         subtitle: 'From Evelyn',
@@ -76,28 +76,26 @@ Monogatari.action ('Message').messages ({
     }
 });
 ```
-{% endtab %}
-{% endtabs %}
 
 ### HTML Message
 
 You can also include HTML on your message, the following script and configuration will show a message with HTML on it.
 
-{% tabs %}
-{% tab title="Script" %}
+**Script:**
+
 ```javascript
-Monogatari.script ({
+monogatari.script ({
     'Start': [
         'show message SampleHTML',
         'end'
     ] 
 });
 ```
-{% endtab %}
 
-{% tab title="Message Configuration" %}
+**Message Configuration:**
+
 ```javascript
-Monogatari.action ('Message').messages ({
+monogatari.action ('Message').messages ({
     'SampleHTML':{
         title: 'Some sample writing',
         subtitle: 'From Evelyn',
@@ -108,6 +106,32 @@ Monogatari.action ('Message').messages ({
     }
 });
 ```
-{% endtab %}
-{% endtabs %}
+
+### Custom Button Text
+
+You can customize the close button text using the `actionString` property:
+
+```javascript
+monogatari.action ('Message').messages ({
+    'Letter': {
+        title: 'A Letter From Home',
+        subtitle: 'From Mom',
+        body: 'Hope you\'re doing well! Come visit soon.',
+        actionString: 'Close Letter'
+    }
+});
+```
+
+### Adding CSS Classes
+
+You can pass additional CSS classes after the message ID to style specific messages:
+
+```javascript
+'show message ImportantNote urgent highlighted'
+```
+
+## Related Actions
+
+- [Input](input.md) - Get player input
+- [Choices](choices.md) - Present options to players
 

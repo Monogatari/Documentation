@@ -74,33 +74,29 @@ The following is a comprehensive list of the properties available for you to mod
 | :--- | :--- | :--- |
 | duration | `string` | The duration for the animations used.  The value for this property must be a non-spaced valid value for the [`animation-duration`](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration) CSS property. |
 
-## Using an image as the background
-
-The most common case of
+## Using an Image as the Background
 
 If you want to use an image for the background, remember you first have to declare your image assets and place all your files under the `assets/scenes/` directory.
 
-{% tabs %}
-{% tab title="Script" %}
+**Script:**
+
 ```javascript
 monogatari.script ({
     'Start': [
-        'show scene mountain'
+        'show scene mountain',
         'end'
     ]
 });
 ```
-{% endtab %}
 
-{% tab title="Scenes Assets" %}
+**Scene Assets:**
+
 ```javascript
 monogatari.assets ('scenes', {
     'mountain': 'mountain.png',
     'sea': 'sea.png'
 });
 ```
-{% endtab %}
-{% endtabs %}
 
 ### Using CSS properties as the background
 
@@ -121,27 +117,25 @@ monogatari.script ({
 
 Monogatari comes with some built-in animations ready for you to use, you can see the list of animations and visualize them [here](https://daneden.github.io/animate.css/). Using animations is as simple as indicating their name!
 
-{% tabs %}
-{% tab title="Script" %}
+**Script:**
+
 ```javascript
 monogatari.script ({
     'Start': [
-        'show scene sea with fadeIn'
+        'show scene sea with fadeIn',
         'end'
     ]
 });
 ```
-{% endtab %}
 
-{% tab title="Scenes Assets" %}
+**Scene Assets:**
+
 ```javascript
 monogatari.assets ('scenes', {
     'mountain': 'mountain.png',
     'sea': 'sea.png'
 });
 ```
-{% endtab %}
-{% endtabs %}
 
 #### **Modifying an animation duration**
 
@@ -162,28 +156,28 @@ You can also use CSS to create your own animations, you'll have to apply them to
 
 For example, note the following CSS code creating a simple Ken Burn Animation:
 
-{% tabs %}
-{% tab title="Script" %}
+**Script:**
+
 ```javascript
 monogatari.script ({
     'Start': [
-        'show scene mountain with ken-burn'
+        'show scene mountain with ken-burn',
         'end'
     ]
 });
 ```
-{% endtab %}
 
-{% tab title="Scenes Assets" %}
+**Scene Assets:**
+
 ```javascript
 monogatari.assets ('scenes', {
     'mountain': 'mountain.png',
     'sea': 'sea.png'
 });
 ```
-{% endtab %}
 
-{% tab title="CSS" %}
+**CSS:**
+
 ```css
 .ken-burn {
     animation-name: ken-burns; /* Name of the animation to use */
@@ -210,6 +204,21 @@ monogatari.assets ('scenes', {
     }
 }
 ```
-{% endtab %}
-{% endtabs %}
+
+## Behavior
+
+When a scene is shown:
+
+1. The background is changed
+2. All characters are removed from the screen
+3. All images are removed from the screen
+4. The text box is cleared
+
+This makes `show scene` ideal for scene transitions where you want a clean slate. If you only want to change the background without removing elements, use [Show Background](show-background.md) instead.
+
+## Related Actions
+
+- [Show Background](show-background.md) - Change background without clearing elements
+- [Show Character](characters.md) - Display character sprites
+- [Show Image](show-image.md) - Display images
 

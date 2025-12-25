@@ -16,157 +16,20 @@ There are many cases where we need input from the user, like when you want to kn
 
 ## Properties
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Type</th>
-      <th style="text-align:left">Optional</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>Text</code>
-      </td>
-      <td style="text-align:left"><code>string</code>
-      </td>
-      <td style="text-align:left">No</td>
-      <td style="text-align:left">
-        <p>The text to be displayed in the input dialog.</p>
-        <p>Supports storage and translation interpolations.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Type</code>
-      </td>
-      <td style="text-align:left"><code>string</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">
-        <p>Default is <code>text</code>.</p>
-        <p>The kind of input you want to show.</p>
-        <p>Possible Values:</p>
-        <ul>
-          <li><code>text</code>
-          </li>
-          <li><code>number</code>
-          </li>
-          <li><code>password</code>
-          </li>
-          <li><code>email</code>
-          </li>
-          <li><code>color</code>
-          </li>
-          <li><code>select</code>
-          </li>
-          <li><code>radio</code>
-          </li>
-          <li><code>checkbox</code>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Default</code>
-      </td>
-      <td style="text-align:left"><code>string</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">
-        <p>The default value for the input.</p>
-        <p>Supports storage and translation interpolations.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Options</code>
-      </td>
-      <td style="text-align:left"><code>Array&lt;object&gt;</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">
-        <p>The list of options to present to the player if the input has a type of
-          select, radio or checkbox<b>.</b>
-        </p>
-        <p>&lt;b&gt;&lt;/b&gt;</p>
-        <p>Both the label and value properties in the options support storage and
-          translation interpolations.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Validation</code>
-      </td>
-      <td style="text-align:left"><code>function</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">There are times when you want to validate the user input, to see if it&apos;s
-        not empty for example, the Validation property should be a function returning
-        a boolean, the validation process is up to what you want. This example
-        checks to see if it is empty, but you might put in if trees to disable
-        certain names, or something like that.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Save</code>
-      </td>
-      <td style="text-align:left"><code>function</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">The save function specifies Monogatari will do with the input once it&apos;s
-        validated, normally you would save it on storage, but you can do whatever
-        you want with it, the save property is then a function that receives the
-        input, what you do with it is also up to you.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Warning</code>
-      </td>
-      <td style="text-align:left"><code>string</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">
-        <p>The message that will be shown in case the input fails the validation,
-          something useful for the player to know what you expect from them.</p>
-        <p>Supports storage and translation interpolations.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>actionString</code>
-      </td>
-      <td style="text-align:left"><code>string</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">
-        <p>Default is <code>&apos;OK&apos;.</code>
-        </p>
-        <p>The Key of a translation string that contains the text to show in the
-          submit button of the element.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Class</code>
-      </td>
-      <td style="text-align:left"><code>string</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">A space separated list of CSS class names to apply to the input element.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Timer</code>
-      </td>
-      <td style="text-align:left"><code>object</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">A timer configuration object.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Attributes</code>
-      </td>
-      <td style="text-align:left"><code>object</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">The list of attributes to add to the <code>input</code> HTML element created.</td>
-    </tr>
-  </tbody>
-</table>
+| Name | Type | Optional | Description |
+| :--- | :--- | :--- | :--- |
+| `Text` | `string` | No | The text to be displayed in the input dialog. Supports storage and translation interpolations. |
+| `Type` | `string` | Yes | Default is `text`. The kind of input: `text`, `number`, `password`, `email`, `color`, `select`, `radio`, `checkbox` |
+| `Default` | `string` | Yes | The default value for the input. Supports storage and translation interpolations. |
+| `Options` | `Array<object>` | Yes | Options for `select`, `radio`, or `checkbox` types. Each option has `label` and `value` properties. |
+| `Validation` | `function` | Yes | Function returning boolean. Validates the input before saving. |
+| `Save` | `function` | Yes | Function that receives the validated input. Typically saves to storage. |
+| `Revert` | `function` | Yes | Function to undo the Save action when rolling back. Required for rollback support. |
+| `Warning` | `string` | Yes | Message shown when validation fails. Supports interpolations. |
+| `actionString` | `string` | Yes | Default is `'OK'`. Translation key for the submit button text. |
+| `Class` | `string` | Yes | Space-separated CSS class names for styling. |
+| `Timer` | `object` | Yes | Timer configuration with `time` (ms) and `callback` properties. |
+| `Attributes` | `object` | Yes | HTML attributes to add to the input element (e.g., `placeholder`, `maxlength`). |
 
 ## Input Text
 
@@ -863,3 +726,8 @@ The following table shows the possible attributes you can set. Some may only be 
 | `min` | The minimum value to accept for this input. |
 | `step` | A stepping interval to use when using up and down arrows to adjust the value, as well as for validation. The amount a numeric value will increment or decrement by. |
 
+## Related Actions
+
+- [Choices](choices.md) - Present selectable options to players
+- [Functions](javascript.md) - Run JavaScript in your script
+- [Message](message.md) - Show modal messages to players

@@ -6,9 +6,8 @@ description: Learn the purpose of all directories and files
 
 Once you've [downloaded the latest Monogatari release](getting-monogatari.md), take some time to get familiar with the files and directories inside it.
 
-{% hint style="info" %}
-You can take a look at a more visual representation of the Monogatari project structure [in this simple mind map](https://www.mindmeister.com/1136161346/monogatari-project-structure).
-{% endhint %}
+> [!TIP]
+> You can take a look at a more visual representation of the Monogatari project structure [in this simple mind map](https://www.mindmeister.com/1136161346/monogatari-project-structure).
 
 ### Directories
 
@@ -60,3 +59,8 @@ CSS is the markup language used to style your game, from setting colors to impro
 | :--- | :--- |
 | `main.css` | Add your styling in this file. |
 
+## Next Steps
+
+Now that you understand the project structure, you're ready to start creating!
+
+- [Step 4: Make Your First Visual Novel](step-4-make-your-first-visual-novel.md)

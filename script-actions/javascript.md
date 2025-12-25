@@ -18,7 +18,7 @@ Let's see what we mean by that, let's say you are building some kind of RPG elem
 'use strict';
 // Persistent Storage Variable
 
-Monogatari.storage ({
+monogatari.storage ({
     player: {
         intelligence: 0,
         ability: 0,
@@ -30,20 +30,20 @@ Monogatari.storage ({
 Now, inside your script you would probably make some modifications of those stats depending on what the user does or how the story goes.
 
 ```javascript
-let script = {
+monogatari.script({
     // The game starts here.
     'Start': [
         'h Currently you have {{player.intelligence}} points of Intelligence but you seem far more intelligent, how about we add five points?',
         function () {
             this.storage ('player', { 
-                intelligence: this.storage ('player') + 5
+                intelligence: this.storage ('player').intelligence + 5
             });
             return true;
         },
         'h There you have it, you now have {{player.intelligence}} points of Intelligence',
         'end'
     ]
-}
+});
 ```
 
 So, if we played this game, the first text would appear, then after we click for the next one, the function would be run adding 5 points to our intelligence stat and immediately would show the next text. If we wanted to go back to the first text it wouldn't be possible. This is mainly due to Monogatari not knowing what you are doing exactly in your function, if it were to allow you to go back, we could be getting infinite points just by going back and playing it again because there is no way to know what changed.
@@ -51,37 +51,39 @@ So, if we played this game, the first text would appear, then after we click for
 To solve this problem and allow users to go back, Monoagatari v1.4 introduced reversible 'Function' objects, as with all the special script objects, these are defined in a JSON format, let's take a look at how the same situation as above would look like:
 
 ```javascript
-let script = {
+monogatari.script({
     // The game starts here.
     'Start': [
         'h Currently you have {{player.intelligence}} points of Intelligence but you seem far more intelligent, how about we add five points?',
         {'Function':{
             'Apply': function () {
                 this.storage ('player', { 
-                    intelligence: this.storage ('player') + 5
+                    intelligence: this.storage ('player').intelligence + 5
                 });
                 return true;
             },
 
-            'Reverse': function () {
+            'Revert': function () {
                 this.storage ('player', { 
-                    intelligence: this.storage ('player') - 5
+                    intelligence: this.storage ('player').intelligence - 5
                 });
             }   
         }},
         'h There you have it, you now have {{player.intelligence}} points of Intelligence',
         'end'
     ]
-}
+});
 ```
 
-As you can see, we replaced the function with a `'Function'` object which has 2 properties, an `'Apply'` function which will run when going over the game and the `'Reverse'` function which will be run when going back. This now solves the previous problem we had since we are using `'Apply'` to add the 5 points and `'Reverse'` to subtract them in case the player went back and thus makes possible for players to go back even when a function was run. Just as with common functions, you can use Promises and also control the flow of the game by returning `true` or `false` in the `'Apply'` function.
+As you can see, we replaced the function with a `'Function'` object which has 2 properties, an `'Apply'` function which will run when going over the game and the `'Revert'` function which will be run when going back. This now solves the previous problem we had since we are using `'Apply'` to add the 5 points and `'Revert'` to subtract them in case the player went back and thus makes possible for players to go back even when a function was run. Just as with common functions, you can use Promises and also control the flow of the game by returning `true` or `false` in the `'Apply'` function.
+
+> [!NOTE]
+> For backwards compatibility, `'Reverse'` is still supported as an alias for `'Revert'`, but using `'Revert'` is recommended for consistency with other Monogatari actions.
 
 ## Normal Functions
 
-{% hint style="danger" %}
-Using normal JavaScript functions is not recommended because they can't be reverted and thus, players can't roll back their game on parts where functions are present which gives the impression that it's an error on the game rather than it being planned.
-{% endhint %}
+> [!CAUTION]
+> Using normal JavaScript functions is not recommended because they can't be reverted and thus, players can't roll back their game on parts where functions are present which gives the impression that it's an error on the game rather than it being planned.
 
 To do it, you can actually using JavaScript functions. Yes, just like you would on any other JS file, you can use function syntax inside your script.
 

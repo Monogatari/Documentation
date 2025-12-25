@@ -98,7 +98,11 @@ Making your game available in many languages is super simple, head over to the I
 
 ## Splitting your script in multiple files
 
-As your game script grows, having it all in the same file might become troublesome. Splitting your script into multiple files is a good way to get organized and make it less cluttered. Learn how to do this in the Split files section.
+As your game script grows, having it all in the same file might become troublesome. Splitting your script into multiple files is a good way to get organized and make it less cluttered. Learn how to do this in the [Split Files](../configuration-options/split.md) section.
 
-{% page-ref page="../configuration-options/split.md" %}
+## Related
 
+- [Dialogs](../script-actions/dialogs.md) - Writing dialog text
+- [Jump](../script-actions/jump.md) - Navigating between labels
+- [Variables & Data Storage](data-storage.md) - Storing game data
+- [Internationalization](../configuration-options/game-configuration/internationalization.md) - Multi-language support

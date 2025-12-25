@@ -82,38 +82,36 @@ The following is a comprehensive list of the properties available for you to mod
 
 If you want to use an image for the background, remember you first have to declare your image assets and place all your files under the `assets/scenes/` directory.
 
-{% tabs %}
-{% tab title="Script" %}
-```text
-Monogatari.script ({
+**Script:**
+
+```javascript
+monogatari.script ({
     'Start': [
-        'show background mountain'
+        'show background mountain',
         'end'
     ]
 });
 ```
-{% endtab %}
 
-{% tab title="Scenes Assets" %}
-```text
-Monogatari.assets ('scenes', {
+**Scene Assets:**
+
+```javascript
+monogatari.assets ('scenes', {
     'mountain': 'mountain.png',
     'sea': 'sea.png'
 });
 ```
-{% endtab %}
-{% endtabs %}
 
 ### Using CSS properties as the background
 
 If you'll use CSS to set a custom background, you can use any valid non-spaced value for the [`background-image`](https://developer.mozilla.org/en-US/docs/Web/CSS/background) or [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color) CSS properties. Using CSS is perfect for when you want your background to be a **solid color**. Here are some valid statements:
 
-```text
-Monogatari.script ({
+```javascript
+monogatari.script ({
     'Start': [
-        'show background #fff'
-        'show background rgb(0, 0, 0)'
-        'show background url("assets/scenes/mountain.png")'
+        'show background #fff',
+        'show background rgb(0, 0, 0)',
+        'show background url("assets/scenes/mountain.png")',
         'end'
     ]
 });
@@ -121,8 +119,8 @@ Monogatari.script ({
 
 You can also use CSS gradients for backgrounds.
 
-```text
-Monogatari.script ({
+```javascript
+monogatari.script ({
     'Start': [
         "We're about to show a linear gradient.",
         "show background linear-gradient(to right, red, yellow)",
@@ -136,36 +134,34 @@ Monogatari.script ({
 
 Monogatari comes with some built-in animations ready for you to use, you can see the list of animations and visualize them [here](https://daneden.github.io/animate.css/). Using animations is as simple as indicating their name!
 
-{% tabs %}
-{% tab title="Script" %}
-```text
-Monogatari.script ({
+**Script:**
+
+```javascript
+monogatari.script ({
     'Start': [
-        'show background sea with fadeIn'
+        'show background sea with fadeIn',
         'end'
     ]
 });
 ```
-{% endtab %}
 
-{% tab title="Scenes Assets" %}
-```text
-Monogatari.assets ('scenes', {
+**Scene Assets:**
+
+```javascript
+monogatari.assets ('scenes', {
     'mountain': 'mountain.png',
     'sea': 'sea.png'
 });
 ```
-{% endtab %}
-{% endtabs %}
 
 #### **Modifying an animation duration**
 
 The following will set the background to a solid color using a CSS value and modify the duration of the _fadeIn_ animation to 20 seconds.
 
-```text
-Monogatari.script ({
+```javascript
+monogatari.script ({
     'Start': [
-        'show background #424242 with fadeIn duration 20s'
+        'show background #424242 with fadeIn duration 20s',
         'end'
     ]
 });
@@ -177,29 +173,29 @@ You can also use CSS to create your own animations, you'll have to apply them to
 
 For example, note the following CSS code creating a simple Ken Burn Animation:
 
-{% tabs %}
-{% tab title="Script" %}
-```text
-Monogatari.script ({
+**Script:**
+
+```javascript
+monogatari.script ({
     'Start': [
-        'show background mountain with ken-burn'
+        'show background mountain with ken-burn',
         'end'
     ]
 });
 ```
-{% endtab %}
 
-{% tab title="Scenes Assets" %}
-```text
-Monogatari.assets ('scenes', {
+**Scene Assets:**
+
+```javascript
+monogatari.assets ('scenes', {
     'mountain': 'mountain.png',
     'sea': 'sea.png'
 });
 ```
-{% endtab %}
 
-{% tab title="CSS" %}
-```text
+**CSS:**
+
+```css
 .ken-burn {
     animation-name: ken-burns; /* Name of the animation to use */
     animation-duration: 30s;
@@ -225,6 +221,10 @@ Monogatari.assets ('scenes', {
     }
 }
 ```
-{% endtab %}
-{% endtabs %}
+
+## Related Actions
+
+- [Show Scene](show-scene.md) - Change background and clear all elements
+- [Show Character](characters.md) - Display character sprites
+- [Show Image](show-image.md) - Display images
 

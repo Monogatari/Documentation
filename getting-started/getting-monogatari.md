@@ -6,18 +6,76 @@ description: Download the latest release of Monogatari
 
 Once you've got your [environment set up](step-1-setup-your-environment.md), it's time to download Monogatari!
 
-Monogatari can be found in three places:
+## Download Options
 
-## 1. Downloading it from the website
+### 1. From the Website
 
-The website \([https://monogatari.io/](https://monogatari.io/)\) always has Here you will have the choice between the stable version and the Nightly version. Given that you are on the documentation for version 2.0, nightly is the version you want.
+The official website ([https://monogatari.io/](https://monogatari.io/)) provides the latest releases. You'll find options for:
 
-## 2. Dowloading it from GitHub
+- **Stable Release**: Recommended for most users
+- **Nightly/Development**: Latest features, may have bugs
 
-## 3. Dowloading it from a Release Announcement
+### 2. From GitHub
 
-* * The GitHub page. [https://github.com/Monogatari/Monogatari](https://github.com/Monogatari/Monogatari) There you can choose between the different branches. For the newest version of Monogatari, you will want the "Development" branch. This will always be the most up to date version. This version also contains a bunch of source code that won't be necessary to make a game in monogatari, but might be useful to you if you'd like to help contribute to the core engine.
-* The Monogatari Forums. [https://community.monogatari.io/t/news](https://community.monogatari.io/t/news) Here there are always up to date announcements on any new release. 
+Visit the [Monogatari GitHub repository](https://github.com/Monogatari/Monogatari):
 
-Should you get the version from the main website, or the version linked in news announcements, you simply need to [unzip](https://www.7-zip.org/) the files and you're ready to go! If you instead opt to get the version on the GitHub page, you'll need to unzip the folder, and then take the contents of the `dist` folder.
+- **Main branch**: Latest stable release
+- **Development branch**: Cutting-edge features (for version 2.0+)
 
+To download from GitHub:
+1. Go to the repository page
+2. Click the green "Code" button
+3. Select "Download ZIP"
+
+### 3. From Release Announcements
+
+Check the [Monogatari Forums](https://community.monogatari.io/t/news) for announcements on new releases with direct download links.
+
+## Setting Up Your Download
+
+### From Website or Release Announcements
+
+1. Download the ZIP file
+2. Extract/unzip the files using your preferred tool ([7-Zip](https://www.7-zip.org/) works great)
+3. You're ready to go!
+
+### From GitHub (Development Branch)
+
+If you downloaded from the GitHub development branch:
+
+1. Extract the ZIP file
+2. Navigate to the `dist` folder inside
+3. Copy the contents of `dist` to your project directory
+4. You're ready to start!
+
+## Verifying Your Download
+
+After extraction, you should see a structure like this:
+
+```
+your-project/
+├── assets/
+│   ├── characters/
+│   ├── images/
+│   ├── music/
+│   ├── scenes/
+│   ├── sounds/
+│   └── voices/
+├── engine/
+├── js/
+│   ├── main.js
+│   ├── options.js
+│   ├── script.js
+│   └── storage.js
+├── style/
+│   └── main.css
+├── index.html
+└── service-worker.js
+```
+
+## Next Steps
+
+Once you have Monogatari downloaded and extracted, proceed to:
+
+- [Step 3: Get Familiarized](step-3-get-familiarized.md) - Learn about the project structure
+- [Step 4: Make Your First Visual Novel](step-4-make-your-first-visual-novel.md) - Start creating!

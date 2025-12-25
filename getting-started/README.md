@@ -1,18 +1,26 @@
 # Getting Started
 
-## 4 Simple steps to get you started
+Welcome to Monogatari! Follow these 4 simple steps to get started creating your visual novel.
 
-{% page-ref page="step-1-setup-your-environment.md" %}
+## Quick Start Guide
 
-{% endpage-ref %}
+1. **[Setup Your Environment](step-1-setup-your-environment.md)** - Install the tools you'll need
+2. **[Download Monogatari](getting-monogatari.md)** - Get the latest release
+3. **[Get Familiarized](step-3-get-familiarized.md)** - Learn the project structure
+4. **[Make Your First Visual Novel](step-4-make-your-first-visual-novel.md)** - Start creating!
 
-{% page-ref page="getting-monogatari.md" %}
+## What You'll Need
 
-{% endpage-ref %}
+- A modern web browser (Chrome or Firefox recommended)
+- A code editor (VS Code, Atom, or similar)
+- Basic knowledge of HTML, CSS, and JavaScript (helpful but not required)
 
-{% page-ref page="step-3-get-familiarized.md" %}
+## Time to Complete
 
-{% endpage-ref %}
+Most users can complete the setup and create their first game scene in **under 30 minutes**.
 
-{% page-ref page="step-4-make-your-first-visual-novel.md" %}
+## Need Help?
 
+- Check the [FAQ](../f.a.q..md) for common questions
+- Visit the [Monogatari Community Forums](https://community.monogatari.io/)
+- Browse the rest of this documentation for detailed guides

@@ -39,13 +39,16 @@
 * [Functions](script-actions/javascript.md)
 * [Jump](script-actions/jump.md)
 * [Next](script-actions/next.md)
+* [Pause](script-actions/pause.md)
 * [Placeholder](script-actions/placeholder.md)
 * [Play Music](script-actions/play-music.md)
 * [Play Sound](script-actions/play-sound.md)
 * [Play Voice](script-actions/play-voice.md)
+* [Preload](script-actions/preload.md)
 * [Show Canvas](script-actions/canvas.md)
 * [Show Background](script-actions/show-background.md)
 * [Show Character](script-actions/characters.md)
+* [Show Character Layer](script-actions/character-layers.md)
 * [Show Image](script-actions/show-image.md)
 * [Show Message](script-actions/message.md)
 * [Show Notification](script-actions/notifications.md)
@@ -55,6 +58,7 @@
 * [Stop Music](script-actions/stop-music.md)
 * [Stop Sound](script-actions/stop-sound.md)
 * [Stop Voice](script-actions/stop-voice.md)
+* [Unload](script-actions/unload.md)
 * [Vibrate](script-actions/vibrate.md)
 * [Wait](script-actions/wait.md)
 
@@ -97,20 +101,7 @@
 ## Advanced: Monogatari Development
 
 * [Core Libraries](advanced-monogatari-development/core-libraries/README.md)
-  * [Artemis](advanced-monogatari-development/core-libraries/artemis.md)
-  * [Kayros](advanced-monogatari-development/core-libraries/kayros.md)
-  * [Pandora](advanced-monogatari-development/core-libraries/pandora.md)
 * [Actions](advanced-monogatari-development/actions.md)
 * [Components](advanced-monogatari-development/components.md)
 * [Translations](advanced-monogatari-development/translations.md)
 * [Events](advanced-monogatari-development/events.md)
-
-## Releases
-
-* [v2.0.0.alpha.8](releases/v2.0.0.alpha.8.md)
-* [v2.0.0.alpha.7](releases/v2.0.0.alpha.7.md)
-* [v2.0.0.alpha.6](releases/v2.0.0.alpha.6.md)
-* [v2.0.0.alpha.5](releases/v2.0.0.alpha.5.md)
-* [v2.0.0.alpha.4](releases/v2.0.0.alpha.4.md)
-* [v2.0.0.alpha.3](releases/v2.0.0.alpha.3.md)
-

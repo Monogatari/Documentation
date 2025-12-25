@@ -10,27 +10,27 @@ description: Show a notification to the player
 'show notification <notification_id> [time]'
 ```
 
-The `notification` action let's you show a notification to the player. Notifications can be useful for letting them know about a certain event, or even achievement unlock.
+The `notification` action shows a system notification to the player. Notifications are useful for achievement unlocks, event alerts, or other non-intrusive messages.
 
 **Action ID**: `Notification`
 
 **Reversible**: Yes
 
-**Requires User Interaction**: If no time was provided, the player will need to dismiss the notification but the game will not be interrupted.
+**Requires User Interaction**: If no time is provided, the player must dismiss the notification, but the game continues without waiting.
 
 ## Parameters
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| notification\_id | `string` | The name of the notification you want to show. These must be declared beforehand using this action configuration functions. |
-| time | `number` | Optional. The time in **milliseconds** after which the notification will be automatically dismissed. |
+| notification_id | `string` | The ID of the notification to show (must be declared beforehand) |
+| time | `number` | Optional. Time in **milliseconds** before auto-dismiss |
 
 ## Configuration
 
-To show a notification, you must first declare it with all of it's characteristics. To do so, the notification action has a configuration function where you can define your id or name for each notification and their respective information.
+Declare notifications with their properties before using them:
 
 ```javascript
-Monogatari.action ('Notification').notifications ({
+monogatari.action('Notification').notifications({
     '<notification_id>': {
         title: '',
         body: '',
@@ -43,67 +43,144 @@ Monogatari.action ('Notification').notifications ({
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| title | `string` | The title for the notification |
-| body | `string` | The body of the notification |
-| icon | `string` | A path to an image that will be shown as the icon for the notification |
+| title | `string` | The notification title (required) |
+| body | `string` | The notification body text |
+| icon | `string` | Path to an image for the notification icon |
+
+## Browser Permissions
+
+> [!NOTE]
+> Notifications use the browser's native Notification API. The player must grant permission when prompted. If denied, notifications won't be shown but the game continues normally.
 
 ## Examples
 
 ### Simple Notification
 
-The following script will show a notification that the player will have to manually dismiss.
+A notification the player dismisses manually:
 
-{% tabs %}
-{% tab title="Script" %}
+**Configuration:**
+
 ```javascript
-Monogatari.script ({
+monogatari.action('Notification').notifications({
+    'Welcome': {
+        title: 'Welcome!',
+        body: 'Thanks for playing our game!',
+        icon: 'assets/icons/game_icon.png'
+    }
+});
+```
+
+**Script:**
+
+```javascript
+monogatari.script({
     'Start': [
-        'show notification SampleNotification',
+        'show notification Welcome',
+        'e Let\'s begin our adventure!',
         'end'
-    ] 
+    ]
 });
 ```
-{% endtab %}
-
-{% tab title="Notification Configuration" %}
-```javascript
-Monogatari.action ('Notification').notifications ({
-    'SampleNotification':{
-        title: 'Hey!',
-        body: 'This is a notification',
-        icon: 'assets/images/notification.png'
-    },
-});
-```
-{% endtab %}
-{% endtabs %}
 
 ### Timed Notification
 
-The following script will make the notification go away automatically after 5 seconds have elapsed. Remember this action receives the time in **milliseconds** so we'll use `5000` to dismiss it after the 5 seconds
+A notification that auto-dismisses after 5 seconds (5000ms):
 
-{% tabs %}
-{% tab title="Script" %}
+**Configuration:**
+
 ```javascript
-Monogatari.script ({
-    'Start': [
-        'show notification SampleNotification 5000',
+monogatari.action('Notification').notifications({
+    'Achievement': {
+        title: 'Achievement Unlocked!',
+        body: 'You found the secret passage!',
+        icon: 'assets/icons/trophy.png'
+    }
+});
+```
+
+**Script:**
+
+```javascript
+monogatari.script({
+    'SecretRoom': [
+        'show notification Achievement 5000',
+        'e Wow, I never knew this was here!',
         'end'
-    ] 
+    ]
 });
 ```
-{% endtab %}
 
-{% tab title="Notification Configuration" %}
+### Multiple Notifications
+
+**Configuration:**
+
 ```javascript
-Monogatari.action ('Notification').notifications ({
-    'SampleNotification':{
-        title: 'Hey!',
-        body: 'This is a notification',
-        icon: 'assets/images/notification.png'
+monogatari.action('Notification').notifications({
+    'NewItem': {
+        title: 'New Item',
+        body: 'You received a mysterious key.',
+        icon: 'assets/icons/key.png'
     },
+    'QuestComplete': {
+        title: 'Quest Complete',
+        body: 'The mystery has been solved!',
+        icon: 'assets/icons/check.png'
+    },
+    'Save': {
+        title: 'Game Saved',
+        body: 'Your progress has been saved.',
+        icon: 'assets/icons/save.png'
+    }
 });
 ```
-{% endtab %}
-{% endtabs %}
 
+**Script:**
+
+```javascript
+monogatari.script({
+    'FindKey': [
+        'show notification NewItem 3000',
+        'e What\'s this? A key!',
+        'jump SolveMyster'
+    ],
+    'SolveMystery': [
+        'show notification QuestComplete 5000',
+        'e I finally figured it out!',
+        'end'
+    ]
+});
+```
+
+### Using Variable Interpolation
+
+Notification text supports storage variable interpolation:
+
+**Configuration:**
+
+```javascript
+monogatari.action('Notification').notifications({
+    'LevelUp': {
+        title: 'Level Up!',
+        body: '{{player.name}} reached level {{player.level}}!',
+        icon: 'assets/icons/star.png'
+    }
+});
+```
+
+## Behavior Notes
+
+- The game does **not** wait for notifications to be dismissed
+- If permission is denied, no error is thrown—the game continues
+- Notification appearance depends on the browser and OS
+- Icons should be appropriate size (usually 64x64 or 128x128 pixels)
+
+## Error Handling
+
+The action will show an error if:
+- The notification ID doesn't exist in the configuration
+- The time parameter is not a valid number
+
+## Related Actions
+
+- [Show Message](message.md) - In-game modal messages
+- [Choices](choices.md) - Present options to players

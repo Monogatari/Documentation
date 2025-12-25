@@ -4,37 +4,93 @@ description: Install all the tools you need to create your visual novel
 
 # Step 1: Setup Your Environment
 
-To develop in Monogatari you'll need the same tools used for web development. This means that all you need is a **text editor**, with which **\*\*you'll be editing** _**HTML, JavaScript**_ **and** _**CSS**_ **files.** Optionally**, you may also use a** local web server\*\* while developing your novel.
+To develop in Monogatari you'll need the same tools used for web development. This means all you need is a **text editor** for editing HTML, JavaScript, and CSS files. Optionally, you may also use a **local web server** while developing your novel.
 
 ## Getting a Browser
 
-You already have one of this but is it the best one for you to develop your game?
+You already have one, but is it the best one for development?
 
-We recommend you using either [**Chrome**](https://www.google.com/chrome/) **or** [**Firefox** ](https://www.mozilla.org/en-US/firefox/)**for development**. While your game will run in any modern browser, not all of them offer a great experience while developing. Both Chrome and Firefox have some pretty cool developer tools that will certainly make your life easier.
+We recommend using either **[Chrome](https://www.google.com/chrome/)** or **[Firefox](https://www.mozilla.org/en-US/firefox/)** for development. While your game will run in any modern browser, both Chrome and Firefox have excellent developer tools that will make debugging and testing much easier.
+
+### Why These Browsers?
+
+- Built-in developer console for debugging
+- Network inspection for asset loading
+- Performance profiling tools
+- Service worker debugging support
 
 ## Getting a Code Editor
 
-What editor to use comes down to personal preference but almost any text / code editor should work! You can even use _Windows Notepad._ However, to make your life easier, you should really try using a text editor that has been created for coding since those have features such as code syntax highlighting \(all the different colors for functions, variables etc.\) and some may even help you out while writing your code!
+What editor to use comes down to personal preference, but almost any text/code editor should work—you can even use Windows Notepad! However, using a code editor designed for development will make your life much easier with features like:
 
-Here are some that are pretty awesome to get you started and they are completely **free** to use:
+- Syntax highlighting (colors for functions, variables, etc.)
+- Code auto-completion
+- Error detection
+- Multiple file management
 
-1. [Visual Studio Code](https://code.visualstudio.com/)
-2. [Atom](https://atom.io/)
-3. [Brackets](http://brackets.io/)
+### Recommended Free Editors
 
-If you've never used a code editor before, feel free to try them all! You should stick to the one you feel more comfortable with.
+1. **[Visual Studio Code](https://code.visualstudio.com/)** - Most popular, great extensions
+2. **[Atom](https://atom.io/)** - Highly customizable
+3. **[Brackets](http://brackets.io/)** - Great for web development
 
-## Getting a Local Web Server \(Optional\)
+If you've never used a code editor before, we recommend **Visual Studio Code** for its ease of use and excellent JavaScript support.
 
-A web server, in simple terms is the piece of software that retrieves and sends the correct files to your browser when you enter a website. While it is completely optional to install one, it's important to establish why you would want a local web server.
+## Getting a Local Web Server (Optional)
 
-Here is a list of features that will only work if your game is running under a web server:
+A web server retrieves and sends files to your browser when you visit a website. While optional, running a local web server enables important features during development.
 
-* [Asset preloading](../configuration-options/game-configuration/asset-preloading.md): Asset preloading, as it's name sounds, is the feature that allows your game to preload all images, sounds, videos etc. and save them up in the browser cache so that they are loaded faster and work offline. This feature requires a web server since it uses service workers and those are only available through HTTP or HTTPS protocols.
+### Features That Require a Web Server
 
-### Which server should you use?
+| Feature | Why It Needs a Server |
+| :--- | :--- |
+| [Asset Preloading](../configuration-options/game-configuration/asset-preloading.md) | Uses service workers (requires HTTP/HTTPS) |
+| Offline Support | Service worker caching |
+| Save/Load with IndexedDB | Some browsers restrict file:// access |
 
-There are many web servers out there, some that may come up on search results include Apache and Nginx, however, these may be more complicated and a bit too much for what you'll need.
+### Simple Server Options
 
-The most simple option is to install the [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb) extension that will allow you to create a very simple web server using the Chrome browser. Even if you prefer not to use chrome for your development, you can simply set up the server and then access it through any other browser.
+#### Option 1: VS Code Live Server Extension
 
+If you're using Visual Studio Code:
+1. Install the "Live Server" extension
+2. Right-click `index.html` and select "Open with Live Server"
+
+#### Option 2: Python (Built-in)
+
+If you have Python installed:
+
+```bash
+# Python 3
+python -m http.server 8000
+
+# Python 2
+python -m SimpleHTTPServer 8000
+```
+
+Then open `http://localhost:8000` in your browser.
+
+#### Option 3: Node.js
+
+If you have Node.js installed:
+
+```bash
+npx serve
+```
+
+#### Option 4: Web Server for Chrome
+
+Install the [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb) extension. This creates a simple server using Chrome—you can then access it from any browser.
+
+## Verifying Your Setup
+
+Once you have:
+- ✅ A modern browser installed
+- ✅ A code editor installed
+- ✅ (Optional) A local web server ready
+
+You're ready to [download Monogatari](getting-monogatari.md)!
+
+## Next Steps
+
+- [Step 2: Download Monogatari](getting-monogatari.md)

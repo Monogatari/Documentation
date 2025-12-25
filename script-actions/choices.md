@@ -294,3 +294,72 @@ Monogatari remembers for the player which option they picked, so if they chose Y
 
 The `'onRevert'` property is required when you use the `onChosen` function, or else the player will not be able to use the "back" button to revert before the choice. If you don't care whether or not your player is allowed to rewind before a decision, then you don't need to use `onRevert` but that might make your player assume that there's a bug if some choices are reversible and others aren't.
 
+### Timed Choices
+
+You can add a timer to choices that will automatically select an option or perform an action when time runs out.
+
+#### Timer Properties
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `time` | `number` | Time in milliseconds before the callback is triggered |
+| `callback` | `function` | Function to run when time expires |
+
+#### Basic Timer Example
+
+```javascript
+{'Choice': {
+    'Dialog': 'Quick! What do you do?',
+    'Timer': {
+        time: 5000,  // 5 seconds
+        callback: () => {
+            // Get a random choice when time runs out
+            const choices = monogatari.element().find('[data-choice]:not([disabled])');
+            const random = choices.get(Math.floor(Math.random() * choices.length));
+            random.click();
+            return Promise.resolve();
+        }
+    },
+    'Fight': {
+        'Text': 'Fight!',
+        'Do': 'jump Fight'
+    },
+    'Run': {
+        'Text': 'Run away!',
+        'Do': 'jump Escape'
+    }
+}}
+```
+
+#### Auto-Select Default Option
+
+```javascript
+{'Choice': {
+    'Dialog': 'You have 10 seconds to decide.',
+    'Timer': {
+        time: 10000,
+        callback: () => {
+            // Click the first available choice
+            const firstChoice = monogatari.element().find('[data-choice]:not([disabled])').first();
+            firstChoice.click();
+            return Promise.resolve();
+        }
+    },
+    'Accept': {
+        'Text': 'Accept the deal',
+        'Do': 'jump Accept'
+    },
+    'Decline': {
+        'Text': 'Decline',
+        'Do': 'jump Decline'
+    }
+}}
+```
+
+The timer displays as a progress bar that decreases as time passes. It is automatically cleaned up when a choice is selected or when the player rolls back.
+
+## Related Actions
+
+- [Input](input.md) - Get text input from players
+- [Jump](jump.md) - Navigate to different labels
+

@@ -100,9 +100,8 @@ Another great way of using placeholders is generating actions dynamically. To ma
 
 The value for your placeholder should be a function that can return any action. Your function will be evaluated before executing it to retrieve the action to run.
 
-{% hint style="danger" %}
-**Beware, this is only recommended for advanced users.** When using dynamic action generation, you will be responsible on providing the way to rollback what you did, this means you'll need to save up your own markers in order to know what action you executed before.
-{% endhint %}
+> [!CAUTION]
+> **Beware, this is only recommended for advanced users.** When using dynamic action generation, you will be responsible on providing the way to rollback what you did, this means you'll need to save up your own markers in order to know what action you executed before.
 
 ```javascript
 monogatari.$ ('_dialog', function () {
@@ -139,7 +138,7 @@ monogatari.$ ('_addToInventory', (myArgument) => ({'Function':{
     'Apply': function(){
         monogatari.storage().inventory.unshift(myArgument);
     },
-    'Reverse':function(){
+    'Revert':function(){
         monogatari.storage().inventory.shift();
     }
 }}));
@@ -178,4 +177,9 @@ monogatari.script ({
 ```
 
 Another way to do this would be to capture all arguments and concatenate them into one string, then process that string. Up to you how you want to work with this feature!
+
+## Related Actions
+
+- [Functions](javascript.md) - Run JavaScript functions in your script
+- [Choices](choices.md) - Present options to players
 
