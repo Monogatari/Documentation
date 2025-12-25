@@ -10,157 +10,283 @@ description: The text your players are going to read.
 '[character_id][:<expression_id>][:<class_names>] <dialog_text>'
 ```
 
+Dialogs are the primary way to display text to the player. Any statement in your script that doesn't match any other action will be displayed as dialog.
+
 **Action ID**: `Dialog`
 
 **Reversible**: Yes
 
-**Requires User Interaction**: Yes
+**Requires User Interaction**: Yes (player must click/tap to proceed)
 
 **Related Components:**
 
 * [Text Box](../components/text-box.md)
 
-## Narrator Dialogs
+## Syntax
 
-![](../.gitbook/assets/narrator-dialog.png)
+The full dialog syntax is:
 
-Any statement in your script that does not match any other action will be displayed as a narrator dialog. Narrator dialogs do not show any name on the textbox.
+```text
+[identifier][:<expression>][:<classes>] <text>
+```
 
-## Character Dialogs
+| Part | Required | Description |
+| :--- | :--- | :--- |
+| identifier | No | Character ID, `centered`, `nvl`, or `narrator`. If omitted, treated as narrator dialog. |
+| expression | No | Expression/side image to show (only for characters with defined expressions). |
+| classes | No | Custom CSS classes separated by `\|` (pipe). |
+| text | Yes | The dialog text to display. Supports HTML and [text effects](#text-effects). |
 
-The say statement is used... well, for a character to say something. The syntax is as follows:
+## Dialog Types
 
-'\[Character Identifier\] \[Text to Say\]'
+### Narrator Dialogs
+
+Any statement that doesn't start with a recognized character ID, `centered`, or `nvl` is displayed as a narrator dialog. Narrator dialogs don't show a name in the text box.
+
+```javascript
+'The sun was setting over the horizon.'
+'It was a peaceful evening.'
+```
+
+You can also explicitly use `narrator`:
+
+```javascript
+'narrator The story begins here...'
+```
+
+### Character Dialogs
+
+To make a character speak, prefix the dialog with their character ID:
 
 ```javascript
 'y Hi! My name is Yui.'
 ```
 
-![A fresh Monogatari game showing Yui speaking, saying &quot;Hi! My name is Yui.&quot;](../.gitbook/assets/image%20%2813%29.png)
+The character's name (as defined in their character declaration) will be displayed in the text box.
 
-It also accepts HTML, so you can show many things in a text like the Font Awesome icons.
+#### With Expression/Side Image
 
-```javascript
-'y The <span class="fa fa-arrow-left"></span> button is the back button, press it to return to a previous state of the game.'
-```
-
-![An example of HTML being used inline, in this case to show a back arrow icon.](../.gitbook/assets/image.png)
-
-If no character identifier is given, it will be considered as a narration and no name will be shown.
+If you've defined `expressions` in your character declaration, you can specify which expression to show:
 
 ```javascript
-'This would be a narrator.'
+'y:happy Hi! I am so glad to meet you!'
+'y:sad But I have to go now...'
 ```
 
-![The narrator speaking. ](../.gitbook/assets/image%20%289%29.png)
+The expression image appears as a side image next to the text.
 
-### Clear the Text
+#### Default Expression
 
-The `'clear'` command sends an empty line of dialog to remove all text on the screen.
+If a character has a `default_expression` defined, it will be shown automatically when no expression is specified:
+
+```javascript
+// Character definition
+monogatari.characters({
+    'y': {
+        name: 'Yui',
+        color: '#ff0000',
+        default_expression: 'normal',
+        expressions: {
+            'normal': 'yui_normal.png',
+            'happy': 'yui_happy.png',
+            'sad': 'yui_sad.png'
+        }
+    }
+});
+
+// In script - will show 'normal' expression
+'y Hello there!'
+```
+
+### Centered Dialogs
+
+The `centered` keyword displays text in a floating box in the center of the screen, hiding the regular text box:
+
+```javascript
+'centered This is a dramatic moment.'
+```
+
+Centered dialogs use the `<centered-dialog>` component instead of `<text-box>`.
+
+### NVL Dialogs
+
+NVL (Novel) mode displays multiple lines of dialog on screen at once, similar to visual novels like Fate/stay Night. The screen fills up with consecutive dialog entries.
+
+```javascript
+'nvl The rain continued to fall.',
+'nvl I stood there, watching the droplets hit the window.',
+'nvl Each one seemed to carry a memory with it.'
+```
+
+#### NVL Characters
+
+Characters can be set to always use NVL mode by adding `nvl: true` to their definition:
+
+```javascript
+monogatari.characters({
+    'narrator_nvl': {
+        name: '',
+        nvl: true
+    }
+});
+
+// This will automatically use NVL mode
+'narrator_nvl A long time ago, in a distant land...'
+```
+
+**Note**: Side images/expressions are not supported in NVL mode.
+
+## Custom Classes
+
+You can apply custom CSS classes to the text-box (or centered-dialog) element by adding them after the expression:
+
+```javascript
+'y:happy:highlight Hello!'           // Single class
+'y:sad:warning|urgent Important!'    // Multiple classes (pipe-separated)
+'narrator::thought A quiet thought'  // No expression, just class
+'centered::dramatic A revelation!'   // Centered with class
+```
+
+Classes are reset on every dialog, so you must include them on each dialog where you want them applied.
+
+### Example CSS for Custom Classes
+
+```css
+text-box.highlight {
+    background: rgba(255, 255, 0, 0.3);
+}
+
+text-box.warning {
+    border: 2px solid red;
+}
+
+centered-dialog.dramatic {
+    font-size: 2em;
+    text-shadow: 0 0 10px white;
+}
+```
+
+## Clear Command
+
+The `clear` command removes all text from the dialog area:
 
 ```javascript
 'clear'
 ```
 
-The clear command automatically runs the next line without requiring a click from the player. You may want to insert a `'wait'` command immediately after it if you want the player to see a blank dialog box.
-
-### Side Images
-
-If you've defined the `expressions` property for your characters, adding a list of images to show, you can use them as side images with each dialog, to do so, you should use a format like this one:
+The clear command automatically advances to the next statement without requiring player interaction. Use a `wait` command after it if you want the player to see a blank dialog box:
 
 ```javascript
-'y:Smiling Hi! My name is Yui.'
+'y I need a moment to think...',
+'clear',
+'wait 2000',
+'y Okay, I have decided!'
 ```
 
-![Yui saying &quot;Hi! My name is Yui.&quot; with a side image of a picture of her smiling.](../.gitbook/assets/image%20%284%29.png)
+## Text Effects
 
-This assumes you have a Side image called Smiling, which means with every dialog you can specify what side image to use. If you add the `'expression'` property then that image will be shown with every dialog without the need of specifying it inside the statement.
+Dialogs support inline text effects using special markers. These are processed by the TypeWriter component.
 
-#### Custom Classes
+### Pause
 
-You can apply custom CSS classes to the text-box (or centered-dialog) element by adding a third parameter to the dialog syntax. This allows for custom styling of different dialog types.
-
-These classes get reset on every dialog so in order to mantain a class, you have to add it to every dialog you want it to be present on. The syntax is as follow:
-
-**Syntax**
+Pause the typing animation for a specified duration:
 
 ```javascript
-'[character_id]:[expression]:[class_names] <dialog_text>'
+'y Hello...{pause:1000} Are you there?'
 ```
 
-**Examples**
+The `{pause:N}` marker pauses for N milliseconds.
 
-**Single Class:**
+### Speed
+
+Change the typing speed mid-dialog:
 
 ```javascript
-'y:happy:highlight Hello there!'
+'y This is normal speed. {speed:50}This is slower. {speed:200}This is faster!'
 ```
 
-**Multiple Classes:**
+The `{speed:N}` marker changes speed as a percentage (100 = normal, 50 = half speed, 200 = double speed).
+
+### Visual Effects
+
+Enclosed effects apply visual styling to text. Use `{effect}text{/effect}` syntax:
+
+**Animation Effects:**
+- `{shake}text{/shake}` - Shaking text
+- `{shake-hard}`, `{shake-slow}`, `{shake-little}`, `{shake-horizontal}`, `{shake-vertical}` - Shake variants
+- `{wave}text{/wave}` - Wavy text animation
+- `{wave-slow}`, `{wave-fast}` - Wave speed variants
+- `{fade}text{/fade}` - Fading text
+- `{fade-slow}` - Slow fade
+- `{blur}text{/blur}` - Blurry text
+- `{scale}text{/scale}` - Scaling animation
+- `{scale-bounce}` - Bouncy scaling
+- `{slide-up}`, `{slide-down}` - Sliding animations
+- `{glitch}text{/glitch}` - Glitch effect
+- `{glitch-hard}`, `{glitch-slow}` - Glitch variants
+- `{flicker}text{/flicker}` - Flickering text
+
+**Style Effects:**
+- `{bold}text{/bold}` - Bold text
+- `{italic}text{/italic}` - Italic text
+- `{big}text{/big}` - Larger text
+- `{small}text{/small}` - Smaller text
+- `{strike}text{/strike}` - Strikethrough
+- `{redacted}text{/redacted}` - Redacted/censored style
+- `{invisible-ink}text{/invisible-ink}` - Hidden until hover
+- `{handwriting}text{/handwriting}` - Handwritten style
+
+**Emotion Effects:**
+- `{angry}text{/angry}` - Angry styling
+- `{scared}text{/scared}` - Scared styling
+- `{happy}text{/happy}` - Happy styling
+- `{sad}text{/sad}` - Sad styling
+- `{mysterious}text{/mysterious}` - Mysterious styling
+- `{excited}text{/excited}` - Excited styling
+- `{whisper}text{/whisper}` - Whisper styling
+- `{shout}text{/shout}` - Shouting styling
+- `{dizzy}text{/dizzy}` - Dizzy effect
+- `{dreamy}text{/dreamy}` - Dreamy effect
+- `{robotic}text{/robotic}` - Robotic styling
+- `{static}text{/static}` - Static/noise effect
+- `{rainbow}text{/rainbow}` - Rainbow colors
+- `{glow}text{/glow}` - Glowing text
+- `{impact}text{/impact}` - Impact/emphasis styling
+
+### Combining Effects
+
+You can combine multiple effects and markers:
 
 ```javascript
-'m:sad:warning|urgent This is important!'
+'y I am {angry}so frustrated{/angry}!{pause:500} {whisper}But I will be okay{/whisper}...'
 ```
 
-**Narrator with Class:**
+## HTML Support
+
+Dialogs support inline HTML for additional formatting:
 
 ```javascript
-'narrator::thought This is a thought bubble'
+'y The <span class="highlight">important</span> thing is...'
+'y Press the <i class="fa fa-arrow-left"></i> button to go back.'
 ```
 
-**Centered Dialog with Class:**
+## Related Settings
 
-```javascript
-'centered::centered-highlight This is a centered message!'
-```
+| Setting | Default | Description |
+| :--- | :--- | :--- |
+| `TypeAnimation` | `true` | Enable/disable typing animation globally |
+| `NVLTypeAnimation` | `true` | Enable/disable typing animation in NVL mode |
+| `CenteredTypeAnimation` | `true` | Enable/disable typing animation for centered dialogs |
+| `NarratorTypeAnimation` | `true` | Enable/disable typing animation for narrator |
+| `TextSpeed` | varies | Typing speed (lower = faster). Configurable by player in settings. |
 
-**NVL Dialog with Class:**
+## Related Components
 
-```javascript
-'nvl::nvl-style This is an NVL dialog!'
-```
+- [Text Box](../components/text-box.md) - The component that displays dialogs
+- [Dialog Log](#dialog-log) - View history of dialogs
 
-## Centered Dialogs
+## Dialog Log
 
-The `'centered'` command is like a special character-id that goes at the beginning of dialog text to display a special floating box that hovers in the very center of the screen.
+The dialog log stores all dialogs displayed during gameplay. Players can access it via the quick menu to review past conversations.
 
-```javascript
-'centered This is an example of centered text.'
-```
-
-![](../.gitbook/assets/image%20%2812%29.png)
-
-The text box that displays `'centered'` text is special. Rather than being inside of a `<text-box>` tag, it is instead inside of a `<centered-dialog>` tag.
-
-```markup
-<centered-dialog class="animated" data-component="centered-dialog">
-            <div data-content="wrapper">Here's some more centered text.</div>
-        </centered-dialog>
-```
-
-While `'centered'` text is visible on screen, the main `<text-box>` is hidden with a CSS `display:none;` attribute.
-
-HTML can be used inside of `'centered'` text the same as normal dialog, so you can use this to display a special image that removes the text box when it displays it, or something similar, if you want to get creative!
-
-## NVL Dialogs
-
-The `'nvl'` command is similar to the `'centered'` command in that it is used at the beginning of a line of dialog to present a special display, similar to games like Fate/stay Night, or Radical Dreamers.
-
-```javascript
-'nvl Here is an example of NVL text.',
-'nvl Here is some more NVL text.',
-'nvl One more line.'
-```
-
-![](../.gitbook/assets/image%20%287%29.png)
-
-The `'nvl'` text differs from normal Monogatari text in that clicking does not clear the current text off of the screen, and instead leaves it there, feeding consecutive NVL dialogue one at a time as the player clicks to progress.
-
-NVL text is displayed on screen inside of a `<text-box>` with a CSS class`'nvl'`. By default, this textbox is styled to fill the entire screen. Additionally, each line of NVL text is contained inside of a `<div>` with a `data-spoken` value for whichever character is speaking. Normally it's the narrator, but if you give a character the `nvl` attribute and set it to `true` then that character can be used as an NVL character, and their text can have special CSS rules if you want to get creative with that.
-
-![An example of some characters speaking in NVL mode.](../.gitbook/assets/image%20%2811%29.png)
-
-Note that Expression side images are not supported in NVL mode.
-
-The NVL mode text box is scrollable, like other text boxes in Monogatari, should there be too much text to display at once. Additionally, you can use HTML in NVL mode the same as all of the other modes!
-
+The log is automatically populated as dialogs are shown and supports scrolling through the entire conversation history.

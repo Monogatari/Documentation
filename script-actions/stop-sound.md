@@ -1,16 +1,20 @@
+---
+description: Stop playing sound effects
+---
+
 # Stop Sound
 
 ## Description
 
 ```javascript
-'stop sound [sound_id] [with [properties]]'
+'stop sound [sound_id] [with fade <time>]'
 ```
 
-The stop sound action will let you stop either all sounds currently playing or only one in specific. To learn more about sound, read the[ Play Sound documentation](play-sound.md).
+The stop sound action will let you stop either all sounds currently playing or only one in specific. To learn more about sounds, read the [Play Sound documentation](play-sound.md).
 
-**Action ID**: `Sound::Stop`
+**Action ID**: `Stop`
 
-**Reversible**: Yes
+**Reversible**: Yes (restores the previously playing sounds from history)
 
 **Requires User Interaction**: No
 
@@ -18,33 +22,25 @@ The stop sound action will let you stop either all sounds currently playing or o
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| sound\_id | `string` | Optional. The name of the specific sound you want to stop. |
-| properties | `string` | Optional. A list of comma separated properties with their respective value. |
-
-### Properties
-
-The following is a comprehensive list of the properties available for you to modify certain behaviors of the stop sound action.
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| fade | `number` | The fade property let's you add a fade out effect to the sound, it accepts a time in seconds, representing how much time you want it to take until the sound volume is zero. |
+| sound\_id | `string` | Optional. The name of the specific sound you want to stop. If omitted, all sounds will be stopped. |
+| fade | `number` | Optional. Fade out time in seconds. |
 
 ## Examples
 
-### Stop a specific Sound
+### Stop a Specific Sound
 
-The following will stop a specific sound, identified by it's name.
+The following will stop a specific sound, identified by its name.
 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script({
     'Start': [
-        'play sound night loop',
-        'play sound fireCracks loop',
+        'play sound night with loop',
+        'play sound fireCracks with loop',
         'Two sounds are currently playing',
         'stop sound fireCracks',
-        'I guess some one put out the fire, only the night sounds are heard now',
+        'I guess someone put out the fire, only the night sounds are heard now',
         'end'
     ]
 });
@@ -53,7 +49,7 @@ Monogatari.script ({
 
 {% tab title="Sound Assets" %}
 ```javascript
-Monogatari.assets ('sound', {
+monogatari.assets('sounds', {
     'fireCracks': 'fire-cracks.mp3',
     'night': 'night.mp3'
 });
@@ -61,17 +57,17 @@ Monogatari.assets ('sound', {
 {% endtab %}
 {% endtabs %}
 
-### Stop all Sounds
+### Stop All Sounds
 
 The following will stop all sounds currently playing.
 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script({
     'Start': [
-        'play sound night loop',
-        'play sound fireCracks loop',
+        'play sound night with loop',
+        'play sound fireCracks with loop',
         'Two sounds are currently playing',
         'stop sound',
         'It really is a silent night, nothing is heard anymore',
@@ -83,7 +79,7 @@ Monogatari.script ({
 
 {% tab title="Sound Assets" %}
 ```javascript
-Monogatari.assets ('sound', {
+monogatari.assets('sounds', {
     'fireCracks': 'fire-cracks.mp3',
     'night': 'night.mp3'
 });
@@ -93,18 +89,18 @@ Monogatari.assets ('sound', {
 
 ### Fade Out Effect
 
-The following will stop the sound, and will use a fade out effect to do so. You can also use a fade out effect when stopping all sounds.
+The following will stop the sound with a fade out effect. You can also use a fade out effect when stopping all sounds.
 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script({
     'Start': [
-        'play sound night loop',
-        'play sound fireCracks loop',
+        'play sound night with loop',
+        'play sound fireCracks with loop',
         'Two sounds are currently playing',
         'stop sound fireCracks with fade 12',
-        'I guess some one put out the fire, only the night sounds are heard now',
+        'The fire slowly dies down...',
         'end'
     ]
 });
@@ -113,7 +109,7 @@ Monogatari.script ({
 
 {% tab title="Sound Assets" %}
 ```javascript
-Monogatari.assets ('sound', {
+monogatari.assets('sounds', {
     'fireCracks': 'fire-cracks.mp3',
     'night': 'night.mp3'
 });
@@ -121,3 +117,13 @@ Monogatari.assets ('sound', {
 {% endtab %}
 {% endtabs %}
 
+### Fade Out All Sounds
+
+```javascript
+'stop sound with fade 3'  // Fade out all sounds over 3 seconds
+```
+
+## Related Actions
+
+- [Play Sound](play-sound.md) - Play sound effects
+- [Pause](pause.md) - Pause playing media (can be resumed later)

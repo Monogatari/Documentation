@@ -7,14 +7,14 @@ description: Stop playing music
 ## Description
 
 ```javascript
-'stop music [music_id] [with [properties]]'
+'stop music [music_id] [with fade <time>]'
 ```
 
-The stop music action will let you stop either all music currently playing or only one in specific. To learn more about music, read the[ Play Music documentation](play-music.md).
+The stop music action will let you stop either all music currently playing or only one in specific. To learn more about music, read the [Play Music documentation](play-music.md).
 
-**Action ID**: `Music::Stop`
+**Action ID**: `Stop`
 
-**Reversible**: Yes
+**Reversible**: Yes (restores the previously playing music from history)
 
 **Requires User Interaction**: No
 
@@ -22,33 +22,25 @@ The stop music action will let you stop either all music currently playing or on
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| music\_id | `string` | Optional. The name of the specific music you want to stop. |
-| properties | `string` | Optional. A list of comma separated properties with their respective value. |
-
-### Properties
-
-The following is a comprehensive list of the properties available for you to modify certain behaviors of the stop music action.
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| fade | `number` | The fade property let's you add a fade out effect to the music, it accepts a time in seconds, representing how much time you want it to take until the music volume is zero. |
+| music\_id | `string` | Optional. The name of the specific music you want to stop. If omitted, all music will be stopped. |
+| fade | `number` | Optional. Fade out time in seconds. |
 
 ## Examples
 
-### Stop a specific Music
+### Stop a Specific Music
 
-The following will stop a specific music, identified by it's name.
+The following will stop a specific music track, identified by its name.
 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script({
     'Start': [
-        'play music mainTheme loop',
-        'play music mistery loop',
+        'play music mainTheme with loop',
+        'play music mystery with loop',
         'Two songs are currently playing',
         'stop music mainTheme',
-        'Only the mistery song is playing now',
+        'Only the mystery song is playing now',
         'end'
     ]
 });
@@ -57,25 +49,25 @@ Monogatari.script ({
 
 {% tab title="Music Assets" %}
 ```javascript
-Monogatari.assets ('music', {
+monogatari.assets('music', {
     'mainTheme': 'mainThemeSong.mp3',
-    'mistery': 'misterious_song.ogg'
+    'mystery': 'mysterious_song.ogg'
 });
 ```
 {% endtab %}
 {% endtabs %}
 
-### Stop all Music
+### Stop All Music
 
-The following will stop all music currently playing
+The following will stop all music currently playing.
 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script({
     'Start': [
-        'play music mainTheme loop',
-        'play music mistery loop',
+        'play music mainTheme with loop',
+        'play music mystery with loop',
         'Two songs are currently playing',
         'stop music',
         'No music is playing anymore',
@@ -87,9 +79,9 @@ Monogatari.script ({
 
 {% tab title="Music Assets" %}
 ```javascript
-Monogatari.assets ('music', {
+monogatari.assets('music', {
     'mainTheme': 'mainThemeSong.mp3',
-    'mistery': 'misterious_song.ogg'
+    'mystery': 'mysterious_song.ogg'
 });
 ```
 {% endtab %}
@@ -97,18 +89,18 @@ Monogatari.assets ('music', {
 
 ### Fade Out Effect
 
-The following will stop the song, and will use a fade out effect to do so. You can also use a fade out effect when stopping all music.
+The following will stop the music with a fade out effect. You can also use a fade out effect when stopping all music.
 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script({
     'Start': [
-        'play music mainTheme loop',
-        'play music mistery loop',
+        'play music mainTheme with loop',
+        'play music mystery with loop',
         'Two songs are currently playing',
-        'stop music mistery with fade 5',
-        'No music is playing anymore',
+        'stop music mystery with fade 5',
+        'The mystery music is fading out over 5 seconds',
         'end'
     ]
 });
@@ -117,11 +109,21 @@ Monogatari.script ({
 
 {% tab title="Music Assets" %}
 ```javascript
-Monogatari.assets ('music', {
+monogatari.assets('music', {
     'mainTheme': 'mainThemeSong.mp3',
-    'mistery': 'misterious_song.ogg'
+    'mystery': 'mysterious_song.ogg'
 });
 ```
 {% endtab %}
 {% endtabs %}
 
+### Fade Out All Music
+
+```javascript
+'stop music with fade 3'  // Fade out all music over 3 seconds
+```
+
+## Related Actions
+
+- [Play Music](play-music.md) - Play background music
+- [Pause](pause.md) - Pause playing media (can be resumed later)

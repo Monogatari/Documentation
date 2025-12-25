@@ -71,7 +71,7 @@ Note that these files will load in order from top to bottom, so if you have any 
 
 ## Internationalization with Split Files
 
-Let's say you want to make your game multi-lingual, like in the [Internationalization](https://developers.monogatari.io/documentation/v/develop/configuration-options/game-configuration/internationalization) article. Split files can help to keep you organized with that too! Let's take this example from that page:
+Let's say you want to make your game multi-lingual, like in the [Internationalization](game-configuration/internationalization.md) article. Split files can help to keep you organized with that too! Let's take this example from that page:
 
 ```javascript
 monogatari.script ({
@@ -91,8 +91,8 @@ monogatari.script ({
 
 If you like, you could split this up into two files, like this:
 
-{% tabs %}
-{% tab title="script.js" %}
+**script.js:**
+
 ```javascript
 monogatari.script ({
 
@@ -103,9 +103,9 @@ monogatari.script ({
     }
 });
 ```
-{% endtab %}
 
-{% tab title="scriptES.js" %}
+**scriptES.js:**
+
 ```javascript
 monogatari.script ({
 
@@ -116,8 +116,6 @@ monogatari.script ({
     }
 });
 ```
-{% endtab %}
-{% endtabs %}
 
 Then just make sure your `index.html` file points to `scriptES.js` and you're on your way!
 
@@ -135,5 +133,10 @@ monogatari.label('yourLabelName','English',[
 
 `monogatari.label()` looks at its arguments, first the name of the label you want to write to inside the monogatari.\_script object, and then if the next argument is a string, it processes that as a language. After that, it takes an array, and from there you just write the script to your game, the same way you do the script for a label, normally!
 
-You can also use monogatari.label\(\) for all of your labels. You have plenty of options!
+You can also use `monogatari.label()` for all of your labels. You have plenty of options!
+
+## Related
+
+- [Internationalization](game-configuration/internationalization.md) - Multi-language setup
+- [Game Configuration](game-configuration/) - All game settings
 

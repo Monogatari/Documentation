@@ -1,6 +1,3 @@
 # Components
 
-This page has been moved to:
-
-{% page-ref page="../building-blocks/components/" %}
-
+This page has been moved to [Building Blocks: Components](../building-blocks/components/).

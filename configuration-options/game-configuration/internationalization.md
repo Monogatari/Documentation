@@ -71,11 +71,10 @@ monogatari.script ({
 
 Note how we essentially duplicated our script inside this new language objects and translated it for each language.
 
-{% hint style="danger" %}
-When saving a game, monogatari saves the `label` and `step` \(index of the statement\) it's currently on. For saved games to be fully compatible with each other, **your different scripts should have the same label names and number of statements in them**, otherwise, a game saved in one language would be invalid if the player changed language again and tried to load it. If you do a [jump](../../script-actions/jump.md) to a label that exists in one translation, but does not exist in the language that the player has selected for example, they will get an error telling them that the label does not exist, so be careful when crafting your script!
-
-In case some differences can't be avoided, you can rely on the [next action](../../script-actions/next.md) to fill act as a filler and make all scripts have the same size.
-{% endhint %}
+> [!CAUTION]
+> When saving a game, monogatari saves the `label` and `step` (index of the statement) it's currently on. For saved games to be fully compatible with each other, **your different scripts should have the same label names and number of statements in them**, otherwise, a game saved in one language would be invalid if the player changed language again and tried to load it. If you do a [jump](../../script-actions/jump.md) to a label that exists in one translation, but does not exist in the language that the player has selected for example, they will get an error telling them that the label does not exist, so be careful when crafting your script!
+>
+> In case some differences can't be avoided, you can rely on the `next` action to act as a filler and make all scripts have the same size.
 
 If you have your script split in multiple files, you can read more on how to configure internationalization with split files here:
 
@@ -85,11 +84,10 @@ If you have your script split in multiple files, you can read more on how to con
 
 Once you've formatted your script correctly, a language selection screen will appear for players that haven't selected a language yet. It will automatically detect the languages in your script and show buttons like the ones shown in the image.
 
-{% hint style="warning" %}
-You most likely **won't see this screen** appear to you because you transitioned from a single language game to a _multi language_ one and thus, your settings were already set.
-
-If you want to trigger this screen, you'll have to remove the settings from your storage using the dev tools.
-{% endhint %}
+> [!NOTE]
+> You most likely **won't see this screen** appear to you because you transitioned from a single language game to a _multi language_ one and thus, your settings were already set.
+>
+> If you want to trigger this screen, you'll have to remove the settings from your storage using the dev tools.
 
 Players are also able to change their language from the settings screen. The following image shows the language selection setting that appears automatically when a _multi language_ game is configured:
 
@@ -147,9 +145,7 @@ monogatari.translation ('YourLanguage', {
 });
 ```
 
-You can also contribute to monogatari by adding new language translations to it or updating existing ones. You can learn more here:
-
-{% page-ref page="../../advanced-monogatari-development/translations.md" %}
+You can also contribute to monogatari by adding new language translations to it or updating existing ones. You can learn more in the [Translations documentation](../../advanced-monogatari-development/translations.md).
 
 ### Adding the UI translations
 

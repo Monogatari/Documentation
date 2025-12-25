@@ -1,67 +1,199 @@
+---
+description: Configure asset preloading and caching for web deployment
+---
+
 # Asset Preloading
 
-When releasing your game online, the asset loading is one of the most important issues to be solved, it must be nice enough so that people can enjoy playing your game online even on slow connections and that's why since v1.3.2 Asset Preloading is built in right in the engine.
+When releasing your game online, asset loading is one of the most important issues to solve. Monogatari's built-in preloading ensures players can enjoy your game even on slow connections.
 
-## Built In Preloading
+## Settings Overview
 
-The asset preloading will show a progress bar when you enter the game, the entire preloading can be disabled using the `Preload` property in the `options.js`:
+| Setting | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `Preload` | `boolean` | `true` | Enable/disable asset preloading |
+| `ServiceWorkers` | `boolean` | `true` | Enable service worker caching |
 
-This property default value is true meaning it will show the Preload Screen and do all the Asset Preloading
+## Built-In Preloading
+
+The preloading screen shows a progress bar while assets are loaded before the game starts.
+
+### Enable Preloading (Default)
 
 ```javascript
-'Preload': true
+monogatari.settings({
+    'Preload': true
+});
 ```
 
-To skip it, just change the value to false but remember that every asset will be loaded when you use it and may make a poor experience for users on slow connections.
+With preloading enabled:
+- A loading screen appears when entering the game
+- All declared assets are loaded before gameplay begins
+- Players experience smooth gameplay without loading delays
+
+### Disable Preloading
 
 ```javascript
-'Preload': false
+monogatari.settings({
+    'Preload': false
+});
 ```
+
+> [!WARNING]
+> Disabling preloading means assets load on-demand during gameplay. This may cause:
+> - Stuttering when new assets are needed
+> - Poor experience on slow connections
+> - Delayed audio/visual appearance
+
+### When Preloading is Skipped
+
+Preloading is automatically skipped in:
+- **Electron apps** - Assets are bundled locally
+- **Cordova apps** - Assets are packaged with the app
+- **file:// protocol** - Opening HTML directly without a server
 
 ## Service Workers Cache
 
-One of the benefits the Service Workers in Monogatari provide is the use of the Cache to serve your files even when offline once they've been loaded, this means that instead of taking the asset from the network, Monogatari will first check if the asset has been loaded in the cache, if it has then it will immediately load it from there but still making a network request to update the asset in the cache.
+Service Workers provide powerful caching for web-deployed games.
 
-This means the users will see the asset load instantly and will still receive the updates you make. More details about this strategy are [available here](https://serviceworke.rs/strategy-cache-and-update_service-worker_doc.html) and [here](https://css-tricks.com/serviceworker-for-offline/).
+### How It Works
 
-This functionality is inside the `service-worker.js` file. There you'll need to take notice of the three properties: `name`, `version`.
+1. On first visit, assets are cached as they're loaded
+2. On subsequent visits, cached assets load instantly
+3. Updated assets are fetched in the background
+4. Games can work offline once cached
 
-The `name` and `version` properties are used to control the cache of your game, change the `name` to your game's name, with no spaces or special characters and the `version` property as a control.
+This uses a "cache-then-update" strategy - players see cached content immediately while updates download silently.
+
+### Enable Service Workers (Default)
 
 ```javascript
-// The name of your game, no spaces or special characters.
-const name = 'Monogatari';
+monogatari.settings({
+    'ServiceWorkers': true
+});
+```
 
-// The version of the cache, changing this will force everything to be cached
-// again.
+### Disable Service Workers
+
+```javascript
+monogatari.settings({
+    'ServiceWorkers': false
+});
+```
+
+### Service Worker Configuration
+
+Configure your `service-worker.js` file:
+
+```javascript
+// The name of your game (no spaces or special characters)
+const name = 'MyVisualNovel';
+
+// Cache version - change to force re-caching all assets
 const version = '0.1.0';
 ```
 
-What does using the `version` as a control means? changing the version will force all the assets to re-cache, useful specially when you make significant changes to them but remember that the cache strategy used will update your files eventually without the need of changing this version. Also the version does not need to be changed when removing/adding files to the cache. Most of the times you won't need to change it at all.
+#### When to Change Version
 
-This makes part of the effort to transform Monogatari games deployed online into full [Progressive Web Apps](https://en.wikipedia.org/wiki/Progressive_web_app) which provides a lot of benefits. You can read more about what you need to do and what that means for your players in the [Web Deployment Section](https://monogatari.io/documentation/release/web/)
+- Major updates with many changed assets
+- Critical bug fixes in assets
+- Usually not needed - the cache strategy updates automatically
 
-Use of Service Workers can also be disabled from the `options.js` file using the `'ServiceWorkers'` property.
+> [!NOTE]
+> You don't need to change the version when adding or removing files. The cache strategy handles this automatically.
 
-This property default value is true meaning it will make use of Service Workers to cache your assets, Service Workers may be used for other activities in the future as well, disabling this option will disable them all.
+### Service Worker Requirements
 
-```javascript
-'ServiceWorkers': true
+Service Workers require:
+- **HTTP or HTTPS** protocol (not `file://`)
+- A web server (local or remote)
+
+#### Local Development
+
+If you open files directly (`file://` protocol), you'll see:
+
+```
+Service Workers are available only when serving your files through a server.
 ```
 
-To disable it, just change it to false but remember that every asset will be loaded when you use it and may make a poor experience for users on slow connections.
+This is normal! Use a local server for development:
 
-```javascript
-'ServiceWorkers': false
+```bash
+# Python
+python -m http.server 8000
+
+# Node.js
+npx serve
+
+# PHP
+php -S localhost:8000
 ```
 
-It's important to note that Service Workers are only available through HTTP or HTTPS protocols, meaning they will only be available when serving your game through a server. If you just open the files on the browser, you'll see an URL that starts with `file://` and then in the console you'll find an error that says:
+Once deployed to a web server, the warning disappears.
 
-`Failed to register a ServiceWorker: The URL protocol of the current origin ('null') is not supported.`
+## Progressive Web App (PWA)
 
-Or, if using a newer Monogatari version, a warning that says:
+Service Workers are part of making your game a [Progressive Web App](https://en.wikipedia.org/wiki/Progressive_web_app), which provides:
 
-`Service Workers are available only when serving your files through a server, once you upload your game this warning will go away. You can also try using a simple server like this one for development:` [`Web Server for Chrome.`](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb/)\`\`
+- **Offline play** - Play without internet after first load
+- **Install to device** - Add to home screen like a native app
+- **Fast loading** - Cached assets load instantly
+- **Reduced bandwidth** - Only downloads changed assets
 
-Either way is completely normal, as soon as you upload your game online to make it playable, that message will go away on it's own.
+See the [Web Deployment](../../releasing-your-game/web.md) documentation for full PWA setup.
 
+## Preload Action
+
+For fine-grained control over what and when to preload, use the [Preload action](../../script-actions/preload.md):
+
+```javascript
+monogatari.script({
+    'Start': [
+        // Preload assets for the next scene
+        'preload scene forest',
+        'preload music theme',
+        
+        'show scene bedroom',
+        'y Let me tell you about the forest...',
+        
+        // Forest assets are now ready
+        'show scene forest',
+        'end'
+    ]
+});
+```
+
+## Best Practices
+
+### For Small Games (< 50MB)
+
+```javascript
+monogatari.settings({
+    'Preload': true,
+    'ServiceWorkers': true
+});
+```
+
+Let everything preload upfront for the smoothest experience.
+
+### For Large Games (> 50MB)
+
+```javascript
+monogatari.settings({
+    'Preload': true,  // Preload essential assets
+    'ServiceWorkers': true
+});
+
+// Use preload blocks for chapter-specific assets
+monogatari.action('Preload').blocks({
+    'chapter1': ['scene1.jpg', 'scene2.jpg'],
+    'chapter2': ['scene3.jpg', 'scene4.jpg']
+});
+```
+
+See the [Preload action documentation](../../script-actions/preload.md) for advanced preloading strategies.
+
+## Related
+
+- [Game Configuration](README.md) - All game settings
+- [Preload Action](../../script-actions/preload.md) - Runtime preloading
+- [Web Deployment](../../releasing-your-game/web.md) - Releasing your game online

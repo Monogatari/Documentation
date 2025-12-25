@@ -40,9 +40,9 @@ When monogatari gets initialized, our component will be registered and its rende
 
 The `index.html` file changed significantly from Monogatari v1 to v2. Here's a comparison of what the HTML looks now and how it looked before:
 
-{% tabs %}
-{% tab title="New HTML" %}
-```markup
+### New HTML (v2)
+
+```html
 <div id="monogatari">
     <visual-novel>
         <language-selection-screen></language-selection-screen>
@@ -64,9 +64,8 @@ The `index.html` file changed significantly from Monogatari v1 to v2. Here's a c
     </visual-novel>
 </div>
 ```
-{% endtab %}
 
-{% tab title="Old HTML" %}
+### Old HTML (v1)
 ```markup
 <!-- Notice messages -->
 <div data-notice="exit" class="modal">
@@ -262,8 +261,6 @@ The `index.html` file changed significantly from Monogatari v1 to v2. Here's a c
     </div>
 </section>
 ```
-{% endtab %}
-{% endtabs %}
 
 That's a HUGE change right? Previously, all the HTML was right there in the `index.html` file and that was fine, it allowed people edit the HTML of their novel in a simple way and have a full understanding on where everything was. It also was helpful when styling because identifying all the elements and thus their selectors or even adding classes to them was a simple task.
 
@@ -407,9 +404,8 @@ A component in the end is just another HTML element, you can still perform opera
 
 #### Vanilla JavaScript
 
-{% hint style="danger" %}
-Due to current limitations in the [Pandora library](../../advanced-monogatari-development/core-libraries/pandora.md) used for Monogatari's components, it is not recommended to interact with the `innerHTML` property of any component as it's prone to cause the duplication of the children inside such component. The approach shown here, while more verbose, avoids this situation.
-{% endhint %}
+> [!CAUTION]
+> Due to current limitations in the Pandora library used for Monogatari's components, it is not recommended to interact with the `innerHTML` property of any component as it's prone to cause the duplication of the children inside such component. The approach shown here, while more verbose, avoids this situation.
 
 ```javascript
 // Get the game-screen HTML element
@@ -460,3 +456,9 @@ $_('game-screen').prepend ('<h1>My Title</h1>');
 $_('game-screen [data-content="visuals"]').append ('<div id="someCustomElement"></div>');
 ```
 
+## Related
+
+- [Life Cycle](life-cycle.md) - Component lifecycle methods
+- [Built-in Properties](built-in-properties.md) - Component properties
+- [Built-in Functions](built-in-functions.md) - Component methods
+- [Actions](../actions/) - Creating custom script actions

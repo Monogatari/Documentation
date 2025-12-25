@@ -7,14 +7,15 @@ description: Play a sound effect
 ## Description
 
 ```javascript
-'play sound <sound_id> [with [properties]]'
+'play sound <sound_id> [with [loop] [fade <time>] [volume <percentage>] [<effects>]]'
+'play sound'  // Resume all paused sounds
 ```
 
-The `play sound` action let's you, as it name says, play sound effects in your game. You can play as many sound effects as you want simultaneously.
+The `play sound` action lets you play sound effects in your game. You can play as many sound effects as you want simultaneously.
 
 To stop the sound, check out the [Stop Sound documentation](stop-sound.md).
 
-**Action ID**: `Sound`
+**Action ID**: `Play`
 
 **Reversible**: Yes
 
@@ -25,31 +26,24 @@ To stop the sound, check out the [Stop Sound documentation](stop-sound.md).
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | sound\_id | `string` | The name of the sound you want to play. These assets must be declared beforehand. |
-| properties | `string` | Optional. A list of comma separated properties with their respective value. |
-
-### Properties
-
-The following is a comprehensive list of the properties available for you to modify certain behaviors of this action.
-
-| Property Name | Type | Description |
-| :--- | :--- | :--- |
-| fade | `string` | The fade property let's you add a fade in effect to the sound, it accepts a time in seconds, representing how much time you want it to take until the sound reaches it's maximum volume. |
-| volume | `number` | The volume property let's you define how high the sound will be played. |
-| loop | `none` | Make the sound loop. This property does not require any value. |
+| loop | `flag` | Optional. Makes the sound loop indefinitely. |
+| fade | `number` | Optional. Fade in time in seconds. |
+| volume | `number` | Optional. Volume percentage (0-100). |
+| effects | `various` | Optional. Audio effects to apply (see [Audio Effects](play-music.md#audio-effects)). |
 
 ## Assets Declarations
 
-To play a sound, you must first add the file to your **`assets/sound/`** directory and then declare it. To do so, Monogatari has an has a function that will let you declare all kinds of assets for your game.
+To play a sound, you must first add the file to your **`assets/sounds/`** directory and then declare it. To do so, Monogatari has a function that will let you declare all kinds of assets for your game.
 
 ```javascript
-Monogatari.assets ('sound', {
+monogatari.assets('sounds', {
     '<sound_id>': 'soundFileName'
 });
 ```
 
 ### Supported Formats
 
-Each browser has it's own format compatibility. **MP3** however is the format supported by every browser.
+Each browser has its own format compatibility. **MP3** however is the format supported by every browser.
 
 If you wish to use other formats, you can check a [compatibility table](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#Browser_compatibility) to discover what browsers will be able to play it.
 
@@ -62,9 +56,9 @@ The following will play the sound, and once the sound ends, it will simply stop.
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script({
     'Start': [
-        'play sound riverFlow'
+        'play sound riverFlow',
         'end'
     ]
 });
@@ -73,7 +67,7 @@ Monogatari.script ({
 
 {% tab title="Sound Assets" %}
 ```javascript
-Monogatari.assets ('sound', {
+monogatari.assets('sounds', {
     'riverFlow': 'river_water_flowing.mp3'
 });
 ```
@@ -87,9 +81,9 @@ The following will play the sound, and once the sound ends, it will start over o
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script({
     'Start': [
-        'play sound riverFlow with loop'
+        'play sound riverFlow with loop',
         'end'
     ]
 });
@@ -98,23 +92,23 @@ Monogatari.script ({
 
 {% tab title="Sound Assets" %}
 ```javascript
-Monogatari.assets ('sound', {
+monogatari.assets('sounds', {
     'riverFlow': 'river_water_flowing.mp3'
 });
 ```
 {% endtab %}
 {% endtabs %}
 
-### Fade In effect
+### Fade In Effect
 
-The following will play the sound, and will use a fade in effect.
+The following will play the sound with a fade in effect.
 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script({
     'Start': [
-        'play sound riverFlow with fade 3'
+        'play sound riverFlow with fade 3',
         'end'
     ]
 });
@@ -123,7 +117,7 @@ Monogatari.script ({
 
 {% tab title="Sound Assets" %}
 ```javascript
-Monogatari.assets ('sound', {
+monogatari.assets('sounds', {
     'riverFlow': 'river_water_flowing.mp3'
 });
 ```
@@ -137,9 +131,9 @@ The following will set the volume of this sound to 73%.
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script({
     'Start': [
-        'play sound riverFlow with volume 73'
+        'play sound riverFlow with volume 73',
         'end'
     ]
 });
@@ -148,29 +142,37 @@ Monogatari.script ({
 
 {% tab title="Sound Assets" %}
 ```javascript
-Monogatari.assets ('sound', {
+monogatari.assets('sounds', {
     'riverFlow': 'river_water_flowing.mp3'
 });
 ```
 {% endtab %}
 {% endtabs %}
 
-Please note however, that the user's preferences regarding volumes are always respected, which means that this percentage is taken from the current player preferences, meaning that if the player has set the volume to 50%, the actual volume value for the sound will be the result of:
+Please note that the user's preferences regarding volumes are always respected, which means this percentage is taken from the current player preferences. If the player has set the volume to 50%, the actual volume value for the sound will be:
 
 $$
-50 * 0.73 = 36.5%
+50\% \times 73\% = 36.5\%
 $$
+
+### Resume Paused Sounds
+
+If sounds have been paused using the [Pause action](pause.md), you can resume them:
+
+```javascript
+'play sound'  // Resume all paused sounds
+```
 
 ### All Together
 
-Of course, you can combine all of this properties, and remember the order doesn't really matter, you can write the properties on the order that feels more natural to you.
+You can combine all properties. The order doesn't matter.
 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script({
     'Start': [
-        'play sound riverFlow with volume 100 loop fade 20'
+        'play sound riverFlow with volume 100 loop fade 2',
         'end'
     ]
 });
@@ -179,10 +181,27 @@ Monogatari.script ({
 
 {% tab title="Sound Assets" %}
 ```javascript
-Monogatari.assets ('sound', {
+monogatari.assets('sounds', {
     'riverFlow': 'river_water_flowing.mp3'
 });
 ```
 {% endtab %}
 {% endtabs %}
 
+## Audio Effects
+
+Sound effects support the same [audio effects system](play-music.md#audio-effects) available for music, including filter, delay, compressor, tremolo, distortion, reverb, and many more. See the [Play Music documentation](play-music.md#audio-effects) for a complete list of available effects and their usage.
+
+### Example with Effects
+
+```javascript
+'play sound explosion with filter lowpass 800 2 convreverb 2 1.5'
+```
+
+This plays an explosion sound with a low-pass filter and reverb for a more distant, muffled effect.
+
+## Related Actions
+
+- [Stop Sound](stop-sound.md) - Stop playing sounds
+- [Pause](pause.md) - Pause playing media
+- [Play Music](play-music.md) - Play background music (includes full audio effects documentation)

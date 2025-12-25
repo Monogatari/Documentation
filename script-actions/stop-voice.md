@@ -1,16 +1,22 @@
+---
+description: Stop playing voice audio
+---
+
 # Stop Voice
 
 ## Description
 
 ```javascript
-'stop voice [voice_id] [with [properties]]'
+'stop voice [voice_id] [with fade <time>]'
 ```
 
-The stop voice action will let you stop either all voices currently playing or only one in specific. To learn more about voices, read the[ Play Voice documentation](play-voice.md).
+The stop voice action will let you stop either all voices currently playing or only one in specific. To learn more about voices, read the [Play Voice documentation](play-voice.md).
 
-**Action ID**: `Voice::Stop`
+**Note**: Voice audio is automatically stopped when the player advances to the next statement. This action is useful when you want to stop a voice before the player proceeds, or when you have looping voice audio.
 
-**Reversible**: Yes
+**Action ID**: `Stop`
+
+**Reversible**: Yes (restores the previously playing voices from history)
 
 **Requires User Interaction**: No
 
@@ -18,27 +24,19 @@ The stop voice action will let you stop either all voices currently playing or o
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| voice\_id | `string` | Optional. The name of the specific voice you want to stop. |
-| properties | `string` | Optional. A list of comma separated properties with their respective value. |
-
-### Properties
-
-The following is a comprehensive list of the properties available for you to modify certain behaviors of the stop voice action.
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| fade | `number` | The fade property let's you add a fade out effect to the voice, it accepts a time in seconds, representing how much time you want it to take until the voice volume is zero. |
+| voice\_id | `string` | Optional. The name of the specific voice you want to stop. If omitted, all voices will be stopped. |
+| fade | `number` | Optional. Fade out time in seconds. |
 
 ## Examples
 
-### Stop a specific Voice
+### Stop a Specific Voice
 
-The following will stop a specific voice, identified by it's name.
+The following will stop a specific voice, identified by its name.
 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script({
     'Start': [
         'play voice dialog_002 with loop',
         'The previous voice will be repeating itself over and over',
@@ -54,7 +52,7 @@ Monogatari.script ({
 
 {% tab title="Voice Assets" %}
 ```javascript
-Monogatari.assets ('voice', {
+monogatari.assets('voices', {
     'dialog_001': 'dialog_file_1.mp3',
     'dialog_002': 'dialog_file_2.mp3'
 });
@@ -62,14 +60,14 @@ Monogatari.assets ('voice', {
 {% endtab %}
 {% endtabs %}
 
-### Stop all Voices
+### Stop All Voices
 
-The following will stop all sounds currently playing.
+The following will stop all voices currently playing.
 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script({
     'Start': [
         'play voice dialog_002 with loop',
         'The previous voice will be repeating itself over and over',
@@ -85,7 +83,7 @@ Monogatari.script ({
 
 {% tab title="Voice Assets" %}
 ```javascript
-Monogatari.assets ('voice', {
+monogatari.assets('voices', {
     'dialog_001': 'dialog_file_1.mp3',
     'dialog_002': 'dialog_file_2.mp3'
 });
@@ -95,19 +93,19 @@ Monogatari.assets ('voice', {
 
 ### Fade Out Effect
 
-The following will stop the voice, and will use a fade out effect to do so. You can also use a fade out effect when stopping all voices.
+The following will stop the voice with a fade out effect. You can also use a fade out effect when stopping all voices.
 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-Monogatari.script ({
+monogatari.script({
     'Start': [
         'play voice dialog_002 with loop',
         'The previous voice will be repeating itself over and over',
         'play voice dialog_001',
         'Two voices are currently playing',
-        'stop voice dialog_002 with fade 12',
-        'Now the first will be slowly stopped and the second one will stop as soon as it ends',
+        'stop voice dialog_002 with fade 2',
+        'The looping voice fades out...',
         'end'
     ]
 });
@@ -116,7 +114,7 @@ Monogatari.script ({
 
 {% tab title="Voice Assets" %}
 ```javascript
-Monogatari.assets ('voice', {
+monogatari.assets('voices', {
     'dialog_001': 'dialog_file_1.mp3',
     'dialog_002': 'dialog_file_2.mp3'
 });
@@ -124,3 +122,13 @@ Monogatari.assets ('voice', {
 {% endtab %}
 {% endtabs %}
 
+### Fade Out All Voices
+
+```javascript
+'stop voice with fade 3'  // Fade out all voices over 3 seconds
+```
+
+## Related Actions
+
+- [Play Voice](play-voice.md) - Play voice audio
+- [Pause](pause.md) - Pause playing media (can be resumed later)

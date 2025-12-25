@@ -1,60 +1,396 @@
 # Life Cycle
 
-An action describes the functionality for a Monogatari statement, when Monogatari reads a part of the script \(a statement\), it will look for an action that matches the statement and run it.
+An action describes the functionality for a Monogatari statement. When Monogatari reads a part of the script (a statement), it will look for an action that matches the statement and run it.
 
-The life cycle of an action is divided in three parts: Mounting, Application and Reverting.
+The life cycle of an action is divided in three parts: **Mounting**, **Application**, and **Reverting**.
 
 ## Mounting Cycle
 
-The mounting cycle has 3 steps:
+The mounting cycle runs once when the engine initializes. It has 3 steps:
 
-### Setup
+### 1. Setup
 
-Here the action needs to set up everything it will need for working generally, in this section an action will register the variables it needs such as object histories and state variables or even add the HTML contents to the document.
+Here the action sets up everything it needs for working. This includes:
+- Registering state variables
+- Registering history objects
+- Adding HTML content to the document
 
-### Bind
+```javascript
+static async setup(selector) {
+    // Register a history for tracking applied actions
+    this.engine.history('myaction');
+    
+    // Register state variables
+    this.engine.state({
+        myActionActive: false
+    });
+}
+```
 
-Once the action has been setup, its time to bind all the necessary event listeners or perform more operations on the DOM once all elements have been setup.
+### 2. Bind
 
-### Init
+Once setup is complete, bind event listeners or perform DOM operations:
 
-Finally, once the action was setup and it performed all the needed bindings, it may declare or modify variables that needed the HTML to be setup first or perform any other needed final operations.
+```javascript
+static async bind(selector) {
+    // Bind event listeners
+    document.addEventListener('click', this.handleClick);
+}
+```
 
-As noted, the Mounting cycle is mostly about getting everything setup for a correct operation of the action. The Application and Reverting cycles are used for the actual workings of an action in a game.
+### 3. Init
 
-Before executing an action Monogatari will check if the current statement matches with the action, therefore the Action must implement a matching function. If the statement to match should be a String, the action must implement the `matchString ()` method, if it should be an Object, the action must implement the `matchObject ()` method. Both should return a `boolean` on whether the action matches the given statement or not.
+Final initialization after setup and binding are complete:
+
+```javascript
+static async init(selector) {
+    // Perform final operations
+    // All HTML elements are now available
+}
+```
+
+## Statement Matching
+
+Before executing an action, Monogatari checks if the current statement matches. Actions must implement matching functions:
+
+### matchString
+
+For string statements (most common). Receives the statement split into an array by spaces:
+
+```javascript
+static matchString([keyword, type, ...rest]) {
+    return keyword === 'play' && type === 'music';
+}
+```
+
+### matchObject
+
+For object/JSON statements:
+
+```javascript
+static matchObject(statement) {
+    return typeof statement.CustomAction !== 'undefined';
+}
+```
 
 ## Application Cycle
 
-The Application cycle refers to the cycle of an Action when it is run because of a statement in the script.
+The Application cycle runs when an action is executed from the script.
 
-The Application Cycle has 3 steps as well:
+### 1. Will Apply
 
-### Will Apply
+Called before the action is applied. Use for pre-application checks or setup:
 
-Executed when the action will be applied, if any operations need to be done before its application, this is the place.
+```javascript
+async willApply() {
+    // Check preconditions
+    if (!this.isValid()) {
+        throw new Error('Invalid action');
+    }
+}
+```
 
-### Apply
+If this method throws or returns a rejected promise, the action will not be applied.
 
-The application itself, this is where all the logic regarding the action must be applied. Of course every action will implement its own logic depending on what it has to do.
+### 2. Apply
 
-### Did Apply
+The core logic of the action. This is where the actual work happens:
 
-Executed after the action was applied, this function is great for cleanup operations or any other thing that needs to be done after the action was applied.
+```javascript
+async apply() {
+    // Perform the action
+    const element = document.createElement('div');
+    element.textContent = this.content;
+    document.body.appendChild(element);
+}
+```
+
+### 3. Did Apply
+
+Called after the action is applied. Use for cleanup, history updates, and determining if the game should advance:
+
+```javascript
+async didApply(options = {}) {
+    const { updateHistory = true, updateState = true } = options;
+    
+    if (updateHistory) {
+        this.engine.history('myaction').push(this._statement);
+    }
+    
+    if (updateState) {
+        this.engine.state({ myActionActive: true });
+    }
+    
+    // Return whether to advance automatically
+    return {
+        advance: true  // true = advance to next statement
+                       // false = wait for user interaction
+    };
+}
+```
 
 ## Revert Cycle
 
-While the Application cycle is all about executing the action, the Revert cycle is the opposite and it reverts the things the Application cycle does. Reverting is used when the player goes back in the game and has equivalent steps to the Application Cycle:
+The Revert cycle runs when the player goes back in the game.
 
-### Will Revert
+### 1. Will Revert
 
-Executed when the action will be reverted, if any operations need to be done before its reversion such as checking for history elements or any other check, this is the place.
+Called before reverting. Check if reversion is possible:
 
-### Revert
+```javascript
+async willRevert() {
+    if (this.engine.history('myaction').length === 0) {
+        return Promise.reject('No history to revert');
+    }
+}
+```
 
-The reversion of the action, its common that the actions revert to previous states or revert other changes done by the application of an action. Every action will implement its own logic depending on what it has to do.
+If this method throws or returns a rejected promise, the action will not be reverted.
 
-### Did Revert
+### 2. Revert
 
-Executed after the action was reverted, this function is great for cleanup operations or any other thing that needs to be done after the action was reverted.
+Undo the action's effects:
 
+```javascript
+async revert() {
+    // Remove the element we added
+    const element = document.querySelector('.my-element');
+    if (element) {
+        element.remove();
+    }
+    
+    // Restore previous state from history
+    this.engine.history('myaction').pop();
+}
+```
+
+### 3. Did Revert
+
+Called after reverting. Cleanup and determine navigation behavior:
+
+```javascript
+async didRevert() {
+    return {
+        advance: true,  // true = continue reverting
+                        // false = stop here
+        step: true      // true = move to previous step
+                        // false = stay on current step
+    };
+}
+```
+
+## Flow Control Methods
+
+These static methods are called by the engine to check if the game can proceed or rollback:
+
+### shouldProceed
+
+Called when the user clicks to advance or auto-play triggers:
+
+```javascript
+static async shouldProceed(options) {
+    const { userInitiated, skip, autoPlay } = options;
+    
+    // Return resolved promise to allow proceeding
+    // Throw or reject to prevent proceeding
+    if (this.isBlocking) {
+        throw new Error('Action is blocking');
+    }
+}
+```
+
+### willProceed
+
+Called after `shouldProceed` passes, before advancing:
+
+```javascript
+static async willProceed() {
+    // Perform any cleanup before advancing
+}
+```
+
+### shouldRollback
+
+Called when the user tries to go back:
+
+```javascript
+static async shouldRollback() {
+    // Return resolved promise to allow rollback
+    // Throw or reject to prevent rollback
+}
+```
+
+### willRollback
+
+Called after `shouldRollback` passes, before reverting:
+
+```javascript
+static async willRollback() {
+    // Prepare for rollback
+}
+```
+
+## Event Methods
+
+These static methods respond to game events:
+
+### onStart
+
+Called when the player starts a new game:
+
+```javascript
+static async onStart() {
+    // Initialize for new game
+    this.engine.state({ myActionActive: false });
+}
+```
+
+### onLoad
+
+Called when a saved game is loaded. Restore visual/audio state:
+
+```javascript
+static async onLoad() {
+    // Restore state from saved game
+    const state = this.engine.state('myActionActive');
+    if (state) {
+        // Re-apply visual elements
+    }
+}
+```
+
+### onSave
+
+Called when the game is saved:
+
+```javascript
+static async onSave(slot) {
+    // slot.key - The storage key
+    // slot.value - The saved data
+    
+    // Perform any save-related operations
+}
+```
+
+### reset
+
+Called when a game ends or before loading a new game:
+
+```javascript
+static async reset() {
+    // Clean up all action-related elements
+    document.querySelectorAll('.my-elements').forEach(el => el.remove());
+    
+    // Reset state
+    this.engine.state({ myActionActive: false });
+}
+```
+
+## Hook Methods
+
+These static methods allow intercepting action execution:
+
+### beforeRun / afterRun
+
+Called before/after an action's application cycle:
+
+```javascript
+static async beforeRun(context) {
+    // Called before willApply/apply/didApply
+}
+
+static async afterRun(context) {
+    // Called after the application cycle completes
+}
+```
+
+### beforeRevert / afterRevert
+
+Called before/after an action's revert cycle:
+
+```javascript
+static async beforeRevert(context) {
+    // Called before willRevert/revert/didRevert
+}
+
+static async afterRevert(context) {
+    // Called after the revert cycle completes
+}
+```
+
+## Instance Methods
+
+### interrupt
+
+Called to interrupt an ongoing action (e.g., skipping typewriter animation):
+
+```javascript
+async interrupt() {
+    // Stop ongoing animation or process
+    this.stopAnimation();
+}
+```
+
+### Helper Methods
+
+```javascript
+// Get the original statement
+const statement = this._statement;
+
+// Get current cycle ('Application' or 'Revert')
+const cycle = this._cycle;
+
+// Access extra context
+const extras = this._extras;
+
+// Access the engine
+const engine = this.engine;
+```
+
+## Complete Life Cycle Diagram
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     MOUNTING CYCLE                          │
+│  (runs once when engine initializes)                        │
+│                                                             │
+│  setup() → bind() → init()                                  │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                   APPLICATION CYCLE                          │
+│  (runs when action is executed from script)                 │
+│                                                             │
+│  matchString/matchObject → constructor →                    │
+│  willApply() → apply() → didApply()                         │
+│                                                             │
+│  Flow: shouldProceed() → willProceed() → [next action]      │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                     REVERT CYCLE                            │
+│  (runs when player goes back)                               │
+│                                                             │
+│  willRevert() → revert() → didRevert()                      │
+│                                                             │
+│  Flow: shouldRollback() → willRollback() → [previous action]│
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                     EVENT METHODS                           │
+│  (called by engine at specific moments)                     │
+│                                                             │
+│  onStart() - New game started                               │
+│  onLoad() - Game loaded from save                           │
+│  onSave() - Game saved                                      │
+│  reset() - Game ended or new game loading                   │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## Related
+
+- [Actions Overview](README.md) - Creating and registering actions
+- [Components](../components/) - Creating custom UI components

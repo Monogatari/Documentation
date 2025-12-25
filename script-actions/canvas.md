@@ -34,14 +34,14 @@
       </td>
       <td style="text-align:left">No</td>
       <td style="text-align:left">
-        <p>Defines what way you want to show the video like.</p>
+        <p>Defines what way you want to show the canvas like.</p>
         <p>Possible Values:</p>
         <ul>
-          <li><code>modal</code> - Shows the video as a</li>
-          <li><code>displayable</code>
-          </li>
+          <li><code>modal</code> - Shows the canvas as a modal overlay</li>
+          <li><code>displayable</code> - Shows the canvas in the displayable area</li>
           <li><code>immersive</code> - Shows the canvas covering the full game screen</li>
           <li><code>background</code> - Shows the canvas as a background for your characters</li>
+          <li><code>character</code> - Shows the canvas in the character display area</li>
         </ul>
       </td>
     </tr>
@@ -64,14 +64,19 @@
     start: function (layers, props, state, container) {
         // In here we do everything we need to start
         // our canvas and perform the updates
+        // Note: 'this' refers to the Monogatari engine instance
     },
     stop: function (layers, props, state, container) {
         // Any actions we need to perform to stop the
         // canvas such as canceling animations and
         // freeing resources before the element gets removed
+        // Note: 'this' refers to the Monogatari engine instance
     },
     resize: function (layers, props, state, container) {
         // Perform any actions required when the window
+        // gets resized, it's useful for reacting to this
+        // changes by changing your canvas width and height.
+        // Note: 'this' refers to the Monogatari engine instance
     },
 }
 ```
@@ -98,6 +103,10 @@
           A HTML canvas element with a <code>data-layer</code> property will be created
           for every layer you list here.</p>
         <p>If none is provided, a single canvas will be created with a default <code>base</code> layer.</p>
+        <p><strong>Note:</strong> When passed to the <code>start</code>, <code>stop</code>, and <code>resize</code> functions, 
+          <code>layers</code> is an object mapping layer names to their corresponding HTMLCanvasElement instances 
+          (e.g., <code>{ sky: HTMLCanvasElement, stars: HTMLCanvasElement }</code> or <code>{ base: HTMLCanvasElement }</code>). 
+          You can destructure this object in your function parameters.</p>
       </td>
     </tr>
     <tr>
@@ -125,7 +134,8 @@
       </td>
       <td style="text-align:left">The function that will be called right after the HTML element for the
         canvas is created. In here, you should draw your contents to the layers
-        you setup and setup any update required.</td>
+        you setup and setup any update required. The function receives <code>(layers, props, state, container)</code>
+        as parameters, where <code>this</code> refers to the Monogatari engine instance.</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>stop</code>
@@ -134,15 +144,19 @@
       </td>
       <td style="text-align:left">This function will be called by the <code>hide canvas</code> action to stop
         and remove your canvas. In here you should cancel any animations and free
-        up any resources in use by your canvas.</td>
+        up any resources in use by your canvas. The function receives <code>(layers, props, state, container)</code>
+        as parameters, where <code>this</code> refers to the Monogatari engine instance.</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>resize</code>
       </td>
       <td style="text-align:left"><code>function</code>
       </td>
-      <td style="text-align:left">This functioon will be called every time the window gets resized, it&apos;s
-        useful for reacting to this changes by changing your canvas width and height.</td>
+      <td style="text-align:left">This function will be called every time the window gets resized, it&apos;s
+        useful for reacting to this changes by changing your canvas width and height. The function receives 
+        <code>(layers, props, state, container)</code> as parameters, where <code>this</code> refers to the 
+        Monogatari engine instance. Note: This function is only called for canvas objects with <code>background</code> 
+        or <code>immersive</code> modes.</td>
     </tr>
   </tbody>
 </table>

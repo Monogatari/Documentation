@@ -12,97 +12,18 @@ Characters are probably one of the most important parts of your novel, not only 
 
 The following table lists all the properties you can set for each character.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Type</th>
-      <th style="text-align:left">Optional</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>name</code>
-      </td>
-      <td style="text-align:left"><code>string</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">
-        <p>The name that will be shown when this character speaks.</p>
-        <p>Supports storage and translation interpolations.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>color</code>
-      </td>
-      <td style="text-align:left"><code>string</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">A valid <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color">CSS color</a> which
-        will be used to color the character&apos;s name.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>directory</code>
-      </td>
-      <td style="text-align:left"><code>string</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">Specifies the sub-directory where the sprites and expressions images for
-        the character are stored in case they are not in the root <code>assets/characters</code> directory.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>sprites</code>
-      </td>
-      <td style="text-align:left"><code>object</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">An object with the identifiers and file names for each <a href="https://developers.monogatari.io/documentation/v/develop/script-actions/characters">sprite</a> available
-        for the character.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>default_expression</code>
-      </td>
-      <td style="text-align:left"><code>string</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left"> <a href="https://developers.monogatari.io/documentation/v/develop/script-actions/dialogs#side-images">Side image</a> to
-        show every time the character speaks.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>expressions</code>
-      </td>
-      <td style="text-align:left"><code>object</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">An object with the identifiers and file names for each <a href="https://developers.monogatari.io/documentation/v/develop/script-actions/dialogs#side-images">side expression</a> available
-        for the character.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>nvl</code>
-      </td>
-      <td style="text-align:left"><code>boolean</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">
-        <p>Default is <code>false</code>.</p>
-        <p>Whether the character&apos;s dialogs should be shown in <a href="https://developers.monogatari.io/documentation/v/develop/script-actions/dialogs#nvl-dialogs">NVL mode</a>.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>type_animation</code>
-      </td>
-      <td style="text-align:left"><code>boolean</code>
-      </td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">
-        <p>Default is <code>true</code>.</p>
-        <p>This property indicates whether the typewriter animation should be used
-          when the character speaks or not.</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Name | Type | Optional | Description |
+| :--- | :--- | :--- | :--- |
+| `name` | `string` | Yes | The name that will be shown when this character speaks. Supports storage and translation interpolations. |
+| `color` | `string` | Yes | A valid [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color) which will be used to color the character's name. |
+| `directory` | `string` | Yes | Specifies the sub-directory where the sprites and expressions images for the character are stored in case they are not in the root `assets/characters` directory. |
+| `sprites` | `object` | Yes | An object with the identifiers and file names for each [sprite](../script-actions/characters.md) available for the character. |
+| `default_expression` | `string` | Yes | Identifier of the expression to show every time the character speaks (must be defined in `expressions`). |
+| `expressions` | `object` | Yes | An object with the identifiers and file names for each [side expression](../script-actions/dialogs.md#side-images) available for the character. |
+| `nvl` | `boolean` | Yes | Default is `false`. Whether the character's dialogs should be shown in [NVL mode](../script-actions/dialogs.md#nvl-dialogs). |
+| `type_animation` | `boolean` | Yes | Default is `true`. Whether the typewriter animation should be used when the character speaks. |
+| `layers` | `array` | Yes | **Experimental.** Defines the order of layers from back to front for layered sprites. |
+| `layer_assets` | `object` | Yes | **Experimental.** Maps layer names to their available sprite options for layered sprites. |
 
 ## Declaration
 
@@ -202,7 +123,7 @@ Both items are independent of each other so while in the last example we used id
  happy: 'my_file_name.png'
 ```
 
-To learn how to show a character sprite, go over to the Show Character action.
+To learn how to show a character sprite, see the [Show Character action](../script-actions/characters.md).
 
 ## Custom Sub-directory
 
@@ -283,7 +204,7 @@ monogatari.characters ({
 
 Notice how we added the `expressions/` prefix to all of the file names to account for the `expressions` directory we put the files in. If we hadn't done that and we had placed them right with our sprites, the prefix would not be needed but we would have to change the names of the files so that they don't overlap with the sprites ones.
 
-To learn how to show this expressions in a dialog, go over the Dialog action.
+To learn how to show these expressions in a dialog, see the [Dialog action](../script-actions/dialogs.md).
 
 ## Default Expression
 
@@ -354,13 +275,7 @@ monogatari.characters ({
 });
 ```
 
-If you want to learn more about the different dialog modes, check the Dialog action and the Text Box component.
-
-{% page-ref page="../script-actions/dialogs.md" %}
-
-{% endpage-ref %}
-
-{% page-ref page="../components/text-box.md" %}
+If you want to learn more about the different dialog modes, check the [Dialog action](../script-actions/dialogs.md) and the [Text Box component](../components/text-box.md).
 
 ## Typewrite Animation
 
@@ -394,4 +309,60 @@ monogatari.characters ({
     }
 });
 ```
+
+## Experimental: Layered Sprites
+
+> [!WARNING]
+> This feature requires `ExperimentalFeatures` to be enabled in your game settings.
+
+For paper-doll style characters where you want to independently control different parts (like outfits, expressions, or accessories), you can use layered sprites.
+
+### Additional Properties for Layers
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `layers` | `array` | Defines the order of layers from back to front (determines z-index) |
+| `layer_assets` | `object` | Maps layer names to their available sprite options |
+
+### Layer Declaration
+
+```javascript
+monogatari.characters ({
+    'y': {
+        name: 'Yui',
+        color: '#00bfff',
+        directory: 'yui',
+        // Define layer order (back to front)
+        layers: ['base', 'clothes', 'face', 'accessories'],
+        // Define sprites for each layer
+        layer_assets: {
+            base: {
+                body: 'base_body.png'
+            },
+            clothes: {
+                uniform: 'clothes_uniform.png',
+                casual: 'clothes_casual.png',
+                swimsuit: 'clothes_swimsuit.png'
+            },
+            face: {
+                neutral: 'face_neutral.png',
+                happy: 'face_happy.png',
+                sad: 'face_sad.png',
+                angry: 'face_angry.png'
+            },
+            accessories: {
+                none: '',
+                glasses: 'acc_glasses.png',
+                hat: 'acc_hat.png'
+            }
+        },
+        // You can still define standard sprites as fallbacks
+        sprites: {
+            normal: 'normal.png'
+        }
+    }
+});
+```
+
+For information on how to control individual layers in your script, see the [Character Layers action](../script-actions/character-layers.md).
 

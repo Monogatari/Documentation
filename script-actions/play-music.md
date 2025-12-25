@@ -7,14 +7,15 @@ description: Play music media
 ## Description
 
 ```javascript
-'play music <music_id> [with [properties]]'
+'play music <music_id> [with [loop] [fade <time>] [volume <percentage>] [<effects>]]'
+'play music'  // Resume all paused music
 ```
 
-The `play music` action let's you, as it name says, play some background music for your game. You can play as many songs as you want simultaneously.
+The `play music` action lets you play background music for your game. You can play as many songs as you want simultaneously.
 
 To stop the music, check out the [Stop Music documentation](stop-music.md).
 
-**Action ID**: `Music`
+**Action ID**: `Play`
 
 **Reversible**: Yes
 
@@ -25,31 +26,24 @@ To stop the music, check out the [Stop Music documentation](stop-music.md).
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | music\_id | `string` | The name of the music you want to play. These assets must be declared beforehand. |
-| properties | `string` | Optional. A list of comma separated properties with their respective value. |
-
-### Properties
-
-The following is a comprehensive list of the properties available for you to modify certain behaviors of the play music action.
-
-| Property Name | Type | Description |
-| :--- | :--- | :--- |
-| fade | `string` | The fade property let's you add a fade in effect to the music, it accepts a time in seconds, representing how much time you want it to take until the music reaches it's maximum volume. |
-| volume | `number` | The volume property let's you define how high the music will be played. |
-| loop | `none` | Make the music loop. This property does not require any value. |
+| loop | `flag` | Optional. Makes the music loop indefinitely. |
+| fade | `number` | Optional. Fade in time in seconds. |
+| volume | `number` | Optional. Volume percentage (0-100). |
+| effects | `various` | Optional. Audio effects to apply (see [Audio Effects](#audio-effects)). |
 
 ## Assets Declarations
 
-To play a song, you must first add the file to your **`assets/music/`** directory and then declare it. To do so, Monogatari has an has a function that will let you declare all kinds of assets for your game.
+To play a song, you must first add the file to your **`assets/music/`** directory and then declare it. To do so, Monogatari has a function that will let you declare all kinds of assets for your game.
 
 ```javascript
-monogatari.assets ('music', {
+monogatari.assets('music', {
     '<music_id>': 'musicFileName'
 });
 ```
 
 ### Supported Formats
 
-Each browser has it's own format compatibility. **MP3** however is the format supported by every browser.
+Each browser has its own format compatibility. **MP3** however is the format supported by every browser.
 
 If you wish to use other formats, you can check a [compatibility table](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#Browser_compatibility) to discover what browsers will be able to play it.
 
@@ -62,9 +56,9 @@ The following will play the song, and once the song ends, it will simply stop.
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-monogatari.script ({
+monogatari.script({
     'Start': [
-        'play music mainTheme'
+        'play music mainTheme',
         'end'
     ]
 });
@@ -73,7 +67,7 @@ monogatari.script ({
 
 {% tab title="Music Assets" %}
 ```javascript
-monogatari.assets ('music', {
+monogatari.assets('music', {
     'mainTheme': 'mainThemeSong.mp3'
 });
 ```
@@ -87,9 +81,9 @@ The following will play the song, and once the song ends, it will start over on 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-monogatari.script ({
+monogatari.script({
     'Start': [
-        'play music mainTheme with loop'
+        'play music mainTheme with loop',
         'end'
     ]
 });
@@ -98,23 +92,23 @@ monogatari.script ({
 
 {% tab title="Music Assets" %}
 ```javascript
-monogatari.assets ('music', {
+monogatari.assets('music', {
     'mainTheme': 'mainThemeSong.mp3'
 });
 ```
 {% endtab %}
 {% endtabs %}
 
-### Fade In effect
+### Fade In Effect
 
-The following will play the song, and will use a fade in effect.
+The following will play the song with a fade in effect.
 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-monogatari.script ({
+monogatari.script({
     'Start': [
-        'play music mainTheme with fade 3'
+        'play music mainTheme with fade 3',
         'end'
     ]
 });
@@ -123,7 +117,7 @@ monogatari.script ({
 
 {% tab title="Music Assets" %}
 ```javascript
-monogatari.assets ('music', {
+monogatari.assets('music', {
     'mainTheme': 'mainThemeSong.mp3'
 });
 ```
@@ -137,9 +131,9 @@ The following will set the volume of this song to 73%.
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-monogatari.script ({
+monogatari.script({
     'Start': [
-        'play music mainTheme with volume 73'
+        'play music mainTheme with volume 73',
         'end'
     ]
 });
@@ -148,29 +142,37 @@ monogatari.script ({
 
 {% tab title="Music Assets" %}
 ```javascript
-monogatari.assets ('music', {
+monogatari.assets('music', {
     'mainTheme': 'mainThemeSong.mp3'
 });
 ```
 {% endtab %}
 {% endtabs %}
 
-Please note however, that the user's preferences regarding volumes are always respected, which means that this percentage is taken from the current player preferences, meaning that if the player has set the volume to 50%, the actual volume value for the song will be the result of:
+Please note that the user's preferences regarding volumes are always respected, which means this percentage is taken from the current player preferences. If the player has set the volume to 50%, the actual volume value for the song will be:
 
 $$
-50 * 0.73 = 36.5%
+50\% \times 73\% = 36.5\%
 $$
+
+### Resume Paused Music
+
+If music has been paused using the [Pause action](pause.md), you can resume it:
+
+```javascript
+'play music'  // Resume all paused music
+```
 
 ### All Together
 
-Of course, you can combine all of this properties, and remember the order doesn't really matter, you can write the properties on the order that feels more natural to you.
+You can combine all properties. The order doesn't matter.
 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-monogatari.script ({
+monogatari.script({
     'Start': [
-        'play music mainTheme with volume 100 loop fade 20'
+        'play music mainTheme with volume 100 loop fade 2',
         'end'
     ]
 });
@@ -179,18 +181,18 @@ monogatari.script ({
 
 {% tab title="Music Assets" %}
 ```javascript
-monogatari.assets ('music', {
+monogatari.assets('music', {
     'mainTheme': 'mainThemeSong.mp3'
-}
+});
 ```
 {% endtab %}
 {% endtabs %}
 
-### Audio Effects
+## Audio Effects
 
-You can apply multiple effects to your audio by specifying them in the properties.
+You can apply multiple audio effects to your music by specifying them in the properties. These effects use the Web Audio API for real-time audio processing.
 
-#### Effect Syntax
+### Effect Syntax
 
 Effects are specified by their name followed by their parameters:
 
@@ -198,9 +200,9 @@ Effects are specified by their name followed by their parameters:
 'play music <music_id> with <effect_name> <param1> <param2> ...'
 ```
 
-#### Available Effects
+### Available Effects
 
-**Filter**
+#### Filter
 
 Applies a Biquad filter (lowpass, highpass, etc.)
 
@@ -217,9 +219,9 @@ Applies a Biquad filter (lowpass, highpass, etc.)
 'play music mainTheme with filter lowpass 400 2'
 ```
 
-**Delay**
+#### Delay
 
-A simple delay effect with feedback
+A simple delay effect with feedback.
 
 **Parameters:**
 
@@ -233,9 +235,9 @@ A simple delay effect with feedback
 'play music mainTheme with delay 0.5 0.3 0.7'
 ```
 
-**Compressor**
+#### Compressor
 
-Dynamic range compression
+Dynamic range compression.
 
 **Parameters:**
 
@@ -251,9 +253,9 @@ Dynamic range compression
 'play music mainTheme with compressor -20 20 8 0.01 0.1'
 ```
 
-**Tremolo**
+#### Tremolo
 
-Modulates the amplitude of the signal
+Modulates the amplitude of the signal.
 
 **Parameters:**
 
@@ -266,9 +268,9 @@ Modulates the amplitude of the signal
 'play music mainTheme with tremolo 3 0.6'
 ```
 
-**Distortion**
+#### Distortion
 
-Applies wave-shaping distortion
+Applies wave-shaping distortion.
 
 **Parameters:**
 
@@ -281,9 +283,9 @@ Applies wave-shaping distortion
 'play music mainTheme with distortion 30 2x'
 ```
 
-**Convolution Reverb**
+#### Convolution Reverb
 
-Convolution reverb with a generated impulse response
+Convolution reverb with a generated impulse response.
 
 **Parameters:**
 
@@ -297,9 +299,9 @@ Convolution reverb with a generated impulse response
 'play music mainTheme with convreverb 3 1.5'
 ```
 
-**Bitcrusher**
+#### Bitcrusher
 
-Reduces bit depth and sample rate of the signal
+Reduces bit depth and sample rate of the signal.
 
 **Parameters:**
 
@@ -312,9 +314,9 @@ Reduces bit depth and sample rate of the signal
 'play music mainTheme with bitcrusher 8 0.2'
 ```
 
-**AutoWah**
+#### AutoWah
 
-An envelope-following filter (auto-wah)
+An envelope-following filter (auto-wah).
 
 **Parameters:**
 
@@ -329,9 +331,9 @@ An envelope-following filter (auto-wah)
 'play music mainTheme with autowah 200 4 0.7 15'
 ```
 
-**Panner**
+#### Panner
 
-Positions the sound in 3D space
+Positions the sound in 3D space.
 
 **Parameters:**
 
@@ -345,9 +347,9 @@ Positions the sound in 3D space
 'play music mainTheme with panner 1 0 0'
 ```
 
-**Phaser**
+#### Phaser
 
-A sweeping phase-shifting effect
+A sweeping phase-shifting effect.
 
 **Parameters:**
 
@@ -362,9 +364,9 @@ A sweeping phase-shifting effect
 'play music mainTheme with phaser 1 800 0.3 6'
 ```
 
-**Chorus**
+#### Chorus
 
-Creates a thicker sound by modulating a delayed signal
+Creates a thicker sound by modulating a delayed signal.
 
 **Parameters:**
 
@@ -379,9 +381,9 @@ Creates a thicker sound by modulating a delayed signal
 'play music mainTheme with chorus 2 0.03 0.003 0.6'
 ```
 
-**Wah**
+#### Wah
 
-A sweeping filter effect, like a guitar wah-wah pedal
+A sweeping filter effect, like a guitar wah-wah pedal.
 
 **Parameters:**
 
@@ -396,9 +398,9 @@ A sweeping filter effect, like a guitar wah-wah pedal
 'play music mainTheme with wah 500 20 2000 1'
 ```
 
-**Ring Modulation**
+#### Ring Modulation
 
-Ring modulation for creating metallic, bell-like sounds
+Ring modulation for creating metallic, bell-like sounds.
 
 **Parameters:**
 
@@ -411,9 +413,9 @@ Ring modulation for creating metallic, bell-like sounds
 'play music mainTheme with ringmod 50 0.7'
 ```
 
-**Saturator**
+#### Saturator
 
-Soft clipping for warmth and harmonics
+Soft clipping for warmth and harmonics.
 
 **Parameters:**
 
@@ -425,9 +427,9 @@ Soft clipping for warmth and harmonics
 'play music mainTheme with saturator 3'
 ```
 
-**Limiter**
+#### Limiter
 
-A hard compressor to prevent signal peaks from exceeding a threshold
+A hard compressor to prevent signal peaks from exceeding a threshold.
 
 **Parameters:**
 
@@ -440,22 +442,7 @@ A hard compressor to prevent signal peaks from exceeding a threshold
 'play music mainTheme with limiter -3 0.1'
 ```
 
-**Fade In/Out Effects**
-
-Built-in fade effects for smooth transitions
-
-**Parameters:**
-
-* `duration` - Fade duration in seconds (default: `1.0`)
-
-**Example:**
-
-```javascript
-'play music mainTheme with fadein 2'
-'play music mainTheme with fadeout 3'
-```
-
-#### Multiple Effects
+### Multiple Effects
 
 You can combine multiple effects on a single music track:
 
@@ -463,7 +450,7 @@ You can combine multiple effects on a single music track:
 'play music mainTheme with filter lowpass 600 1.5 delay 0.3 0.4 0.6 tremolo 4 0.5'
 ```
 
-#### Effect Compatibility
+### Effect Compatibility
 
 Some effects require AudioWorklet support, which may not be available in all browsers:
 
@@ -471,36 +458,12 @@ Some effects require AudioWorklet support, which may not be available in all bro
 * If AudioWorklet is not available, these effects will fall back to a simple gain node (no effect)
 * Other effects use standard Web Audio API nodes and work in all modern browsers
 
-#### AudioPlayer Properties
-
-The AudioPlayer instance provides several useful properties and methods:
-
-**Properties:**
-
-* `isPlaying` - Whether the audio is currently playing
-* `isPaused` - Whether the audio is paused
-* `paused` - Alias for `isPaused`
-* `ended` - Whether the audio has ended
-* `hasEnded` - Alias for `ended`
-* `duration` - Total duration of the audio in seconds
-* `currentTime` - Current playback position in seconds
-* `volume` - Current volume (0-1)
-* `loop` - Whether the audio loops
-
-**Methods:**
-
-* `play()` - Start playback
-* `pause()` - Pause playback
-* `stop()` - Stop playback and reset to beginning
-* `fadeIn(duration)` - Fade in over specified duration
-* `fadeOut(duration)` - Fade out over specified duration
-
-#### Example: Complex Audio Setup
+### Example: Complex Audio Setup
 
 {% tabs %}
 {% tab title="Script" %}
 ```javascript
-monogatari.script ({
+monogatari.script({
     'Start': [
         'play music mainTheme with volume 80 loop filter lowpass 400 2 delay 0.5 0.3 0.4',
         'play music ambient with volume 30 filter highpass 200 1 convreverb 4 1.5',
@@ -513,7 +476,7 @@ monogatari.script ({
 
 {% tab title="Music Assets" %}
 ```javascript
-monogatari.assets ('music', {
+monogatari.assets('music', {
     'mainTheme': 'mainThemeSong.mp3',
     'ambient': 'ambientMusic.mp3'
 });
@@ -525,3 +488,8 @@ This example creates a layered audio experience with:
 
 * A main theme with low-pass filtering, delay, and looping
 * An ambient track with high-pass filtering and reverb
+
+## Related Actions
+
+- [Stop Music](stop-music.md) - Stop playing music
+- [Pause](pause.md) - Pause playing media

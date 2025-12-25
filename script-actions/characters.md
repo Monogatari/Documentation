@@ -7,7 +7,7 @@ description: Show a character's sprite
 ## Description
 
 ```text
-'show character <character_id> <sprite_id> [at [class]] [with [animations] [classes] [properties]]'
+'show character <character_id> <sprite_id> [at <position>] [with <animation> [infinite] [end-<animation>] [classes] [properties]]'
 ```
 
 The character action allows you to display a character's sprite. For other kind of images, take a look at the [show image action](show-image.md).
@@ -18,55 +18,94 @@ The character action allows you to display a character's sprite. For other kind 
 
 **Requires User Interaction**: No
 
-## Properties
+## Character Definition
+
+Characters must be defined before they can be shown. Each character has a unique identifier used in scripts:
+
+```javascript
+monogatari.characters({
+    'e': {
+        name: 'Evelyn',
+        color: '#00bfff',
+        directory: 'evelyn', // Subdirectory in assets/characters/
+        sprites: {
+            normal: 'normal.png',
+            happy: 'happy.png',
+            sad: 'sad.png'
+        }
+    }
+});
+```
+
+### Character Properties
+
+| Property | Description |
+| :--- | :--- |
+| `name` | Display name shown in the text box |
+| `color` | Color for the character's name (hex, rgb, or rgba) |
+| `directory` | Subdirectory within `assets/characters/` for sprite images |
+| `sprites` | Object mapping sprite identifiers to image filenames |
+| `Face` | Optional side image shown when the character speaks |
+| `Side` | Optional object mapping side image identifiers for dialog expressions |
+
+## Syntax
+
+### Positions
+
+The `at <position>` clause sets where the character appears on screen. If omitted, defaults to `center`.
+
+Common positions (CSS classes):
+- `left` - Left side of the screen
+- `center` - Center of the screen (default)
+- `right` - Right side of the screen
+
+Custom positions can be defined via CSS.
+
+### Properties
 
 These are special properties/classes that can be used when showing a character:
 
 | Name | Description |
 | :--- | :--- |
-| `duration` | Duration affects the `animation-duration` CSS property so you can change the duration of any animations applied to the character. |
-| `move` | With this class, the character will move nicely from one position to another one. |
-| `transition` | Transition affects the `transition-duration` CSS property so you can change the duration of the transition for the `move` class. |
-| `end-<className>` | When using this property, the provided class will be added to the sprite when it gets changed. |
+| `duration` | Sets `animation-duration` CSS property. Format: `duration <time>` (e.g., `duration 2s`) |
+| `transition` | Sets `transition-duration` CSS property for the `move` class. Format: `transition <time>` |
+| `move` | Enables smooth movement animation when changing positions |
+| `end-<animation>` | Specifies an animation to play when the sprite is changed or removed |
+| `infinite` | Makes the animation loop indefinitely |
 
 ## Examples
 
-Remember every character image must be declared in the characters object.
+### Basic Usage
 
-```text
-'show character e normal at center with fadeIn',
+Show a character at the center (default position):
+
+```javascript
+'show character e normal'
 ```
 
-The [animation](https://daneden.github.io/animate.css/) is completely optional, and if a position is not given, it will show in the center by default.
+Show a character with an animation:
 
-```text
-'show character e normal',
-'show character e normal with fadeIn',
+```javascript
+'show character e normal with fadeIn'
 ```
 
-### Exit Animations
+Show a character at a specific position with animation:
 
-New to version 2.0: You can now also set an animation that will play when the character is removed or replaced.
+```javascript
+'show character e normal at center with fadeIn'
+```
 
-```text
-show character <character_id> <sprite_id> [at [class]] [with [animation] [end-[animation]] [classes]]
+### Infinite Animations
+
+Make an animation loop continuously:
+
+```javascript
+'show character e normal with pulse infinite'
 ```
 
 ### Duration
 
-This is useful if you want to smoothly transition the same character's sprites, such as this example involving crossfades.
-
-The following code will show the character with a `fadeIn` animation that will take 20 seconds to complete.
-
-```text
-    "Hello",
-    "show character s Normal at center with fadeIn end-fadeOut",
-    "s Hi theeeeere.",
-    "show character s Happy at center with fadeIn end-fadeOut",
-    "I'm happy now, and my smile just faded onto my face.",
-    "show character s Normal at center with fadeIn",
-    "Normal."
-```
+Control how long an animation takes to complete:
 
 ```javascript
 'show character e normal with fadeIn duration 20s'
@@ -74,19 +113,92 @@ The following code will show the character with a `fadeIn` animation that will t
 
 ### Move + Transition
 
-The following code will show the character positioned at the left side of the string, and then, when it reaches the second line, it will move that character nicely to the right side of the screen. Because of the `transition` property being provided, the movement will take 6 seconds to complete.
+Smoothly move a character from one position to another:
 
 ```javascript
 'show character e normal at left',
 'show character e normal at right with move transition 6s'
 ```
 
-### End Animations
+The character will move from left to right over 6 seconds.
 
-End animations are a way of preparing an animation to happen whenever a sprite gets changed, the following code will show the character first and when it reaches the next line, the character will fade out while the new sprite fades in.
+### Exit Animations
+
+Prepare an animation to play when the sprite changes. This creates smooth crossfade effects:
 
 ```javascript
 'show character e normal with end-fadeOut',
 'show character e happy with fadeIn'
 ```
 
+When changing from `normal` to `happy`, the old sprite will fade out while the new one fades in.
+
+### Complete Example
+
+```javascript
+monogatari.script({
+    'Start': [
+        'show character e normal at left with fadeIn',
+        'e Hello there!',
+        'show character e happy at center with move transition 1s',
+        'e I moved to the center!',
+        'show character e normal with end-fadeOut',
+        'show character e sad with fadeIn duration 2s',
+        'e Now I\'m sad...',
+        'hide character e with fadeOut'
+    ]
+});
+```
+
+## Experimental: Layered Sprites
+
+> [!WARNING]
+> This feature requires `ExperimentalFeatures` to be enabled in settings.
+
+When experimental features are enabled, you can define composite sprites made of multiple layers:
+
+```javascript
+monogatari.characters({
+    'y': {
+        name: 'Yui',
+        directory: 'yui',
+        sprites: {
+            // Object-based sprites define layers
+            normal: {
+                base: 'base_uniform.png',
+                face: 'face_neutral.png'
+            },
+            happy: {
+                base: 'base_uniform.png',
+                face: 'face_happy.png'
+            }
+        }
+    }
+});
+```
+
+Showing a layered sprite works the same as regular sprites:
+
+```javascript
+'show character y normal'
+```
+
+For individual layer control, see [Character Layers](character-layers.md).
+
+## Sprite Caching
+
+Character sprites that have been preloaded are automatically cached for faster display. When showing a character, the engine checks for cached sprites before loading from disk.
+
+To preload character sprites:
+
+```javascript
+'preload character e normal'
+```
+
+See the [Preload action](preload.md) for more details.
+
+## Related Actions
+
+- [Hide Character](hide-character.md) - Remove a character from the screen
+- [Character Layers](character-layers.md) - Control individual sprite layers
+- [Show Image](show-image.md) - Show non-character images
