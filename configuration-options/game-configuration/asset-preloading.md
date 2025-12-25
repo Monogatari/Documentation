@@ -27,8 +27,37 @@ monogatari.settings({
 
 With preloading enabled:
 - A loading screen appears when entering the game
-- All declared assets are loaded before gameplay begins
+- Assets are loaded before gameplay begins
 - Players experience smooth gameplay without loading delays
+
+### The `default` Preload Block
+
+For optimal performance, define a `default` preload block to specify exactly which assets should be preloaded at startup:
+
+```javascript
+monogatari.action('Preload').blocks({
+    'default': {
+        music: ['main_theme', 'menu_music'],
+        scenes: ['title_screen', 'intro'],
+        sounds: ['click', 'confirm'],
+        characters: {
+            'y': ['normal', 'happy']
+        }
+    }
+});
+```
+
+**With a `default` block:**
+- Only specified assets are preloaded (faster initial load)
+- Audio is decoded to AudioBuffers (instant playback)
+- Images are pre-decoded (no rendering delay)
+
+**Without a `default` block (legacy behavior):**
+- ALL registered assets are preloaded to browser cache
+- Assets are fetched but not decoded until first use
+- May have slight delay on first playback
+
+See the [Preload action documentation](../../script-actions/preload.md#the-default-block) for details.
 
 ### Disable Preloading
 
@@ -179,14 +208,45 @@ Let everything preload upfront for the smoothest experience.
 
 ```javascript
 monogatari.settings({
-    'Preload': true,  // Preload essential assets
+    'Preload': true,
     'ServiceWorkers': true
 });
 
-// Use preload blocks for chapter-specific assets
+// Define a minimal default block for essential assets
 monogatari.action('Preload').blocks({
-    'chapter1': ['scene1.jpg', 'scene2.jpg'],
-    'chapter2': ['scene3.jpg', 'scene4.jpg']
+    'default': {
+        music: ['main_theme'],
+        scenes: ['title_screen']
+    },
+    // Load chapter-specific assets on-demand
+    'chapter1': {
+        scenes: ['school_gate', 'classroom'],
+        music: ['chapter1_theme'],
+        characters: {
+            'y': ['happy', 'sad', 'normal']
+        }
+    },
+    'chapter2': {
+        scenes: ['rooftop', 'library'],
+        music: ['chapter2_theme']
+    }
+});
+```
+
+Then in your script:
+
+```javascript
+monogatari.script({
+    'Start': [
+        'show scene title_screen',
+        'Welcome to my game!',
+        'jump Chapter1'
+    ],
+    'Chapter1': [
+        'preload block chapter1 blocking',  // Load chapter assets
+        'show scene school_gate',
+        // ... chapter content
+    ]
 });
 ```
 

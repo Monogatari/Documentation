@@ -76,11 +76,53 @@ Note: Singular forms (`sound`, `voice`, `scene`, `image`) are aliases for their 
 
 Preload blocks allow you to group multiple assets together to be preloaded at once. These are defined using `monogatari.action('Preload').blocks()`.
 
-### Defining Blocks
+### The `default` Block
+
+The `default` block is a **special preload block** that runs automatically during the game's initial loading screen. Assets defined in the `default` block are:
+
+- **Decoded and cached** - Audio is decoded to AudioBuffers, images are pre-decoded for immediate display
+- **Loaded before gameplay** - Players see the loading progress bar while these assets load
+- **Ready for instant playback** - No delay when first using these assets in-game
 
 ```javascript
 monogatari.action('Preload').blocks({
+    'default': {
+        music: ['main_theme', 'menu_music'],
+        scenes: ['title_screen', 'chapter1_intro'],
+        sounds: ['click', 'notification'],
+        characters: {
+            'y': ['normal', 'happy', 'sad']
+        }
+    }
+});
+```
+
+> [!TIP]
+> Use the `default` block for assets needed immediately or frequently throughout the game. For chapter-specific assets, use named blocks and the `preload block` action.
+
+### Default Block vs. Legacy Preloading
+
+| With `default` Block | Without `default` Block (Legacy) |
+| :--- | :--- |
+| Only specified assets are preloaded | ALL registered assets are preloaded |
+| Audio is decoded to AudioBuffers | Audio is only fetched to browser cache |
+| Images are pre-decoded | Images are only fetched to browser cache |
+| Faster first playback | May have slight delay on first use |
+| More control over initial load time | Longer initial load with many assets |
+
+### Defining Named Blocks
+
+Named blocks are loaded on-demand using `preload block <name>` in your script:
+
+```javascript
+monogatari.action('Preload').blocks({
+    'default': {
+        // Loaded automatically at game start
+        music: ['main_theme'],
+        scenes: ['intro']
+    },
     'Chapter1': {
+        // Loaded when you use 'preload block Chapter1'
         music: ['theme_song', 'battle_music'],
         scenes: ['school_gate', 'classroom'],
         sounds: ['door_open', 'footsteps'],
